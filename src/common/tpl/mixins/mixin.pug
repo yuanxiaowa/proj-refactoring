@@ -1,0 +1,33 @@
+- rnHead = /^(?!(\$|(https?:)?\/\/|\.))/
+- rrootHead = /^\//
+
+mixin style(files)
+  - if(typeof(files) == 'string')
+    - files = [files]
+  each file in files
+    - if(rnHead.test(file))
+      - file = 'css/' + file
+      - if(!file.endsWith('.css'))
+        - file += '.css'
+      - if(rrootHead.test(file))
+        - file = '/public/css/' + file.substring(1)
+    link(rel="stylesheet", href=file)
+
+mixin script(files)
+  - if(typeof(files) == 'string')
+    - files = [files]
+  each file in files
+    - if(rnHead.test(file))
+      - file = 'js/' + file
+      - if(!file.endsWith('.js'))
+        - file += '.js'
+      - if(rrootHead.test(file))
+        - file = '/public/js/' + file.substring(1)
+    script(src=file)
+
+mixin image(file, alt)
+  - if(rnHead.test(file))
+    - file = 'image/' + file
+    - if(!/\.\w+$/.test(file))
+      - file += '.png'
+  img(src=file, alt=alt)

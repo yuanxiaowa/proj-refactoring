@@ -1,0 +1,7 @@
+.login-header {
+  line-height: 80px;
+  &::before {
+    content: ' ';
+    display: inline-block;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "rules": {
+    "comma-dangle": [2, "never"]
+    "semi": ["error", "always"],
+    "quotes": [2, "single", {
+      "avoidEscape": true,
+      "allowTemplateLiterals": true,
+    }],
+    "space-before-blocks": [2]
+  }
+}
