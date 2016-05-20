@@ -3,10 +3,49 @@ extends /common
 append style
   +style('login')
 append script
-  +script('$${bootstrapValidator}')
+  +script(['$${jqueryValidate}', 'login'])
+
+block title
+  | 登录
 
 append content
-  .container
+  .container-fluid
     header.login-header
       a(href="")
         img(src="", alt="")
+  .container
+    .pos-rel.pull-right
+      .login-wrap
+        .form-login-header
+          span.icon-ycg.pull-left.mr-16
+          .adapt-item 建筑行业云采购系统
+            p Building cloud procurement 
+        .panel.panel-primary
+          .panel-heading 用户登录
+          .panel-body.bg-info
+            .alert.alert-danger 登录失败
+            form.form-login#form-login(action="" method="post")
+              .form-group.has-feedback.mt-30
+                input.form-control(type="text" name="username" placeholder="用户名" required data-msg-required="请输入用户名")
+                span.icon-user-md.form-control-feedback
+              .form-group.has-feedback
+                input.form-control(type="password" name="password" placeholder="密码" required data-msg-required="请输入密码")
+                span.icon-lock.form-control-feedback
+              .form-group
+                .btn-group.btn-group-justified
+                  .btn-group
+                    input.form-control(type="text")
+                  .btn-group
+                    img(src="", alt="")
+                  .btn-group.text-center
+                    a.text-muted(href="") 换一张
+              .checkbox
+                a.pull-right(href="") 忘记密码
+                label
+                  input(type="checkbox" name="reme")
+                  | 记住我
+              .form-group
+                button.btn.btn-primary(type="submit") 登录
+  .login-ad
+  .container
+    footer.text-right.text-primary 江苏筑牛网络科技有限公司  版权所有

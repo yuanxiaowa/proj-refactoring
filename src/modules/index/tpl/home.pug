@@ -1,0 +1,168 @@
+extends /common
+
+append style
+  +style('home')
+append script
+  +script(['$${echarts}', '$${echarts.bmap}', '$${echarts.china}', 'home'])
+block title
+  | 首页
+  
+append content
+  .container-fluid
+    .row
+      .col-md-7
+        .panel.panel-default
+          .panel-heading
+            .pull-right 时间降序
+            .panel-h-icon
+              i.icon-bell-alt
+            | 提醒
+            span.badge 1
+          .panel-body
+            table.table
+              thead
+                tr
+                  - var ths = ['类型','日期','部门','事项']
+                  each th in ths
+                    th= th
+              tbody
+                tr
+                  td 结算提醒
+                  td 2016-4-16 (5天）
+                  td
+                  td 浒墅关北验验收入库结算提醒
+        .panel.panel-default
+          .panel-heading
+            .pull-right 时间降序
+            .panel-h-icon
+              i.icon-time
+            | 待处理
+          .panel-body
+            table.table
+              thead
+                tr
+                  - var ths = ['日期', '状态','部门','事项']
+                  each th in ths
+                    th= th
+              tbody
+                +iterator(7)
+                  tr
+                    td 2016-4-16 (5天）
+                    td 审批中
+                    td 事业部
+                    td 浒墅关北验收入库结算提醒
+        .row
+          .col-md-6
+            .panel.panel-default
+              .panel-heading
+                .panel-h-icon
+                  i.icon-shopping-cart
+                | 采购信息
+              .panel-body
+                table.table
+                  thead
+                    tr
+                      - var ths = ['标题', '状态']
+                      each th in ths
+                        th= th
+                  tbody
+                    +iterator(3)
+                      tr
+                        td 模板木方
+                        td.status-warning 报价中
+          .col-md-6
+            .panel.panel-default
+              .panel-heading
+                .panel-h-icon
+                  i.icon-time
+                | 交易信息
+              .panel-body
+                table.table
+                  thead
+                    tr
+                      - var ths = ['订单名', '交易供应商', '金额']
+                      each th in ths
+                        th= th
+                  tbody
+                    +iterator(3)
+                      tr
+                        td 加气块-浒墅关北
+                        td 上海封腾集团
+                        td 100万
+        .panel.panel-default
+            .panel-heading
+              .panel-h-icon
+                i.icon-time
+              | 项目价格对比
+            .panel-body
+              table.table
+                thead
+                  tr
+                    - var ths = ['材料类型','预算量','预算单价','市场平均价','采购单价','采购量','预算单价-采购单价','预算总价-采购总价','占总成本比例']
+                    each th in ths
+                      th= th
+                tbody
+                  +iterator(3)
+                    tr
+                      td 钢材
+                      td 2000
+                      td 510
+                      td 210
+                      td 200
+                      td 100
+                      td 100
+                      td 1900,00
+                      td 38.55%
+        .row
+          .col-md-6
+            .panel.panel-default
+                .panel-heading
+                  .panel-h-icon
+                    i.icon-bar-chart
+                  | 单位价格对比图
+                .panel-body#echarts-4(style="height:228px;")
+          .col-md-6
+            .panel.panel-default
+                .panel-heading
+                  .panel-h-icon
+                    i.icon-inbox
+                  | 各种材料成本占总成本比例
+                .panel-body#echarts-5(style="height:228px;")
+      .col-md-5
+        .panel.panel-default
+          .panel-heading
+            .panel-h-icon
+              i.icon-signal
+            | 参考消息
+          .panel-body
+            #echarts-1(style="height:260px;")
+            table.table.table-hover.table-red.border-b
+              thead
+                tr
+                  - var ths = ['商品名称', '数值','幅度','解读']
+                  each th in ths
+                    th= th
+              tbody
+                +iterator(7)
+                  tr
+                    td 六角螺栓带帽
+                    td.text-danger 25750.00
+                    td.text-danger 50.00
+                    td
+                      a(href="") 查询
+            .row
+              .col-md-6
+                .home-table-t 全国主要城市行情地图
+                table.table.table-red.table-bordered
+                  tbody
+                    +iterator(4)
+                      tr
+                        td [南宁4/11]
+                        td 螺纹钢 12 HSY400
+                        td 2970
+                        td 140
+                        td
+                          i.icon-arrow-up
+              .col-md-6#echarts-2(style="height:250px")
+            .home-table-t 4月11日全国61城市螺纹钢价格涨跌图
+            #echarts-3(style="height:200px")

@@ -1,0 +1,57 @@
+@import '/modules/page-common';
+$border: 1px solid #d2d2d2;
+
+.border {
+  border: $border;
+}
+.border-b {
+  border-bottom: $border;
+}
+.border-r {
+  border-right: $border;
+}
+.home-table-t {
+  margin-top: 12px;
+  line-height: 50px;
+  text-indent: 2em;
+}
+.panel > .panel-heading .badge {
+  margin-left: 20px;
+  background: #fb7d2a;
+}
+.panel {
+  margin-top: 20px;
+}
+.panel-heading {
+  .pull-right {
+    margin-right: 40px;
+  }
+}
+.panel-h-icon {
+  width: 36px;
+  float: left;
+  text-align: center;
+  border-right: 1px solid #d8d8da;
+  margin-right: 12px;
+}
+.panel-heading,
+.panel-body {
+  padding: 0;
+}
+.table {
+  text-align: center;
+  th {
+    color: #777 #f4f4f4;
+  }
+  td {
+    border-top: $border;
+    border-right: $border;
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+.table-red {
+  background: #fef9f8;
+}

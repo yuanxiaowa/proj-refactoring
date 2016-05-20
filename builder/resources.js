@@ -29,46 +29,117 @@ var resources = {
       }
     }
   },
-  bootstrapValidator: {
-    cur: '0.5.3',
+  echarts: {
+    cur: '3.1.9',
     files: {
-      '0.5.3': {
-        script: 'js/bootstrapValidator.js'
+      '3.1.9': {
+        script: 'echarts.js',
+        other: {
+          bmap: 'bmap.js',
+          china: 'china.js'
+        }
+      }
+    }
+  },
+  jqBootstrapValidation: {
+    cur: '1.3.6',
+    files: {
+      '1.3.6': {
+        script: 'jqBootstrapValidation.js'
+      }
+    }
+  },
+  jqueryValidate: {
+    cur: '1.15.0',
+    files: {
+      '1.15.0': {
+        script: 'jquery.validate.js'
+      }
+    }
+  },
+  fontAwesome: {
+    cur: '3.2.1',
+    files: {
+      '3.2.1': {
+        style: 'css/font-awesome.css'
+      }
+    }
+  },
+  html5shiv: {
+    cur: '3.7.3',
+    files: {
+      '3.7.3': {
+        script: 'html5shiv.js'
+      }
+    }
+  },
+  respond: {
+    cur: '1.4.2',
+    files: {
+      '1.4.2': {
+        script: 'respond.js'
       }
     }
   }
 };
 
+var exts = ['css', 'style', 'js', 'script'];
+var fixs = {
+  css: 'style',
+  js: 'script'
+};
+
 var exportsObj = module.exports = {
-  baseDir: '/public/lib',
+  baseDir: '../public/lib',
   resolve: function(type) {
     return function(_, $1) {
-      var arr = $1.trim().split('@');
-      var version = arr[1];
+      var _arr = $1.trim().split('@');
+      var version = _arr[1];
       var _type = type;
-      var obj;
-
-      arr = arr[0].split('.');
-      obj = resources[arr[0]];
-
+      var dir = '';
+      var _o;
+      var arr = _arr[0].split('.');
+      var name = arr[0];
+      var obj = resources[name];
+      // 插件存在
       if (obj) {
+        // 置默认版本号
         if (!version) {
           version = obj.cur;
         }
-        if (!_type) {
-          _type = arr[1];
+        if (version in obj.files) {
+          if (arr.length > 1) {
+            if (arr.length > 2) {
+              if (!_type) {
+                _type = arr.slice(-1)[0];
+              }
+              _o = arr[1];
+            } else {
+              if (-1 < exts.indexOf(arr[1])) {
+                _type = arr[1];
+              } else {
+                _o = arr[1];
+              }
+            }
+          }
+          dir = path.join(exportsObj.baseDir, arr[0], version);
           if (!_type) {
             _type = 'script';
-          } else if (_type === 'css') {
-            _type = 'style';
+          }
+          if (fixs[_type]) {
+            _type = fixs[_type];
+          }
+          if (!_o) {
+            dir = path.join(dir, obj.files[version][_type]);
+          } else {
+            dir = path.join(dir, obj.files[version]['other'][_o]);
           }
         }
-        if (obj.files[version][_type]) {
-          return path.join(exportsObj.baseDir, arr[0], version, obj.files[version][_type]).replace(/\\/g, '/');
-        }
+      } else {
+        dir = '';
+        console.error($1 + '不存在~~~');
       }
-      console.error($1 + '不存在~~~')
-      return '';
+      return dir.replace(/\\/g, '/');
     }
   },
   pattern: /\$\${([^}]*)}/g

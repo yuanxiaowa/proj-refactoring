@@ -1,0 +1,50 @@
+extends /common
+
+append style
+  +style('index')
+block title
+  | 权限管理
+
+append content
+  .container-fluid
+    .panel.panel-info.mt-20
+      .panel-heading 查看项目信息
+      .panel-body.detail-show
+        - var arr = ['编号']
+        .col-md-6
+          each item in items
+            .col-sm-4
+              each _item in item
+                .row
+                  label #{_item.name}:
+                  div.row= _item.value
+        .col-md-6
+          a(href="")
+            i.icon-pencil
+            | 编辑
+    ul.nav.nav-tabs
+      li.active
+        a(href="") 关联角色
+      li
+        a(href="") 关联用户
+    .panel.panel-default
+      .panel-body
+        .col-md-9
+          .form-group 该权限关联的角色有：
+            a(href="")
+              i.icon-pencil
+              | 编辑
+          table.table.table-bordered
+            thead
+              tr
+                th 角色名称
+                th 描述
+                th 创建日期
+                th 修改日期
+            tbody
+              each item in ['项目经理', '材料员', '仓管员', '预决算员']
+                tr
+                  td= item
+                  td
+                  td
+                  td

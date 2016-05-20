@@ -36,15 +36,15 @@ gulp.task('image', function() {
 gulp.task('tpl', function() {
   var pug = require('gulp-pug');
   var rename = require('gulp-rename');
+  var gdata = require('gulp-data');
   return function() {
     return gulpSrc(paths.tpl)
-      // .pipe(gif(currentEnv.dev, sourcemaps.init()))
       .pipe(replace(paths.rtpl.pattern, paths.rtpl.resolve))
+      .pipe(gdata(paths.datas))
       .pipe(pug({
         pretty: true
       }))
       .pipe(replace(resources.pattern, resources.resolve()))
-      // .pipe(gif(currentEnv.dev, sourcemaps.write('.')))
       .pipe(rename(options.rename))
       .pipe(gulp.dest(paths.tplOutput));
   }
@@ -75,15 +75,47 @@ gulp.task('style', function() {
 
   var postcssOptions = [
     require('precss'),
-    require('postcss-short'),
-    require('stylelint')()
+    require('postcss-short')({
+      border: {
+        disable: false
+      },
+      color: {},
+      'font-size': {},
+      position: {},
+      size: {},
+      spacing: {},
+      text: {},
+      data: {},
+      'font-weight': {}
+    }),
+    require('rucksack-css')({
+      responsiveType: false,
+      shorthandPosition: false,
+      quantityQueries: true,
+      alias: true,
+      inputPseudo: true,
+      clearFix: true,
+      fontPath: true,
+      hexRGBA: true,
+      easings: true,
+      fallbacks: true,
+      autoprefixer: false
+    }),
+    require('stylelint')
   ];
+
   if (currentEnv.product) {
-    postcssOptions.push(require('cssnano'));
+    postcssOptions.push(require('cssnano')({
+      autoprefixer: false,
+      discardComments: {
+        removeAll: true
+      }
+    }));
   }
 
   return function() {
     return gulpSrc(paths.style)
+      .pipe(replace(paths.rstyle.pattern, paths.rstyle.resolve))
       .pipe(gif(currentEnv.dev, sourcemaps.init()))
       .pipe(postcss(postcssOptions))
       .pipe(replace(resources.pattern, resources.resolve('style')))
@@ -92,4 +124,4 @@ gulp.task('style', function() {
   }
 }());
 
-gulp.task('build', ['copyStatic', 'style', 'script', 'tpl']);
+gulp.task('build', ['copyStatic', 'style', 'script', 'tpl', 'less']);

@@ -20,7 +20,7 @@ var extensions = {
 var exportsObj = module.exports = {
   output: dest,
   static: {
-    style: path.join(commonDir, '**/*.css'),
+    style: path.join(commonDir, 'css/*.css'),
     styleOutput: destPublicDir,
     lib: path.join(commonDir, 'lib/**/*'),
     libOutput: path.join(destPublicDir, 'lib')
@@ -43,8 +43,29 @@ var exportsObj = module.exports = {
       );
       return $1 + ' ' + _name;
     }
+  },
+  rstyle: {
+    pattern: /@import\s+['"](?=\/)/g,
+    resolve: function(_) {
+      return _ + path.relative(
+        path.dirname(exportsObj.style),
+        path.join(commonDir, 'css')
+      );
+    }
+  },
+  datas: function(file) {
+    var _path = file.path;
+    var _p = path.basename(path.dirname(path.dirname(_path)));
+    var _name = path.basename(_path, '.pug');
+    var data;
+    if (datas[_p] && (data = datas[_p][_name])) {
+      return data;
+    }
+    return {};
   }
 };
+
+var datas = require('./datas');
 
 var fixs = {
   style: 'css',

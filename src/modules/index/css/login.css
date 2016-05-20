@@ -1,7 +1,65 @@
+
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mr-16 {
+  margin-right: 16px;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.has-feedback {
+  .form-control-feedback {
+    line-height: 34px;
+    width: 34px;
+  }
+}
+
+.adapt-item {
+  overflow: hidden;
+}
+
 .login-header {
   line-height: 80px;
   &::before {
     content: ' ';
     display: inline-block;
   }
+}
+
+.login-ad {
+  position: relative;
+  height: 530px;
+  background: url(../image/login-bg.jpg) center center;
+}
+
+.login-wrap {
+  width: 320px;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+}
+
+.form-login-header {
+  font-size: 18px;
+  color: #fff;
+  padding: 20px 0;
+  p {
+    font-size: 12px;
+  }
+}
+
+.icon-ycg {
+  width: 63px;
+  height: 39px;
+  background: url(../image/y.png);
 }

@@ -1,0 +1,76 @@
+extends /common
+
+append style
+  +style('main')
+append script
+  +script('main')
+
+block title
+  | 筑牛云采购系统
+
+append content
+  header.main-header
+    nav.navbar.navbar-default#menu-top
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(data-toggle="collapse" data-target="#main-navbar-collapse")
+          .navbar-brand
+        .collapse.navbar-collapse#main-navbar-collapse
+          ul.nav.navbar-nav.main-menu-top.j-menu-top
+            each v,k in menus
+              li(class={active:!k})
+                a(href="")= v.name
+                  span.icon-angle-down
+                .main-menu-dropdown.row
+                  +iterator(3)
+                    .col-md-4
+                      h5 验收入库
+                      ul.list-unstyled
+                        li
+                          a(href="") 待收货列表
+                        li
+                          a(href="") 新增验收单
+                        li
+                          a(href="") 验收单列表
+          form.navbar-form.navbar-left
+            .form-group.has-feedback
+              input.form-control
+              span.icon-search.form-control-feedback
+          ul.nav.navbar-nav.navbar-right.main-menu-top-right
+            li
+              a(href="")
+                i.icon-envelope
+                span.badge 123
+            li
+              a(href="")
+                i.icon-cog
+            li
+              a(href="")
+                i.icon-question-sign
+                span.badge 5
+            li.dropdown
+              a.dropdown-toggle(href="" data-toggle="dropdown")
+                img(src="", alt="")
+                | 李起光
+                span.caret
+              ul.dropdown-menu
+                li
+                  a(href="") 退出
+  .main-container
+    aside.main-left-area#menu-aside: .main-left-area-wrap
+      span.menu-toggle-btn.icon-angle-left.j-toggle(href="")
+      each item in menus
+        a.main-menu-item-t(href=item.children?undefined:item.link)
+          span(class="icon-" + item.icon)
+          = item.name
+          if item.children
+            i.icon-angle-down
+        if item.children
+          .main-menu-item-c
+            a(href="") 项目基本信息
+            a(href="") 总量计划
+    section.main-area
+      ul.tab-main.list-unstyled#tab-main
+        li.tab-main-item 首页
+      .page-container
+        iframe(src="home.html")

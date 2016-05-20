@@ -31,3 +31,7 @@ mixin image(file, alt)
     - if(!/\.\w+$/.test(file))
       - file += '.png'
   img(src=file, alt=alt)
+
+mixin iterator(n)
+  while n--
+    block

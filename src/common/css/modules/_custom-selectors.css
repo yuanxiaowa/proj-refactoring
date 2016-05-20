@@ -1,0 +1,3 @@
+/*link*/
+@custom-selector :--any-link :link, :visited;
+@custom-selector :--enter :hover, :focus;
