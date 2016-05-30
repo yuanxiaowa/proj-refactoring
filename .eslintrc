@@ -10,7 +10,7 @@
   },
   // http://eslint.org/docs/user-guide/configuring#specifying-globals
   "globals": {
-
+    "$": true
   },
   // http://eslint.org/docs/rules/
   "rules": {
@@ -101,7 +101,7 @@
     "no-labels": 2,
     "no-lone-blocks": 2,
     "no-loop-func": 2,
-    "no-magic-numbers": [1, {
+    "no-magic-numbers": [0, {
       "ignoreArrayIndexes": true
     }],
     "no-multi-spaces": 1,

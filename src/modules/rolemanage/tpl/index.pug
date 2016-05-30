@@ -1,0 +1,33 @@
+extends /common
+
+append style
+  +style('index')
+append script
+  +script('index')
+
+append content
+  .container-fluid
+    +detail-head({items:items,tl:'权限名称',tn:'权限管理',ed:'#modal-role-edit'})
+    +tab(tabs)
+      .tab-pane.active#tab1
+        .panel.panel-default
+          .panel-body.row
+            .col-md-9
+              .form-group 该权限关联的角色有：
+                a(href="" data-toggle="modal" data-target="#modal-rel")
+                  +icon('pencil', '编辑')
+              +table-menu-permission
+      .tab-pane#tab2
+        .panel.panel-default
+          .panel-body.row
+            .col-md-9
+              .form-group 该权限关联的角色有：
+                a(href="" data-toggle="modal" data-target="#modal-role")
+                  +icon('pencil','编辑')
+                span.badge.ml-20(title="需要帮助的内容") ?
+              +table-user
+  +modal-role('编辑角色成员', '搜索用户', '被选中的用户')
+  +modal('编辑关联角色')(id="modal-rel")
+    +table-menu-permission-edit
+  +modal('编辑权限')(id="modal-role-edit")
+    +form-horizontal(formItems)

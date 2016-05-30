@@ -1,0 +1,67 @@
+mixin form-horizontal-item(item,type)
+  if !type
+    - type = 'xs'
+  if !item.cw
+    - item.cw = 9
+  div(class={row:item.row,'form-group':!item.row})&attributes(attributes)
+    if item.label
+      label.control-label(class="col-"+type+"-3")
+        if item.i
+          span.text-danger *
+        = item.label
+        | ：
+    if item.type == 'mix'
+      .col-xs-9(class="col-md-"+item.cw class=item.offset?('col-'+type+'-offset-3'):'')
+        block
+    else
+      .col-xs-9(class=item.cw==9?"":("col-md-"+item.cw) class={"form-control-static":!item.type} class=item.offset?('col-'+type+'-offset-'+(item.offset===true?'3':item.offset)):'')
+        if !item.type
+          = item.text
+        else if /input|email|mobile/.test(item.type)
+          input.form-control(type="text" placeholder=item.placeholder value=item.value)
+        else if "textarea" == item.type
+          textarea.form-control(type="text" placeholder=item.placeholder value=item.value)
+        else if "checkbox" == item.type
+          +checkbox(item.text)
+        else if "radio" == item.type
+          +radio(text)
+        else if "date" == item.type
+          input.form-control(type="date")
+        else if "button" == item.type
+          +button(item.text)
+        else if "submit" == item.type
+          +submit(item.text||"保存")(class="btn-primary")
+    if item.other
+      div(class="col-"+type+"-"+(9-item.cw))
+        block
+
+mixin form-horizontal(items)
+  if !items
+    - items = []
+  form.form-horizontal&attributes(attributes)
+    each item in items
+      +form-horizontal-item(item)
+    block
+
+mixin form-check(items)
+  +form-horizontal
+    block
+    each item in items
+      if typeof item == 'string'
+        .form-group
+          .col-xs-offset-1= item
+      else if item.checkType == 'radio'
+        .form-group
+          .col-xs-offset-1
+            +radio(item.text,'way')
+              if item.desc
+                span.text-primary= item.desc
+      else
+        +form-horizontal-item(item)
+
+mixin form-top(items)
+  each item in items
+    .row
+      each _item in item
+        .col-md-4
+          +form-horizontal-item(_item)

@@ -1,11 +1,9 @@
 doctype html
 html(lang="en")
-  include ../mixins/mixin
-  include ../mixins/mixin-proj
+  include ../mixins/mixin-main
   head
     include ../modules/head
-    title
-      block title
+    title= title
     block style
   body
     block content

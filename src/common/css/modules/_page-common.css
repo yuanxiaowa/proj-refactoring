@@ -1,0 +1,106 @@
+body {
+  position: relative;
+  min-height: 100%;
+}
+html {
+  height: 100%;
+}
+.border {
+  border: $border;
+}
+
+.has-feedback {
+  .form-control-feedback {
+    line-height: 34px;
+    width: 34px;
+  }
+}
+
+.modal {
+  input[type=checkbox] {
+    margin-right: 8px;
+  }
+  .table {
+    a {
+      margin: 0 4px;
+    }
+  }
+}
+
+.modal-header {
+  background: #224a7a;
+  color: #fff;
+  .close {
+    span {
+      color: #fff;
+    }
+  }
+}
+
+.icon-ok {
+  color: #537bae;
+}
+
+.table-default {
+  text-align: center;
+  thead {
+    background: #f2f2f2;
+  }
+}
+
+.detail-show {
+  line-height: 26px;
+  label {
+    text-align: right;
+    color: #666;
+    width: 80px;
+    margin-right: 10px;
+    float: left;
+  }
+}
+
+.adapt-item {
+  overflow: hidden;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.adapt-lbl {
+  margin-right: 10px;
+  float: left;
+}
+
+.form-z {
+  $h: 30px;
+  line-height: $h;
+  .form-z-lbl {
+    display: inline-block;
+    width: 100px;
+    margin-right: 14px;
+    float: left;
+    text-align: right;
+  }
+  .form-z-r {
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  input[type=text],
+  textarea,
+  select {
+    border: $border;
+    width: 100%;
+    padding-left: 4px;
+  }
+  input[type=text],
+  select {
+    height: $h;
+  }
+  textarea {
+    resize: vertical;
+    line-height: 1.4;
+  }
+  .text-danger {
+    margin-right: 4px;
+    font-style: normal;
+  }
+}

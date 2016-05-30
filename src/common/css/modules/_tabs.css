@@ -1,0 +1,19 @@
+/* .nav-tabs {
+  border-bottom: none;
+  > li {
+    &.active, {
+      &,
+      &:hover {
+        > a {
+          background: #7dabe5;
+          color: #fff;
+        }
+      }
+    }
+    > a {
+      border-color: $border-color;
+      background: #fff;
+      color: inherit;
+    }
+  }
+} */

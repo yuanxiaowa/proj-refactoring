@@ -1,55 +1,14 @@
+@import '/modules/variables';
 @import '/modules/page-common';
-
-$border-color: #d2d2d2;
-$border: 1px solid $border-color;
+@import '/modules/custom-selectors';
+@import '/modules/dropmenu';
+@import '/modules/tabs';
+@import '/modules/role';
 
 .mt-20 {
   margin-top: 20px;
 }
 
-.control-label {
-  padding: 0;
-}
-
 .panel-body {
   padding: 20px 0;
-}
-
-.table {
-  text-align: center;
-  thead {
-    background: #f2f2f2;
-  }
-}
-
-.detail-show {
-  line-height: 38px;
-  label {
-    display: inline-block;
-    text-align: right;
-    color: #666;
-    width: 80px;
-    margin-right: 10px;
-    float: left;
-  }
-}
-
-.nav-tabs {
-  border-bottom: none;
-  > li {
-    &.active, {
-      &,
-      &:hover {
-        > a {
-          background: #7dabe5;
-          color: #fff;
-        }
-      }
-    }
-    > a {
-      border-color: $border-color;
-      background: #fff;
-      color: inherit;
-    }
-  }
 }

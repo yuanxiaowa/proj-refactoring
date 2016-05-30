@@ -1,0 +1,17 @@
+
+@import '/modules/variables';
+@import '/modules/page-common';
+@import '/modules/custom-selectors';
+@import '/modules/tabs';
+@import '/modules/role';
+
+.ml-20 {
+  margin-left: 20px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+
+.table label {
+  margin: 0 8px;
+}

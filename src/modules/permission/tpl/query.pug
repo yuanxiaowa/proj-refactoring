@@ -1,0 +1,25 @@
+extends /common
+
+append style
+  +style(['$${bootstrapTable.css}','query'])
+append script
+  +script('$${bootstrapTable}')
+append content
+  .container-fluid
+    .panel.panel-default: .panel-body
+      +form-horizontal()(class="row")
+        .col-md-10
+          +form-top(items)
+        .col-md-2
+          +submit('查询')(class="btn-primary")
+          +button('导出')(class="btn-default")
+    .panel.panel-default: .panel-body
+      .row
+        .col-md-8
+          +table-sort(['一级菜单权限','二级菜单权限','三级菜单权限','功能权限','是否禁用'],true)
+            tr
+              td 项目信息
+              td 项目信息
+              td 查询页面
+              td 查询/新增/导出
+              td 否

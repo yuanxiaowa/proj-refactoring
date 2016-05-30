@@ -1,0 +1,17 @@
+@import '/modules/page-common';
+@import '/modules/custom-selectors';
+
+.panel {
+  margin-top: 20px;
+}
+
+.panel-body {
+  padding: 20px;
+}
+
+.table {
+  text-align: center;
+  thead {
+    background: #f2f2f2;
+  }
+}

@@ -1,0 +1,138 @@
+extends /common
+
+append style
+  +style(['$${bootstrapTable.css}', 'index'])
+append script
+  +script(['$${bootstrapTable}'])
+
+append content
+  +org
+    +detail-head({tl:'当前用户',tn:'李起光（男）',ed:'#modal-edit',items:items})
+      .col-md-12
+        span.text-primary 未激活
+        +button('激活')(class="btn-primary" data-toggle="modal" data-target="#modal-activate")
+      .row
+        .col-md-4
+          label 任职情况
+          .adapt-item *********
+        .col-md-4
+          label
+            span.text-danger *
+            | 密码
+          .adapt-item *********
+            +button('重置')
+    
+    +tab(tabs)
+      .tab-pane.active#tab1
+        .panel.panel-default
+          .panel-body.row
+            .col-md-9
+              .form-group 该权限关联的角色有：
+                a(href="" data-toggle="modal" data-target="#modal-role")
+                  +icon('pencil', '编辑')
+                span.badge.ml-20(title="需要帮助的内容") ?
+              +table(['角色名称','描述','创建日期','修改日期'])
+                tr
+                  td 项目经理
+                  td
+                  td
+                  td
+                tr
+                  td 材料员
+                  td
+                  td
+                  td
+                tr
+                  td 仓管员
+                  td
+                  td
+                  td
+                tr
+                  td 预决算员
+                  td
+                  td
+                  td
+      .tab-pane#tab2
+        .panel.panel-default
+          .panel-body.row
+            .col-md-9
+              .form-group 该权限关联的角色有：
+                a(href="" data-toggle="modal" data-target="#modal-rel")
+                  +icon('pencil', '编辑')
+                span.badge.ml-20(title="需要帮助的内容") ?
+              +table-menu-permission
+      .tab-pane#tab3
+        .panel.panel-default
+          .panel-body.row
+            .col-md-9
+              .form-group 该用户拥有的角色：
+                a(href="" data-toggle="modal" data-target="#modal3")
+                  +icon('pencil', '编辑')
+                span.badge.ml-20(title="需要帮助的内容") ?
+              +table(['数据范围', '系统名称'], 4)
+                tr
+                  td 中建集团
+                  td 云采购系统
+
+  +modal-role('编辑角色成员', '搜索用户', '被选中的用户')
+
+  +modal({title:'发送密码',noret:true,saveText:'激活',saveClass:'btn-primary'})(id="modal-activate")
+    +form-check(formCheck)
+      .form-group
+        .col-xs-3.control-label 登录账号
+        .col-xs-6
+          +input()(class="form-control")
+        .col-xs-3.text-warning.form-control-static 保存后不可更改
+
+  +modal('编辑功能权限')(id="modal-rel")
+    .form-group.text-warning 注：红色字体的权限是通过角色获取的，不可以直接取消，需要到人员角色里进行取消。
+    +table-menu-permission-edit
+
+  +modal('编辑人员信息')(id="modal-edit")
+    +form-horizontal
+      +form-horizontal-item({label:'姓名',i:true,type:'input',cw:4})
+      +form-horizontal-item({label:'性别',i:true,type:'mix',cw:4})
+        +radio('男','gendar')
+        +radio('女','gendar')
+      +form-horizontal-item({label:'编号',i:true,type:'input',cw:4})
+      +form-horizontal-item({label:'手机',type:'input',cw:4})
+      +form-horizontal-item({label:'电话',type:'input',cw:4})
+      +form-horizontal-item({label:'邮箱',type:'input',cw:4})
+      +form-horizontal-item({label:'任职情况',row:true,type:'mix',i:true,cw:8})
+        .form-group
+          .col-md-5
+            .pull-left.control-label 部门
+            .adapt-item
+              +input()(class="form-control")
+          .col-md-5
+            .pull-left.control-label 职务
+            .adapt-item
+              +input()(class="form-control")
+          .col-md-2
+            +checkbox('兼职')
+      .form-group
+        .col-xs-9.col-xs-offset-3
+          +icon('add')(class="j-add")
+          +icon('sub')(class="j-sub")
+      +form-horizontal-item({label:'地址',type:'input',cw:8})
+      +form-horizontal-item({label:'备注',type:'textarea',cw:8})
+      +form-horizontal-item({label:'是否激活',type:'mix'})
+        +checkbox('是')
+
+  +modal('编辑数据权限')(id="modal3")
+    +form-horizontal
+      .form-group
+        .col-md-10
+          label.control-label.pull-left 数据范围：
+          +radio('部门')
+          +radio('项目')
+      +searchbox('搜索用户')(class="col-md-6")
+      +table(['项目简称','项目编号','项目部门','项目经理','操作'],4)
+        tr
+          td 项目经理
+          td
+          td
+          td
+          td
+            a.j-del(href="") 删除
+            a.j-add(href="") 新增

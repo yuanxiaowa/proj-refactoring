@@ -47,7 +47,7 @@ gulp.task('tpl', function() {
       .pipe(replace(resources.pattern, resources.resolve()))
       .pipe(rename(options.rename))
       .pipe(gulp.dest(paths.tplOutput));
-  }
+  };
 }());
 
 gulp.task('script', function() {
@@ -58,6 +58,7 @@ gulp.task('script', function() {
   return function() {
     return gulpSrc(paths.script)
       .pipe(gif(currentEnv.dev, sourcemaps.init()))
+      .pipe(replace(paths.rscript.pattern, paths.rscript.resolve))
       .pipe(eslint())
       .pipe(eslint.format())
       .pipe(babel(options.babel))
@@ -100,8 +101,8 @@ gulp.task('style', function() {
       easings: true,
       fallbacks: true,
       autoprefixer: false
-    }),
-    require('stylelint')
+    })/*,
+    require('stylelint')*/
   ];
 
   if (currentEnv.product) {

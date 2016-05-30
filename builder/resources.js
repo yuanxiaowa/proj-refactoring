@@ -21,6 +21,24 @@ var resources = {
       }
     }
   },
+  bootstrapTable: {
+    cur: '1.10.1',
+    files: {
+      '1.10.1': {
+        script: 'js/bootstrap-table.js',
+        style: 'css/bootstrap-table.css'
+      }
+    }
+  },
+  bootstrapTreeview: {
+    cur: '1.2.0',
+    files: {
+      '1.2.0': {
+        script: 'js/bootstrap-treeview.js',
+        style: 'css/bootstrap-treeview.css'
+      }
+    }
+  },
   d3: {
     cur: '3.5.17',
     files: {

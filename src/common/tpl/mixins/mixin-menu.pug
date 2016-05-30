@@ -1,0 +1,40 @@
+
+
+mixin dropmenu(items)
+  ul.dropmenu&attributes(attributes)
+    each v,k in items
+      li(class={active:!k})= v
+
+mixin org-menu
+  .org-menu#org-menu
+    h5
+      a.pull-right(href="" title="导出")
+        +icon('share-alt')
+      | 组织架构
+    .org-empy 暂无信息
+    .org-menu-outer
+      .org-menu-item.is-open
+        .org-menu-tit
+          span.status-open +
+          | 江建集团
+        .org-menu-inner
+          .org-menu-item.is-open
+            .org-menu-tit 苏州分公司
+            .org-menu-inner
+              .org-menu-item
+                a(href="") 第一项目部
+              .org-menu-item
+                a(href="") 第二项目部
+          .org-menu-item
+            .org-menu-tit 南京分公司
+
+
+mixin org
+  .org-left.hidden-xs#org-left
+    .org-left-wrap
+      .org-op.j-org-op
+        +icon('double-angle-left')
+      +org-menu
+  .org-main
+    .container-fluid
+      block

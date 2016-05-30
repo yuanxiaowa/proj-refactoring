@@ -1,0 +1,31 @@
+.dropmenu {
+  display: none;
+  position: absolute;
+  list-style: none;
+  padding-left: 36px;
+  border: $border;
+  text-align: center;
+  line-height: 34px;
+  cursor: default;
+  background: #edeeee;
+  li {
+    border-left: $border;
+    width: 154px;
+    background: #fff;
+    &.active {
+      background: #a9c2e7;
+      &:before {
+        display: block;
+      }
+    }
+    &:before {
+      display: none;
+      position: absolute;
+      left: 0;
+      width: 36px;
+      content: '\f00c';
+      font-family: FontAwesome;
+      background: #a9c2e7;
+    }
+  }
+}

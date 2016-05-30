@@ -1,0 +1,162 @@
+
+mixin table(obj, count)
+  - var thead
+  if obj instanceof Array
+    - thead = obj
+    - obj = {}
+  else
+    - thead = obj.thead
+  - count = count || obj.count
+  .table-responsive
+    table.table(class={"table-bordered":obj.border!==false,"table-default":typeof obj.style!=='string'})&attributes(attributes)
+      if thead
+        thead
+          each item in thead
+            th= item
+      tbody
+        - if(count)
+          +iterator(count)
+            block
+        - else
+          block
+
+mixin table-sort(thead,toolbar)
+  +table(thead,20)(data-toggle="table" data-show-columns="true" data-toolbar=toolbar data-pagination="true" data-search="true")
+    block
+
+mixin table-menu-permission(items)
+  if !items
+    - items = ['一级菜单','二级菜单','三级菜单','功能权限']
+  +table(items)(class="table-bordered")
+    tr
+      td
+        label
+          i.icon-ok
+          | 项目管理
+      td
+        label
+          i.icon-ok
+          | 项目信息
+      td
+        label
+          i.icon-ok
+          | 查询页面
+      td
+        label
+          i.icon-ok
+          | 查询
+        label
+          i.icon-ok
+          | 新增
+        label
+          i.icon-ok
+          | 导出
+
+mixin table-menu-permission-edit(items)
+  if !items
+    - items = ['一级菜单','二级菜单','三级菜单','功能权限']
+  +table(items)(class="table-bordered")
+    +iterator(4)
+      tr
+        td
+          label
+            input(type="checkbox")
+            | 项目管理
+        td
+          label
+            input(type="checkbox")
+            | 项目信息
+        td
+          label
+            input(type="checkbox")
+            | 查询页面
+        td
+          label
+            input(type="checkbox")
+            | 全部
+          label
+            input(type="checkbox")
+            | 查询
+          label
+            input(type="checkbox")
+            | 新增
+          label
+            input(type="checkbox")
+            | 导出
+
+mixin table-permission
+  table.table.table-default.table-bordered
+    thead
+      tr
+        th(rowspan=2) 角色名称
+        th(rowspan=2) 采单权限
+        th(colspan=4) 功能权限
+      tr
+        th 全部
+        th 编辑
+        th 打印
+        th 反审核
+    tbody
+      tr
+        td 项目经理
+        +iterator(5)
+          td
+            i.icon-ok
+
+mixin table-user
+  +table(['用户名','账号','该用户所有的角色'])(class="table-bordered")
+    +iterator(4)
+      tr
+        td 管理员
+        td admin
+        td 项目经理 分公司副总
+
+mixin table-rel-role
+  +table(['用户名','账号','',''])(class="table-bordered")
+    tr
+      td 管理员
+      td admin
+      td
+      td
+    tr
+      td 李起光
+      td admin
+      td
+      td
+
+mixin table-rel-role-edit
+  table.table.table-default.table-bordered
+    thead
+      tr
+        th(rowspan=2) 角色名称
+        th(rowspan=2) 采单权限
+        th(colspan=4) 功能权限
+        th(rowspan=2) 操作
+      tr
+        th 全部
+        th 编辑
+        th 打印
+        th 反审核
+    tbody
+      tr
+        td 项目经理
+        +iterator(5)
+          td
+            input(type="checkbox")
+        td
+          a.j-del(href="") 删除
+          a.j-add(href="") 新增
+  div
+    ul.dropmenu
+      li.active 项目经理
+      li 材料员
+      li 仓管员
+
+mixin table-role
+  +table(['角色名称','描述','创建日期','修改日期'])(class="table-bordered")
+    each item in ['项目经理', '材料员', '仓管员', '预决算员']
+      tr
+        td= item
+        td
+        td
+        td

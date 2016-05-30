@@ -5,18 +5,16 @@ append style
 append script
   +script('main')
 
-block title
-  | 筑牛云采购系统
-
 append content
   header.main-header
     nav.navbar.navbar-default#menu-top
       .container-fluid
         .navbar-header
           button.navbar-toggle.collapsed(data-toggle="collapse" data-target="#main-navbar-collapse")
+            .icon-reorder
           .navbar-brand
         .collapse.navbar-collapse#main-navbar-collapse
-          ul.nav.navbar-nav.main-menu-top.j-menu-top
+          ul.nav.navbar-nav.main-menu-top.j-menu-top.visible-xs
             each v,k in menus
               li(class={active:!k})
                 a(href="")= v.name
@@ -57,7 +55,7 @@ append content
                 li
                   a(href="") 退出
   .main-container
-    aside.main-left-area#menu-aside: .main-left-area-wrap
+    aside.main-left-area.hidden-xs#menu-aside: .main-left-area-wrap
       span.menu-toggle-btn.icon-angle-left.j-toggle(href="")
       each item in menus
         a.main-menu-item-t(href=item.children?undefined:item.link)
@@ -67,10 +65,10 @@ append content
             i.icon-angle-down
         if item.children
           .main-menu-item-c
-            a(href="") 项目基本信息
-            a(href="") 总量计划
+            each _item in item.children
+              a(href=_item.link||"")= _item.text
     section.main-area
       ul.tab-main.list-unstyled#tab-main
         li.tab-main-item 首页
       .page-container
-        iframe(src="home.html")
+        iframe(src=cur)

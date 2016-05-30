@@ -1,4 +1,4 @@
-/* global $:true,echarts:true */
+/* global echarts:true */
 
 var myChart1 = echarts.init($('#echarts-1')[0]);
 var myChart2 = echarts.init($('#echarts-2')[0]);

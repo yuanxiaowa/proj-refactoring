@@ -1,0 +1,28 @@
+extends /common
+
+append style
+  +style(['$${bootstrapTable.css}','index'])
+append script
+  +script('$${bootstrapTable}')
+append content
+  .container-fluid
+    .panel.panel-default.mt-20: .panel-body
+      +form-horizontal()(class="row")
+        .col-md-10
+          each item in forms
+            .row
+              each _item in item
+                +form-horizontal-item(_item)(class="col-md-4")
+        .col-md-2
+          button.btn.btn-primary 查询
+          button.btn.btn-default(type="button") 新增
+    .panel.panel-default: .panel-body
+      .row
+        .col-md-8
+          +table-sort(['编号','角色名称','角色编号','备注','是否禁用'],true)
+            tr
+              td 1
+              td 材料员
+              td 001
+              td 项目部材料员或者分公司材料员
+              td 否

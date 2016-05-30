@@ -53,24 +53,46 @@ var exportsObj = module.exports = {
       );
     }
   },
-  datas: function(file) {
-    var _path = file.path;
-    var _p = path.basename(path.dirname(path.dirname(_path)));
-    var _name = path.basename(_path, '.pug');
-    var data;
-    if (datas[_p] && (data = datas[_p][_name])) {
+  datas: function() {
+    var t = Date.now();
+    return function(file) {
+      if (Date.now() - t > 5000) {
+        exportsObj.setData();
+        t = Date.now();
+      }
+      var _path = file.path;
+      var _p = path.basename(path.dirname(path.dirname(_path)));
+      var _name = path.basename(_path, '.pug');
+      var data = datas['g'];
+      if (datas[_p]) {
+        data = Object.assign({}, datas['g'], datas[_p][_name])
+      }
       return data;
+    };
+  }(),
+  setData: function() {
+    var fs = require('fs');
+    datas = JSON.parse(fs.readFileSync('./builder/datas.json'));
+  },
+  rscript: {
+    pattern: /@include\((['"])([^'";]+)\1\);/g,
+    resolve: function(_, $1, $2) {
+      if (/^\//.test($2)) {
+        return require('fs').readFileSync(path.join(commonDir, 'js', $2 + '.js'), 'utf8');
+      } else {
+        return '';
+      }
     }
-    return {};
   }
 };
-
-var datas = require('./datas');
 
 var fixs = {
   style: 'css',
   script: 'js'
 };
+
+var datas;
+exportsObj.setData();
 
 files.forEach(function(name) {
   var dir = path.join(modules, '*', fixs[name] ? fixs[name] : name);

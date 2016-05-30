@@ -17,6 +17,10 @@
   vertical-align: middle;
 }
 
+.panel-heading {
+  padding: 0 20px;
+}
+
 .has-feedback {
   .form-control-feedback {
     line-height: 34px;

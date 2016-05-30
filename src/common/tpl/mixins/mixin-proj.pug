@@ -1,0 +1,114 @@
+mixin icon(name, text)
+  i(class="icon-"+name)&attributes(attributes)= text
+
+mixin checkbox(text, name)
+  label.checkbox-inline
+    input(type="checkbox" name=name)
+    = text
+    block
+
+mixin radio(text, name)
+  label.radio-inline
+    input(type="radio" name=name)
+    = text
+    block
+
+mixin input(type)
+  if !type
+    - type = 'text'
+  input(type=type)&attributes(attributes)
+
+mixin text(placeholder)
+  +input()(placeholder=placeholder)
+
+mixin email(placeholder)
+  +input('email')(placeholder=placeholder)
+
+mixin tel(placeholder)
+  +input('telephone')(placeholder=placeholder)
+
+mixin date(placeholder)
+  +input('date')(placeholder=placeholder)
+
+mixin button(name, type)
+  button.btn(type="button")&attributes(attributes)= name
+
+mixin submit(name)
+  button.btn&attributes(attributes)= name
+
+mixin select(items)
+  if !items
+    - items = ['请选择']
+  select.form-control&attributes(attributes)
+    each item in items
+      option= item
+
+//- 
+  带下拉选项的文本框
+mixin inputdrop(items)
+  if !items
+    - items = ['选项1','选项2','选项3']
+  +input()
+  +dropmenu(items)
+
+//-
+  选项卡
+  items: 选项
+  index: 选中索引
+mixin tab(items, index)
+  - if(!index)
+    - index = 0
+  ul.nav.nav-tabs
+    each v,k in items
+      li(class={active:k==index} )
+        a(href="#tab"+(k+1) data-toggle="tab")= v
+  .tab-content
+    block
+
+//- 
+  搜索框
+  placeholder: 水印文本
+mixin searchbox(placeholder)
+  .form-group
+    .has-feedback&attributes(attributes)
+      input.form-control(type="text" placeholder=placeholder)
+      span.icon-search.form-control-feedback
+
+//-
+  描述头部
+  obj
+    size:6 容器大小
+    tl: 头部标签名
+    tn: 头部标签值
+    ed: 可以编辑的话，该值为对话框id
+    items: 选项
+mixin detail-head(obj)
+  -var size = obj.size
+  if !size
+    - size = 8
+  .panel.panel-default.mt-20.detail-show
+    .panel-heading
+      .row
+        .col-xs-8.col-md-4
+          label #{obj.tl}:
+          = obj.tn
+        if obj.ed
+          a(href="" data-toggle="modal" data-target=obj.ed)
+            +icon('pencil', '编辑')
+    .panel-body.row
+      .row(class="col-md-"+size)
+        +detail-list(obj.items)
+        block
+
+mixin detail-list(items)
+  each item in items
+    .row
+      each _item in item
+        div(class=_item.offset?'col-md-offset-4':'' class="col-md-"+(_item.w?(4*_item.w):4))
+          label #{_item.name}:
+          .adapt-item
+            if _item.value instanceof Array
+              each v in _item.value
+                p= v
+            else
+              = _item.value

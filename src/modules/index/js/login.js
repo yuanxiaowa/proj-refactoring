@@ -1,4 +1,4 @@
-/*global $:true*/
+
 
 $('#form-login').validate({
   errorClass: 'help-block',

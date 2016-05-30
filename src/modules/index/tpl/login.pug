@@ -5,9 +5,6 @@ append style
 append script
   +script(['$${jqueryValidate}', 'login'])
 
-block title
-  | 登录
-
 append content
   .container-fluid
     header.login-header
@@ -41,11 +38,9 @@ append content
                     a.text-muted(href="") 换一张
               .checkbox
                 a.pull-right(href="") 忘记密码
-                label
-                  input(type="checkbox" name="reme")
-                  | 记住我
+                +checkbox('记住我','reme')
               .form-group
-                button.btn.btn-primary(type="submit") 登录
+                +submit('登录')(id="btn-primary")
   .login-ad
   .container
     footer.text-right.text-primary 江苏筑牛网络科技有限公司  版权所有

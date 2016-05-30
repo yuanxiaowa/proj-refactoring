@@ -161,6 +161,12 @@ output {
   }
 }
 
+.control-label {
+  text-align: right;
+  padding-top: (@padding-base-vertical + 1); // Default padding plus a border
+  padding-right: 0;
+}
+
 
 // Search inputs in iOS
 //
@@ -576,9 +582,8 @@ input[type="checkbox"] {
   // labels on narrow viewports stack the same as a default form example.
   @media (min-width: @screen-sm-min) {
     .control-label {
-      text-align: right;
+      // text-align: right;
       margin-bottom: 0;
-      padding-top: (@padding-base-vertical + 1); // Default padding plus a border
     }
   }
 
@@ -597,7 +602,6 @@ input[type="checkbox"] {
   .form-group-lg {
     @media (min-width: @screen-sm-min) {
       .control-label {
-        padding-top: (@padding-large-vertical + 1);
         font-size: @font-size-large;
       }
     }
@@ -605,7 +609,6 @@ input[type="checkbox"] {
   .form-group-sm {
     @media (min-width: @screen-sm-min) {
       .control-label {
-        padding-top: (@padding-small-vertical + 1);
         font-size: @font-size-small;
       }
     }

@@ -1,4 +1,4 @@
-/*global $:true*/
+
 
 var $menuAside = $('#menu-aside');
 var Tab, TabData;
@@ -85,7 +85,12 @@ Tab = (function(Data) {
     return $(`<li class="tab-main-item"><span class="j-close"></span>${text}</li>`);
   }
   function getContItem(url) {
-    return $(`<iframe src="${url}">`);
+    var $iframe = $(`<iframe src="${url}">`);
+    $iframe.on('load', function() {
+      var $this = $(this);
+      $tabMain.children().eq($this.index()).attr('title', this.contentWindow.document.title);
+    });
+    return $iframe;
   }
   function close(key) {
     var data = Data.get(key);

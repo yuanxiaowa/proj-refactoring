@@ -1,9 +1,4 @@
-.has-feedback {
-  .form-control-feedback {
-    line-height: 34px;
-    width: 34px;
-  }
-}
+@import '/modules/page-common';
 
 .main-menu-top {
   display: none;
