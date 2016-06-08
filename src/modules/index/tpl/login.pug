@@ -3,7 +3,7 @@ extends /common
 append style
   +style('login')
 append script
-  +script(['$${jqueryValidate}', 'login'])
+  +script('login')
 
 append content
   .container-fluid
@@ -31,7 +31,7 @@ append content
               .form-group
                 .btn-group.btn-group-justified
                   .btn-group
-                    input.form-control(type="text")
+                    input.form-control(type="text" name="code" required data-msg-required="请输入验证码" data-msg-remote="验证码不正确")
                   .btn-group
                     img(src="", alt="")
                   .btn-group.text-center
@@ -40,7 +40,7 @@ append content
                 a.pull-right(href="") 忘记密码
                 +checkbox('记住我','reme')
               .form-group
-                +submit('登录')(id="btn-primary")
+                +submit('登录')(class="btn-primary")
   .login-ad
   .container
     footer.text-right.text-primary 江苏筑牛网络科技有限公司  版权所有

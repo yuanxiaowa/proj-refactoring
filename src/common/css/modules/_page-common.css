@@ -5,6 +5,14 @@ body {
 html {
   height: 100%;
 }
+a {
+  [class^="icon-"]:before,
+  [class*=" icon-"]:before {
+    font-size: 1.4em;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+}
 .border {
   border: $border;
 }

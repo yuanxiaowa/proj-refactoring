@@ -1,0 +1,11 @@
++form-horizontal
+  +form-horizontal-item({label:'上级部门',i:true,type:'input',cw:5})
+  +form-horizontal-item({label:'排序',i:true,type:'input',cw:5})
+  +form-horizontal-item({label:'部门名称',i:true,type:'input',cw:5})
+  +form-horizontal-item({label:'部门编号',i:true,type:'input',cw:5})
+  +form-horizontal-item({label:'负责人',i:true,type:'select',other:true,cw:5})
+    .form-control-static
+      +icon('plus-sign')(class="j-m-add")
+      | 最多添加3个
+  +form-horizontal-item({label:'描述',type:'textarea'})
+  +form-horizontal-item({label:'禁用',type:'checkbox',text:'是'})

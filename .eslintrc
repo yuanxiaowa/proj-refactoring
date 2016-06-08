@@ -10,7 +10,8 @@
   },
   // http://eslint.org/docs/user-guide/configuring#specifying-globals
   "globals": {
-    "$": true
+    "$": true,
+    "$$include": true
   },
   // http://eslint.org/docs/rules/
   "rules": {
@@ -156,7 +157,7 @@
     "no-undef": 1,
     "no-undef-init": 2,
     "no-undefined": 2,
-    "no-unused-vars": 1,
+    "no-unused-vars": 0,
     "no-use-before-define": [2, {
       "functions": false,
       "classes": false

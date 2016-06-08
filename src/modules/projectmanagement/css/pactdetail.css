@@ -1,0 +1,109 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-06-06 09:52:30
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-06-07 17:25:13
+*/
+@import '/modules/variables';
+@import '/modules/page-common';
+@import '/modules/tabs';
+.con-container{
+  background: #fff;
+  border:$border;
+  margin: 20px 0;
+  .tab-nav{
+    padding: 10px 30px;
+    border-bottom: 1px solid #2d62a4;
+    width: 100%;
+    label{
+      margin-right: 5px;
+      border: $border;
+      border-radius: 3px!important;
+      background: none;
+      color: #333;
+      &.active{
+        color: #fff;
+        background:#366db0;
+        border-color:#366db0;
+      }
+      &:hover{
+        background:#366db0;
+        color: #fff;
+        border-color:#366db0;
+      }
+    }
+  }
+  .nav-tabs{
+    border-bottom: 1px solid #2d62a4;
+    li{
+      margin-bottom: 0;
+    }
+  }
+  .panel{
+    border:none;
+    box-shadow: none;
+    .panel-body{
+      border-bottom: none;
+    }
+  }
+  .pact-info{
+    position: relative;
+    label{
+      width: 100px;
+    }
+    .statu-pic{
+      margin-top: 66px;
+      position: absolute;
+      z-index: 1;
+    }
+    .project-name{
+      font-size: 16px;
+      margin-bottom: 30px;
+      .number{
+        padding-left: 40px;
+        color: #666;
+        font-size: 14px;
+      }
+      .xl{
+        color: #000;
+      }
+    }
+    .tab-content{
+      margin: 20px 30px;
+    }
+    .main-pact{
+      font-size: 14px;
+    }
+  }
+}
+.modal-content{
+  border-radius: 0;
+  .modal-header{
+    padding: 4px 14px;
+    background: #dcdcdc;
+    color: #000;
+    h4{
+      font-size: 16px;
+    }
+  }
+  button[type="button"]{
+    padding: 4px 20px;
+    &:hover{
+      background:#366db0;
+      color: #fff;
+      border-color: #366db0;
+    }
+  }
+  .pactinfo-title{
+    margin: 30px 0;
+    font-size: 16px;
+    color: #000;
+  }
+  p{
+    margin-bottom: 18px;
+  }
+  .idea-item{
+    margin-bottom: 32px;
+    border-bottom: 1px solid #d2d2d2;
+  }
+}

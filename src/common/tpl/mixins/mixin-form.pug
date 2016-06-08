@@ -1,3 +1,96 @@
+- function getRn(name){return 'n'+escape(name).replace(/%u/g, '').substr(-5)}
+
+
+mixin checkbox(text, name)
+  - if(!(text instanceof Array))
+    - text = [text]
+  each item,k in text
+    label.checkbox-inline
+      input(
+        type="checkbox"
+        name=name
+      )&attributes(attributes)
+      = item
+      block
+
+mixin radio(text, name, label)
+  - if(!(text instanceof Array))
+    - text = [text]
+  each item,k in text
+    label.radio-inline
+      input(
+        type="radio"
+        name=name
+        checked=!k
+        required=label?true:false
+        data-msg-required=label?'请选择'+label:false
+      )&attributes(attributes)
+      = item
+      block
+
+mixin input(type)
+  if !type
+    - type = 'text'
+  input(type=type)&attributes(attributes)
+
+mixin text(placeholder)
+  +input()(placeholder=placeholder)
+
+mixin email(placeholder)
+  +input('email')(placeholder=placeholder)
+
+mixin tel(placeholder)
+  +input('telephone')(placeholder=placeholder)
+
+mixin date(placeholder)
+  +input('date')(placeholder=placeholder)
+
+mixin button(name, type)
+  button.btn(type="button")&attributes(attributes)= name
+
+mixin submit(name)
+  button.btn&attributes(attributes)= name
+
+mixin select(items)
+  if !items
+    - items = ['请选择']
+  select.form-control&attributes(attributes)
+    each item in items
+      option= item
+
+mixin form-control(item)
+  if /^(input|email|mobile|tel|date|text)$/.test(item.type)
+    input.form-control(
+      id=item.id
+      type=/email/.test(item.type)?item.type:"text"
+      required=item.i?true:false data-msg-required=item.i?'请输入'+item.label:false 
+      date=item.type==='date'?'true':false data-msg-date=item.type==='date'?item.label+"格式不正确":false
+      data-msg-email=item.type==='email'?(item.label+"格式不正确"):false
+      mobile=item.type==='mobile'?'true':false data-msg-mobile=item.type==='mobile'?(item.label+"格式不正确"):false
+      tel=item.type==='tel'?'true':false data-msg-tel=item.type==='tel'?(item.label+"格式不正确"):false
+      any=item.any?'true':false data-msg-any=item.any?"请选择一项":false
+      placeholder=item.placeholder
+      name=getRn(item.label)
+    )
+  else if "textarea" == item.type
+    textarea.form-control(
+      required=item.i?true:false
+      data-msg-required=item.i?'请输入'+item.label:false
+      placeholder=item.placeholder
+      name=getRn(item.label)
+    )
+  else if "select" == item.type
+    select.form-control(
+      required=item.i?true:false
+      data-msg-required=item.i?'请选择'+item.label:false
+      name=getRn(item.label)
+    )
+      option 请选择
+  else if "checkbox" == item.type
+    +checkbox(item.text,getRn(item.label),item.label)
+  else if "radio" == item.type
+    +radio(item.text,getRn(item.label),item.label)
+
 mixin form-horizontal-item(item,type)
   if !type
     - type = 'xs'
@@ -17,20 +110,12 @@ mixin form-horizontal-item(item,type)
       .col-xs-9(class=item.cw==9?"":("col-md-"+item.cw) class={"form-control-static":!item.type} class=item.offset?('col-'+type+'-offset-'+(item.offset===true?'3':item.offset)):'')
         if !item.type
           = item.text
-        else if /input|email|mobile/.test(item.type)
-          input.form-control(type="text" placeholder=item.placeholder value=item.value)
-        else if "textarea" == item.type
-          textarea.form-control(type="text" placeholder=item.placeholder value=item.value)
-        else if "checkbox" == item.type
-          +checkbox(item.text)
-        else if "radio" == item.type
-          +radio(text)
-        else if "date" == item.type
-          input.form-control(type="date")
         else if "button" == item.type
           +button(item.text)
         else if "submit" == item.type
           +submit(item.text||"保存")(class="btn-primary")
+        else
+          +form-control(item)
     if item.other
       div(class="col-"+type+"-"+(9-item.cw))
         block
@@ -65,3 +150,4 @@ mixin form-top(items)
       each _item in item
         .col-md-4
           +form-horizontal-item(_item)
+

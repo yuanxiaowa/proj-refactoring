@@ -1,19 +1,31 @@
+// require(jqueryValidate)
 
+import formValidation from '/modules/formValidation';
 
-$('#form-login').validate({
-  errorClass: 'help-block',
-  validClass: 'help-block',
-  highlight(element) {
-    $(element).closest('.form-group').addClass('has-error').removeClass('has-success');
+/*eslint complexity:0 */
+formValidation($('#form-login'), {
+  rules: {
+    code: {
+      remote: {
+        type: 'post',
+        dataType: 'json',
+        dataFilter(data) {
+          if (!(data && data.success)) {
+            return false;
+          }
+          return true;
+        }
+      }
+    }
   },
-  unhighlight(element) {
-    $(element).closest('.form-group').addClass('has-success').removeClass('has-error');
-  },
-  errorPlacement($error, $element) {
-    $element.closest('.form-group').append($error);
-  },
-  submitHandler(form) {
-    console.log(form);
-    return true;
+  // 数据请求完之后
+  success(data) {
+    if (!data.success) {
+      $('#error_area').html('登录失败:' + data.msg);
+      $('#error_area').show();
+    } else {
+      $('#error_area').hide();
+      window.location.href = 'index.do';
+    }
   }
 });

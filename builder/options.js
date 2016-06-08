@@ -8,7 +8,7 @@ module.exports = {
     }
   },
   babel: {
-    presets: ['es2015']
+    presets: ['es2015-rollup']
   },
   eslint: {
     extends: 'eslint:recommended'

@@ -1,5 +1,7 @@
-
-@include('/modules/role');
+// require(bootstrapTable,css)
+import dropmenu from '/modules/dropmenu';
+import role from '/modules/role';
+role($('#modal-role'));
 
 (() => {
   var $modalRel = $('#modal-rel');
@@ -42,6 +44,5 @@
       $tbody.append(getTemp($(this).text()));
       $dropmenu.hide();
     });
-  @include('/modules/dropmenu');
-
+  dropmenu($dropmenu);
 })();

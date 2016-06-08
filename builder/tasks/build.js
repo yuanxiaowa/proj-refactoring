@@ -11,6 +11,8 @@ var changed = require('gulp-changed');
 var gif = require('gulp-if');
 var replace = require('gulp-replace');
 
+var commonHandler = require('../plugins/common-handler');
+
 
 function gulpSrc(files) {
   return gulp.src(files)
@@ -29,7 +31,7 @@ gulp.task('copyStatic', function() {
 
 gulp.task('image', function() {
   gulpSrc(paths.image)
-    .pipe(changed(paths.imageOutput))
+    .pipe(changed(paths.rpath))
     .pipe(gulp.dest(paths.imageOutput));
 })
 
@@ -37,12 +39,18 @@ gulp.task('tpl', function() {
   var pug = require('gulp-pug');
   var rename = require('gulp-rename');
   var gdata = require('gulp-data');
+  var posthtml = require('gulp-posthtml');
+  
   return function() {
     return gulpSrc(paths.tpl)
+      .pipe(changed(paths.rpath, {extension: '.html'}))
+      .pipe(commonHandler({
+        type: 'tpl'
+      }))
       .pipe(replace(paths.rtpl.pattern, paths.rtpl.resolve))
       .pipe(gdata(paths.datas))
       .pipe(pug({
-        pretty: true
+        pretty: '  '
       }))
       .pipe(replace(resources.pattern, resources.resolve()))
       .pipe(rename(options.rename))
@@ -51,17 +59,28 @@ gulp.task('tpl', function() {
 }());
 
 gulp.task('script', function() {
-  var babel = require('gulp-babel');
+  var babel = require('rollup-plugin-babel');
   var uglify = require('gulp-uglify');
   var eslint = require('gulp-eslint');
 
   return function() {
     return gulpSrc(paths.script)
+      .pipe(changed(paths.rpath))
       .pipe(gif(currentEnv.dev, sourcemaps.init()))
-      .pipe(replace(paths.rscript.pattern, paths.rscript.resolve))
       .pipe(eslint())
       .pipe(eslint.format())
-      .pipe(babel(options.babel))
+      .pipe(commonHandler({
+        type: 'script',
+        rollup: {
+          sourceMap: true,
+          plugins: [
+            babel()
+          ]
+        },
+        rollupGen: {
+          format: 'iife'
+        }
+      }))
       .pipe(replace(resources.pattern, resources.resolve()))
       .pipe(gif(currentEnv.product, uglify()))
       .pipe(gif(currentEnv.dev, sourcemaps.write('.')))
@@ -116,6 +135,7 @@ gulp.task('style', function() {
 
   return function() {
     return gulpSrc(paths.style)
+      .pipe(changed(paths.rpath))
       .pipe(replace(paths.rstyle.pattern, paths.rstyle.resolve))
       .pipe(gif(currentEnv.dev, sourcemaps.init()))
       .pipe(postcss(postcssOptions))
@@ -125,4 +145,6 @@ gulp.task('style', function() {
   }
 }());
 
-gulp.task('build', ['copyStatic', 'style', 'script', 'tpl', 'less']);
+gulp.task('build', ['copyStatic', 'script', 'style', 'less'], function() {
+  gulp.start(['tpl']);
+});

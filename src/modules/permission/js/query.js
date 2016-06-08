@@ -1,0 +1,1 @@
+// require(bootstrapTable,css)

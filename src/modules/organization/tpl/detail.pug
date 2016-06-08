@@ -1,26 +1,30 @@
 extends /common
 
 append style
-  +style(['$${bootstrapTable.css}', 'index'])
-append script
-  +script(['$${bootstrapTable}'])
+  +style('index')
 
 append content
   +org
-    +detail-head({tl:'当前用户',tn:'李起光（男）',ed:'#modal-edit',items:items})
-      .col-md-12
-        span.text-primary 未激活
-        +button('激活')(class="btn-primary" data-toggle="modal" data-target="#modal-activate")
-      .row
-        .col-md-4
-          label 任职情况
-          .adapt-item *********
-        .col-md-4
-          label
-            span.text-danger *
-            | 密码
-          .adapt-item *********
-            +button('重置')
+    +template
+      +detail-head({tl:'当前用户',tn:'李起光（男）',ed:'编辑人员信息',href:'_detail-modal1.html',items:items})
+        .col-md-12
+          span.text-primary 未激活
+          +button('激活')(
+            class="btn-primary"
+            data-modal-load="_detail-modal2.html"
+            data-modal-title="发送密码"
+            data-modal-stxt="激活"
+          )
+        .row
+          .col-md-4
+            label 任职情况
+            .adapt-item *********
+          .col-md-4
+            label
+              span.text-danger *
+              | 密码
+            .adapt-item *********
+              +button('重置')
     
     +tab(tabs)
       .tab-pane.active#tab1
@@ -76,48 +80,9 @@ append content
 
   +modal-role('编辑角色成员', '搜索用户', '被选中的用户')
 
-  +modal({title:'发送密码',noret:true,saveText:'激活',saveClass:'btn-primary'})(id="modal-activate")
-    +form-check(formCheck)
-      .form-group
-        .col-xs-3.control-label 登录账号
-        .col-xs-6
-          +input()(class="form-control")
-        .col-xs-3.text-warning.form-control-static 保存后不可更改
-
   +modal('编辑功能权限')(id="modal-rel")
     .form-group.text-warning 注：红色字体的权限是通过角色获取的，不可以直接取消，需要到人员角色里进行取消。
     +table-menu-permission-edit
-
-  +modal('编辑人员信息')(id="modal-edit")
-    +form-horizontal
-      +form-horizontal-item({label:'姓名',i:true,type:'input',cw:4})
-      +form-horizontal-item({label:'性别',i:true,type:'mix',cw:4})
-        +radio('男','gendar')
-        +radio('女','gendar')
-      +form-horizontal-item({label:'编号',i:true,type:'input',cw:4})
-      +form-horizontal-item({label:'手机',type:'input',cw:4})
-      +form-horizontal-item({label:'电话',type:'input',cw:4})
-      +form-horizontal-item({label:'邮箱',type:'input',cw:4})
-      +form-horizontal-item({label:'任职情况',row:true,type:'mix',i:true,cw:8})
-        .form-group
-          .col-md-5
-            .pull-left.control-label 部门
-            .adapt-item
-              +input()(class="form-control")
-          .col-md-5
-            .pull-left.control-label 职务
-            .adapt-item
-              +input()(class="form-control")
-          .col-md-2
-            +checkbox('兼职')
-      .form-group
-        .col-xs-9.col-xs-offset-3
-          +icon('add')(class="j-add")
-          +icon('sub')(class="j-sub")
-      +form-horizontal-item({label:'地址',type:'input',cw:8})
-      +form-horizontal-item({label:'备注',type:'textarea',cw:8})
-      +form-horizontal-item({label:'是否激活',type:'mix'})
-        +checkbox('是')
 
   +modal('编辑数据权限')(id="modal3")
     +form-horizontal

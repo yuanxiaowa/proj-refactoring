@@ -1,0 +1,36 @@
+{
+  "title": "人员详情",
+  "items": [
+    [{
+      "name": "编号",
+      "value": "{{num}}"
+    }, {
+      "name": "禁用",
+      "value": "{{isfb}}"
+    }, {
+      "name": "手机",
+      "value": "{{mobile}}"
+    }],
+    [{
+      "name": "邮箱",
+      "value": "{{email}}"
+    }, {
+      "name": "电话",
+      "value": "{{tel}}"
+    }, {
+      "name": "地址",
+      "value": "{{addr}}"
+    }],
+    [{
+      "name": "任职情况",
+      "value": ["{{det}}"],
+      "w": 3
+    }],
+    [{
+      "name": "备注",
+      "value": "{{remark}}",
+      "w": 3
+    }]
+  ],
+  "tabs": ["人员角色", "功能权限", "数据权限"]
+}

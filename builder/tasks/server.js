@@ -9,6 +9,7 @@ gulp.task('server', function() {
     port: 8080,
     server: {
       baseDir: 'dest',
+      files: '**/*',
       routes: {
         // '/Public': 'Public'
       }

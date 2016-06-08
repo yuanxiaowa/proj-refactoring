@@ -1,0 +1,13 @@
+.row
+  .col-md-5
+    .pull-left.control-label 部门
+    .adapt-item
+      +form-control({label:'部门',type:'select'})
+  .col-md-5
+    .pull-left.control-label 职务
+    .adapt-item
+      +form-control({label:'职务',type:'input'})
+  .col-md-2.form-group
+    +checkbox('兼职')
+    +icon('add')(class="j-add")
+    +icon('sub')(class="j-sub")

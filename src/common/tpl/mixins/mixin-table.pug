@@ -160,3 +160,35 @@ mixin table-role
         td
         td
         td
+mixin table-pact-pay
+  +table(['阶段名称','付款比例','说明'])(class="table-bordered")
+    +iterator(2)
+      tr
+        td 预付款
+        td 60%
+        td 一定要给
+mixin table-pact-desc
+    +iterator(1)
+      p 合同摘要内容：
+      p 付款协议摘要：
+      p 质保金条款：
+      p 结算信息：
+mixin table-pact-file
+  +table(['编号','文档编号','文档名称','上传人','上传日期'])(class="table-bordered")
+    +iterator(3)
+      tr
+        td 01
+        td SJDF0012
+        td
+          a(href="#") 投标书pdf
+        td 李刚
+        td 2016-12-15 12:50:32
+mixin table-pact-change-history
+  +table(['编号','变更类型','变更内容','变更人','变更日期'])(class="table-bordered")
+    +iterator(3)
+      tr
+        td 01
+        td SJDF0012
+        td 李刚 
+        td 李刚
+        td 2016-12-15 12:50:32

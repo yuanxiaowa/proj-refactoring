@@ -1,0 +1,40 @@
+{
+  "title": "新增角色",
+  "items": [{
+    "label": "角色名称",
+    "i": true,
+    "type": "input",
+    "cw": 4
+  }, {
+    "label": "编号",
+    "i": true,
+    "type": "input",
+    "cw": 4
+  }, {
+    "label": "是否禁用",
+    "type": "checkbox",
+    "text": "是",
+    "cw": 4
+  }, {
+    "label": "编辑日期",
+    "type": "date",
+    "cw": 4
+  }, {
+    "label": "创建日期",
+    "type": "date",
+    "cw": 4
+  }, {
+    "label": "创建人",
+    "text": "登录人",
+    "cw": 4
+  }, {
+    "label": "备注",
+    "type": "textarea",
+    "size": 6,
+    "cw": 6
+  }, {
+    "type": "submit",
+    "offset": true
+  }]
+
+}

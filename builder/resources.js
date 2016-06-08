@@ -98,6 +98,40 @@ var resources = {
         script: 'respond.js'
       }
     }
+  },
+  jqueryForm2json: {
+    cur: '1.0',
+    files: {
+      '1.0': {
+        script: 'jquery.form2json.js'
+      }
+    }
+  },
+  select2: {
+    cur: '4.0.3',
+    files: {
+      '4.0.3': {
+        script: 'js/select2.js',
+        style: 'css/select2.css'
+      }
+    }
+  },
+  bootstrapDatetimepicker: {
+    cur: '2.0',
+    files: {
+      '2.0': {
+        script: 'js/bootstrap-datetimepicker.css',
+        style: 'css/bootstrap-datetimepicker.js'
+      }
+    }
+  },
+  mustache: {
+    cur: '2.2.1',
+    files: {
+      '2.2.1': {
+        script: 'mustache.js'
+      }
+    }
   }
 };
 

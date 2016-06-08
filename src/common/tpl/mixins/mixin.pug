@@ -3,7 +3,7 @@
 
 mixin style(files)
   - if(typeof(files) == 'string')
-    - files = [files]
+    - files = [].slice.call(arguments)
   each file in files
     - if(rnHead.test(file))
       - file = 'css/' + file
@@ -15,7 +15,7 @@ mixin style(files)
 
 mixin script(files)
   - if(typeof(files) == 'string')
-    - files = [files]
+    - files = [].slice.call(arguments)
   each file in files
     - if(rnHead.test(file))
       - file = 'js/' + file

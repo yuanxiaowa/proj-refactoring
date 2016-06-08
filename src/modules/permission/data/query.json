@@ -1,0 +1,23 @@
+{
+  "title": "权限查询",
+  "items": [
+    [{
+      "label": "权限名称",
+      "type": "input"
+    }, {
+      "label": "权限编号",
+      "type": "input"
+    }, {
+      "label": "禁用",
+      "type": "checkbox",
+      "text": "是"
+    }],
+    [{
+      "label": "角色名称",
+      "type": "input"
+    }, {
+      "label": "用户名",
+      "type": "input"
+    }]
+  ]
+}

@@ -1,9 +1,7 @@
 extends /common
 
 append style
-  +style(['$${bootstrapTable.css}','query'])
-append script
-  +script('$${bootstrapTable}')
+  +style('query')
 append content
   .container-fluid
     .panel.panel-default: .panel-body

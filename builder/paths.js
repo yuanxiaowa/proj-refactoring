@@ -1,4 +1,5 @@
 var path = require('path');
+var fs = require('fs');
 
 var entrance = './src';
 var modules = path.join(entrance, 'modules');
@@ -17,13 +18,19 @@ var extensions = {
   image: '*.{png,jpg,gif}'
 };
 
-var exportsObj = module.exports = {
+exports = module.exports = {
   output: dest,
   static: {
     style: path.join(commonDir, 'css/*.css'),
-    styleOutput: destPublicDir,
+    styleOutput: path.join(destPublicDir, 'css'),
     lib: path.join(commonDir, 'lib/**/*'),
     libOutput: path.join(destPublicDir, 'lib')
+  },
+  common: {
+    tpl: path.join(commonDir, 'tpl'),
+    script: path.join(commonDir, 'js'),
+    style: path.join(commonDir, 'css'),
+    components: path.join(commonDir, 'components')
   },
   outputPublic: destPublicDir,
   rtpl: {
@@ -38,7 +45,7 @@ var exportsObj = module.exports = {
         dir = 'layouts';
       }
       _name = path.relative(
-        path.dirname(exportsObj.tpl),
+        path.dirname(exports.tpl),
         path.join(commonDir, 'tpl', dir, $2)
       );
       return $1 + ' ' + _name;
@@ -48,41 +55,46 @@ var exportsObj = module.exports = {
     pattern: /@import\s+['"](?=\/)/g,
     resolve: function(_) {
       return _ + path.relative(
-        path.dirname(exportsObj.style),
+        path.dirname(exports.style),
         path.join(commonDir, 'css')
       );
     }
   },
-  datas: function() {
-    var t = Date.now();
-    return function(file) {
-      if (Date.now() - t > 5000) {
-        exportsObj.setData();
-        t = Date.now();
-      }
+  datas: function(file) {
+    return new Promise(function(resolve, reject) {
       var _path = file.path;
-      var _p = path.basename(path.dirname(path.dirname(_path)));
+      var _p = path.dirname(path.dirname(_path));
       var _name = path.basename(_path, '.pug');
-      var data = datas['g'];
-      if (datas[_p]) {
-        data = Object.assign({}, datas['g'], datas[_p][_name])
-      }
-      return data;
-    };
-  }(),
-  setData: function() {
-    var fs = require('fs');
-    datas = JSON.parse(fs.readFileSync('./builder/datas.json'));
+      var filepath = path.join(_p, 'data', _name + '.json');
+      fs.readFile(
+        filepath,
+        'utf8',
+        function(err, result) {
+          if (err) {
+            // console.log('enter')
+            // console.log(err)
+            return resolve({});
+          }
+          try {
+            resolve(JSON.parse(result));
+          } catch(e) {
+            console.error(filepath, 'json格式不正确');
+          }
+      })
+    });
   },
   rscript: {
-    pattern: /@include\((['"])([^'";]+)\1\);/g,
-    resolve: function(_, $1, $2) {
-      if (/^\//.test($2)) {
-        return require('fs').readFileSync(path.join(commonDir, 'js', $2 + '.js'), 'utf8');
-      } else {
-        return '';
-      }
+    pattern: /(import.*from ')(?=\/)/g,
+    resolve: function(_, $1) {
+      return _ + path.relative(
+        path.join(commonDir, 'js', $1 + '.js')
+        );
     }
+  },
+  rpath: function(file) {
+    var d = file.relative.match(/^([\w-]+)\\([\w-]+)/);
+    var f = path.join(dest, d[1], d[2] === 'tpl' ? '' : d[2]);
+    return f;
   }
 };
 
@@ -92,12 +104,11 @@ var fixs = {
 };
 
 var datas;
-exportsObj.setData();
 
 files.forEach(function(name) {
   var dir = path.join(modules, '*', fixs[name] ? fixs[name] : name);
-  exportsObj[name] = path.join(dir, extensions[name]);
-  exportsObj[name + 'Dir'] = dir;
-  exportsObj[name + 'Output'] = dest;
-  exportsObj[name + 'All'] = path.join(dir, '*');
+  exports[name] = path.join(dir, extensions[name]);
+  exports[name + 'Dir'] = dir;
+  exports[name + 'Output'] = dest;
+  exports[name + 'All'] = path.join(dir, '*');
 });

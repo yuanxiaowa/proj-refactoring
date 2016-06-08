@@ -1,0 +1,46 @@
+{
+  "title": "角色详情",
+  "tabs": ["角色权限", "角色成员"],
+  "items": [
+    [{
+      "name": "编号",
+      "value": "0101"
+    }, {
+      "name": "禁用",
+      "value": "是"
+    }, {
+      "name": "编辑日期",
+      "value": "2016-5-5"
+    }],
+    [{
+      "name": "创建人",
+      "value": "李起光"
+    }, {
+      "name": "上级权限",
+      "value": "项目管理"
+    }, {
+      "name": "创建日期",
+      "value": "2016-5-5"
+    }],
+    [{
+      "name": "备注",
+      "value": "查看项目基本信息",
+      "offset": true
+    }]
+  ],
+  "formItems": [{
+    "label": "禁用",
+    "text": "否"
+  }, {
+    "label": "角色名",
+    "type": "input",
+    "value": "采购计划详情"
+  }, {
+    "label": "编号",
+    "type": "input",
+    "value": "0215"
+  }, {
+    "label": "备注",
+    "type": "textarea"
+  }]
+}

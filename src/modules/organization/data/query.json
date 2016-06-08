@@ -1,0 +1,25 @@
+{
+  "title": "人员查询",
+  "items": [
+    [{
+      "name": "部门编号",
+      "value": "{{num}}"
+    }, {
+      "name": "上级部门",
+      "value": "{{higher}}"
+    }, {
+      "name": "排序",
+      "value": "{{sort}}"
+    }],
+    [{
+      "name": "负责人",
+      "value": "{{recharge}}"
+    }, {
+      "name": "描述",
+      "value": "{{desc}}"
+    }, {
+      "name": "禁用",
+      "value": "{{isfb}}"
+    }]
+  ]
+}

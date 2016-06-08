@@ -1,38 +1,54 @@
 extends /common
 
 append style
-  +style(['$${bootstrapTable.css}', '$${bootstrapTreeview.css}', 'index'])
-append script
-  +script(['$${bootstrapTable}', '$${bootstrapTreeview}', 'query'])
+  +style('index')
 
 append content
   +org
-    .panel.panel-default.mt-20.detail-show
-      .panel-heading: .row
-        .col-md-4
-          .pull-right
-            a(href="" data-toggle="modal" data-target="#modal-edit")
-              +icon('pencil', '编辑')
-          label 当前部门:
-          | 苏州分公司
-        .col-md-8
-          a.btn.btn-primary(href="" data-toggle="modal" data-target="#modal-add") 添加下级部门
-          +button('删除')(class="btn-primary")
-      .panel-body
-        .row
+    +template
+      | {{#cur}}
+      .panel.panel-default.mt-20.detail-show
+        .panel-heading: .row
+          .col-md-4
+            .pull-right
+              a(href="" data-modal-load="_query-modal1.html" data-modal-title="编辑部门")
+                +icon('pencil', '编辑')
+            label 当前部门:
+            | {{cur}}
           .col-md-8
-            +detail-list(items)
-    .panel.panel-default
-      .panel-body
-        .empty-apartment
-          span.text-warning 当前还没有任何部门，请添加部门后再维护人员信息！
-          +button('添加部门')(class="btn-primary" data-toggle="modal" data-target="#modal-edit")
+            a.btn.btn-primary#link-next(
+              href=""
+              data-modal-load="_query-modal2.html"
+              data-modal-title="添加下级部门"
+              data-modal-ctxt="返回") 添加下级部门
+            +button('删除')(class="btn-primary j-del")
+        .panel-body
+          .row
+            .col-md-8
+              +detail-list(items)
+      | {{/cur}}
+      | {{^cur}}
+      .panel.panel-default.mt-20
+        .panel-body
+          .empty-apartment
+            span.text-warning 当前还没有任何部门，请添加部门后再维护人员信息！
+            +button('添加部门')(
+              class="btn-primary"
+              data-modal-load="_query-modal1.html"
+              data-modal-title="新增部门"
+            )
+      | {{/cur}}
     .panel.panel-default: .panel-body
       #toolbar
         .extra-icon
           a(href="add.html")
             +icon("cog","新增员工")
-          a(href="" data-toggle="modal" data-target="#modal")
+          a(
+            href=""
+            data-modal-load="_query-modal3.html"
+            data-modal-title="批量导入页面"
+            data-modal-stxt="导入"
+          )
             +icon("reply","批量导入")
           a(href="")
             +icon("share-alt","导出")
@@ -47,37 +63,7 @@ append content
           td
           td
           td
-
-  +modal({title:'新增编辑部门',saveText:'保存'})(id="modal-edit")
-    +form-horizontal
-      +form-horizontal-item({label:'上级部门',i:true,type:'input',cw:5})
-      +form-horizontal-item({label:'排序',i:true,type:'input',cw:5})
-      +form-horizontal-item({label:'部门名称',i:true,type:'input',cw:5})
-      +form-horizontal-item({label:'部门编号',i:true,type:'input',cw:5})
-      +form-horizontal-item({label:'负责人',i:true,type:'mix'})
-        .row.sub-row
-          .col-xs-7
-            .input-group
-              +select()
-              label.input-group-addon ···
-          .col-xs-5.pl-0.form-control-static
-            +icon('plus-sign')(class="j-m-add")
-            | 最多添加3个
-      +form-horizontal-item({label:'描述',type:'textarea'})
-      +form-horizontal-item({label:'禁用',type:'checkbox',text:'是'})
-  +modal({title:'批量导入页面',saveText:'导入'})(id="modal")
-    +form-horizontal
-      +form-horizontal-item({label:'文件',type:'mix',cw:7})
-        .input-group.adapt-item
-          input.form-control(type="text" readonly)
-          label.input-group-addon 上传
-            input(type="file")
-      +form-horizontal-item({offset:true,type:'mix'})
-        .pull-left.text-muted 注：
-        .adapt-item.text-primary
-          | 1.如果您还没有导入模板，请点击 导入模板 下载模板
-          br
-          | 2.数据量请控制在1000条以内
+    
           
   +modal({noFooter:true})(class="modal-alert" id="modal2")
     .modal-alert-header
@@ -88,14 +74,3 @@ append content
       p 2. 第 100 行：【姓名】、【性别】不可以为空！
     div
       +button('知道了')(data-dismiss="modal" class="btn-primary")
-
-  +modal('添加下级部门')(id="modal-add")
-    +form-horizontal
-      .row
-        .col-xs-8.col-xs-offset-1
-          +form-horizontal-item({label:'数据范围', type:'mix'})
-            +radio('部门')
-            +radio('项目')
-          +searchbox('搜索用户')
-          .form-group
-            #treeview

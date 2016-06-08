@@ -8,28 +8,13 @@ append content
     .panel.panel-default.mt-20: .panel-body
       +form-horizontal
         +form-horizontal-item({label:'姓名',i:true,type:'input',cw:4})
-        +form-horizontal-item({label:'性别',i:true,type:'mix',cw:4})
-          +radio('男','gendar')
-          +radio('女','gendar')
+        +form-horizontal-item({label:'性别',i:true,type:'radio',text:['男','女'],cw:4})
         +form-horizontal-item({label:'编号',i:true,type:'input',cw:4})
-        +form-horizontal-item({label:'手机',type:'input',cw:4})
-        +form-horizontal-item({label:'电话',type:'input',cw:4})
-        +form-horizontal-item({label:'邮箱',type:'input',cw:4})
-        +form-horizontal-item({label:'任职情况',row:true,type:'mix',i:true,cw:8})
-          .row
-            .col-md-5
-              .pull-left.control-label 部门
-              .adapt-item
-                +input()(class="form-control")
-            .col-md-5
-              .pull-left.control-label 职务
-              .adapt-item
-                +input()(class="form-control")
-            .col-md-2.form-group
-              +checkbox('兼职')
-              +icon('add')(class="j-add")
-              +icon('sub')(class="j-sub")
-
+        +form-horizontal-item({label:'手机',type:'mobile',cw:4})
+        +form-horizontal-item({label:'电话',type:'tel',cw:4})
+        +form-horizontal-item({label:'邮箱',type:'email',cw:4})
+        +form-horizontal-item({label:'任职情况',row:true,type:'mix',i:true,cw:8})(id="desc")
+          include /partials/partial-1
         +form-horizontal-item({label:'地址',type:'input',cw:8})
         +form-horizontal-item({label:'备注',type:'textarea',cw:8})
         +form-horizontal-item({label:'是否激活',type:'mix'})
@@ -37,14 +22,11 @@ append content
         +form-horizontal-item({label:'账号',type:'mix',cw:8,i:true,row:false})
           .row
             .col-md-7
-              +input()(class="form-control")
+              +form-control({label:'账号',type:'text',i:true})
             .col-md-5
               label.control-label
                 span.text-danger *
                 | 密码：
               span ******
-              +button('生成密码')(class="btn-default" data-toggle="modal" data-target="#modal")
+              +button('生成密码')(class="btn-default" data-modal-load="_add-modal1.html" data-modal-title="发送密码")
         +form-horizontal-item({type:'submit',offset:true})
-
-  +modal({title:'发送密码',noret:true,saveText:'确定',saveClass:'btn-primary'})(id="modal")
-    +form-check(formCheck)

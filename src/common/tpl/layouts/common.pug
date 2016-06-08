@@ -1,10 +1,10 @@
 extends ./base
 
 append style
-  +style(['$${bootstrap.style}', '$${fontAwesome.style}'])
+  +style('$${bootstrap.style}', '$${fontAwesome.style}')
   <!--[if lt IE 9]>
-  +script(['$${html5shiv}', '$${respond}'])
+  +script('$${html5shiv}', '$${respond}')
   <![endif]-->
 
 append script
-  +script(['$${jquery@1.12.3}', '$${bootstrap}'])
+  +script('$${jquery@1.12.3}', '$${bootstrap}', '$${mustache}')

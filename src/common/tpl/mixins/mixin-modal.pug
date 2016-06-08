@@ -23,28 +23,31 @@ mixin modal(title, noFooter)
               if !obj.noret
                 +button('返回')(data-dismiss="modal")
 
+mixin panelm(placeholder, s)
+  form.panelm
+    .panelm-j
+      .form-group.has-feedback
+        input.form-control(placeholder=placeholder)
+        .icon-search.form-control-feedback
+      ul.panelm-w.list-unstyled
+        +iterator(10)
+          li
+            label
+              input(type="checkbox")
+              | 材料员
+    .panelm-c
+      button.btn.j-role-a(type="button" title="添加")
+        .icon-angle-right
+      button.btn.j-role-aa(type="button" title="全部添加")
+        .icon-double-angle-right 
+      button.btn.j-role-r(type="button" title="移除")
+        .icon-angle-left
+      button.btn.j-role-ra(type="button" title="全部移除")
+        .icon-double-angle-left 
+    .panelm-j
+      .form-group=s
+      ul.panelm-w.list-unstyled
+
 mixin modal-role(title, placeholder, s)
   +modal(title)(id="modal-role")
-    form.panelm
-      .panelm-j
-        .form-group.has-feedback
-          input.form-control(placeholder=placeholder)
-          .icon-search.form-control-feedback
-        ul.panelm-w.list-unstyled
-          +iterator(10)
-            li
-              label
-                input(type="checkbox")
-                | 材料员
-      .panelm-c
-        button.btn.j-role-a(type="button" title="添加")
-          .icon-angle-right
-        button.btn.j-role-aa(type="button" title="全部添加")
-          .icon-double-angle-right 
-        button.btn.j-role-r(type="button" title="移除")
-          .icon-angle-left
-        button.btn.j-role-ra(type="button" title="全部移除")
-          .icon-double-angle-left 
-      .panelm-j
-        .form-group=s
-        ul.panelm-w.list-unstyled
+    +panelm(placeholder, s)
