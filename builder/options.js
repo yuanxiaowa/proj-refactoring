@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = {
   error: {
-    errorHandler: function(msg) {
+    errorHandler: function (msg) {
       gutil.log(msg)
     }
   },
@@ -15,9 +15,6 @@ module.exports = {
   },
   stylelint: {
 
-  },
-  rename: function(_path) {
-    _path.dirname = path.dirname(_path.dirname);
   },
   env: {
     product: false,

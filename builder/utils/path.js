@@ -56,7 +56,7 @@ function getParentName(name) {
  */
 function getSameLevelName(name, dir, type) {
   let _name = getName(name);
-  return path.join(getParentDir, dir, `${_name}.${type}`);
+  return path.join(getParentDir(name), dir, `${_name}.${type}`);
 }
 
 /**
@@ -74,18 +74,28 @@ function getExtName(name) {
  * @return {String}
  */
 function unixizePath(name) {
-  return path.replace(/\\/g, '/');
+  return name.replace(/\\/g, '/');
 }
 
-new Promise((resolve, reject) => {
-  reject('hello');
-}).then(null, () => {
+function contains(src, dest) {
+  src = path.resolve(src);
+  dest = path.resolve(dest);
+  return dest.startsWith(src);
+}
 
-}).then(result => {
-  console.log(result)
-}, err => {
-  console.log(err)
-})
+function getFileNameRel(src, rel) {
+  src = path.resolve(src);
+  rel = path.resolve(rel) + "\\";
+  return src.replace(rel, '');
+}
+
+function getSp(src) {
+  return path.join(getParentDir(src), getFullName(src));
+}
+
+function changeExt(src, ext) {
+  return src.replace(/\.\w+$/, `.${ext}`);
+}
 
 module.exports = {
   getFullName,
@@ -97,5 +107,9 @@ module.exports = {
   getExtName,
   unixizePath,
   join: path.join,
-  relative: path.relative
+  relative: path.relative,
+  contains,
+  getFileNameRel,
+  getSp,
+  changeExt
 };

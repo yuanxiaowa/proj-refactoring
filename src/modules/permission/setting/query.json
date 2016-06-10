@@ -1,1 +1,1 @@
-{"js":["$${bootstrapTable}","query"],"css":["$${bootstrapTable.css}"]}
+{"js":["$${bootstrapTable}"],"css":["$${bootstrapTable.css}"]}

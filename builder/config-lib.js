@@ -6,10 +6,10 @@ let args = process.argv.slice(2);
 let b = true;
 
 args = args.filter(item => {
-   if (item === '-r') {
+  if (item === '-r') {
     return b = false;
-   }
-   return true;
+  }
+  return true;
 });
 
 let sargs = args.slice();

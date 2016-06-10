@@ -9,6 +9,8 @@ var destPublicDir = path.join(dest, 'public');
 
 var commonDir = path.join(entrance, 'common');
 
+var cachesDir = path.join(dest, '.caches');
+
 var files = ['tpl', 'style', 'script', 'image'];
 
 var extensions = {
@@ -20,6 +22,7 @@ var extensions = {
 
 exports = module.exports = {
   output: dest,
+  commonDir,
   static: {
     style: path.join(commonDir, 'css/*.css'),
     styleOutput: path.join(destPublicDir, 'css'),
@@ -33,9 +36,16 @@ exports = module.exports = {
     components: path.join(commonDir, 'components')
   },
   outputPublic: destPublicDir,
+  cachesDir,
+  partials: {
+    tpl: path.join(commonDir, 'tpl', 'partials', extensions['tpl']),
+    tplOutput: path.join(cachesDir, 'tpl'),
+    script: path.join(commonDir, 'script', 'partials', extensions['style']),
+    scriptOutput: path.join(cachesDir, 'script')
+  },
   rtpl: {
     pattern: /(extends|include)\s+(\/?\w+)/g,
-    resolve: function(_, $1, $2) {
+    resolve: function (_, $1, $2) {
       var _name;
       var dir = '';
       if ($2.startsWith('.')) {
@@ -53,15 +63,15 @@ exports = module.exports = {
   },
   rstyle: {
     pattern: /@import\s+['"](?=\/)/g,
-    resolve: function(_) {
+    resolve: function (_) {
       return _ + path.relative(
         path.dirname(exports.style),
         path.join(commonDir, 'css')
       );
     }
   },
-  datas: function(file) {
-    return new Promise(function(resolve, reject) {
+  datas: function (file) {
+    return new Promise(function (resolve, reject) {
       var _path = file.path;
       var _p = path.dirname(path.dirname(_path));
       var _name = path.basename(_path, '.pug');
@@ -69,7 +79,7 @@ exports = module.exports = {
       fs.readFile(
         filepath,
         'utf8',
-        function(err, result) {
+        function (err, result) {
           if (err) {
             // console.log('enter')
             // console.log(err)
@@ -77,21 +87,21 @@ exports = module.exports = {
           }
           try {
             resolve(JSON.parse(result));
-          } catch(e) {
+          } catch (e) {
             console.error(filepath, 'json格式不正确');
           }
-      })
+        })
     });
   },
   rscript: {
     pattern: /(import.*from ')(?=\/)/g,
-    resolve: function(_, $1) {
+    resolve: function (_, $1) {
       return _ + path.relative(
         path.join(commonDir, 'js', $1 + '.js')
-        );
+      );
     }
   },
-  rpath: function(file) {
+  rpath: function (file) {
     var d = file.relative.match(/^([\w-]+)\\([\w-]+)/);
     var f = path.join(dest, d[1], d[2] === 'tpl' ? '' : d[2]);
     return f;
@@ -105,10 +115,11 @@ var fixs = {
 
 var datas;
 
-files.forEach(function(name) {
+files.forEach(function (name) {
   var dir = path.join(modules, '*', fixs[name] ? fixs[name] : name);
   exports[name] = path.join(dir, extensions[name]);
   exports[name + 'Dir'] = dir;
+  exports[name + 'Base'] = modules;
   exports[name + 'Output'] = dest;
   exports[name + 'All'] = path.join(dir, '*');
 });
