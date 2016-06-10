@@ -1,4 +1,6 @@
-$.ajaxSettings['Accept'] = 'application/json';
+import jquerValidation from 'jquerValidation';
+
+$.ajaxSettings.Accept = 'application/json';
 $.ajaxSettings['Content-Type'] = 'application/json';
 let defaultOptions = {
   errorClass: 'help-block',
@@ -30,4 +32,4 @@ let defaultOptions = {
 export default function($form, _options) {
   var options = $.extend(defaultOptions, _options);
   return $form.validate(options);
-};
+}

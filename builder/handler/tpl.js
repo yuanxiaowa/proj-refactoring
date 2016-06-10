@@ -10,6 +10,8 @@ const tpl = require('../plugins/posthtml-pug');
 
 const rExternal = /(extends|include)\s+(\/?\w+)/g;
 
+var gds = require(mpath.unixizePath('../../' + mpath.join(paths.common.tpl, 'funcs')));
+
 
 /**
  * 修复外部扩展
@@ -64,20 +66,12 @@ function getData(filepath) {
   return mfile.getJSON2(mpath.getSameLevelName(filepath, 'data', 'json'));
 }
 
-function handlePartials(content, filepath) {
-  let result = require('pug').render(
-    `include ../mixins/mixin-main\n${content}`, {
-      filename: filepath
-    }
-  );
-  return result;
+function handlePartials(content) {
+  return `include ../mixins/mixin-main\n${content}`;
 }
 
 function handleFilePath(file) {
-  var base = file.base;
-  if (mpath.contains(paths.commonDir, base)) {
-    file.base = paths.common.tpl;
-  } else {
+  if (!mpath.contains(paths.commonDir, file.base)) {
     file.base = paths.tplBase;
   }
 }
@@ -86,9 +80,13 @@ module.exports = (context, content, file) => {
   var filepath = file.path;
   return new Promise((resolve, reject) => {
     let defer = Promise.defer();
+    let opts = {
+      filename: filepath,
+      locals: gds
+    };
     handleFilePath(file);
     if (mpath.getParentName(filepath) === 'partials') {
-      defer.resolve(handlePartials(content, filepath));
+      defer.resolve(handlePartials(content));
     } else {
       getSetting(filepath)
         .then(data => {
@@ -110,23 +108,10 @@ module.exports = (context, content, file) => {
           return getData(filepath);
         })
         .then(data => {
-          let defer = Promise.defer();
-          posthtml([tpl({
-              filename: filepath,
-              pretty: '  ',
-              locals: data,
-              // debug: true
-            })])
-            .process(content)
-            .then(result => {
-              defer.resolve(result.html);
-            }, defer.reject);
-          return defer.promise;
-        })
-        .then(result => {
           filepath = mpath.getSp(filepath);
-          result = result.replace(resources.pattern, resources.resolve());
-          defer.resolve(result);
+          opts.pretty = '  ';
+          opts.locals = Object.assign(opts.locals, data);
+          defer.resolve(content);
         });
     }
 
@@ -135,8 +120,18 @@ module.exports = (context, content, file) => {
 
     defer.promise
       .then(content => {
+        let defer = Promise.defer();
+        posthtml([tpl(opts)])
+          .process(content)
+          .then(result => {
+            defer.resolve(result.html);
+          }, defer.reject);
+        return defer.promise;
+      })
+      .then(result => {
         file.path = mpath.changeExt(filepath, 'html');
-        return content;
+        result = result.replace(resources.pattern, resources.resolve());
+        return result;
       })
       .then(resolve, reject);
   });

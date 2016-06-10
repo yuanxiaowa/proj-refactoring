@@ -1,5 +1,3 @@
-- function getRn(name){return 'n'+escape(name).replace(/%u/g, '').substr(-5)}
-
 
 mixin checkbox(text, name)
   - if(!(text instanceof Array))
@@ -63,7 +61,7 @@ mixin form-control(item)
     input.form-control(
       id=item.id
       type=/email/.test(item.type)?item.type:"text"
-      required=item.i?true:false data-msg-required=item.i?'请输入'+item.label:false 
+      required=item.i?true:false data-msg-required=item.i?'请输入'+item.label:false
       date=item.type==='date'?'true':false data-msg-date=item.type==='date'?item.label+"格式不正确":false
       data-msg-email=item.type==='email'?(item.label+"格式不正确"):false
       mobile=item.type==='mobile'?'true':false data-msg-mobile=item.type==='mobile'?(item.label+"格式不正确"):false

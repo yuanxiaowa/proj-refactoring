@@ -1,5 +1,5 @@
-import formValidation from './formValidation';
-import Dialog from './dialog';
+import formValidation from 'formValidation';
+import Dialog from 'dialog';
 
 // 绑定加载模态对话框事件
 $('body').on('click', '[data-modal-load]', function() {

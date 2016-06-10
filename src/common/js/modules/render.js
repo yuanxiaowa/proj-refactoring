@@ -1,22 +1,25 @@
-export default function(ele, data) {
+import Mustache from 'Mustache';
+
+export default function(ele, _data) {
   var $ele;
   var dfd = $.Deferred();
-  if (typeof ele === 'number') {
+  var data = _data;
+  if ('number' === typeof ele) {
     $ele = $('script[type=x-tmpl-mustache]').eq(ele);
-  } else if (typeof ele === 'string' || ele.tagName) {
+  } else if ('string' === typeof ele || ele.tagName) {
     $ele = $(ele);
   } else if (ele.jquery) {
     $ele = ele;
   } else {
-    if (typeof ele === 'object') {
+    if ('object' === typeof ele) {
       data = ele;
     }
     $ele = $('script[type=x-tmpl-mustache]');
   }
-  var template = $ele.html();
+  let template = $ele.html();
   Mustache.parse(template);
-  var rendered = Mustache.render(template, data);
-  var $r = $(rendered);
+  let rendered = Mustache.render(template, data);
+  let $r = $(rendered);
   $ele.before($r);
   dfd.resolve($r);
   return dfd.promise();

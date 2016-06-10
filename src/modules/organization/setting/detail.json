@@ -1,1 +1,1 @@
-{"js":["$${jqueryValidate}","$${jqueryForm2json}","$${bootstrapTable}"],"css":["$${bootstrapTable.css}"]}
+{"js":["$${jqueryValidate}","$${jqueryForm2json}","$${bootstrapTable}","detail"],"css":["$${bootstrapTable.css}"]}

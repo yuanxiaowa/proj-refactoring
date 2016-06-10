@@ -1,4 +1,3 @@
-
 const rollup = require('rollup');
 const CLIEngine = require("eslint").CLIEngine;
 
@@ -49,6 +48,7 @@ function getTpl(name) {
   var filename = mpath.join(paths.partials.tplOutput, `${name}.html`);
   return mfile.readFile2(filename);
 }
+
 /**
  * 替换处理
  * @param  {String} content
@@ -116,23 +116,28 @@ function handleFilePath(file) {
 
 module.exports = (context, content, file, options) => {
   return new Promise((resolve, reject) => {
+    var filepath = file.path;
     var settings = {
       js: [],
       css: []
     };
-    var filepath = file.path;
-    var filename = mpath.getName(filepath);
     content = extractAndReplace(content, settings);
-    // 写入配置
-    mfile.writeFile(
-      mpath.getSameLevelName(filepath, 'setting', config.json),
-      settings
-    );
+
+    if (!mpath.contains(paths.commonDir, filepath)) {
+      settings.js.push(mpath.getName(filepath));
+      // 写入配置
+      mfile.writeFile(
+        mpath.getSameLevelName(filepath, 'setting', config.json),
+        settings
+      );
+    }
 
     content = importReplace(content, filepath);
 
     includeHandle(content).then(content => {
-      // handleFilePath(file);
+      if (!mpath.contains(paths.commonDir, filepath)) {
+        handleFilePath(file);
+      }
       bundle(content, filepath, options).then(resolve, reject);
       lint(content, filepath);
     });

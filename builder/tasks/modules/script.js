@@ -22,7 +22,7 @@ module.exports = (src, dest) => {
         ]
       },
       rollupGen: {
-        format: 'iife'
+        format: 'amd'
       }
     }))
     .pipe(gif(currentEnv.product, uglify()))

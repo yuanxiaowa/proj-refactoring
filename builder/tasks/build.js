@@ -1,4 +1,6 @@
 const gulp = require('gulp');
+const plumber = require('gulp-plumber');
+const changed = require('gulp-changed');
 
 const paths = require('../paths');
 const options = require('../options');
@@ -40,6 +42,8 @@ gulp.task('tpl', function() {
 gulp.task('script', function() {
   var script = require('./modules/script');
   return () => {
+    script(paths.partials.script, paths.partials.tplOutput);
+    script(paths.modules.script, paths.modules.scriptOutput);
     return script(paths.script, paths.scriptOutput);
   };
 }());

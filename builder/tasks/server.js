@@ -14,6 +14,8 @@ gulp.task('server', function() {
         // '/Public': 'Public'
       }
     },
+    files: 'dest/**/*',
+    reloadDelay: 1000,
     middleware: function(req, res, next) {
       var url = URL.parse(req.url).pathname;
 

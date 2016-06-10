@@ -1,3 +1,6 @@
+/*eslint no-param-reassign:0*/
+/*eslint complexity:0 */
+
 function Dialog({
   title = '温馨提示',
   content,
@@ -9,6 +12,7 @@ function Dialog({
 }) {
   this.options = {
     content,
+    b: 1,
     title,
     btns,
     btnsTxt,
@@ -38,17 +42,20 @@ Dialog.getModal = (content = '正在加载中...') => {
   `;
 };
 
-Dialog.getFooter = (btns = Dialog.BTNOK, { stxt = '保存', ctxt = '取消' }) => {
+Dialog.getFooter = (btns = Dialog.BTNOK, {
+  stxt = '保存',
+  ctxt = '取消'
+}) => {
   if (!btns) {
     return '';
   }
   btns = +btns;
   let tpl = '<div class="modal-footer">';
   if ((btns & Dialog.BTNOK) === Dialog.BTNOK) {
-    tpl += `<button class="btn btn-primary j-modal-ok">${stxt}</button>`
+    tpl += `<button class="btn btn-primary j-modal-ok">${stxt}</button>`;
   }
   if ((btns & Dialog.BTNCANCEL) === Dialog.BTNCANCEL) {
-    tpl += `<button class="btn btn-default" data-dismiss="modal">${ctxt}</button>`
+    tpl += `<button class="btn btn-default" data-dismiss="modal">${ctxt}</button>`;
   }
   tpl += '</div>';
   return tpl;
@@ -73,7 +80,7 @@ Dialog.prototype = {
     if (this.options.title) {
       $c.prepend(Dialog.getHeader(this.options.title));
     }
-    if (this.options.btns !== false) {
+    if (false !== this.options.btns) {
       $c.append(Dialog.getFooter(this.options.btns, this.options.btnsTxt));
     }
     $modal.appendTo('body');
@@ -107,7 +114,7 @@ Dialog.prototype = {
   bindEvents() {
     this.$modal
       .on('click', '.j-modal-ok', () => {
-        if (this.options.cb() === false) {
+        if (false === this.options.cb()) {
           return;
         }
         this.hide();
@@ -133,7 +140,9 @@ $.alert = (msg, title) => {
     content: `<div class="text-center">${msg}</div>`,
     cb: $dtd.resolve,
     title,
-    btnsTxt: {stxt: '确定'},
+    btnsTxt: {
+      stxt: '确定'
+    },
     backdrop: true
   });
   alert.show();
@@ -147,7 +156,9 @@ $.confirm = (msg, title) => {
     title,
     cb: $dtd.resolve,
     btns: Dialog.BTNOKCANCEL,
-    btnsTxt: {stxt: '确定'},
+    btnsTxt: {
+      stxt: '确定'
+    },
     backdrop: true
   });
   alert.show();
