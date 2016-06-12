@@ -192,3 +192,11 @@ mixin table-pact-change-history
         td 李刚 
         td 李刚
         td 2016-12-15 12:50:32
+mixin table-add-pact
+  +table(['变更类型','变更前','变更前','变更事由'])(class="table-bordered")
+    +iterator(3)
+      tr
+        td 变更类型
+        td 变更前
+        td 变更前 
+        td 变更事由

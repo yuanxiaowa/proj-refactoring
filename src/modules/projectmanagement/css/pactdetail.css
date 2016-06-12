@@ -2,11 +2,13 @@
 * @Author: huangzexia
 * @Date:   2016-06-06 09:52:30
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-07 17:25:13
+* @Last Modified time: 2016-06-08 12:00:51
 */
 @import '/modules/variables';
 @import '/modules/page-common';
 @import '/modules/tabs';
+
+/*合同详情页*/
 .con-container{
   background: #fff;
   border:$border;
@@ -76,6 +78,7 @@
     }
   }
 }
+/*合同评审表*/
 .modal-content{
   border-radius: 0;
   .modal-header{
@@ -105,5 +108,55 @@
   .idea-item{
     margin-bottom: 32px;
     border-bottom: 1px solid #d2d2d2;
+  }
+}
+/*补充合同*/
+.ok{
+  margin-left: 5px!important;
+  margin-right: 18px!important;
+  &:focus,
+  &:hover{
+    background:none;
+  }
+}
+.filing{
+  position: relative;
+  top: 1px;
+  margin-right: 8px!important;
+}
+.pact-form{
+  margin-top: -20px;
+  background: #fff;
+  border: $border;
+  border-top: none;
+  .title,
+  form-box{
+    padding-left: 30px;
+  }
+  .title{
+    margin-bottom: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: #d5e0ed;
+  }
+  .form-box{
+    margin-top: 20px;
+    overflow: hidden;
+    .item{
+      margin-bottom: 30px;
+      dt{
+        width: auto;
+        font-weight: normal;
+      }
+      dd{
+        margin-left: 12px;
+      }
+      textarea{
+        border: $border;
+        resize: none;
+        height: 88px;
+        width: 90%;
+      }
+    }
   }
 }

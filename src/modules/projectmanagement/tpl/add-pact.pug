@@ -1,0 +1,39 @@
+extends /common
+
+append style
+  +style('pactdetail')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary 保存
+        button.btn.btn-default.ok 确认提交 
+        input.filing(type="checkbox" checked) 
+        | 已归档
+    .pact-form
+      p.title 基本信息
+      .form-box
+        .item
+          +form-horizontal()(class="row")
+            .col-md-12
+                .row
+                  +form-horizontal-item({label:'合同名称',i:true,type:'input',cw:8})(class="col-md-4")
+                  +form-horizontal-item({label:'编号',i:true,type:'input',cw:8})(class="col-md-4")
+                  +form-horizontal-item({label:'主合同',i:true,type:'input',cw:8})(class="col-md-4")
+                  +form-horizontal-item({label:'所属项目',type:'input',cw:8})(class="col-md-4")
+                  +form-horizontal-item({label:'合同签订日期',i:true,type:'input',cw:8})(class="col-md-4")
+        .item.col-md-8
+          +table-add-pact
+        .item.col-md-8
+          dl.dl-horizontal.remark
+            dt 备注：
+              dd 
+                textarea.form-control
+        .item.col-md-8
+          dl.dl-horizontal.pull-left.col-md-2
+            dt 编制人：
+              dd 李起光
+          dl.dl-horizontal.pull-left.col-md-3
+            dt 编制日期：
+              dd 2016-12-25

@@ -1,0 +1,26 @@
+{
+  "title": "编辑补充合同",
+  "forms": [
+    [{
+      "label": "合同名称",
+      "i": true,
+      "type": "input"
+    }, {
+      "label": "编号",
+      "i": true,
+      "type": "input"
+    }, {
+      "label": "主合同",
+      "i": true,
+      "type": "input"
+    }],
+    [{
+      "label": "所属项目",
+      "type": "input"
+    }, {
+      "label": "合同签订日期",
+      "i": true,
+      "type": "input"
+    }]
+  ]
+}
