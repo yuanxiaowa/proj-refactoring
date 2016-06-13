@@ -1,0 +1,113 @@
+extends /common
+
+append style
+  +style('pactdetail')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary 返回
+        button.btn.btn-default 确认提交 
+        button.btn.btn-default 编辑 
+      .detail-box.clearfix
+        .project-pic.col-md-2
+          img(src="image/project-pic.jpg" class="pic img-responsive")
+        .project-info.col-md-10
+          p.project-name 南京歌剧院
+            small 编号:    20151245
+            small 负责人:  胡某某（南京第二工程项目部）
+          .info-list
+            .item.clearfix
+              .col-md-3
+                dl.dl-horizontal
+                  dt 项目全称:
+                  dd 南京歌剧院第一期
+              .col-md-3
+                dl.dl-horizontal
+                  dt 实际开竣工日期:
+                  dd 2016-5-6
+              .col-md-4
+                dl.dl-horizontal
+                  dt 建设单位:
+                  dd 南京房地产开发商
+            .item.clearfix
+              .col-md-3
+                dl.dl-horizontal
+                  dt 合同开竣工日期:
+                  dd 2016/6-2017/7
+              .col-md-3
+                dl.dl-horizontal
+                  dt 开票类型:
+                  dd 11%增值税专用发票
+              .col-md-5
+                dl.dl-horizontal
+                  dt 合同总额(含税价):
+                  dd 200万(增补200万)(税额196万,不含税价60万) &nbsp;
+                    a(href="") 还未建合同，点击新建
+            .item.clearfix
+              .col-md-3
+                dl.dl-horizontal
+                  dt 工程地点:
+                  dd 江苏南京
+              .col-md-3
+                dl.dl-horizontal
+                  dt 工程类别:
+                  dd 房建
+              .col-md-3
+                dl.dl-horizontal
+                  dt 管理费率:
+                  dd 2%
+            .item.clearfix
+              .col-md-9
+                dl.dl-horizontal
+                  dt 工程概况:
+                  dd 本工程建筑面积约144330平方米，其中，地下室共4层约50590平方米，地上共两栋超高层约93740平方米
+              .col-md-3
+                dl.dl-horizontal
+                  dt 备注:
+                  dd 质量要求合格 
+          .row
+            .statu-pic.col-md-offset-10
+              img(src="image/statu.png")
+              img(src="image/success-statu.png")
+              img(src="image/wait-statu.png")
+              img(src="image/nopass-statu.png")
+    +tab(tabs)
+      .tab-pane.active#tab1
+        .panel.panel-default
+          .panel-body.row
+            .col-md-9
+              .form-group 该用户拥有的角色：
+                a(href="" data-toggle="modal" data-target="#modal-role")
+                  +icon('pencil', '编辑')
+  +modal('编辑项目成员')(id="modal-role")
+    +table-rel-role-edit
+
+
+
+
+
+//-       .tab-pane#tab2
+//-         .panel.panel-default
+//-           .panel-body.row
+//-             .col-md-9
+//-               .form-group 该用户拥有的角色：
+//-                 a(href="" data-toggle="modal" data-target="#modal-role")
+//-                   +icon('pencil', '编辑')
+//-       .tab-pane#tab3
+//-         .panel.panel-default
+//-           .panel-body.row
+//-             .col-md-9
+//-               .form-group 请上传 “工程效果图”、“施工许可证”、“中标通知书”等相关文档:
+//-                 a(href="" data-toggle="modal" data-target="#modal-role")
+//-                   +icon('pencil', '编辑')
+//-       .tab-pane#tab4
+//-         .panel.panel-default
+//-           .panel-body.row
+//-             .col-md-9
+//-               .form-group 该用户拥有的角色：
+//-                 a(href="" data-toggle="modal" data-target="#modal-role")
+//-                   +icon('pencil', '编辑')
+//-     +modal-role('编辑项目成员
+//- ', '', '')

@@ -1,11 +1,8 @@
-// require(jqueryValidate)
-// require(jqueryForm2json)
-// require(bootstrapTable,css)
-
-import Dialog from '/modules/dialog';
-import modalRemote from '/modules/modalRemote';
-import orgLeft from '/modules/orgLeft';
-import render from '/modules/render';
+import 'dialog';
+import 'bootstrapTable';
+import 'modalRemote';
+import 'orgLeft';
+import render from 'render';
 
 render({
   num: 'sdfsdfsd',

@@ -1,139 +1,6 @@
 var path = require('path');
 
-var resources = {
-  jquery: {
-    cur: '2.2.3',
-    files: {
-      '2.2.3': {
-        script: 'jquery.js'
-      },
-      '1.12.3': {
-        script: 'jquery.js'
-      }
-    }
-  },
-  bootstrap: {
-    cur: '3.3.6',
-    files: {
-      '3.3.6': {
-        script: 'js/bootstrap.js',
-        style: 'css/bootstrap.css'
-      }
-    }
-  },
-  bootstrapTable: {
-    cur: '1.10.1',
-    files: {
-      '1.10.1': {
-        script: 'js/bootstrap-table.js',
-        style: 'css/bootstrap-table.css'
-      }
-    }
-  },
-  bootstrapTreeview: {
-    cur: '1.2.0',
-    files: {
-      '1.2.0': {
-        script: 'js/bootstrap-treeview.js',
-        style: 'css/bootstrap-treeview.css'
-      }
-    }
-  },
-  d3: {
-    cur: '3.5.17',
-    files: {
-      '3.5.17': {
-        script: 'd3.js'
-      }
-    }
-  },
-  echarts: {
-    cur: '3.1.9',
-    files: {
-      '3.1.9': {
-        script: 'echarts.js',
-        other: {
-          bmap: 'bmap.js',
-          china: 'china.js'
-        }
-      }
-    }
-  },
-  jqBootstrapValidation: {
-    cur: '1.3.6',
-    files: {
-      '1.3.6': {
-        script: 'jqBootstrapValidation.js'
-      }
-    }
-  },
-  jqueryValidate: {
-    cur: '1.15.0',
-    files: {
-      '1.15.0': {
-        script: 'jquery.validate.js'
-      }
-    }
-  },
-  fontAwesome: {
-    cur: '3.2.1',
-    files: {
-      '3.2.1': {
-        style: 'css/font-awesome.css'
-      }
-    }
-  },
-  html5shiv: {
-    cur: '3.7.3',
-    files: {
-      '3.7.3': {
-        script: 'html5shiv.js'
-      }
-    }
-  },
-  respond: {
-    cur: '1.4.2',
-    files: {
-      '1.4.2': {
-        script: 'respond.js'
-      }
-    }
-  },
-  jqueryForm2json: {
-    cur: '1.0',
-    files: {
-      '1.0': {
-        script: 'jquery.form2json.js'
-      }
-    }
-  },
-  select2: {
-    cur: '4.0.3',
-    files: {
-      '4.0.3': {
-        script: 'js/select2.js',
-        style: 'css/select2.css'
-      }
-    }
-  },
-  bootstrapDatetimepicker: {
-    cur: '2.0',
-    files: {
-      '2.0': {
-        script: 'js/bootstrap-datetimepicker.css',
-        style: 'css/bootstrap-datetimepicker.js'
-      }
-    }
-  },
-  mustache: {
-    cur: '2.2.1',
-    files: {
-      '2.2.1': {
-        script: 'mustache.js'
-      }
-    }
-  }
-};
+var resources = require('./config/resources');
 
 var exts = ['css', 'style', 'js', 'script'];
 var fixs = {
@@ -160,8 +27,8 @@ var exportsObj = module.exports = {
           version = obj.cur;
         }
         if (version in obj.files) {
-          if (arr.length > 1) {
-            if (arr.length > 2) {
+          if (1 < arr.length) {
+            if (2 < arr.length) {
               if (!_type) {
                 _type = arr.slice(-1)[0];
               }
@@ -192,7 +59,7 @@ var exportsObj = module.exports = {
         console.error($1 + '不存在~~~');
       }
       return dir.replace(/\\/g, '/');
-    }
+    };
   },
   pattern: /\$\${([^}]*)}/g
 }

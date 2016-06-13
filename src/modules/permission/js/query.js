@@ -1,1 +1,1 @@
-// require(bootstrapTable,css)
+import 'bootstrapTable';

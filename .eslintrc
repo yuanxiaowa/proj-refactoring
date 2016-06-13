@@ -6,7 +6,8 @@
   },
   // http://eslint.org/docs/user-guide/configuring#specifying-environments
   "env": {
-    "browser": true
+    "browser": true,
+    "node": true
   },
   // http://eslint.org/docs/user-guide/configuring#specifying-globals
   "globals": {
@@ -65,8 +66,8 @@
     "accessor-pairs": 0,
     "array-callback-return": 2,
     // "block-scoped-var:": 2,
-    "complexity": [2, 2],
-    "consistent-return": 2,
+    // "complexity": [2, 2],
+    // "consistent-return": 2,
     "curly": 1,
     "default-case": 0,
     "dot-location": [1, "property"],
@@ -115,14 +116,14 @@
     "no-new-wrappers": 2,
     "no-octal": 2,
     "no-octal-escape": 2,
-    "no-param-reassign": [1, {
-      "props": false
-    }],
+    /*"no-param-reassign": [1, {
+      "props": true
+    }],*/
     "no-proto": 2,
     "no-redeclare": [2, {
       "builtinGlobals": true
     }],
-    "no-return-assign": 1,
+    "no-return-assign": 0,
     "no-script-url": 2,
     "no-self-assign": 2,
     "no-self-compare": 2,

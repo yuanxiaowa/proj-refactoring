@@ -1,4 +1,4 @@
-// require(bootstrapTable,css)
+import 'bootstrapTable';
 import dropmenu from '/modules/dropmenu';
 import role from '/modules/role';
 role($('#modal-role'));

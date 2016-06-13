@@ -1,55 +1,47 @@
 var through = require('through2');
 var gutil = require('gulp-util');
-var path = require('path');
-// var posthtml = require('posthtml');
-var fs = require('fs');
-
-var resources = require('../resources');
-var paths = require('../paths');
-
 
 var PLUGIN_NAME = 'common-handler';
 
 var getHandler = (() => {
   var scriptHandler = require('../handler/script');
   var tplHandler = require('../handler/tpl');
+  var styleHandler = require('../handler/style');
   return type => {
     if (type == 'script') {
       return scriptHandler;
     } else if (type == 'tpl') {
       return tplHandler;
+    } else if (type == 'style') {
+      return styleHandler;
     }
   };
 })();
 
-module.exports = function(_options) {
+module.exports = _options => {
   var options = Object.assign({
     type: 'script'
   }, _options);
-  return through.obj(function(file, encoding, callback) {
+  return through.obj(function (file, encoding, callback) {
     if (file.isNull()) {
-      // nothing to do
       return callback(null, file);
     }
     if (file.isStream()) {
       this.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported'));
       return callback(null, file);
     }
-    var self = this;
     var content = file.contents.toString();
-    var src = file.path;
     var handler = getHandler(options.type);
 
+    if (!handler) {
+      return callback(null, file);
+    }
     handler(this, content, file, options)
-      .then(null, () => {
-
-      })
+      .then(null, gutil.log)
       .then(content => {
         file.contents = new Buffer(content);
-        self.push(file);
+        this.push(file);
         callback();
       });
-
-    callback(null, file);
   });
 };

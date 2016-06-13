@@ -1,4 +1,6 @@
+const path = require('path');
 const fs = require('fs');
+const mfile = require('./utils/file');
 const spawn = require('child_process').spawn;
 
 let args = process.argv.slice(2);
@@ -19,12 +21,12 @@ if (b) {
 } else {
   sargs.unshift('uninstall');
 }
-if (sargs.length > 1) {
+if (1 < sargs.length) {
   sargs.push('--save-dev');
 }
 
 const cnpm = spawn(
-  process.platform === 'win32' ? 'cnpm.cmd' : 'cnpm',
+  'win32' === process.platform ? 'cnpm.cmd' : 'cnpm',
   sargs, {
     stdio: 'inherit'
   }
@@ -32,18 +34,29 @@ const cnpm = spawn(
 
 cnpm.on('exit', code => {
   if (0 === code) {
-    fs.readFile(
-      'package.json',
-      'utf8',
-      (err, result) => {
-        if (err) {
-          return console.log(err);
-        }
-        let devs = JSON.parse(result).devDependencies;
-        let versions = args.map(item => {
-          return devs[item].replace(/^[^\d]/, '');
-        });
-      }
-    );
+    // setConf();
   }
 });
+
+args = args.map(item => {
+  return item.replace(/@.*/, '');
+});
+
+function setConf() {
+  mfile.getJSON2('package.json')
+    .then(result => {
+      let res = {};
+      let devs = JSON.parse(result).devDependencies;
+      let versions = args.forEach(item => {
+        res[item] = {
+          cur: devs[item].replace(/^[^\d]/, '')
+        };
+      });
+      return res;
+    })
+    .then(result => {
+      args.forEach(item => {
+        let dir = fs.join('node_modules', 'item');
+      });
+    });
+}

@@ -1,5 +1,5 @@
-import formValidation from './formValidation';
-import Dialog from './dialog';
+import formValidation from 'formValidation';
+import Dialog from 'dialog';
 
 // 绑定加载模态对话框事件
 $('body').on('click', '[data-modal-load]', function() {
@@ -8,10 +8,11 @@ $('body').on('click', '[data-modal-load]', function() {
   if (!$self.data('loaded')) {
     let stxt = $self.data('modalStxt');
     let ctxt = $self.data('modalCtxt');
+    let abind = $self.data('modalBind');
     let btns = 0;
-    if ((stxt || stxt === undefined) && ctxt) {
+    if ((stxt || undefined === stxt) && ctxt) {
       btns = Dialog.BTNOKCANCEL;
-    } else if (stxt || stxt === undefined) {
+    } else if (stxt || undefined === stxt) {
       btns = Dialog.BTNOK;
     }
     let dialog = new Dialog({
@@ -22,25 +23,25 @@ $('body').on('click', '[data-modal-load]', function() {
         stxt,
         ctxt
       },
-      cb() {
-        var $form = $self.data('form');
-        if ($form) {
+      onOk() {
+        var $form = dialog.$modal.find('form');
+        if ($form.length) {
           $form.submit();
-          return false;
         }
-        $self.trigger('ok');
+        $self.trigger('ok.modalremote');
+        return false;
       }
     });
-    dialog.on('inited', () => {
+    dialog.on('inited.dialog', () => {
       dialog.show();
     });
-    dialog.on('loaded', () => {
+    dialog.on('loaded.dialog', () => {
       $self.data('loaded', true);
       let $form = dialog.$modal.find('form');
-      if ($form.length) {
+      if ('false' !== abind && $form.length) {
         $self.data('form', $form);
         formValidation($form, {
-          done(data) {
+          onSubmitSuccess(data) {
             // 发送密码回掉
             // 隐藏对话框
             dialog.hide();
@@ -50,7 +51,7 @@ $('body').on('click', '[data-modal-load]', function() {
           }
         });
       }
-      $self.trigger('loaded');
+      $self.trigger('loaded.modalremote');
     });
     $self.data('dialog', dialog);
   } else {

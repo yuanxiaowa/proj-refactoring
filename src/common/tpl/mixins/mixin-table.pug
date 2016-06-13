@@ -193,10 +193,44 @@ mixin table-pact-change-history
         td 李刚
         td 2016-12-15 12:50:32
 mixin table-add-pact
-  +table(['变更类型','变更前','变更前','变更事由'])(class="table-bordered")
-    +iterator(3)
+  +table(['变更类型','变更前','变更后','变更事由'])(class="table-bordered")
       tr
-        td 变更类型
-        td 变更前
-        td 变更前 
-        td 变更事由
+        td 
+          <select class="form-control">
+            <option>工期</option>
+            <option>工期1</option>
+            <option>工期2</option>
+            <option>工期3</option>
+          </select>
+        td 2016-1-10 ~ 2016-5-10
+        td 
+          <input type="date" class="form-control change-price" > ~
+          <input type="date" class="form-control change-price" >
+        td 
+          <input type="text" class="form-control" >
+      tr
+        td 
+          <select class="form-control">
+            <option>造价</option>
+            <option>造价1</option>
+            <option>造价2</option>
+            <option>造价3</option>
+          </select>
+        td 6000万
+        td <input type="text" class="form-control change-price" >  万 
+        td 
+          <input type="text" class="form-control" >
+      tr
+        td 
+          <select class="form-control">
+            <option>其它</option>
+            <option>其它1</option>
+            <option>其它2</option>
+            <option>其它3</option>
+          </select>
+        td 
+          <input type="text" class="form-control" >
+        td 
+          <input type="text" class="form-control" > 
+        td 
+          <input type="text" class="form-control" >

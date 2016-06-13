@@ -1,8 +1,6 @@
-/* global echarts:true */
-
-// require(echarts)
-// require(echarts.bmap)
-// require(echarts.china)
+import echarts from 'echarts';
+import 'echarts.bmap';
+import 'echarts.china';
 
 var myChart1 = echarts.init($('#echarts-1')[0]);
 var myChart2 = echarts.init($('#echarts-2')[0]);

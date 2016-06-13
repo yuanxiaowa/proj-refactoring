@@ -1,3 +1,6 @@
+/*eslint no-param-reassign:0*/
+/*eslint complexity:0 */
+
 function Dialog({
   title = '温馨提示',
   content,
@@ -5,16 +8,19 @@ function Dialog({
   btnsTxt,
   remote,
   backdrop = 'static',
-  cb = $.noop
+  onOk = $.noop,
+  onCancel = $.noop
 }) {
   this.options = {
     content,
+    b: 1,
     title,
     btns,
     btnsTxt,
     remote,
     backdrop,
-    cb
+    onOk,
+    onCancel
   };
   this.events = [];
   this.init();
@@ -27,28 +33,23 @@ Dialog.BTNCANCEL = 1;
 Dialog.BTNOKCANCEL = Dialog.BTNOK | Dialog.BTNCANCEL;
 
 Dialog.getModal = (content = '正在加载中...') => {
-  return `
-    <div class="modal fade">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">${content}</div>
-        </div>
-      </div>
-    </div>
-  `;
+  return $$include('/partials/modal');
 };
 
-Dialog.getFooter = (btns = Dialog.BTNOK, { stxt = '保存', ctxt = '取消' }) => {
+Dialog.getFooter = (btns = Dialog.BTNOK, {
+  stxt = '保存',
+  ctxt = '取消'
+}) => {
   if (!btns) {
     return '';
   }
   btns = +btns;
   let tpl = '<div class="modal-footer">';
   if ((btns & Dialog.BTNOK) === Dialog.BTNOK) {
-    tpl += `<button class="btn btn-primary j-modal-ok">${stxt}</button>`
+    tpl += `<button class="btn btn-primary j-modal-ok">${stxt}</button>`;
   }
   if ((btns & Dialog.BTNCANCEL) === Dialog.BTNCANCEL) {
-    tpl += `<button class="btn btn-default" data-dismiss="modal">${ctxt}</button>`
+    tpl += `<button class="btn btn-default" data-dismiss="modal">${ctxt}</button>`;
   }
   tpl += '</div>';
   return tpl;
@@ -73,7 +74,7 @@ Dialog.prototype = {
     if (this.options.title) {
       $c.prepend(Dialog.getHeader(this.options.title));
     }
-    if (this.options.btns !== false) {
+    if (false !== this.options.btns) {
       $c.append(Dialog.getFooter(this.options.btns, this.options.btnsTxt));
     }
     $modal.appendTo('body');
@@ -86,7 +87,7 @@ Dialog.prototype = {
       this.load(this.options.remote);
     }
     setTimeout(() => {
-      this.trigger('inited');
+      this.trigger('inited.dialog');
     });
   },
   on(type, handle) {
@@ -107,16 +108,20 @@ Dialog.prototype = {
   bindEvents() {
     this.$modal
       .on('click', '.j-modal-ok', () => {
-        if (this.options.cb() === false) {
+        if (false === this.options.onOk()) {
           return;
         }
         this.hide();
+      })
+      .on('hidden.bs.modal', this.options.onCancel)
+      .on('shown.bs.modal', () => {
+        this.trigger('shown.dialog');
       });
   },
   load(url) {
     this.$modal.find('.modal-body')
       .load(url, () => {
-        this.trigger('loaded');
+        this.trigger('loaded.dialog');
       });
   },
   show() {
@@ -131,9 +136,11 @@ $.alert = (msg, title) => {
   var $dtd = $.Deferred();
   var alert = new Dialog({
     content: `<div class="text-center">${msg}</div>`,
-    cb: $dtd.resolve,
+    onOk: $dtd.resolve,
     title,
-    btnsTxt: {stxt: '确定'},
+    btnsTxt: {
+      stxt: '确定'
+    },
     backdrop: true
   });
   alert.show();
@@ -145,9 +152,12 @@ $.confirm = (msg, title) => {
   var alert = new Dialog({
     content: `<div class="text-center">${msg}</div>`,
     title,
-    cb: $dtd.resolve,
+    onOk: $dtd.resolve,
+    onCancel: $dtd.reject,
     btns: Dialog.BTNOKCANCEL,
-    btnsTxt: {stxt: '确定'},
+    btnsTxt: {
+      stxt: '确定'
+    },
     backdrop: true
   });
   alert.show();

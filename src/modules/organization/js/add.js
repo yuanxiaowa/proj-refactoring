@@ -1,8 +1,6 @@
-// require(jqueryValidate)
-// require(select2,css)
-
-import formValidation from '/modules/formValidation';
-import modalRemote from '/modules/modalRemote';
+import 'select2';
+import 'modalRemote';
+import formValidation from 'formValidation';
 
 var $desc = $('#desc').children().last();
 var _tpl = $$include('/partials/partial-1');

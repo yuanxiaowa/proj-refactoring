@@ -2,8 +2,6 @@ extends /common
 
 append style
   +style('login')
-append script
-  +script('login')
 
 append content
   .container-fluid
@@ -16,22 +14,22 @@ append content
         .form-login-header
           span.icon-ycg.pull-left.mr-16
           .adapt-item 建筑行业云采购系统
-            p Building cloud procurement 
+            p Building cloud procurement
         .panel.panel-primary
           .panel-heading 用户登录
           .panel-body.bg-info
-            .alert.alert-danger 登录失败
-            form.form-login#form-login(action="" method="post")
+            .alert.alert-danger.hidden#error-area
+            form.form-login#form-login(action="data/login" method="post")
               .form-group.has-feedback.mt-30
-                input.form-control(type="text" name="username" placeholder="用户名" required data-msg-required="请输入用户名")
+                +form-control({label:'用户名',name:'username',placeholder:'用户名',i:true})
                 span.icon-user-md.form-control-feedback
               .form-group.has-feedback
-                input.form-control(type="password" name="password" placeholder="密码" required data-msg-required="请输入密码")
+                +form-control({label:'密码',name:'password',placeholder:'密码',type:'password',i:true})
                 span.icon-lock.form-control-feedback
               .form-group
                 .btn-group.btn-group-justified
                   .btn-group
-                    input.form-control(type="text" name="code" required data-msg-required="请输入验证码" data-msg-remote="验证码不正确")
+                    +form-control({label:'验证码',name:'code',placeholder:'验证码',i:true})(data-msg-remote="验证码不正确")
                   .btn-group
                     img(src="", alt="")
                   .btn-group.text-center
@@ -43,4 +41,4 @@ append content
                 +submit('登录')(class="btn-primary")
   .login-ad
   .container
-    footer.text-right.text-primary 江苏筑牛网络科技有限公司  版权所有
+    footer.text-right.text-primary 江苏筑牛网络科技有限公司 版权所有

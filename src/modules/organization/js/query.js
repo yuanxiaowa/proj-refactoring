@@ -1,11 +1,10 @@
-// require(jqueryValidate)
-// require(jqueryForm2json)
-// require(bootstrapTable,css)
-// require(bootstrapTreeview,css)
-import Dialog from '/modules/dialog';
-import modalRemote from '/modules/modalRemote';
-import orgLeft from '/modules/orgLeft';
-import render from '/modules/render';
+import 'bootstrapTable';
+import 'bootstrapTreeview';
+import 'dialog';
+import 'modalRemote';
+import 'orgLeft';
+import formValidation from 'formValidation';
+import render from 'render';
 
 
 // 渲染详细信息
@@ -37,7 +36,7 @@ $('#modal-edit').on('click', '.j-m-add', function() {
   $item.clone().appendTo($item.parent());
 });*/
 
-$('#link-next').on('loaded', $modal => {
+$('#link-next').on('loaded.modalremote', $modal => {
   $('#treeview').treeview({
     showBorder: false,
     // nodeIcon: 'icon-folder-close-alt',

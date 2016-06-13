@@ -1,5 +1,3 @@
-- function getRn(name){return 'n'+escape(name).replace(/%u/g, '').substr(-5)}
-
 
 mixin checkbox(text, name)
   - if(!(text instanceof Array))
@@ -59,37 +57,37 @@ mixin select(items)
       option= item
 
 mixin form-control(item)
-  if /^(input|email|mobile|tel|date|text)$/.test(item.type)
+  if /^(input|email|mobile|tel|date|text|password)$/.test(item.type) || !item.type
     input.form-control(
       id=item.id
-      type=/email/.test(item.type)?item.type:"text"
-      required=item.i?true:false data-msg-required=item.i?'请输入'+item.label:false 
+      type=/email|password/.test(item.type)?item.type:"text"
+      required=item.i?true:false data-msg-required=item.i?'请输入'+item.label:false
       date=item.type==='date'?'true':false data-msg-date=item.type==='date'?item.label+"格式不正确":false
       data-msg-email=item.type==='email'?(item.label+"格式不正确"):false
       mobile=item.type==='mobile'?'true':false data-msg-mobile=item.type==='mobile'?(item.label+"格式不正确"):false
       tel=item.type==='tel'?'true':false data-msg-tel=item.type==='tel'?(item.label+"格式不正确"):false
       any=item.any?'true':false data-msg-any=item.any?"请选择一项":false
       placeholder=item.placeholder
-      name=getRn(item.label)
-    )
+      name=item.name?item.name:getRn(item.label)
+    )&attributes(attributes)
   else if "textarea" == item.type
     textarea.form-control(
       required=item.i?true:false
       data-msg-required=item.i?'请输入'+item.label:false
       placeholder=item.placeholder
-      name=getRn(item.label)
-    )
+      name=item.name?item.name:getRn(item.label)
+    )&attributes(attributes)
   else if "select" == item.type
     select.form-control(
       required=item.i?true:false
       data-msg-required=item.i?'请选择'+item.label:false
-      name=getRn(item.label)
-    )
+      name=item.name?item.name:getRn(item.label)
+    )&attributes(attributes)
       option 请选择
   else if "checkbox" == item.type
-    +checkbox(item.text,getRn(item.label),item.label)
+    +checkbox(item.text,item.name?item.name:getRn(item.label),item.label)
   else if "radio" == item.type
-    +radio(item.text,getRn(item.label),item.label)
+    +radio(item.text,item.name?item.name:getRn(item.label),item.label)
 
 mixin form-horizontal-item(item,type)
   if !type

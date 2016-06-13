@@ -7,36 +7,27 @@ append style
 append content
   .container-fluid
     .con-container
-      .btn-group.tab-nav(data-toggle="buttons")
-        label.btn.btn-primary
-          input(type="radio" name="edit" id="pactEdit" autocomplete="off" checked) 
-          | 编辑
-        label.btn.btn-primary
-          input(type="radio" name="confirm" id="pactConfirm" autocomplete="off") 
-          | 确认提交/同意
-        label.btn.btn-primary
-          input(type="radio" name="confirm" id="approveIdea" autocomplete="off") 
-          | 审批意见
-        label.btn.btn-primary(data-toggle="modal" data-target="#pactModal")
-          input(type="radio" name="pacttable" id="pactTable" autocomplete="off") 
-          | 合同评审表
-  
+      .tab-nav
+        a.btn.btn-primary(href="") 编辑
+        button.btn.btn-default 确认提交 
+        button.btn.btn-default 审批意见
+        button.btn.btn-default(data-toggle="modal" data-target="#pactModal") 合同评审表
       //合同详细信息
       +template
         .panel.panel-default.mt-20.detail-show
           .panel-heading: .row
           .panel-body.pact-info
             .row
-              .statu-pic.col-md-offset-8
+              .statu-pic.col-md-offset-10
                 img(src="image/statu.png")
                 img(src="image/success-statu.png")
                 img(src="image/wait-statu.png")
                 img(src="image/nopass-statu.png")
-              .col-md-9
+              .col-md-11
                 p.project-name 南京歌剧院建设工程施工合同
                   samll.number 
                     |编号：<span class="xl"> AE2001574</span> 
-                  a(href="#" class="main-pact") （补充合同，查看主合同）
+                  a(href="add-pact.html" class="main-pact") （有补充合同，点击查看）
                 +detail-list(items)
       +tab(tabs)
         .tab-pane.active#tab1
@@ -66,17 +57,24 @@ append content
           .modal-content
             .modal-header
               h4.modal-title#myModalLabel 合同评审表
-            .modal-body 
+            .modal-body
               .tab-btn
                 button.btn.btn-default.claose(type="button" data-dismiss="modal" aria-label="Close") 返回
                 button.btn.btn-default(type="button") 导出
               h3.pactinfo-title.text-center 江苏江安集团有限公司合同评审记录
-              p 施工单位及项目负责人：南京分公司-第二项目部
-              p 合同编号：JAJT01XMHT0001
-              p 建设单位：南京分公司-第二项目部
-              p 合同日期：南京分公司-第二项目部
-              p 工程名称：南京分公司-第二项目部
-              p 合同金额：6000
+              h3.pactinfo-title 合同信息:
+              p 
+                <span> 施工单位及项目负责人：</span>南京分公司-第二项目部（胡某某）
+              p 
+                <span> 合同编号：</span>JAJT01XMHT0001
+              p 
+                <span> 建设单位：</span>南京分公司-第二项目部
+              p 
+                <span> 合同开工竣工日期：</span>2016/5-2017/5
+              p 
+                <span> 工程名称：</span>南京分公司-第二项目部
+              p 
+                <span>合同金额：</span> 6000万
               h3.pactinfo-title 评审意见:
               .idea-item
                 p 工程部：李刚  2016-6-6  19:30:10
@@ -87,7 +85,5 @@ append content
               .idea-item
                 p 工程部：李刚  2016-6-6  19:30:10
                 p 同意签订
-              p.text-center 备注：此表一式2份，评审部门及项目负责人各执一份，合同管理部存档
-
 
 

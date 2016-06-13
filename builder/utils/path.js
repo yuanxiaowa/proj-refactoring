@@ -1,6 +1,6 @@
 const path = require('path');
 
-const rExt = /\.(\w+)$/
+const rExt = /\.(\w+)$/;
 
 /**
  * 获取完整文件名
@@ -56,7 +56,7 @@ function getParentName(name) {
  */
 function getSameLevelName(name, dir, type) {
   let _name = getName(name);
-  return path.join(getParentDir, dir, `${_name}.${type}`);
+  return join(getParentDir(name), dir, `${_name}.${type}`);
 }
 
 /**
@@ -74,18 +74,36 @@ function getExtName(name) {
  * @return {String}
  */
 function unixizePath(name) {
-  return path.replace(/\\/g, '/');
+  return name.replace(/\\/g, '/');
 }
 
-new Promise((resolve, reject) => {
-  reject('hello');
-}).then(null, () => {
+function contains(src, dest) {
+  src = path.resolve(src);
+  dest = path.resolve(dest);
+  return dest.startsWith(src);
+}
 
-}).then(result => {
-  console.log(result)
-}, err => {
-  console.log(err)
-})
+function getFileNameRel(src, rel) {
+  src = path.resolve(src);
+  rel = path.resolve(rel) + '\\';
+  return unixizePath(src.replace(rel, ''));
+}
+
+function getSp(src) {
+  return join(getParentDir(src), getFullName(src));
+}
+
+function changeExt(src, ext) {
+  return src.replace(/\.\w+$/, `.${ext}`);
+}
+
+function join(...items) {
+  return unixizePath(path.join(...items));
+}
+
+function relative(a, b) {
+  return unixizePath(path.relative(a, b));
+}
 
 module.exports = {
   getFullName,
@@ -96,6 +114,11 @@ module.exports = {
   getSameLevelName,
   getExtName,
   unixizePath,
-  join: path.join,
-  relative: path.relative
+  join,
+  relative,
+  contains,
+  getFileNameRel,
+  getSp,
+  changeExt,
+  resolve: path.resolve
 };

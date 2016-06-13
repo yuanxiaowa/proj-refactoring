@@ -1,31 +1,31 @@
-// require(jqueryValidate)
+import formValidation from 'formValidation';
 
-import formValidation from '/modules/formValidation';
+var $errorArea = $('#error-area');
+var $form = $('#form-login');
 
-/*eslint complexity:0 */
-formValidation($('#form-login'), {
+formValidation($form, {
   rules: {
     code: {
       remote: {
+        url: 'data/verify',
         type: 'post',
-        dataType: 'json',
-        dataFilter(data) {
-          if (!(data && data.success)) {
-            return false;
-          }
-          return true;
+        dataFilter(res) {
+          let data = $.parseJSON(res);
+          return data.success;
         }
       }
     }
   },
   // 数据请求完之后
-  success(data) {
+  onSubmitSuccess(data) {
     if (!data.success) {
-      $('#error_area').html('登录失败:' + data.msg);
-      $('#error_area').show();
+      $errorArea.html(`登录失败:${data.msg}`).removeClass('hidden');
     } else {
-      $('#error_area').hide();
-      window.location.href = 'index.do';
+      $errorArea.addClass('hidden');
+      window.location.href = 'main.html';
     }
   }
+});
+$form.on('input', () => {
+  $errorArea.addClass('hidden');
 });

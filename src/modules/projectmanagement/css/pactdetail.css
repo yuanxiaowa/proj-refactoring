@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-06-06 09:52:30
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-08 12:00:51
+* @Last Modified time: 2016-06-13 09:20:41
 */
 @import '/modules/variables';
 @import '/modules/page-common';
@@ -17,23 +17,6 @@
     padding: 10px 30px;
     border-bottom: 1px solid #2d62a4;
     width: 100%;
-    label{
-      margin-right: 5px;
-      border: $border;
-      border-radius: 3px!important;
-      background: none;
-      color: #333;
-      &.active{
-        color: #fff;
-        background:#366db0;
-        border-color:#366db0;
-      }
-      &:hover{
-        background:#366db0;
-        color: #fff;
-        border-color:#366db0;
-      }
-    }
   }
   .nav-tabs{
     border-bottom: 1px solid #2d62a4;
@@ -51,12 +34,7 @@
   .pact-info{
     position: relative;
     label{
-      width: 100px;
-    }
-    .statu-pic{
-      margin-top: 66px;
-      position: absolute;
-      z-index: 1;
+      width: 140px;
     }
     .project-name{
       font-size: 16px;
@@ -78,13 +56,15 @@
     }
   }
 }
+.statu-pic{
+  position: absolute;
+  z-index: 0;
+}
 /*合同评审表*/
 .modal-content{
   border-radius: 0;
   .modal-header{
     padding: 4px 14px;
-    background: #dcdcdc;
-    color: #000;
     h4{
       font-size: 16px;
     }
@@ -98,30 +78,34 @@
     }
   }
   .pactinfo-title{
-    margin: 30px 0;
+    margin: 40px 0;
     font-size: 16px;
     color: #000;
+    text-indent: 3%;
   }
   p{
     margin-bottom: 18px;
+    color: #333;
+    span{
+      display: inline-block;
+      width: 30%;
+      text-align: right;
+      color: #666;
+    }
   }
   .idea-item{
     margin-bottom: 32px;
     border-bottom: 1px solid #d2d2d2;
+    p{
+      text-indent: 20%;
+    }
   }
 }
 /*补充合同*/
-.ok{
-  margin-left: 5px!important;
-  margin-right: 18px!important;
-  &:focus,
-  &:hover{
-    background:none;
-  }
-}
 .filing{
   position: relative;
   top: 1px;
+  margin-left: 18px!important;
   margin-right: 8px!important;
 }
 .pact-form{
@@ -140,7 +124,7 @@
     background: #d5e0ed;
   }
   .form-box{
-    margin-top: 20px;
+    margin: 20px;
     overflow: hidden;
     .item{
       margin-bottom: 30px;
@@ -155,8 +139,60 @@
         border: $border;
         resize: none;
         height: 88px;
-        width: 90%;
+        width: 81%;
+      }
+      .change-price{
+        display: inline-block!important;
+        width: 40%!important;
+        text-align: right;
       }
     }
+  }
+}
+/*项目详情*/
+.detail-box {
+  padding: 20px 0 20px 15px;
+  .pic{
+    width: 250px;
+    height: 182px;
+  }
+  .project-info{
+    position: relative;
+    display: inline-block;
+    .project-name{
+      font-size: 16px;
+      color: #000;
+      margin-bottom: 40px;
+      small{
+        position: relative;
+        top: 2px;
+        padding-left: 15px;
+      }
+    }
+    .item div{
+      padding-left: 0;
+      dl{
+        margin-bottom: 10px;
+         dt{
+          width: 120px;
+          font-weight: normal;
+          color: #666;
+        }
+        dd{
+          margin-left: 130px;
+          color: #000;
+          .add-pact{
+            padding-left: 10px;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .statu-pic{
+      margin-top: -210px;
+    }
+  }
+  .panel-heading{
+    border-bottom: none;
   }
 }
