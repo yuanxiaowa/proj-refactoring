@@ -25,6 +25,47 @@ render({
   });
 });
 
+$('table')
+  .bootstrapTable({
+    url: 'data/query-table',
+    sidePagination: 'server',
+    ajaxOptions: {
+      dataFilter(res) {
+        return JSON.stringify($.parseJSON(res).data);
+      }
+    },
+    columns: [{
+      title: '编号',
+      field: 'id'
+    }, {
+      title: '姓名',
+      field: 'username'
+    }, {
+      title: '性别',
+      field: 'gendar'
+    }, {
+      title: '编号',
+      field: 'num'
+    }, {
+      title: '部门',
+      field: 'department'
+    }, {
+      title: '职务',
+      field: 'duty'
+    }, {
+      title: '职位',
+      field: 'position'
+    }, {
+      title: '已激活',
+      field: 'isActivate'
+    }, {
+      title: '禁用',
+      field: 'isFb'
+    }],
+    toolbar: '#toolbar',
+    pagination: true,
+    search: true
+  });
 
 // 导入
 /*$('#modal').on('click', '.j-modal-ok', () => {

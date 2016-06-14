@@ -44,7 +44,11 @@ $('body').on('click', '[data-modal-load]', function() {
           onSubmitSuccess(data) {
             // 发送密码回掉
             // 隐藏对话框
-            dialog.hide();
+            if (data.success) {
+              dialog.hide();
+            } else {
+              $.alert(data.msg);
+            }
           },
           errorPlacement($error, $element) {
             $element.parent().append($error);

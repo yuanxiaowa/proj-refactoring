@@ -32,7 +32,7 @@ append content
           .panel-body.row
             .col-md-9
               .form-group 该权限关联的角色有：
-                a(href="" data-toggle="modal" data-target="#modal-role")
+                a#role-edit(href="")
                   +icon('pencil', '编辑')
                 span.badge.ml-20(title="需要帮助的内容") ?
               +table(['角色名称','描述','创建日期','修改日期'])
@@ -77,8 +77,6 @@ append content
                 tr
                   td 中建集团
                   td 云采购系统
-
-  +modal-role('编辑角色成员', '搜索用户', '被选中的用户')
 
   +modal('编辑功能权限')(id="modal-rel")
     .form-group.text-warning 注：红色字体的权限是通过角色获取的，不可以直接取消，需要到人员角色里进行取消。

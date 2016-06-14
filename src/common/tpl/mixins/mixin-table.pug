@@ -1,6 +1,9 @@
 
 mixin table(obj, count)
   - var thead
+  - var hasData = true
+  if !obj
+    - obj = {},hasData = false
   if obj instanceof Array
     - thead = obj
     - obj = {}
@@ -13,12 +16,13 @@ mixin table(obj, count)
         thead
           each item in thead
             th= item
-      tbody
-        - if(count)
-          +iterator(count)
+      if hasData
+        tbody
+          - if(count)
+            +iterator(count)
+              block
+          - else
             block
-        - else
-          block
 
 mixin table-sort(thead,toolbar)
   +table(thead,20)(data-toggle="table" data-show-columns="true" data-toolbar=toolbar data-pagination="true" data-search="true")
@@ -151,6 +155,194 @@ mixin table-rel-role-edit
       li.active 项目经理
       li 材料员
       li 仓管员
+
+//- 项目详情编辑项目成员模块     
+mixin table-project-member-edit
+  .tab-nav
+    button.btn.btn-primary.J-add-project-member 新增 
+  p
+  +table(['编号','分类','职务','人员','进场日期','离场日期','是否有效','操作'])(class="table table-bordered table-default table-bordered member-edit-table")
+    +iterator(2)
+      tr
+        td 01
+        td 
+          span 项目管理
+          div.hide-container
+            select.form-control
+              option
+                | 项目经理
+              option
+                | 材料员
+              option
+                |仓管员
+        td 
+          span 项目经理
+          div.hide-container
+            select.form-control
+              option
+                | 项目经理
+              option
+                | 材料员
+              option
+                |仓管员
+        td 
+          span 李起光
+          div.hide-container
+            select.form-control
+              option
+                | 项目经理
+              option
+                | 材料员
+              option
+                |仓管员
+        td 
+          span 2015-12-25
+          div.hide-container
+            input.form-control(type="date")
+        td 
+          span 2015-12-30
+          div.hide-container
+            input.form-control(type="date")
+        td 
+          span 有效
+          div.hide-container
+            select.form-control
+              option
+                | 有效
+              option
+                | 无效
+        td
+          a.J-edit-member(href="javascript:;") 编辑
+          a.J-del-member(href="javascript:;") 删除
+//- 项目详情项目附件模块              
+mixin table-project-file
+  +table(['编号','文档编号','文档名称','上传人','上传日期'])(class="table-bordered")
+    +iterator(3)
+      tr
+        td 01
+        td SJDF0012
+        td 
+          a(href="") 李刚 
+        td 李刚
+        td 2016-12-15 12:50:32
+mixin table-project-file-edit
+  .tab-nav
+    button.btn.btn-primary.J-add-project-member 新增 
+  p
+  +table(['编号','文档编号','文档名称','上传人','上传日期','操作'])(class="table table-bordered table-default table-bordered member-edit-table")
+    tr
+      td 01
+      td 21025622
+      td 
+       a(href="") 李起光
+      td 李起光
+      td 2016-5-12
+      td
+        a.J-del-member(href="javascript:;") 删除
+    tr
+      td 01
+      td 21025622
+      td 
+       a(href="") 李起光
+      td 李起光
+      td 2016-5-12
+      td
+        a.J-upfile(href="javascript:;") 上传
+//- 项目详情项目联系单位模块
+mixin table-project-contact-edit
+  .tab-nav
+    button.btn.btn-primary.J-add-project-member 新增 
+  p
+  +table(['编号','分类','单位名称','联系人','联系方式','操作'])(class="table table-bordered table-default table-bordered member-edit-table ")
+    +iterator(2)
+      tr
+        td 01
+        td 
+          span 建设单位
+          div.hide-container
+            select.form-control
+              option
+                | 监理单位
+              option
+                | 设计单位
+              option
+                | 审计单位
+        td 
+          span 江建集团
+          div.hide-container
+            select.form-control
+              option
+                | 江建集团
+              option
+                | 江建集团
+              option
+                |江建集团
+        td 
+          span 李起光
+          div.hide-container
+            select.form-control
+              option
+                | 李起光
+              option
+                | 李起光
+              option
+                |李起光
+        td 
+          span 18985621542
+          div.hide-container
+            input.form-control(type="text")
+        td
+          a.J-edit-member(href="javascript:;") 编辑
+          a.J-del-member(href="javascript:;") 删除
+mixin table-project-contact 
+  +table(['编号','单位类型','单位名称','联系人','联系方式'])(class="table-bordered")
+    tr
+      td 01
+      td 建设单位
+      td 江安集团
+      td 李刚 
+      td 123456789
+    tr
+      td 02
+      td 建设单位
+      td 江安集团
+      td 李刚 
+      td 123456789
+    tr
+      td 03
+      td 建设单位
+      td 江安集团
+      td 李刚 
+      td 123456789
+    tr
+     td 04
+      td 建设单位
+      td 江安集团
+      td 李刚 
+      td 123456789
+//- 项目配置模块
+mixin table-project-config-pact
+  +table(['阶段名称','默认付款比例','对应项目状态','操作'])(class="table-bordered")
+    tr
+      td 
+        input.form-control(type="text")
+      td 
+        input.form-control(type="text")
+      td 
+        select.form-control
+          option 未开工
+          option 在建中
+          option 已完工
+          option 已审定
+      td
+        a(href="javascript:;") 删除
+mixin table-project-pact-list
+  +table(['条款标题','操作'])(class="table-bordered")
+    tr
+      td 
+        textarea(name="", cols="30", rows="2").form-control
+      td
+        a(href="javascript:;") 删除
 
 mixin table-role
   +table(['角色名称','描述','创建日期','修改日期'])(class="table-bordered")

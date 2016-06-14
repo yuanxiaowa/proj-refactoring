@@ -36,14 +36,16 @@ Dialog.getModal = (content = '正在加载中...') => {
   return $$include('/partials/modal');
 };
 
-Dialog.getFooter = (btns = Dialog.BTNOK, {
-  stxt = '保存',
-  ctxt = '取消'
-}) => {
+Dialog.getFooter = (btns = Dialog.BTNOK, btnsText) => {
   if (!btns) {
     return '';
   }
   btns = +btns;
+  if (!btnsText) {
+    btnsText = {};
+  }
+  let stxt = btnsText.stxt ? btnsText.stxt : '保存';
+  let ctxt = btnsText.ctxt ? btnsText.ctxt : '取消';
   let tpl = '<div class="modal-footer">';
   if ((btns & Dialog.BTNOK) === Dialog.BTNOK) {
     tpl += `<button class="btn btn-primary j-modal-ok">${stxt}</button>`;
@@ -61,7 +63,7 @@ Dialog.getHeader = title => {
       <button class="close" data-dismiss="modal">
         <span>&times;</span>
       </button>
-      ${title}
+      <span class="j-modal-title">${title}</span>
     </div>
   `;
 };
@@ -119,10 +121,19 @@ Dialog.prototype = {
       });
   },
   load(url) {
-    this.$modal.find('.modal-body')
-      .load(url, () => {
-        this.trigger('loaded.dialog');
-      });
+    $.get(url, data => {
+      this.getBody().html(data);
+      this.trigger('loaded.dialog');
+    });
+  },
+  setContent(data) {
+    this.getBody().html(data);
+  },
+  setTitle(title) {
+    this.$modal.find('.j-modal-title').text(title);
+  },
+  getBody() {
+    return this.$modal.find('.modal-body');
   },
   show() {
     this.$modal.modal('show');
@@ -134,18 +145,29 @@ Dialog.prototype = {
 
 $.alert = (msg, title) => {
   var $dtd = $.Deferred();
-  var alert = new Dialog({
-    content: `<div class="text-center">${msg}</div>`,
-    onOk: $dtd.resolve,
-    title,
-    btnsTxt: {
-      stxt: '确定'
-    },
-    backdrop: true
-  });
+  let alert = $.alert.queue.pop();
+  if (!alert) {
+    alert = new Dialog({
+      content: `<div class="text-center">${msg}</div>`,
+      onOk: $dtd.resolve,
+      title,
+      btnsTxt: {
+        stxt: '确定'
+      },
+      backdrop: true,
+      onCancel() {
+        $.alert.queue.push(alert);
+      }
+    });
+  } else {
+    alert.setTitle(title);
+    alert.setContent(msg);
+  }
   alert.show();
   return $dtd.promise();
 };
+
+$.alert.queue = [];
 
 $.confirm = (msg, title) => {
   var $dtd = $.Deferred();

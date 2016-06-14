@@ -1,0 +1,99 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-06-14 10:42:48
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-06-14 14:48:02
+*/
+@import '/modules/variables';
+@import '/modules/page-common';
+@import '/modules/tabs';
+@import '/modules/project-common';
+/*项目基础配置*/
+.wrap-container{
+  padding-top: 40px;
+  padding-left: 60px;
+  .control-label{
+    color: #666;
+  }
+  .project-num-create{
+    margin-top: 5px;
+    .sta{
+      padding-left: 15px;
+      cursor: pointer;
+      input{
+        position: relative;
+        top: 2px;
+        margin-right: 4px;
+        width: auto;
+      }
+    }
+  }
+  select{
+    float: left;
+    width: 11%;
+  }
+  input{
+    float: left;
+    width: 11%;
+  }
+  .add-ico{
+    float: left;
+    display: inline-block;
+    margin: 6px 5px;
+    color: #2962a9;
+  }
+  .circle-add{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border:1px solid #2962a9;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 13px;
+    cursor: pointer;
+    margin-top: 7px;
+    color: #2962a9;
+  }
+  .project-item{
+    margin-right: 5px;
+    display: inline-block;
+    border: $border;
+    padding: 6px 12px;
+    border-radius: 4px;
+    color: #555;
+    &:hover{
+      border-color:#2962a9;
+      color: #2962a9;
+      .del-item{
+        visibility:visible;
+      }
+    }
+    .del-item{
+      padding-left: 10px;
+      font-style: normal;
+      cursor: pointer;
+      font-size: 16px;
+      visibility:hidden; 
+    }
+  }
+  .table-responsive{
+    float: left;
+    width: 90%;
+    margin-right: 10px;
+    input,
+    select{
+      width: 100%;
+      text-align: center;
+    }
+    textarea{
+      resize: none;
+    }
+  }
+  .form-group{
+    margin-bottom: 20px;
+  }
+  .number-item{
+    overflow: hidden;
+    margin-top: 10px;
+  }
+}

@@ -2,58 +2,48 @@
 * @Author: huangzexia
 * @Date:   2016-06-06 09:52:30
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-13 09:20:41
+* @Last Modified time: 2016-06-14 10:57:17
 */
 @import '/modules/variables';
 @import '/modules/page-common';
 @import '/modules/tabs';
-
+@import '/modules/project-common';
 /*合同详情页*/
-.con-container{
-  background: #fff;
-  border:$border;
-  margin: 20px 0;
-  .tab-nav{
-    padding: 10px 30px;
-    border-bottom: 1px solid #2d62a4;
-    width: 100%;
+.nav-tabs{
+  border-bottom: 1px solid #2d62a4;
+  li{
+    margin-bottom: 0;
   }
-  .nav-tabs{
-    border-bottom: 1px solid #2d62a4;
-    li{
-      margin-bottom: 0;
-    }
+}
+.panel{
+  border:none;
+  box-shadow: none;
+  .panel-body{
+    border-bottom: none;
   }
-  .panel{
-    border:none;
-    box-shadow: none;
-    .panel-body{
-      border-bottom: none;
-    }
+}
+.pact-info{
+  position: relative;
+  label{
+    width: 140px;
   }
-  .pact-info{
-    position: relative;
-    label{
-      width: 140px;
-    }
-    .project-name{
-      font-size: 16px;
-      margin-bottom: 30px;
-      .number{
-        padding-left: 40px;
-        color: #666;
-        font-size: 14px;
-      }
-      .xl{
-        color: #000;
-      }
-    }
-    .tab-content{
-      margin: 20px 30px;
-    }
-    .main-pact{
+  .project-name{
+    font-size: 16px;
+    margin-bottom: 30px;
+    .number{
+      padding-left: 40px;
+      color: #666;
       font-size: 14px;
     }
+    .xl{
+      color: #000;
+    }
+  }
+  .tab-content{
+    margin: 20px 30px;
+  }
+  .main-pact{
+    font-size: 14px;
   }
 }
 .statu-pic{
@@ -147,52 +137,5 @@
         text-align: right;
       }
     }
-  }
-}
-/*项目详情*/
-.detail-box {
-  padding: 20px 0 20px 15px;
-  .pic{
-    width: 250px;
-    height: 182px;
-  }
-  .project-info{
-    position: relative;
-    display: inline-block;
-    .project-name{
-      font-size: 16px;
-      color: #000;
-      margin-bottom: 40px;
-      small{
-        position: relative;
-        top: 2px;
-        padding-left: 15px;
-      }
-    }
-    .item div{
-      padding-left: 0;
-      dl{
-        margin-bottom: 10px;
-         dt{
-          width: 120px;
-          font-weight: normal;
-          color: #666;
-        }
-        dd{
-          margin-left: 130px;
-          color: #000;
-          .add-pact{
-            padding-left: 10px;
-            text-decoration: underline;
-          }
-        }
-      }
-    }
-    .statu-pic{
-      margin-top: -210px;
-    }
-  }
-  .panel-heading{
-    border-bottom: none;
   }
 }

@@ -1,8 +1,7 @@
 extends /common
 
 append style
-  +style('pactdetail')
-
+  +style('projectdetail')
 append content
   .container-fluid
     .con-container
@@ -77,37 +76,100 @@ append content
       .tab-pane.active#tab1
         .panel.panel-default
           .panel-body.row
-            .col-md-9
+            .col-md-12
               .form-group 该用户拥有的角色：
                 a(href="" data-toggle="modal" data-target="#modal-role")
                   +icon('pencil', '编辑')
-  +modal('编辑项目成员')(id="modal-role")
-    +table-rel-role-edit
-
-
-
-
-
-//-       .tab-pane#tab2
-//-         .panel.panel-default
-//-           .panel-body.row
-//-             .col-md-9
-//-               .form-group 该用户拥有的角色：
-//-                 a(href="" data-toggle="modal" data-target="#modal-role")
-//-                   +icon('pencil', '编辑')
-//-       .tab-pane#tab3
-//-         .panel.panel-default
-//-           .panel-body.row
-//-             .col-md-9
-//-               .form-group 请上传 “工程效果图”、“施工许可证”、“中标通知书”等相关文档:
-//-                 a(href="" data-toggle="modal" data-target="#modal-role")
-//-                   +icon('pencil', '编辑')
-//-       .tab-pane#tab4
-//-         .panel.panel-default
-//-           .panel-body.row
-//-             .col-md-9
-//-               .form-group 该用户拥有的角色：
-//-                 a(href="" data-toggle="modal" data-target="#modal-role")
-//-                   +icon('pencil', '编辑')
-//-     +modal-role('编辑项目成员
-//- ', '', '')
+              .list-tree.clearfix
+                .list-tree-left.col-md-5
+                  .list
+                    .list-title 项目经理
+                    .list-con 李起光
+                    .list-child
+                      b.hengline
+                      .list.fjl
+                        b.hengline
+                        .list-title 项目副经理
+                        .list-con 李起光
+                        .list-child
+                          b.hengline
+                          b.shuline
+                          .list.more-people
+                            b.hengline
+                            .list-title 施工员
+                            .list-con 李起光、李起光
+                          .list.more-people
+                            b.hengline
+                            .list-title 资料员
+                            .list-con 李起光、李起光
+                          .list.more-people
+                            b.hengline
+                            .list-title 质检员
+                            .list-con 李起光、李起光
+                          .list.more-people
+                            b.hengline
+                            .list-title 安全员
+                            .list-con 李起光、李起光
+                          .list.more-people
+                            b.hengline
+                            .list-title 其他
+                            .list-con 李起光、李起光
+                .list-tree-right.col-md-5
+                  .list
+                    .list-child
+                      .list
+                        .list-title.zn 职能人员
+                        .list-child
+                          b.hengline
+                          b.shuline
+                          .list.more-people
+                            b.hengline
+                            .list-title 财务人员
+                            .list-con 李起光、李起光
+                          .list.more-people
+                            b.hengline
+                            .list-title 法务人员
+                            .list-con 李起光、李起光
+                          .list.more-people
+                            b.hengline
+                            .list-title 采购员
+                            .list-con 李起光、李起光
+                          .list.more-people
+                            b.hengline
+                            .list-title 采购员
+                            .list-con 李起光、李起光
+                          .list.more-people
+                            b.hengline
+                            .list-title 采购员
+                            .list-con 李起光、李起光
+                          .list.more-people
+                            b.hengline
+                            .list-title 采购员
+                            .list-con 李起光、李起光
+      +modal('编辑项目成员')(id="modal-role" class="member-edit")
+        +table-project-member-edit
+      .tab-pane#tab2
+        .panel.panel-default
+          .panel-body.row
+            .col-md-9
+              .form-group 该项目的联系单位有:
+                a(href="" data-toggle="modal" data-target="#modal-contact")
+                  +icon('pencil', '编辑')
+              +table-project-contact
+      +modal('编辑联系单位')(id="modal-contact" class="member-edit")
+        +table-project-contact-edit
+      .tab-pane#tab3
+        .panel.panel-default
+          .panel-body.row
+            .col-md-9
+              .form-group 请上传 “工程效果图”、“施工许可证”、“中标通知书”等相关文档:
+                a(href="" data-toggle="modal" data-target="#modal-file")
+                  +icon('pencil', '编辑')
+              +table-project-file
+      +modal('编辑相关附件')(id="modal-file")
+        +table-project-file-edit
+      .tab-pane#tab4
+        .panel.panel-default
+          .panel-body.row
+            .col-md-9
+              +table-pact-change-history

@@ -1,10 +1,7 @@
-// require(jqueryValidate)
-// require(select2,css)
-
-
-import Dialog from '/modules/dialog';
-import formValidation from '/modules/formValidation';
-import render from '/modules/render';
+import 'select2';
+import Dialog from 'dialog';
+import formValidation from 'formValidation';
+import render from 'render';
 
 
 // 保存/提交补充合同数据

@@ -82,10 +82,9 @@ a {
   $h: 30px;
   line-height: $h;
   .form-z-lbl {
-    display: inline-block;
+    float: left;
     width: 100px;
     margin-right: 14px;
-    float: left;
     text-align: right;
   }
   .form-z-r {

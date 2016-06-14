@@ -52,13 +52,13 @@ function fixPath(content) {
   content = content.replace(
     rImport,
     _ => {
-      return _ + mpath.relative(
+      return mpath.unixizePath(_ + mpath.relative(
         mpath.getDir(paths.style),
         mpath.join(paths.commonDir, 'css')
-      );
+      ));
     }
   );
-  return mpath.unixizePath(content);
+  return content;
 }
 
 function handleFilePath(file) {

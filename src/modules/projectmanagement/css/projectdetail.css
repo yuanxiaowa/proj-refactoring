@@ -1,0 +1,143 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-06-14 09:18:33
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-06-14 10:59:52
+*/
+@import '/modules/variables';
+@import '/modules/page-common';
+@import '/modules/tabs';
+@import '/modules/project-common';
+/*项目详情*/
+.statu-pic{
+  position: absolute;
+  z-index: 0;
+}
+.detail-box {
+  padding: 20px 0 20px 15px;
+  .pic{
+    width: 250px;
+    height: 182px;
+  }
+  .project-info{
+    position: relative;
+    display: inline-block;
+    .project-name{
+      font-size: 16px;
+      color: #000;
+      margin-bottom: 40px;
+      small{
+        position: relative;
+        top: 2px;
+        padding-left: 15px;
+      }
+    }
+    .item div{
+      padding-left: 0;
+      dl{
+        margin-bottom: 10px;
+         dt{
+          width: 120px;
+          font-weight: normal;
+          color: #666;
+        }
+        dd{
+          margin-left: 130px;
+          color: #000;
+          .add-pact{
+            padding-left: 10px;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .statu-pic{
+      margin-top: -210px;
+    }
+  }
+  .panel-heading{
+    border-bottom: none;
+  }
+}
+.member-edit > .modal-dialog{
+  width: 80%;
+  .hide-container{
+    display: none;
+  }
+}
+.list-tree{
+  margin: 240px 0;
+  .list-tree-left,
+  .list-tree-right{
+    position: relative;
+  }
+  .list-tree-right{
+    position: relative;
+    top: 60px;
+  }
+  .list{
+    width:100px;
+    height:63px;
+    margin-left:50px;
+    margin-top:10px;
+    position:relative;
+    &:nth-of-type(1){
+      margin-top:0px;
+    }
+    .list-title{
+      height:30px;
+      line-height:30px;
+      color:#fff;
+      text-align:center;
+      background:#386cb1;
+      border-top-left-radius:5px;
+      border-top-right-radius:5px;
+      border:1px #a7d7ef solid;
+    }
+    .list-con{
+      text-align:center;
+      line-height:30px;
+      border-bottom-left-radius:5px;
+      border-bottom-right-radius:5px;
+      border:1px #a7d7ef solid;border-top:0px;
+    }
+    .list-child{
+      width:150px;
+      margin-left:150px;
+      margin-top:-33%;
+      transform:translateY(-50%);
+    }
+    .hengline{
+      display:block;
+      width:50px;
+      height:1px;
+      background:#a7d7ef;
+      position:absolute;
+      left:-50px;
+      top:50%;
+      transform:translateY(-50%);
+    }
+    .shuline{
+      width:1px;
+      background:#a7d7ef;
+      position:absolute;
+      left:0px;
+      top:32px;
+      bottom:32px;
+    }
+  }
+  .fjl{
+    margin-left: 0;
+  }
+  .zn{
+    height:59px!important;
+    line-height:50px!important;
+    border-radius: 5px!important;
+  }
+  .more-people{
+    width: 200px;
+  }
+}
+
+
+

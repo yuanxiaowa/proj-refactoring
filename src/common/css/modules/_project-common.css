@@ -1,0 +1,10 @@
+.con-container{
+  background: #fff;
+  border:$border;
+  margin: 20px 0;
+  .tab-nav{
+    padding: 10px 30px;
+    border-bottom: 1px solid #2d62a4;
+    width: 100%;
+  }
+}

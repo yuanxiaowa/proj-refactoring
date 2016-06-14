@@ -27,7 +27,7 @@ module.exports = function(req, res) {
             success: true,
             msg: ''
           };
-          if ('get' === method) {
+          if ('GET' === method) {
             let d = h(getQuery(url.query), expm, method);
             if (undefined !== d) {
               expm.data = d;
@@ -65,8 +65,11 @@ module.exports = function(req, res) {
 
 const rV = /^([\w-]+)\[\d\]$/;
 function getQuery(data) {
-  let arr = data.split('&');
   let obj = {};
+  if (!data) {
+    return obj;
+  }
+  let arr = data.split('&');
   arr.forEach(item => {
     let _a = item.split('=');
     let key = _a[0];

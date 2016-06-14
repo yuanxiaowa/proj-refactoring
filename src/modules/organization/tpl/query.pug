@@ -52,17 +52,7 @@ append content
             +icon("reply","批量导入")
           a(href="")
             +icon("share-alt","导出")
-      +table-sort(['编号','姓名','性别','编号','部门','职务','职位','已激活','禁用'],'#toolbar')
-        tr
-          td 1
-          td 材料员
-          td 001
-          td 项目部材料员或者分公司材料员
-          td 否
-          td
-          td
-          td
-          td
+      +table()
     
           
   +modal({noFooter:true})(class="modal-alert" id="modal2")

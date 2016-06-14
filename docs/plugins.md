@@ -2,6 +2,16 @@
 
 > 带?的参数代表可选参数
 
+> 后台返回的json格式一般为
+```json
+{
+  "success": Boolean,
+  "msg": String,
+  "data": Object
+}
+```
+> 以下涉及到数据格式说明的一般数据只写data里面的
+
 
 ## 弹框
 
@@ -20,7 +30,7 @@
   + `title`
   + `content` 内容
   - `btns:enum` 按钮类型，只能为以下类型
-    + `Dialog.BTNOK` 确定
+    + `Dialog.BTNOK` 确定，为默认
     + `Dialog.BTNCANCEL` 取消
     + `Dialog.BTNOKCANCEL` 确定取消
     + `false` 没有页脚
@@ -39,6 +49,9 @@
   + `show()` 显示对话框
   + `hide()` 隐藏对话框
   + `load(url)` 加载内容
+  + `setTitle` 设置对话框标题
+  + `setContent(data)` 设置对话框内容
+  + `getBody()` 获取对话框主体，为jQuery对象
 
 ### 点击按钮自动加载对话框
 `<a data-modal-load="url">加载</a>`
@@ -111,3 +124,39 @@ Content-Type: application/json
   + `:Element` 指定dom元素
   + `:jQuery` 指定jQuery对象
 - `data` 渲染的数据
+
+## 左右选来选去的插件
+`var om = new OptionManager(options)`
+- `options`
+  + `$btn:jQuery` 按钮
+  + `title` 对话框标题
+  + `rightTitle` 右边标题
+  + `placeholder` 搜索框水印文本
+  + `url` 数据获取地址，get请求，数据格式为
+    ```
+    {
+      "left": [
+        {
+          "text": String,
+          "value": Number
+        },...
+      ],
+      "right": [
+        {
+          "text": String,
+          "value": Number
+        },...
+      ]
+    }
+    ```
+  + `urlSubmit` 数据提交地址，采用post方式提交，若无，则与`url`相同
+  + `onSubmited:function` 提交成功后的操作
+- 属性
+  - `roles`
+    + `setData(data)` 设置数据
+    + `getResult()` 获取右边结果
+- 方法
+  + `submitData(data)` 提交数据，data格式如下
+    ```
+    [Number, ...]
+    ```

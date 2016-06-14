@@ -1,0 +1,186 @@
+extends /common
+
+append style
+  +style('project-config')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+         button.btn.btn-primary 保存
+      .wrap-container
+        form.form-horizontal
+          .form-group
+            label.col-md-1.control-label 项目编号生成：
+            .col-sm-10.project-num-create 自动 
+              label.sta
+                input(type="checkbox" checked) 
+                |是
+          .form-group
+            label.col-md-1.control-label 规则：
+            .col-sm-10
+              .number-wrap-container.clearfix
+                select.form-control
+                  option 分公司编号
+                span.add-ico +
+                select.form-control
+                  option 固定编号
+                span.add-ico
+                input.form-control(type="text")
+                span.add-ico +
+                select.form-control
+                  option 年
+                  option 2015
+                  option 2016
+                span.add-ico +
+                select.form-control
+                  option 月
+                  option 1
+                  option 2
+                span.add-ico
+                select.form-control
+                  option 递增编号
+                span.add-ico
+                input.form-control(type="text" value="2") 
+                span.add-ico 位
+                span.circle-add.J-add-number +
+              .number-container.clearfix
+          .form-group
+            label.col-md-1.control-label 项目状态：
+            .col-sm-10
+              div.project-item 未开工
+                em.del-item ×
+              div.project-item 在建中
+                em.del-item ×
+              div.project-item 已完工
+                em.del-item ×
+              div.project-item 已审定
+                em.del-item ×
+              span.circle-add +
+          .form-group
+            label.col-md-1.control-label 工程类别：
+            .col-sm-10
+              div.project-item 房屋建筑工程
+                em.del-item ×
+              div.project-item 铁路工程
+                em.del-item ×
+              div.project-item 房屋工程
+                em.del-item ×
+              span.circle-add +
+          .form-group
+            label.col-md-1.control-label 联系单位类型：
+            .col-sm-10
+              div.project-item 建设单位
+                em.del-item ×
+              div.project-item 设计单位
+                em.del-item ×
+              div.project-item 审计单位
+                em.del-item ×
+              span.circle-add +
+          .form-group
+            label.col-md-1.control-label 企业性质：
+            .col-sm-10
+              div.project-item 国有企业
+                em.del-item ×
+              div.project-item 事业单位
+                em.del-item ×
+              span.circle-add +
+          .form-group
+            label.col-md-1.control-label 合同编号生成：
+            .col-sm-10.project-num-create 自动 
+              label.sta
+                input(type="checkbox" checked) 
+                |是
+          .form-group
+            label.col-md-1.control-label 规则：
+            .col-sm-10
+              .number-wrap-container.clearfix
+                select.form-control
+                  option 分公司编号
+                span.add-ico +
+                select.form-control
+                  option 固定编号
+                span.add-ico
+                input.form-control(type="text")
+                span.add-ico +
+                select.form-control
+                  option 年
+                  option 2015
+                  option 2016
+                span.add-ico +
+                select.form-control
+                  option 月
+                  option 1
+                  option 2
+                span.add-ico
+                select.form-control
+                  option 递增编号
+                span.add-ico
+                input.form-control(type="text" value="2") 
+                span.add-ico 位
+                span.circle-add.J-add-number +
+              .number-container
+          .form-group
+            label.col-md-1.control-label 项目合同税率：
+            .col-sm-10
+              div.project-item 17%
+                em.del-item ×
+              div.project-item 11%
+                em.del-item ×
+              div.project-item 6%
+                em.del-item ×
+              div.project-item 5%
+                em.del-item ×
+              div.project-item 3%
+                em.del-item ×
+              span.circle-add +
+          .form-group
+            label.col-md-1.control-label 开票类型：
+            .col-sm-10
+              div.project-item 增值税专用发票
+                em.del-item ×
+              div.project-item 增值税普通发票
+                em.del-item ×
+              span.circle-add +
+          .form-group
+            label.col-md-1.control-label 合同类型：
+            .col-sm-10
+              div.project-item 施工合同
+                em.del-item ×
+              div.project-item A类合同
+                em.del-item ×
+              span.circle-add +
+          .form-group
+            label.col-md-1.control-label 承包方式：
+            .col-sm-10
+              div.project-item 包工包料
+                em.del-item ×
+              span.circle-add +
+          .form-group
+            label.col-md-1.control-label 计价方式：
+            .col-sm-10
+              div.project-item 总价合同
+                em.del-item ×
+              div.project-item 单价合同
+                em.del-item ×
+              div.project-item 成本加酬金
+                em.del-item ×
+              span.circle-add +
+          .form-group
+            label.col-md-1.control-label 支付方式：
+            .col-sm-10
+              div.project-item 网银
+                em.del-item ×
+              div.project-item 承兑汇票
+                em.del-item ×
+              span.circle-add +
+          .form-group
+            label.col-md-1.control-label 合同付款阶段：
+            .col-sm-10
+              +table-project-config-pact
+              span.circle-add +
+          .form-group
+            label.col-md-1.control-label 合同主要条款：
+            .col-sm-10
+              +table-project-pact-list
+              span.circle-add +
