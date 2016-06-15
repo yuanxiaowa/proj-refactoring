@@ -185,7 +185,7 @@ var option5 = {
   }]
 };
 
-myChart1.setOption(option1);
+myChart1.setOption(option1)
 myChart2.setOption(option2);
 myChart3.setOption(option3);
 myChart4.setOption(option4);

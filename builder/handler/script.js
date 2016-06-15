@@ -1,5 +1,6 @@
 const rollup = require('rollup');
 const CLIEngine = require('eslint').CLIEngine;
+const util = require('gulp-util');
 
 const mpath = require('../utils/path');
 const mfile = require('../utils/file');
@@ -169,12 +170,22 @@ function lint(content, filepath) {
   var cli = new CLIEngine({
     useEslintrc: true
   });
-  var types = [, 'warning', 'error'];
+  var types = [, util.colors.yellow('warning'), util.colors.red('error')];
   var result = cli.executeOnText(content, filepath).results[0];
   if (result.errorCount || result.warningCount) {
-    console.log('eslint: ', filepath);
+    util.log(util.colors.bgBlue('代码检查：'), filepath);
     result.messages.forEach(item => {
-      console.log(`${item.line},${item.column}: ${types[item.severity]}, ${item.ruleId}, ${item.message}, ${item.source}`)
+      console.log(
+        types[item.severity],
+        util.colors.cyan(`${item.line},${item.column}`),
+        util.colors.magenta('规则'),
+        `${item.ruleId}`,
+        util.colors.magenta('信息'),
+        `${item.message}`,
+        util.colors.magenta('源码片段'),
+        `${item.source}`
+      );
+      // util.log(`${item.line},${item.column}: ${types[item.severity]}, ${item.ruleId}, ${item.message}, ${item.source}`)
     });
   }
 }
