@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-06-15 09:05:35
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-15 14:49:10
+* @Last Modified time: 2016-06-15 16:42:12
 */
 @import '/modules/variables';
 @import '/modules/project-common';
@@ -57,13 +57,16 @@
       .price{
         border:none;
         border-bottom: 1px solid #666;
-        width: 8%;
+        width: 6%;
       }
       .tax-price{
         margin-top: 7px;
         span{
-          margin-right: 12px;
+          margin-right: 8px;
         }
+      }
+      .pact-tax-type{
+        margin-left: -25px;
       }
       .area-check div{
         padding-right: 0;
@@ -73,4 +76,11 @@
       }
     }
   }
+}
+.pact-date input{
+  width: 48%;
+  margin-right: 4%;
+}
+.pact-project-survey{
+  margin-left: -14%!important;
 }

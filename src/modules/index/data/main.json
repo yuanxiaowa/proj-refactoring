@@ -21,7 +21,10 @@
       "text": "项目基础配置"
     }, {
       "link": "../projectmanagement/add-project.html",
-      "text": "编辑项目信息"
+      "text": "新增项目信息"
+    },{
+      "link": "../projectmanagement/add-projectpact.html",
+      "text": "新增项目合同"
     }]
   }, {
     "name": "采购管理",
