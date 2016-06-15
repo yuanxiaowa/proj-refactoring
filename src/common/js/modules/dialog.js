@@ -13,7 +13,6 @@ function Dialog({
 }) {
   this.options = {
     content,
-    b: 1,
     title,
     btns,
     btnsTxt,

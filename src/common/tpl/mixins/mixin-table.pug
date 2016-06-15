@@ -323,26 +323,10 @@ mixin table-project-contact
 //- 项目配置模块
 mixin table-project-config-pact
   +table(['阶段名称','默认付款比例','对应项目状态','操作'])(class="table-bordered")
-    tr
-      td 
-        input.form-control(type="text")
-      td 
-        input.form-control(type="text")
-      td 
-        select.form-control
-          option 未开工
-          option 在建中
-          option 已完工
-          option 已审定
-      td
-        a(href="javascript:;") 删除
+    
 mixin table-project-pact-list
   +table(['条款标题','操作'])(class="table-bordered")
-    tr
-      td 
-        textarea(name="", cols="30", rows="2").form-control
-      td
-        a(href="javascript:;") 删除
+  
 mixin table-role
   +table(['角色名称','描述','创建日期','修改日期'])(class="table-bordered")
     each item in ['项目经理', '材料员', '仓管员', '预决算员']

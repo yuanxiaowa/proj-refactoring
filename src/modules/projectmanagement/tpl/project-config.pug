@@ -14,9 +14,9 @@ append content
             label.col-md-2.control-label 项目编号生成：
             .col-sm-10.project-num-create 自动 
               label.sta
-                input(type="checkbox" checked) 
+                input(type="checkbox" checked class="isAutoProject") 
                 |是
-          .form-group
+          .form-group.hidden
             label.col-md-2.control-label 规则：
             .col-sm-10
               .number-wrap-container.clearfix
@@ -25,7 +25,7 @@ append content
                   span.add-ico
                   input.form-control(type="text" value="2") 
                   span.add-ico 位
-                  span.circle-add.J-add-number +
+                  span.circle-add.J-add-item.auto_key +
           .form-group
             label.col-md-2.control-label 项目状态：
             .col-sm-10.list-box
@@ -70,9 +70,9 @@ append content
             label.col-md-2.control-label 合同编号生成：
             .col-sm-10.project-num-create 自动 
               label.sta
-                input(type="checkbox" checked) 
+                input(type="checkbox" checked class="isAutoContact") 
                 |是
-          .form-group
+          .form-group.hidden
             label.col-md-2.control-label 规则：
             .col-sm-10
               .number-wrap-container.clearfix
@@ -81,7 +81,7 @@ append content
                   span.add-ico
                   input.form-control(type="text" value="2") 
                   span.add-ico 位
-                  span.circle-add.J-add-number +
+                  span.circle-add.J-add-item.auto_key +
           .form-group
             label.col-md-2.control-label 项目合同税率：
             .col-sm-10.list-box
@@ -140,11 +140,11 @@ append content
             label.col-md-2.control-label 合同付款阶段：
             .col-sm-10
               +table-project-config-pact
-              span.circle-add +
+              span.circle-add.payProcess +
           .form-group
             label.col-md-2.control-label 合同主要条款：
             .col-sm-10
               +table-project-pact-list
-              span.circle-add +
+              span.circle-add.contactContent +
       +modal('编辑项目成员')(id="add-item")
         +modal-project-config-add-item

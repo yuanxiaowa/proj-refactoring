@@ -5,7 +5,7 @@ import Dialog from 'dialog';
 $('body').on('click', '[data-modal-load]', function() {
   var $self = $(this);
 
-  if (!$self.data('loaded')) {
+  if (!$self.data('loaded') || $self.data('nocache')) {
     let stxt = $self.data('modalStxt');
     let ctxt = $self.data('modalCtxt');
     let abind = $self.data('modalBind');

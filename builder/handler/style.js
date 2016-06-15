@@ -82,6 +82,7 @@ module.exports = (context, content, file, options) => {
       .process(content, opts)
       .then(result => {
         let warnings = result.warnings().join('\n');
+        handleFilePath(file);
         if (file.sourceMap) {
           try {
             let map = result.map.toJSON();
@@ -97,7 +98,6 @@ module.exports = (context, content, file, options) => {
         if (warnings) {
           gutil.log('postcss: ', file.relative + '\n' + warnings);
         }
-        handleFilePath(file);
         resolve(result.css);
       }, reject);
   });

@@ -64,6 +64,7 @@
   `data-modal-stxt` 确认按钮文本，默认为保存
   `data-modal-ctxt` 取消按钮文本，默认为取消
   `data-modal-bind` 默认为true，在内容加载完之后，若有表单，自动绑定表单校验，并在数据发送到后台成功后，关闭对话框
+  `data-nocache` 是否要缓存页面，默认为缓存，需要禁用，改为true即可
 - 事件
   `loaded.modalremote` 内容加载完后
   `ok.modalremote` 点击确定按钮后

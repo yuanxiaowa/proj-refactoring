@@ -1,5 +1,5 @@
-import Dropmenu from '/modules/dropmenu';
-import Role from '/modules/role';
+import Dropmenu from 'dropmenu';
+import Role from 'role';
 
 var $modalRole = $('#modal-role');
 

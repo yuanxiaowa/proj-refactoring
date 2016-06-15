@@ -156,9 +156,9 @@ $bg-menu: #f1efef;
   }
 }
 
-input[type=file] {
-  // position: absolute;
-  // display: none;
+.input-group-addon input[type=file] {
+  position: absolute;
+  display: none;
 }
 
 .modal-alert {

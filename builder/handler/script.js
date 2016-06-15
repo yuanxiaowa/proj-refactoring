@@ -45,9 +45,12 @@ function procConfig() {
     }
     mfile.readFile2(mpath.join(paths.common.script, 'config.js'))
       .then(data => {
+        let result = JSON.stringify(obj, null, 4);
+        result = result.replace(/"/g, `'`)
+          .replace(/(?='\/)/g, 'baseUrl + ');
         mfile.writeFile(
           mpath.join(paths.outputPublic, 'config.js'),
-          data.replace('$$references', JSON.stringify(obj, null, 4))
+          data.replace('$$references', result)
         );
       });
   });
