@@ -69,6 +69,8 @@
     "stylelint": "^6.3.3",
     "through2": "^2.0.1",
     "uninstall": "0.0.0-reserved",
-    "vinyl-sourcemaps-apply": "^0.2.1"
+    "vinyl-sourcemaps-apply": "^0.2.1",
+    "webuploader": "^0.1.8",
+    "ztree": "^3.5.24"
   }
 }

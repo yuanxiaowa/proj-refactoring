@@ -157,8 +157,8 @@ $bg-menu: #f1efef;
 }
 
 input[type=file] {
-  position: absolute;
-  display: none;
+  // position: absolute;
+  // display: none;
 }
 
 .modal-alert {

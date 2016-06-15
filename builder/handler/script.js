@@ -12,10 +12,12 @@ let rLib = /\/\/\s+require\(([\w.]+)(?:\s*,\s*(\w+))?\)/g;
 let rInclude = /\$\$include\('([^']*)'\)/g;
 let rImport = /(\bimport\s+(?:\w+\s+from\s+)?')([^']*)/g;
 
+let externals;
+
 function procConfig() {
   var obj = {};
   Object.keys(resources).forEach(item => {
-    if ('jquery' === item || 'bootstrap' === item || 'requirejs' === item) {
+    if (/^(jquery|bootstrap|requirejs|html5shiv|respond)$/.test(item)) {
       return;
     }
     let v = resources[item].cur;
@@ -32,11 +34,12 @@ function procConfig() {
       }
     }
   });
-
+  externals = Object.keys(obj);
   mfile.readdir(mpath.join(paths.commonDir, 'js', 'modules'), (err, files) => {
     if (!err) {
       files.forEach(item => {
         let name = mpath.getName(item);
+        externals.push(name);
         obj[name] = mpath.join('/public/modules', name);
       });
     }
@@ -145,7 +148,8 @@ function includeHandle(content) {
  */
 function bundle(content, path, options) {
   var rollupOptions = Object.assign({
-    entry: path
+    entry: path,
+    external: externals
   }, options.rollup);
   rollupOptions.plainText = content;
   return rollup.rollup(rollupOptions).then(function(bundle) {
@@ -200,7 +204,9 @@ module.exports = (context, content, file, options) => {
         handleFilePath(file);
       }
       bundle(content, filepath, options).then(resolve, reject);
-      lint(content, filepath);
+      if (!mpath.contains(paths.commonDir, filepath)) {
+        lint(content, filepath);
+      }
     });
   });
 };

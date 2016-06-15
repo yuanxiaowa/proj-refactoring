@@ -8,20 +8,20 @@
     "name": "项目管理",
     "icon": "cogs",
     "children": [{
-      "link": "",
-      "text": "项目基本信息"
+      "link": "../projectmanagement/pactdetail.html",
+      "text": "合同详情"
     }, {
-      "link": "",
-      "text": "项目成员"
+      "link": "../projectmanagement/add-pact.html",
+      "text": "编辑补充合同"
     }, {
-      "link": "",
-      "text": "项目合同"
+      "link": "../projectmanagement/projectdetail.html",
+      "text": "项目详情"
     }, {
-      "link": "",
-      "text": "项目进度"
+      "link": "../projectmanagement/project-config.html",
+      "text": "项目基础配置"
     }, {
-      "link": "",
-      "text": "材料总量计划"
+      "link": "../projectmanagement/add-project.html",
+      "text": "编辑项目信息"
     }]
   }, {
     "name": "采购管理",

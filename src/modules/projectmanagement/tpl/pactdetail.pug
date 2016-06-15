@@ -12,7 +12,6 @@ append content
         button.btn.btn-default 确认提交 
         button.btn.btn-default 审批意见
         button.btn.btn-default(data-toggle="modal" data-target="#pactModal") 合同评审表
-      //合同详细信息
       +template
         .panel.panel-default.mt-20.detail-show
           .panel-heading: .row
@@ -25,8 +24,8 @@ append content
                 img(src="image/nopass-statu.png")
               .col-md-11
                 p.project-name 南京歌剧院建设工程施工合同
-                  samll.number 
-                    |编号：<span class="xl"> AE2001574</span> 
+                  samll.number 编号：
+                    span.xl 123456
                   a(href="add-pact.html" class="main-pact") （有补充合同，点击查看）
                 +detail-list(items)
       +tab(tabs)
@@ -50,8 +49,6 @@ append content
             .panel-body.row
               .col-md-9
                 +table-pact-change-history
-      
-      //合同评审表
       .modal.fade#pactModal(tabindex="-1" role="dialog" aria-labelledby="pactModal")
         .modal-dialog( role="document")
           .modal-content
@@ -64,17 +61,23 @@ append content
               h3.pactinfo-title.text-center 江苏江安集团有限公司合同评审记录
               h3.pactinfo-title 合同信息:
               p 
-                <span> 施工单位及项目负责人：</span>南京分公司-第二项目部（胡某某）
+                span 施工单位及项目负责人：
+                |南京分公司-第二项目部
               p 
-                <span> 合同编号：</span>JAJT01XMHT0001
+                span 合同编号：
+                |JAJT01XMHT0001
               p 
-                <span> 建设单位：</span>南京分公司-第二项目部
+                span 建设单位：
+                |南京分公司-第二项目部
               p 
-                <span> 合同开工竣工日期：</span>2016/5-2017/5
+                span 合同开工竣工日期：
+                |2016/5-2017/5
               p 
-                <span> 工程名称：</span>南京分公司-第二项目部
+                span 工程名称：
+                |南京分公司-第二项目部
               p 
-                <span>合同金额：</span> 6000万
+                span 合同金额：
+                |6000万
               h3.pactinfo-title 评审意见:
               .idea-item
                 p 工程部：李刚  2016-6-6  19:30:10

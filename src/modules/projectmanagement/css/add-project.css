@@ -1,0 +1,76 @@
+/* !
+* @Author: huangzexia
+* @Date:   2016-06-15 09:05:35
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-06-15 14:49:10
+*/
+@import '/modules/variables';
+@import '/modules/project-common';
+
+.con-container{
+  margin-bottom: 0;
+  .list-title{
+    padding: 10px 46px;
+    background: #d5e0ed;
+    margin-bottom: 18px;
+    cursor: pointer;
+    .J-toggle{
+      color: #2d62a4;
+    }
+  }
+  .pact-form{
+    overflow: hidden;
+    .form-item-box{
+      margin:0 33px 30px 33px;
+      .upload-container{
+        background: #e9ecf5 url("../image/up-pic.png") no-repeat center 20px;
+        width: 100%;
+        height: 174px;
+        border:1px dashed #cad8e8;
+        border-radius: 5px;
+        .up-btn{
+          display: block;
+          height: inherit;
+          text-decoration: underline;
+          line-height: 300px;
+        }
+      }
+      .tip{
+        color: #418ae3;
+        position: relative;
+        top: 6px;
+      }
+      .good-tip{
+        padding: 16px 12px;
+        color: #f93;
+        a{
+          text-decoration: underline;
+        }
+      }
+      .date-input,
+      .link-line{
+        margin-left: -23%;
+      }
+      .tax-type{
+        margin-left: 23px;
+      }
+      .price{
+        border:none;
+        border-bottom: 1px solid #666;
+        width: 8%;
+      }
+      .tax-price{
+        margin-top: 7px;
+        span{
+          margin-right: 12px;
+        }
+      }
+      .area-check div{
+        padding-right: 0;
+      }
+      .project-survey textarea{
+        height: 100px;
+      }
+    }
+  }
+}

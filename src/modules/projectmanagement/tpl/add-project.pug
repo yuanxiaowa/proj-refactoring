@@ -1,0 +1,102 @@
+extends /common
+
+append style
+  +style('add-project')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary.J-add-save 保存
+      .pact-form
+        +form-horizontal()(class="row" id="add-project-form")
+          .list-item
+            p.list-title 基本信息
+              span.pull-right.J-toggle 收起-
+            .form-item-box.clearfix
+              .rwo.clearfix 
+                .item.col-md-2 
+                  .upload-container
+                    a.text-center.up-btn(href="javascript:;") 点击上传，项目图片
+                .item.col-md-10 
+                  .row
+                    +form-horizontal-item({label:'项目简介',i:true,type:'input',cw:6})(class="col-md-6")
+                    .form-group.col-md-6
+                      label.control-label.col-xs-3 编号：
+                      .col-xs-9.col-md-6 
+                        span.tip 保存后自动生成……
+                  .row
+                    +form-horizontal-item({label:'项目负责人',i:true,type:'input',cw:6})(class="col-md-6")
+                    +form-horizontal-item({label:'施工部门',i:true,type:'input',cw:6})(class="col-md-6")
+                  .row
+                    +form-horizontal-item({label:'项目全称',i:true,type:'input',cw:6})(class="col-md-6")
+                    +form-horizontal-item({label:'项目状态',i:true,type:'select',cw:6})(class="col-md-6")
+                  .row
+                    +form-horizontal-item({label:'建设单位',type:'input',cw:6})(class="col-md-6")
+                    +form-horizontal-item({label:'实际开工日期',type:'input',cw:6})(class="col-md-6")
+              p.good-tip 已关联合同，如需修改合同信息，请点击
+                a(href="#") 南京歌剧院一期项目合同
+              .row
+                +form-horizontal-item({label:'合同开竣工日期',type:'input',cw:4})(class="col-md-7")
+                span.link-line.pull-left ~
+                +form-horizontal-item({label:'',type:'input',cw:4})(class="col-md-7 date-input")
+              .row
+                .form-group.col-md-7
+                  label.control-label.col-xs-3 开票类型：
+                  .col-xs-9.col-md-4
+                    select.form-control
+                      option 11%
+                      option 3%
+                  .col-xs-9.col-md-4
+                    select.form-control.tax-type
+                      option 增值税专用发票
+                      option 增值税普通发票
+              .row
+                .form-group.col-md-7
+                  label.control-label.col-xs-3 合同总额(含税价)：
+                  .col-xs-9.col-md-3
+                    input.form-control
+                  p.tax-price
+                    span 万元
+                    span 其中，税额：
+                      input.price(type="text")
+                    span 万元
+                    span 不含税额：
+                      input.price(type="text")
+                    span 万元       
+              .row
+                +form-horizontal-item({label:'工程类别',type:'select',cw:4})(class="col-md-7")
+              .row
+                +form-horizontal-item({label:'管理费率',type:'input',cw:4})(class="col-md-7")
+              .row
+                .form-group.col-md-7.area-check
+                  label.control-label.col-xs-3 工程地点：
+                  .col-xs-9.col-md-2
+                    select.form-control
+                      option 江苏省
+                      option 上海市
+                  .col-xs-9.col-md-2
+                    select.form-control
+                      option 南京市
+                      option 上海市
+                  .col-xs-9.col-md-2
+                    select.form-control
+                      option 玄武区
+                      option 浦东区
+                  .col-xs-9.col-md-3
+                    input.form-control(type="text"  placeholder="请输入详细地址")
+          .list-item
+            p.list-title 补充信息
+              span.pull-right.J-toggle 收起-
+            .form-item-box.clearfix
+              .row
+                +form-horizontal-item({label:'工程概况',type:'textarea',cw:9})(class="col-md-7 project-survey")
+              .row
+                +form-horizontal-item({label:'相关工程',type:'input',cw:4})(class="col-md-7 project-survey")
+              .row
+                +form-horizontal-item({label:'备注',type:'textarea',cw:9})(class="col-md-7 project-survey")
+
+
+
+
+              

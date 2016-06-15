@@ -1,5 +1,5 @@
 import 'bootstrapTable';
-import 'bootstrapTreeview';
+import 'zTree';
 import 'dialog';
 import 'modalRemote';
 import 'orgLeft';
@@ -78,7 +78,7 @@ $('#modal-edit').on('click', '.j-m-add', function() {
 });*/
 
 $('#link-next').on('loaded.modalremote', $modal => {
-  $('#treeview').treeview({
+ /* $('#treeview').treeview({
     showBorder: false,
     // nodeIcon: 'icon-folder-close-alt',
     expandIcon: 'icon-caret-right',
@@ -109,5 +109,5 @@ $('#link-next').on('loaded.modalremote', $modal => {
         text: '尹斗俊'
       }]
     }]
-  });
+  });*/
 });

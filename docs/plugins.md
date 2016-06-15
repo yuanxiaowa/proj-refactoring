@@ -114,6 +114,8 @@ Content-Type: application/json
 ## 数据渲染
 使用mustache模板标签进行渲染
 
+> 文档见 <https://github.com/hoisie/mustache>
+
 `render(data)` 在页面只有一个标签时候，可使用这个方法进行渲染
 
 `render(ele, data)` 使用指定元素标签进行渲染
@@ -126,7 +128,9 @@ Content-Type: application/json
 - `data` 渲染的数据
 
 ## 左右选来选去的插件
-`var om = new OptionManager(options)`
+```js
+var om = new OptionManager(options)
+```
 - `options`
   + `$btn:jQuery` 按钮
   + `title` 对话框标题
@@ -160,3 +164,64 @@ Content-Type: application/json
     ```
     [Number, ...]
     ```
+
+## 日期选择插件
+引入 `bootstrapDatetimepicker`
+
+使用方式
+```js
+$('[date]').datetimepicker()
+```
+
+> 文档见 <http://www.malot.fr/bootstrap-datetimepicker/>
+
+## 树形菜单
+引入 `zTree`
+
+使用方式
+```js
+$.fn.zTree.init($ele, settings, zNodes)
+```
++ $ele
++ settings
++ zNodes
+  ```json
+  [
+    {
+      name: String,
+      open: Boolean,
+      children: Array
+    }, ...
+  ]
+    ```
+
+> 文档见 <http://www.malot.fr/bootstrap-datetimepicker/>
+
+## 下拉框插件
+引入 `select2`
+
+使用方式
+```js
+$ele.select2();
+```
+
+> 文档见 <https://select2.github.io/options.html>
+
+## 文件上传插件
+引入 `webUploader`
+
+使用方式
+```js
+var uploader = WebUploader.create({
+  auto: true,
+  swf: '/public/lib/webUploader/0.1.8/Uploader.swf',
+  pick: '#ele',
+  server: 'url',
+  accept: {
+    extensions: 'gif,jpg,jpeg,bmp,png',
+    mimeTypes: 'image/*'
+  }
+}
+```
+
+> 文档见 <http://fex.baidu.com/webuploader/doc/index.html>

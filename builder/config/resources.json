@@ -28,20 +28,12 @@
       }
     }
   },
-  "bootstrapTreeview": {
-    "cur": "1.2.0",
+  "zTree": {
+    "cur": "3.5.24",
     "files": {
-      "1.2.0": {
-        "script": "js/bootstrap-treeview.js",
-        "style": "css/bootstrap-treeview.css"
-      }
-    }
-  },
-  "d3": {
-    "cur": "3.5.17",
-    "files": {
-      "3.5.17": {
-        "script": "d3.js"
+      "3.5.24": {
+        "script": "js/jquery.ztree.all.js",
+        "style": "css/zTreeStyle.css"
       }
     }
   },
@@ -54,14 +46,6 @@
           "bmap": "bmap.js",
           "china": "china.js"
         }
-      }
-    }
-  },
-  "jqBootstrapValidation": {
-    "cur": "1.3.6",
-    "files": {
-      "1.3.6": {
-        "script": "jqBootstrapValidation.js"
       }
     }
   },
@@ -118,8 +102,8 @@
     "cur": "2.0",
     "files": {
       "2.0": {
-        "script": "js/bootstrap-datetimepicker.css",
-        "style": "css/bootstrap-datetimepicker.js"
+        "script": "js/bootstrap-datetimepicker.js",
+        "style": "css/bootstrap-datetimepicker.css"
       }
     }
   },
@@ -136,6 +120,14 @@
     "files": {
       "2.2.0": {
         "script": "require.js"
+      }
+    }
+  },
+  "webUploader": {
+    "cur": "0.1.8",
+    "files": {
+      "0.1.8": {
+        "script": "webuploader.js"
       }
     }
   }

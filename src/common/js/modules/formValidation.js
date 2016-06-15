@@ -26,7 +26,10 @@ let defaultOptions = {
     return false;
   },
   dataFormat(form) {
-    return JSON.stringify($(form).form2json());
+    if (/post/i.test(form.method)) {
+      return JSON.stringify($(form).form2json());
+    }
+    return $(form).serialize();
   }
 };
 
