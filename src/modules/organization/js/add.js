@@ -1,6 +1,5 @@
 import 'select2';
 import 'modalRemote';
-import WebUploader from 'webUploader';
 import formValidation from 'formValidation';
 
 var $desc = $('#desc').children().last();
@@ -17,20 +16,6 @@ var validator = (() => {
     }
   };
 })();
-
-window.uploader = WebUploader.create({
-  auto: true,
-  pick: '#ss',
-  server: '',
-  accept: {
-    extensions: 'gif,jpg,jpeg,bmp,png',
-    mimeTypes: 'image/*'
-  }
-});
-
-uploader.on('fileQueued', () => {
-  console.log('-------');
-});
 
 function initSelect($ele) {
   $ele.select2({
