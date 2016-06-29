@@ -111,3 +111,13 @@ a {
     font-style: normal;
   }
 }
+input[type="file"]{
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+/*上传样式*/
+a[type="upfile"]{
+  margin: 0 3px;
+  position: relative;
+  cursor: pointer;
+}

@@ -1,0 +1,12 @@
+.row
+  +form-horizontal-item({label:'计划编号',type:'input',cw:7})(class="col-md-4")
+  +form-horizontal-item({label:'采购项目',type:'input',cw:7})(class="col-md-4")
+  +form-horizontal-item({label:'采购部门',type:'input',cw:7})(class="col-md-4")
+.row
+  +form-horizontal-item({label:'计划年月',type:'select',cw:7})(class="col-md-4")
+  +form-horizontal-item({label:'地区',type:'input',cw:7})(class="col-md-4")
+  .form-group.col-md-4
+    .control-label.col-xs-5
+      button.btn.btn-primary 查询
+.row.result-container
+  table#addPlan

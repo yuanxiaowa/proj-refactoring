@@ -1,0 +1,42 @@
+extends /common
+
+append style
+  +style('add-contact-department')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-primary.J-add-save 查询
+        button.btn.btn-default.J-add 批量上传
+      .pact-form.clearfix 
+        .row.col-md-12
+          +form-horizontal()(class="row" id="supplement-pact-form")
+            .row
+              +form-horizontal-item({label:'姓名',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'项目',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'施工单位',type:'input',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'职务',type:'select',cw:7})(class="col-md-4")
+              .form-group.col-md-6.query-date
+                label.control-label.col-xs-5 日期：
+                .col-xs-9.col-md-7.date-box
+                  input.form-control.first(type="date")
+                  input.form-control(type="date")
+    +tab(tabs)
+      .tab-pane.active#tab1
+        .panel.panel-default
+          .panel-body.row
+            .col-md-12
+              p.text-right#toolbar
+                a(href="")
+                  +icon("share-alt","导出")
+              table.J-member
+      .tab-pane#tab2
+        .panel.panel-default
+          .panel-body.row
+            .col-md-12
+              p.text-right#toolbar-1
+                a(href="")
+                  +icon("share-alt","导出")
+              table.J-project 

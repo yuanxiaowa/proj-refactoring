@@ -74,7 +74,7 @@
   overflow-x: hidden;
   position: relative;
   transition: .3s;
-  width: 270px;
+  width: 220px;
   &.is-toggled {
     width: 48px;
     .main-menu-item-c {

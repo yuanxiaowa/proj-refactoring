@@ -1,0 +1,85 @@
+extends /common
+
+append style
+  +style('material-pact')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-primary.J-add-save 查询
+        button.btn.btn-default.J-add 新增
+        button.btn.btn-default 删除
+      .pact-form.clearfix 
+        .row.col-md-12
+          +form-horizontal()(class="row" id="material-pact-form")
+            .row
+              +form-horizontal-item({label:'合同名称',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'合同编号',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'所属项目',type:'input',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'供应商',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'采购部门',type:'select',cw:7})(class="col-md-4")
+              .form-group.col-md-4
+                label.control-label.col-xs-5 发票类型：
+                .col-xs-7
+                  label.checkbox-inline
+                    input(type="radio") 
+                    |全部
+                  label.checkbox-inline
+                    input(type="radio") 
+                    |增值税专用发票
+                  label.checkbox-inline
+                    input(type="radio") 
+                    |增值税普通发票
+            .row
+              .form-group.col-md-4
+                label.control-label.col-xs-5 税率：
+                .col-xs-7
+                  label.checkbox-inline
+                    input(type="radio") 
+                    |全部
+                  label.checkbox-inline
+                    input(type="radio") 
+                    |17%
+                  label.checkbox-inline
+                    input(type="radio") 
+                    |11%
+              +form-horizontal-item({label:'年月',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'对应采购单',type:'input',cw:7})(class="col-md-4")
+            .row
+              .form-group.col-md-8
+                .control-label.col-xs-4.project-sta 审批状态：
+                .col-xs-8
+                  label.checkbox-inline
+                    input(type="radio") 
+                    |全部
+                  label.checkbox-inline
+                    input(type="radio") 
+                    |已生效
+                  label.checkbox-inline
+                    input(type="radio") 
+                    |审批中
+                  label.checkbox-inline
+                    input(type="radio") 
+                    |未生效
+    .con-container
+      .pact-form 
+        p.text-right#toolbar
+          a(href="")
+            +icon("share-alt","导出")
+        table
+          tfoot
+            tr
+              td &nbsp;
+              td(align="center") 合计：
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td(align="center") 600000元
+              td(align="center") 600000元
+              td(align="center") 600000元

@@ -1,0 +1,88 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-06-24 10:56:04
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-06-25 11:53:22
+*/
+@import '/modules/variables';
+@import '/modules/project-common';
+@import '/modules/tabs';
+@import '/modules/page-common';
+.pact-form {
+  padding: 36px;
+  .default-data{
+    display: inline-block;
+    margin-top:7px;
+  }
+}
+.quote-title{
+  font-size: 16px;
+  small{
+    color: #f60;
+    padding-left: 30px;
+    font-size: 14px;
+  }
+}
+.list-container{
+  margin:1% 2% 1% 1%;
+  overflow-x: auto;
+  overflow-y: auto;
+  .bj-list{
+    height: 400px;
+    .p-title th{
+      font-weight: normal;
+    }
+  }
+}
+.base-info td{
+  background: #dce5f0
+}
+.tips{
+  position: relative;
+  cursor: pointer;
+}
+.bargain{
+  background: #c9ecd1;
+  color: #1c672d;
+}
+.company-name{
+  position: relative;
+  .tj{
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+.offer-file{
+  display: inline-block;
+  width: 20px;
+  height: 18px;
+  background: url("../image/down-file.png") no-repeat;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+}
+.identity{
+  position: relative;
+  top: 7px;
+  margin-right: 2px;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+.identity-gold{
+  background: url("../image/indenty-statu.png") no-repeat 0 -36px;
+}
+.identity-syb{
+  background: url("../image/indenty-statu.png") no-repeat 0 -72px;
+}
+.identity-tax{
+  background: url("../image/indenty-statu.png") no-repeat 0 0;
+}
+.blacklist{
+  margin: 0 3px;
+  color: #f00;
+}
+.explain{
+  margin-left: 6px;
+}

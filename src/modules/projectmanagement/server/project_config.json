@@ -1,0 +1,41 @@
+{
+  "success": true,
+  "msg": "ok",
+  "data": {
+    "autoCreateProjectNo": true,
+    "projectNoCreationRules": [
+        "固定编号"
+    ],
+    "projectStatuses": [
+        "未开工",
+        "结束",
+        "在建中"
+    ],
+    "projectTypes": [],
+    "associatedUnitTypes": [],
+    "enterpriseProperties": [],
+    "autoCreateContractNo": false,
+    "contractNoCreationRules": [ "固定编号",
+        "分公司编号",
+        "年月"],
+    "contractRates": [],
+    "invoiceTypes": [],
+    "contractTypes": [],
+    "contractingModes": [],
+    "pricingModes": [],
+    "paymentModes": [],
+    "paymentPhases": [
+        {
+            "phaseName": "未开工阶段",
+            "defaultPaymentRate": "11%",
+            "correspondingProjectStatus": "未开工"
+        },
+        {
+            "phaseName": "在建中阶段",
+            "defaultPaymentRate": "6%",
+            "correspondingProjectStatus": "在建中"
+        }
+    ],
+    "contractTerms": []
+    }
+}

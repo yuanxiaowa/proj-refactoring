@@ -1,0 +1,140 @@
+extends /common
+
+append style
+  +style('add-supplier')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary.J-add-save 保存
+        button.btn.btn-default 审核合格供应商
+        button.btn.btn-default 取消合格供应商  
+        button.btn.btn-default 返回
+      .pact-form
+        +form-horizontal()(class="row" id="add-supplier-form")
+          .list-item
+            p.list-title 基本信息
+              span.pull-right.J-toggle 收起-
+            .form-item-box.clearfix
+              .rwo.clearfix 
+                .item
+                  .row
+                    +form-horizontal-item({label:'供应商名称',i:true,type:'input',cw:7})(class="col-md-3")
+                    div.form-group.col-md-3
+                      label.control-label.col-xs-5
+                        span.text-danger *
+                        |单位类型
+                      div.col-md-7.col-xs-9.departType
+                        label.radio-inline
+                          input(type="radio" value="1" name="departType")  
+                          |个人
+                        label.radio-inline
+                          input(type="radio" value="2" name="departType")  
+                          |公司
+                    +form-horizontal-item({label:'供应商编号',type:'mix',cw:7})(class="col-md-3")
+                      span.text-primary GYS-1604-0001
+                    +form-horizontal-item({label:'类别',type:'mix',cw:7})(class="col-md-3")
+                      span.text-primary 普通供应商
+                  .row
+                    div.form-group.col-md-3
+                      label.control-label.col-xs-5
+                        span.text-danger.dTtext *
+                        span 税务登记证号 ：
+                      div.col-md-7.col-xs-9.dTinput
+                        input.form-control(type="text" )
+                    +form-horizontal-item({label:'税率',type:'select',cw:7})(class="col-md-3")
+                    .form-group.col-md-6
+                      .control-label.col-xs-3.note-type 票据类型：
+                      .col-xs-8
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |增值税专用票
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |增值税一般票
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |营业税票
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |无发票
+                  .row
+                    +form-horizontal-item({label:'银行行号',type:'input',cw:7})(class="col-md-3")
+                    +form-horizontal-item({label:'开户银行',type:'input',cw:7})(class="col-md-3")
+                    +form-horizontal-item({label:'银行账号',type:'input',cw:7})(class="col-md-3")
+          .list-item
+            p.list-title 补充信息
+              span.pull-right.J-toggle 收起-
+            .form-item-box.clearfix
+              .row
+                +form-horizontal-item({label:'企业法人',i:true,type:'input',cw:7})(class="col-md-3")
+                .form-group.col-md-3
+                  label.control-label.col-xs-5 注册资金：
+                  .col-xs-9.col-md-6.money-box
+                    input.form-control 
+                    span.pull-left.money 万元
+                +form-horizontal-item({label:'公司地址',type:'select',cw:7})(class="col-md-3")
+                +form-horizontal-item({label:'详细地址',type:'input',cw:7})(class="col-md-3")
+              .row
+                +form-horizontal-item({label:'联系人',i:true,type:'input',cw:7})(class="col-md-3")
+                +form-horizontal-item({label:'联系电话①',i:true,type:'input',cw:7})(class="col-md-3")
+                +form-horizontal-item({label:'联系电话②',type:'input',cw:7})(class="col-md-3")
+              .row
+                +form-horizontal-item({label:'供应范围',type:'input',cw:7})(class="col-md-3")
+                +form-horizontal-item({label:'供应类型',type:'input',cw:7})(class="col-md-3")
+                +form-horizontal-item({label:'传真',type:'input',cw:7})(class="col-md-3")
+              .row
+                +form-horizontal-item({label:'编制人',type:'mix',cw:7})(class="col-md-3")
+                  span.text-primary 李起光
+                +form-horizontal-item({label:'创建日期',type:'mix',cw:7})(class="col-md-3")
+                  span.text-primary 2016-12-25
+                +form-horizontal-item({label:'备注',type:'input',cw:7})(class="col-md-3")
+          .list-item
+           +tab(tabs)
+            .tab-pane.active#tab1
+              .panel
+                .panel-body
+                  .col-md-12
+                    +table-authentication
+                    p
+                    p.text-center
+                      a(href="javascript:;").J_add_project 新增+
+            .tab-pane#tab2
+              .panel
+                .panel-body
+                  .col-md-12
+                    .row
+                      +form-horizontal-item({label:'营业执照编号',type:'input',cw:7})(class="col-md-6")
+                      .form-group.col-md-6
+                        label.control-label.col-xs-3 有效期:
+                        .col-xs-9.col-md-3.money-box
+                          input.form-control(type="text" date="true")
+                        .col-xs-9.col-md-3.money-box
+                          input.form-control(type="text" date="true")
+                    .row
+                      +form-horizontal-item({label:'组织机构代码',type:'input',cw:7})(class="col-md-6")
+                      .form-group.col-md-6
+                        label.control-label.col-xs-3 颁发日期:
+                        .col-xs-9.col-md-6.money-box
+                          input.form-control(type="text" date="true")      
+            .tab-pane#tab3
+              .panel
+                .panel-body
+                  .col-md-12
+                    +table-active-type
+            .tab-pane#tab4
+              .panel
+                .panel-body
+                  .col-md-12
+                    +table-supplier-change-history
+            .tab-pane#tab5
+              .panel
+                .panel-body
+                  .col-md-12
+                    p.text-right
+                      span.file-name
+                      a(href="javascript:;").J_add_file 新增+
+                    +table-supplier-file-history
+
+                     

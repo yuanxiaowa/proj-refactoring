@@ -249,51 +249,6 @@ mixin table-project-file-edit
       td
         a.J-upfile(href="javascript:;") 上传
 //- 项目详情项目联系单位模块
-mixin table-project-contact-edit
-  .tab-nav
-    button.btn.btn-primary.J-add-project-member 新增 
-  p
-  +table(['编号','分类','单位名称','联系人','联系方式','操作'])(class="table table-bordered table-default table-bordered member-edit-table ")
-    +iterator(2)
-      tr
-        td 01
-        td 
-          span 建设单位
-          div.hide-container
-            select.form-control
-              option
-                | 监理单位
-              option
-                | 设计单位
-              option
-                | 审计单位
-        td 
-          span 江建集团
-          div.hide-container
-            select.form-control
-              option
-                | 江建集团
-              option
-                | 江建集团
-              option
-                |江建集团
-        td 
-          span 李起光
-          div.hide-container
-            select.form-control
-              option
-                | 李起光
-              option
-                | 李起光
-              option
-                |李起光
-        td 
-          span 18985621542
-          div.hide-container
-            input.form-control(type="text")
-        td
-          a.J-edit-member(href="javascript:;") 编辑
-          a.J-del-member(href="javascript:;") 删除
 mixin table-project-contact 
   +table(['编号','单位类型','单位名称','联系人','联系方式'])(class="table-bordered")
     tr
@@ -301,7 +256,7 @@ mixin table-project-contact
       td 建设单位
       td 江安集团
       td 李刚 
-      td 123456789
+      td modal-contact
     tr
       td 02
       td 建设单位
@@ -322,11 +277,172 @@ mixin table-project-contact
       td 123456789
 //- 项目配置模块
 mixin table-project-config-pact
-  +table(['阶段名称','默认付款比例','对应项目状态','操作'])(class="table-bordered")
+  +table(['阶段名称','默认付款比例','对应项目状态','操作'])(class="table-bordered paytb")
     
+
+//- 添加合同模块 
+mixin table-add-pact-pay
+  +table(['阶段名称','付款比例','说明'])(class="table-bordered")
+    tr
+      td 预付款
+      td
+        input.form-control(type="text")
+      td
+        textarea.form-control
+    tr
+      td 在建中
+      td
+        input.form-control(type="text")
+      td
+        textarea.form-control
+    tr
+      td 完工后
+      td
+        input.form-control(type="text")
+      td
+        textarea.form-control
+    tr
+      td 审定后
+      td
+        input.form-control(type="text")
+      td
+        textarea.form-control
+    tr
+      td 质保金
+      td
+        input.form-control(type="text")
+      td
+        textarea.form-control
+mixin table-add-pact-digest
+  .row
+    .form-group.col-md-10
+      label.control-label.col-xs-2 合同主要内容：
+      .col-md-10
+        textarea.form-control.survey 
+  .row
+    .form-group.col-md-10
+      label.control-label.col-xs-2 付款协议摘要：
+      .col-md-10
+        textarea.form-control.survey 
+  .row
+    .form-group.col-md-10
+      label.control-label.col-xs-2 质保金条款：
+      .col-md-10 
+        textarea.form-control.survey
+  .row
+    .form-group.col-md-10
+      label.control-label.col-xs-2 结算信息：
+      .col-md-10 
+        textarea.form-control.survey
+mixin table-add-pact-file
+  +table(['编号','文档编号','文档名称','上传人','上传日期','操作'])(class="table-bordered projectpact_tab")
+//- 添加联系单位模块 
+mixin table-add-contact-department
+  +table(['编号','姓名','性别','生日','职务','电子邮件','手机','办公电话','部门','地址','备注','操作'])(class="table-bordered")
+//- 项目补充合同查询模块
+mixin table-add-pact-query
+  +table(['选中','编号','施工单位','合同名称','合同编号','合同金额','项目负责人','变更类型','施工城市','区域','是否归档','审批状态'])(class="table table-bordered table-default table-bordered member-edit-table")
+    tr
+      td 
+        input(type="checkbox")
+      td 01
+      td 江建集团
+      td 合同名称
+      td 555555
+      td 6000000
+      td 李起光
+      td 李起光
+      td 苏州
+      td 江苏
+      td 是
+      td 审核中
+    tr
+      td(colspan=12)
+        .form-group.col-md-3
+          label.control-label.col-xs-10 合同总额：600000万元
+//-项目合同查询
+mixin table-main-pact-query
+  +table(['选中','编号','施工单位','工程类别','行业类别','合同类别','合同','项目简介','总包方','建设单位','企业性质','合同金额','税率','开工竣工日期','项目负责人','施工城市','区域','是否归档','审批状态'])(class="table table-bordered table-default table-bordered member-edit-table")
+    tr
+      td 
+        input(type="checkbox")
+      td 01
+      td 江建集团
+      td 房建
+      td 化工
+      td A
+      td 南京歌剧院施工合同[JAJTSGHT0001]
+      td 南京歌剧院
+      td 江建集团
+      td 江建集团
+      td 国企
+      td 6000万
+      td 11%modal-purchase
+      td 2015-12-25~2016-2-25
+      td 李起光
+      td 苏州
+      td 江苏
+      td 是
+      td 未生效
+    tr
+      td(colspan=19)
+        .form-group.col-md-3
+          label.control-label.col-xs-10 合同总额：600000万元
+//- 项目成员总汇
+mixin all-project
+  +table(['施工单位','项目','项目负责人','技术总工','施工员','安全员','质量员','仓管员','预算员'])(class="table table-bordered table-default table-bordered member-edit-table")
+      tr
+        td 江建集团
+        td 南京歌剧院
+        td 胡某某
+        td 张杰
+        td 张杰
+        td 张杰
+        td 张杰
+        td 张杰
+        td 张杰
+mixin all-member
+  +table(['施工单位','项目简称','人员姓名','职务','在场记录','是否兼职','联系方式'])(class="table table-bordered table-default table-bordered member-edit-table")
+      tr
+        td 江建集团
+        td 南京歌剧院
+        td 胡某某
+        td 总工
+        td 2016/3/1~2016/3/10
+        td 否
+        td 18862312012
 mixin table-project-pact-list
   +table(['条款标题','操作'])(class="table-bordered")
-  
+//-新增供应商模块
+mixin table-authentication
+  +table(['编号','资质类型','名称','认证编号','认证机构','备注','操作'])(class="table-bordered")  
+mixin table-active-type
+  +table(['编号','类型','行为类别','对应单据号','内容'])(class="table-bordered")  
+    tr
+      td 01
+      td 类型
+      td 行为类别
+      td 2015455
+      td 行为类别行为类别行为类别行为类别
+mixin table-supplier-change-history
+  +table(['编号','变更人','变更日期','内容'])(class="table-bordered")
+    +iterator(3)
+      tr
+        td 01
+        td 李刚
+        td 2016-12-15 12:50:32
+        td 内容内容内容内容内容内容内容
+mixin table-supplier-file-history
+   +table(['编号','附件名称','上传日期','上传者','备注信息','操作'])(class="table-bordered")
+      tr
+        td 01
+        td 
+          a(href="") 李刚
+        td 2016-12-15 12:50:32
+        td 李刚
+        td 备注信息
+        td 
+          a(href="").J-del-project.btn.btn-default 删除
 mixin table-role
   +table(['角色名称','描述','创建日期','修改日期'])(class="table-bordered")
     each item in ['项目经理', '材料员', '仓管员', '预决算员']
@@ -369,43 +485,52 @@ mixin table-pact-change-history
         td 2016-12-15 12:50:32
 mixin table-add-pact
   +table(['变更类型','变更前','变更后','变更事由'])(class="table-bordered")
-      tr
+    tr
         td 
-          <select class="form-control">
-            <option>工期</option>
-            <option>工期1</option>
-            <option>工期2</option>
-            <option>工期3</option>
-          </select>
-        td 2016-1-10 ~ 2016-5-10
+          select.form-control#pactchanged
+            option(value="-1") 请选择
+            option(value="1") 工期
+            option(value="2") 造价
+            option(value="3") 其它
+        td.type-choice 
+          span.project-time 2016-1-10 ~ 2016-5-10
+          span 6000万
+          span 
+            input.form-control
         td 
           <input type="date" class="form-control change-price" > ~
           <input type="date" class="form-control change-price" >
         td 
-          <input type="text" class="form-control" >
+          <input type="text" class="form-control" >  
+//- 采购管理模块    
+mixin table-material-list
+  +table(['编号','订单编号','材料编码','材料名称','规格型号','单位','计划到货日期','数量','单价','合同总额','税额','不含税价','备注'])(class="table-bordered")
+    tr
+      td 1
+      td 201200
+      td 201200
+      td 201200
+      td 201200
+      td 201200
+      td 201200
+      td 201200
+      td 201200
+      td 201200
+      td 201200
+      td 201200
+      td 201200
+    tfoot
       tr
-        td 
-          <select class="form-control">
-            <option>造价</option>
-            <option>造价1</option>
-            <option>造价2</option>
-            <option>造价3</option>
-          </select>
-        td 6000万
-        td <input type="text" class="form-control change-price" >  万 
-        td 
-          <input type="text" class="form-control" >
-      tr
-        td 
-          <select class="form-control">
-            <option>其它</option>
-            <option>其它1</option>
-            <option>其它2</option>
-            <option>其它3</option>
-          </select>
-        td 
-          <input type="text" class="form-control" >
-        td 
-          <input type="text" class="form-control" > 
-        td 
-          <input type="text" class="form-control" >
+        td &nbsp;
+        td 合计
+        td &nbsp;
+        td &nbsp;
+        td &nbsp;
+        td &nbsp;
+        td &nbsp;
+        td &nbsp;
+        td 60000000
+        td 60000000
+        td 60000000
+        td 60000000
+        td &nbsp;

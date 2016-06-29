@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-06-06 09:52:30
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-14 10:57:17
+* @Last Modified time: 2016-06-20 18:54:09
 */
 @import '/modules/variables';
 @import '/modules/page-common';
@@ -117,9 +117,8 @@
     margin: 20px;
     overflow: hidden;
     .item{
-      margin-bottom: 30px;
+      position: relative;
       dt{
-        width: auto;
         font-weight: normal;
       }
       dd{
@@ -128,8 +127,8 @@
       textarea{
         border: $border;
         resize: none;
-        height: 88px;
-        width: 81%;
+        height: 110px;
+        width: 80%;
       }
       .change-price{
         display: inline-block!important;
@@ -137,5 +136,29 @@
         text-align: right;
       }
     }
+    .pact-table-list{
+      padding: 0 92px;
+      input{
+        margin-right: 3px;
+        position: relative;
+        top: 2px;
+        &[type="date"],
+        &[type="text"]{
+          width: 26%;
+          top: -8px;
+          float: left;
+        }
+      }
+    }
   }
+}
+.p-time{
+  line-height: 32px;
+}
+.other-info{
+  margin-left: 119px;
+}
+.remark dt{
+  margin-right: 60px;
+  line-height: 112px;
 }

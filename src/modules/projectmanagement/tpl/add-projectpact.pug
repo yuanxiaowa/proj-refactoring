@@ -20,27 +20,25 @@ append content
               .rwo.clearfix 
                 .item
                   .row
-                    +form-horizontal-item({label:'合同名称',i:true,type:'input',cw:6})(class="col-md-6")
-                    +form-horizontal-item({label:'编号',i:true,type:'input',cw:6})(class="col-md-6")
+                    +form-horizontal-item({label:'合同名称',i:true,type:'input',cw:7})(class="col-md-4")
+                    +form-horizontal-item({label:'编号',i:true,type:'input',cw:7})(class="col-md-4")
+                    +form-horizontal-item({label:'所属项目',i:true,type:'input',cw:7})(class="col-md-4")
                   .row
-                    +form-horizontal-item({label:'所属项目',i:true,type:'input',cw:6})(class="col-md-6")
-                    +form-horizontal-item({label:'总包方',i:true,type:'input',cw:6})(class="col-md-6")
+                    +form-horizontal-item({label:'总包方',i:true,type:'input',cw:7})(class="col-md-4")
+                    +form-horizontal-item({label:'建设单位',type:'select',cw:7})(class="col-md-4")
+                    +form-horizontal-item({label:'合同签订日期',i:true,type:'date',cw:7})(class="col-md-4")
                   .row
-                    +form-horizontal-item({label:'建设单位',type:'select',cw:6})(class="col-md-6")
-                    +form-horizontal-item({label:'合同签订日期',i:true,type:'input',cw:6})(class="col-md-6")
-                  .row
-                    .form-group.col-md-6
-                      label.control-label.col-xs-3 开票类型：
-                      .col-xs-9.col-md-4
-                        select.form-control
+                    .form-group.col-md-5
+                      label.control-label.col-xs-5.bill-type 开票类型：
+                      .col-xs-7.col-md-7
+                        select.form-control.pact-tax-type
                           option 11%
                           option 3%
-                      .col-xs-9.col-md-4
-                        select.form-control.pact-tax-type
+                        select.form-control.pact-tax-type-1
                           option 增值税专用发票
                           option 增值税普通发票
-                    .form-group.col-md-6
-                      label.control-label.col-xs-3 
+                    .form-group.col-md-7.tax-rate
+                      label.control-label.col-xs-5.bill-type 
                         span.text-danger *
                         |合同总额(含税价)：
                       .col-xs-9.col-md-2
@@ -48,48 +46,57 @@ append content
                       p.tax-price
                         span 万元
                         span 其中，税额：
-                          input.price(type="text")
+                          input.price(type="text" disabled)
                         span 万元
                         span 不含税额：
-                          input.price(type="text")
+                          input.price(type="text" disabled)
                         span 万元       
-              .row
-                .form-group.col-md-6
-                  label.control-label.col-xs-3 
-                    span.text-danger *
-                    |合同开竣工日期：
-                  .col-xs-9.col-md-6.pact-date
-                    input.form-control.pull-left
-                    input.form-control
-                +form-horizontal-item({label:'合同类型',type:'select',cw:6})(class="col-md-6")
-              .row
-                +form-horizontal-item({label:'保修期',type:'input',cw:6})(class="col-md-6")
-                +form-horizontal-item({label:'工程类别',type:'select',cw:6})(class="col-md-6")
-              .row
-                +form-horizontal-item({label:'行业类别',type:'select',cw:6})(class="col-md-6")
-                .form-group.col-md-6.area-check
-                  label.control-label.col-xs-3 工程地点：
-                  .col-xs-9.col-md-2
-                    select.form-control
-                      option 江苏省
-                      option 上海市
-                  .col-xs-9.col-md-2
-                    select.form-control
-                      option 南京市
-                      option 上海市
-                  .col-xs-9.col-md-2
-                    select.form-control
-                      option 玄武区
-                      option 浦东区
-                  .col-xs-9.col-md-3
-                    input.form-control(type="text"  placeholder="请输入详细地址")
+                  .row
+                    .form-group.col-md-4
+                      label.control-label.col-xs-5 
+                        span.text-danger *
+                        |合同开工竣工日期：
+                      .col-xs-9.col-md-7.pact-date
+                        input.form-control.pull-left(date="true")
+                        input.form-control(date="true")
+                    +form-horizontal-item({label:'合同类型',type:'select',cw:7})(class="col-md-4")
+                    .form-group.col-md-4
+                      label.control-label.col-xs-5 保修期：
+                      .col-xs-9.col-md-7
+                        input.form-control.pull-left.days 
+                        span.day-s 年
+                  .row
+                    +form-horizontal-item({label:'工程类别',type:'select',cw:7})(class="col-md-4")
+                    +form-horizontal-item({label:'管理费率',type:'input',cw:7})(class="col-md-4")
+                    +form-horizontal-item({label:'承包方式',type:'select',cw:7})(class="col-md-4")
+                  .row
+                    +form-horizontal-item({label:'工程地点',type:'select',cw:7})(class="col-md-4")
+                    +form-horizontal-item({label:'详细地址',type:'input',cw:7})(class="col-md-4")
+                    +form-horizontal-item({label:'备注',type:'input',cw:7})(class="col-md-4")
+                  .row
+                    .form-group.col-md-4
+                      label.control-label.col-xs-5 编制人：
+                      .col-xs-3
+                        span.edit-name 李起光
+                    .form-group.col-md-4
+                      label.control-label.col-xs-5 编制日期：
+                      .col-xs-5
+                        span.edit-name 2016-5-12
           .list-item
-            p.list-title 补充信息
-              span.pull-right.J-toggle 收起-
-            .form-item-box.clearfix
-              .row
-                +form-horizontal-item({label:'计价方式',type:'select',cw:9})(class="col-md-4")
-                +form-horizontal-item({label:'付款方式',type:'select',cw:9})(class="col-md-4")
-                +form-horizontal-item({label:'支付方式',type:'select',cw:9})(class="col-md-4")
-              .row
-                +form-horizontal-item({label:'备注',type:'textarea',cw:8})(class="col-md-10 project-survey pact-project-survey")
+            +tab(tabs)
+              .tab-pane.active#tab1
+                .panel.panel-default
+                  .panel-body.row
+                    .col-md-11
+                      +table-add-pact-pay
+              .tab-pane#tab2
+                .panel.panel-default
+                  .panel-body.row
+                    .col-md-12
+                      +table-add-pact-digest 
+              .tab-pane#tab3
+                .panel.panel-default
+                  .panel-body.row
+                    .col-md-11.file-list
+                      +table-add-pact-file
+                      a.add-file(href="javascript:;" title="新增") +

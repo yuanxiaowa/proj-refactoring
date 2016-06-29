@@ -1,0 +1,203 @@
+extends /common
+
+append style
+  +style('material-pact')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary.J-add-save 保存
+        button.btn.btn-default.J-acdd 确认提交
+      .pact-form.clearfix 
+        .row.col-md-12
+          +form-horizontal()(class="row" id="material-pact-form")
+            .row
+              +form-horizontal-item({label:'合同名称',i:true,type:'text',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'合同编号',type:'mix',cw:7})(class="col-md-4")
+                span.text-primary 保存后自动生成……
+              +form-horizontal-item({label:'所属项目',i:true,type:'select',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'供应商',i:true,type:'text',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'供应商地址',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 江苏省苏州市吴中区几号
+              +form-horizontal-item({label:'合同总额',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 200.00 元（税额：100.00，不含税价：200.00）
+            .row
+              +form-horizontal-item({label:'材料类型',i:true,type:'text',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'发票类型',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'税率',type:'select',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'备注',type:'textarea',cw:7})(class="col-md-4 remark")
+            .row
+              +form-horizontal-item({label:'编制人',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 李起光
+              +form-horizontal-item({label:'编制日期',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 2016-12-25
+      +tab(tabs)
+        .tab-pane.active#tab1
+          .panel.panel-default
+            .panel-body.row
+              .col-md-12
+                .table-responsive.table-list
+                  table.table.table-bordered.table-default
+                    thead
+                      tr
+                        th 编号
+                        th 材料编码
+                        th 材料名称
+                        th 规格型号
+                        th 单位
+                        th 
+                          span.star *
+                          |计划到货日期
+                        th 
+                          span.star *
+                          |数量
+                        th 单价
+                        th 总价
+                        th 税额
+                        th 不含税价
+                        th 
+                          a.add-cos(href="javascript:;" title="新增") +
+                    tbody
+                      tr
+                        td 1
+                        td 0101B01D04E01F12I01
+                        td 级热轧圆盘条
+                        td Φ6HPB300普通线材
+                        td t
+                        td 2016-12-25
+                        td 2000.000
+                        td 600000.00
+                        td 600000.00
+                        td 600000.00
+                        td 600000.00
+                        td 
+                          a(href="javascript:;").btn.btn-default 删除
+                      tr
+                        td 2
+                        td 
+                          input.form-control(type="text")
+                        td(width="12%")
+                          .input-group
+                            input.form-control(type="text")
+                            a.input-group-addon +
+                        td Φ6HPB300普通线材
+                        td 千米
+                        td 
+                          input.form-control(type="text" date="true")
+                        td 
+                          input.form-control
+                        td 
+                          input.form-control
+                        td 6000000.00
+                        td 6000000.00
+                        td 6000000.00
+                        td 
+                          a(href="javascript:;").btn.btn-default 删除
+        .tab-pane#tab2
+          .panel.panel-default
+            .panel-body.row
+              .col-md-12
+                .row
+                  .form-group.col-md-5.pay-style
+                    label.control-label.col-xs-2 付款方式：
+                    .col-xs-9.col-md-8.pay-style-check
+                      label.checkbox-inline
+                        input(type="radio" data-tag="-1" name="paystyle") 
+                        |一次性
+                      label.checkbox-inline
+                        input(type="radio" data-tag="0" name="paystyle") 
+                        |分期
+                      label.checkbox-inline
+                        input(type="radio" data-tag="1" name="paystyle") 
+                        |按阶段
+                .row.col-md-10.table-responsive.pay-style-tab
+                  table.table.table-default.table-bordered
+                    thead
+                      tr
+                        th 分期
+                        th 比例
+                        th 日期
+                        th 说明
+                        th 
+                          a.add-cos(href="javascript:;") +
+                    tbody
+                      tr
+                        td 一期
+                        td(width="30%") 
+                          .input-group
+                            input.form-control(type="text")
+                            a.input-group-addon %
+                        td 
+                          input.form-control(type="text" date="true")
+                        td 
+                          textarea.form-control
+                        td
+                          button.btn.btn-default 删除
+                .row.col-md-10.table-responsive.pay-style-tab
+                  table.table.table-default.table-bordered
+                    thead
+                      tr
+                        th 按阶段
+                        th 比例
+                        th 日期
+                        th 说明
+                    tbody
+                      tr
+                        td 预付款
+                        td(width="30%") 
+                          .input-group
+                            input.form-control(type="text")
+                            a.input-group-addon %
+                        td 
+                          input.form-control(type="text" date="true")
+                        td 
+                          textarea.form-control
+                      tr
+                        td 进度款
+                        td(width="30%") 
+                          .input-group
+                            input.form-control(type="text")
+                            a.input-group-addon %
+                        td 
+                          input.form-control(type="text" date="true")
+                        td 
+                          textarea.form-control
+                      tr
+                        td 送完货
+                        td(width="30%") 
+                          .input-group
+                            input.form-control(type="text")
+                            a.input-group-addon %
+                        td 
+                          input.form-control(type="text" date="true")
+                        td 
+                          textarea.form-control
+                      tr
+                        td 已审定
+                        td(width="30%") 
+                          .input-group
+                            input.form-control(type="text")
+                            a.input-group-addon %
+                        td 
+                          input.form-control(type="text" date="true")
+                        td 
+                          textarea.form-control
+                      tr
+                        td 质保金
+                        td(width="30%") 
+                          .input-group
+                            input.form-control(type="text")
+                            a.input-group-addon %
+                        td 
+                          input.form-control(type="text" date="true")
+                        td 
+                          textarea.form-control
+        .tab-pane#tab3
+          .panel.panel-default
+            .panel-body.row
+              .col-md-10
+                +table-add-pact-file
+                a.add.add-file(href="javascript:;" title="新增") +

@@ -8,7 +8,7 @@ append content
       .tab-nav
         button.btn.btn-primary 返回
         button.btn.btn-default 确认提交 
-        button.btn.btn-default 编辑 
+        a(href="").btn.btn-default 编辑 
       .detail-box.clearfix
         .project-pic.col-md-2
           img(src="image/project-pic.jpg" class="pic img-responsive")
@@ -18,11 +18,11 @@ append content
             small 负责人:胡某某（南京第二工程项目部）
           .info-list
             .item.clearfix
-              .col-md-3
+              .col-md-4
                 dl.dl-horizontal
                   dt 项目全称:
                   dd 南京歌剧院第一期
-              .col-md-3
+              .col-md-4
                 dl.dl-horizontal
                   dt 实际开竣工日期:
                   dd 2016-5-6
@@ -31,34 +31,34 @@ append content
                   dt 建设单位:
                   dd 南京房地产开发商
             .item.clearfix
-              .col-md-3
+              .col-md-4
                 dl.dl-horizontal
-                  dt 合同开竣工日期:
+                  dt 合同开工竣工日期:
                   dd 2016/6-2017/7
-              .col-md-3
+              .col-md-4
                 dl.dl-horizontal
                   dt 开票类型:
                   dd 11%增值税专用发票
-              .col-md-5
+              .col-md-4
                 dl.dl-horizontal
                   dt 合同总额(含税价):
                   dd 200万(增补200万)(税额196万,不含税价60万) &nbsp;
-                    a(href="") 还未建合同，点击新建
+                    a(href="add-projectpact.html") 还未建合同，点击新建
             .item.clearfix
-              .col-md-3
+              .col-md-4
                 dl.dl-horizontal
                   dt 工程地点:
                   dd 江苏南京
-              .col-md-3
+              .col-md-4
                 dl.dl-horizontal
                   dt 工程类别:
                   dd 房建
-              .col-md-3
+              .col-md-4
                 dl.dl-horizontal
                   dt 管理费率:
                   dd 2%
             .item.clearfix
-              .col-md-9
+              .col-md-4
                 dl.dl-horizontal
                   dt 工程概况:
                   dd 本工程建筑面积约144330平方米，其中，地下室共4层约50590平方米，地上共两栋超高层约93740平方米
@@ -78,7 +78,7 @@ append content
           .panel-body.row
             .col-md-12
               .form-group 该用户拥有的角色：
-                a(href="" data-toggle="modal" data-target="#modal-role")
+                a(href="" data-toggle="modal" data-target="#modal-role" id="member-edit")
                   +icon('pencil', '编辑')
               .list-tree.clearfix
                 .list-tree-left.col-md-5
@@ -146,28 +146,80 @@ append content
                             b.hengline
                             .list-title 采购员
                             .list-con 李起光、李起光
-      +modal('编辑项目成员')(id="modal-role" class="member-edit")
-        +table-project-member-edit
       .tab-pane#tab2
         .panel.panel-default
           .panel-body.row
-            .col-md-9
-              .form-group 该项目的联系单位有:
-                a(href="" data-toggle="modal" data-target="#modal-contact")
-                  +icon('pencil', '编辑')
-              +table-project-contact
-      +modal('编辑联系单位')(id="modal-contact" class="member-edit")
-        +table-project-contact-edit
+            .col-md-11.member-edit-department 
+              .form-group 
+                p 该项目的联系单位有:
+                  button.btn.btn-primary 保存
+                table.table.table-default.table-bordered
+                    thead
+                      tr
+                        th 编号
+                        th 分类
+                        th 单位名称
+                        th 联系人
+                        th 联系方式
+                        th 操作
+                    tr
+                      td 01
+                      td 
+                        span 建设单位
+                        div.hide-container
+                          select.form-control
+                            option
+                              | 监理单位
+                            option
+                              | 设计单位
+                            option
+                              | 审计单位
+                      td 
+                        span 江建集团
+                        div.hide-container
+                          select.form-control
+                            option
+                              | 江建集团
+                            option
+                              | 江建集团
+                            option
+                              |江建集团
+                      td 
+                        span 李起光
+                        div.hide-container
+                          select.form-control
+                            option
+                              | 李起光
+                            option
+                              | 李起光
+                            option
+                              |李起光
+                      td 
+                        span 18985621542
+                        div.hide-container
+                          input.form-control(type="text")
+                      td.handle
+                        a.J-edit-member.btn.btn-primary(href="javascript:;") 编辑
+                        a.J-del-member.btn.btn-default(href="javascript:;") 删除
+                a.add.J-add-project-member(href="javascript:;") +
       .tab-pane#tab3
         .panel.panel-default
           .panel-body.row
-            .col-md-9
-              .form-group 请上传 “工程效果图”、“施工许可证”、“中标通知书”等相关文档:
-                a(href="" data-toggle="modal" data-target="#modal-file")
-                  +icon('pencil', '编辑')
-              +table-project-file
-      +modal('编辑相关附件')(id="modal-file")
-        +table-project-file-edit
+            .col-md-11.member-edit-file
+              .form-group
+                p 请上传 “工程效果图”、“施工许可证”、“中标通知书”等相关文档:
+                  button.btn.btn-primary 保存
+                table.table.table-default.table-bordered
+                  thead
+                    tr
+                      th 编号
+                      th 文档编号
+                      th 文档名称
+                      th 上传人
+                      th 上传日期
+                      th 操作
+                  tbody
+                a.add.J-add-project-member(href="javascript:;") +
       .tab-pane#tab4
         .panel.panel-default
           .panel-body.row

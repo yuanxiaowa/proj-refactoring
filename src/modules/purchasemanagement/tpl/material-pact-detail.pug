@@ -1,0 +1,87 @@
+extends /common
+
+append style
+  +style('material-pact-detail')
+
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary 确认提交 
+        button.btn.btn-default 同意/不同意 
+        button.btn.btn-default 审批意见 
+        button.btn.btn-default 打印合同文本
+      .panel.panel-default.mt-20.detail-show
+        .panel-heading: .row
+        .panel-body.pact-info
+          .row
+            .col-md-12
+              +detail-list(items)
+      +tab(tabs)
+        .tab-pane.active#tab1
+          .panel.panel-default
+            .panel-body.row
+              .col-md-12
+                +table-material-list
+        .tab-pane#tab2
+          .panel.panel-default
+            .panel-body.row
+              .col-md-12
+                .row
+                  .form-group.col-md-5.pay-style
+                    label.control-label.col-xs-2 付款方式：
+                    .col-xs-9.col-md-8.pay-style-check
+                      label.checkbox-inline
+                        input(type="radio" data-tag="-1" name="paystyle") 
+                        |一次性
+                      label.checkbox-inline
+                        input(type="radio" data-tag="0" name="paystyle") 
+                        |分期
+                      label.checkbox-inline
+                        input(type="radio" data-tag="1" name="paystyle") 
+                        |按阶段
+                .row.col-md-7.table-responsive.pay-style-tab
+                  table.table.table-default.table-bordered
+                    thead
+                      tr
+                        th 分期
+                        th 比例
+                        th 日期
+                        th 说明
+                    tbody
+                      tr
+                        td 一期
+                        td 30%
+                        td 2016-12-25
+                        td 说明说明说明说明说明
+                .row.col-md-7.table-responsive.pay-style-tab
+                  table.table.table-default.table-bordered
+                    thead
+                      tr
+                        th 按阶段
+                        th 比例
+                        th 日期
+                        th 说明
+                    tbody
+                      tr
+                        td 预付款
+                        td 30%
+                        td 2016-12-25
+                        td 说明说明说明说明说明
+                      tr
+                        td 进度款
+                        td 30%
+                        td 2016-12-25
+                        td 说明说明说明说明说明
+        .tab-pane#tab3
+          .panel.panel-default
+            .panel-body.row
+              .col-md-12
+                +table-pact-file
+        .tab-pane#tab4
+          .panel.panel-default
+            .panel-body.row
+              .col-md-10
+                +table-add-pact-file
+                a.add.add-file(href="javascript:;" title="新增") +

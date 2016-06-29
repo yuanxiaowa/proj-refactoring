@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-06-14 09:18:33
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-14 10:59:52
+* @Last Modified time: 2016-06-22 15:13:51
 */
 @import '/modules/variables';
 @import '/modules/page-common';
@@ -52,18 +52,15 @@
       }
     }
     .statu-pic{
-      margin-top: -210px;
+      margin-top: -90px;
     }
   }
   .panel-heading{
     border-bottom: none;
   }
 }
-.member-edit > .modal-dialog{
-  width: 80%;
-  .hide-container{
-    display: none;
-  }
+.hide-container{
+  display: none;
 }
 .list-tree{
   margin: 240px 0;
@@ -138,6 +135,10 @@
     width: 200px;
   }
 }
-
-
+.handle a{
+  margin: 0 5px;
+}
+.J-add-project-member{
+  top: 54px;
+}
 

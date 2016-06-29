@@ -1,0 +1,20 @@
+.row
+  +form-horizontal-item({label:'供应商名称',type:'text',cw:7})(class="col-md-4")
+  +form-horizontal-item({label:'供应类型',type:'select',cw:7})(class="col-md-4")
+  .form-group.col-md-4
+    button.btn.btn-primary.J-query 查询
+.row
+  label.control-label.col-md-3.supplier-type 供应商类型：
+  .col-xs-9.col-md-7
+    label.radio-inline
+      input(type="radio")
+      |全部
+    label.radio-inline
+      input(type="radio")
+      |内部供应商
+    label.radio-inline
+      input(type="radio")
+      |合作供应商
+.row
+  .search-list-container
+    table#supplier-search-list

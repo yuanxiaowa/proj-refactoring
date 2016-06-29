@@ -1,0 +1,128 @@
+extends /common
+
+append style
+  +style('price-exchange')
+
+append content
+  .container-fluid
+    .con-container
+      .pact-form.clearfix 
+        .row.col-md-12
+          +form-horizontal()(class="row" id="material-pact-form")
+            .row
+              +form-horizontal-item({label:'采购商',type:'mix',cw:7})(class="col-md-4")
+                a(href="#").default-data 南京歌剧院一期项目
+              +form-horizontal-item({label:'采购商',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 南京分公司
+              +form-horizontal-item({label:'发票类型',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 增值税专用发票
+            .row
+              +form-horizontal-item({label:'税率',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 17%
+              +form-horizontal-item({label:'材料类型',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 钢材
+              +form-horizontal-item({label:'报价截止日期',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 2016-12-25
+            .row
+              +form-horizontal-item({label:'采购单状态',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 进行中
+      .tab-nav 
+        h4.quote-title 报价情况
+          small 注意：只有采购单截止报价后15天内允许成交
+          a(href="").pull-right
+            +icon("share-alt","导出")
+      .row
+        .col-md-12
+          .list-container
+            table.table.table-bordered.table-default.offer-container
+              thead
+                tr
+                  th 编号
+                  th 1
+                  th 2
+                  th 3
+                  th 报价总价
+                  th 供应商信息
+                  th 三方协议
+                  th 操作
+              tbody
+                tr.base-info
+                  td 材料
+                  td Ⅰ级热轧圆盘条Φ6HPB300普通线材
+                  td Ⅰ级热轧圆盘条Φ6HPB300普通线材
+                  td Ⅰ级热轧圆盘条Φ6HPB300普通线材
+                  td &nbsp;
+                  td &nbsp;
+                  td &nbsp;
+                  td &nbsp;
+                tr.base-info
+                  td 数量
+                  td 100
+                  td 100
+                  td 100
+                  td &nbsp;
+                  td &nbsp;
+                  td &nbsp;  
+                  td &nbsp;
+                tr.base-info
+                  td 平均价
+                  td 100
+                  td 100
+                  td 100
+                  td &nbsp;
+                  td &nbsp;
+                  td &nbsp;  
+                  td &nbsp;
+                tr
+                  td.company-name 江苏筑牛网络江苏筑牛网络
+                    img(src="image/tj.png" class="tj")
+                  td.tips
+                    span(data-toggle="tooltip" data-placement="top" title="点击选中") 100
+                    input(type="checkbox"  class="prSelect" data-id="pr_ex01" data-info="100")
+                    input(type="hidden" name="pr_ex01")
+                    span.explain(data-toggle="tooltip" data-placement="top" title="提供发票品最好...") （提供发票品最好...）
+                    a.offer-file(href="#" title="附件下载") 
+                  td.tips
+                    span(data-toggle="tooltip" data-placement="top" title="点击选中") 100
+                    input(type="checkbox"  class="prSelect" data-id="pr_ex02" data-info="100")
+                    input(type="hidden" name="pr_ex02")
+                  td.tips
+                    span(data-toggle="tooltip" data-placement="top" title="点击选中") 200
+                    input(type="checkbox"  class="prSelect" data-id="pr_ex03" data-info="200")
+                    input(type="hidden" name="pr_ex03")
+                  td 10000000
+                  td 
+                    span.identity.identity-gold(title="金牌供应商")
+                    span.identity.identity-syb(title="生意保供应商")
+                    span.identity.identity-tax(title="一般纳税人")
+                    span.blacklist 黑名单
+                    a(href="#") 查看供应商
+                  td 
+                    a(href="") 查看协议
+                  td 
+                    a.btn.btn-primary.proveOk(href="javascript:;" data-info="company2") 成交供应商   
+                tr
+                  td.company-name 江苏筑牛网络22
+                    img(src="image/tj.png" class="tj")
+                  td.bargain 已成交 
+                    input(type="checkbox" class="prSelect" data-id="pr_ex01" data-info="100")
+                    input(type="hidden" name="pr_ex01")
+                  td.tips
+                    span(data-toggle="tooltip" data-placement="top" title="点击选中") 100
+                    input(type="checkbox" class="prSelect" data-id="pr_ex02" data-info="100")
+                    input(type="hidden" name="pr_ex02")
+                  td.tips
+                    span(data-toggle="tooltip" data-placement="top" title="点击选中") 100
+                    input(type="checkbox"  class="prSelect" data-id="pr_ex03" data-info="100")
+                    input(type="hidden" name="pr_ex03")
+                  td 10000000
+                  td.sta 
+                    span.identity.identity-gold(title="金牌供应商")
+                    span.identity.identity-syb(title="生意保供应商")
+                    span.identity.identity-tax(title="一般纳税人")
+                    span.blacklist 黑名单
+                    a(href="#") 查看供应商
+                  td 
+                    a(href="#") 查看协议
+                  td 
+                    a.btn.btn-primary.proveOk(href="javascript:;" data-info="company2") 成交供应商                     

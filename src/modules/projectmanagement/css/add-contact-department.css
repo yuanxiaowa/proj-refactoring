@@ -1,0 +1,61 @@
+/*！
+* @Author: huangzexia
+* @Date:   2016-06-16 09:50:06
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-06-21 09:17:15
+*/
+@import '/modules/variables';
+@import '/modules/project-common';
+@import '/modules/tabs';
+@import '/modules/page-common';
+
+.pact-form {
+  padding: 36px;
+  .text-primary{
+    display: inline-block;
+    margin-top: 7px;
+  }
+  .money-box{
+    position: relative;
+    .money{
+      position: absolute;
+      top: 7px;
+      right: -10%;
+    }
+  }
+  .area-check{
+    margin-left: -13%;
+    div{
+      padding-right: 0;
+    }
+  }
+  .add{
+    margin-top: 14px;
+  }
+  .textarea textarea{
+    height: 100px;
+  }
+  .radio-inline,
+  .checkbox-inline{
+    margin-left: -1px;
+  }
+  .date-box input{
+    float: left;
+    width: 49%;
+    &.first{
+      margin-right: 1%;
+    }
+  }
+}
+.tb{
+    margin-top: 0;
+  }
+.project-sta{
+  width: 20%;
+}
+.p-sta .control-label{
+  width: 27%;
+}
+.query-date{
+  margin-left: -105px!important;
+}

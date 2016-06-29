@@ -4461,35 +4461,31 @@ S2.define('select2/dropdown/closeOnSelect',[
   return CloseOnSelect;
 });
 
-S2.define('select2/i18n/en',[],function () {
+S2.define('select2/i18n/cn',[],function () {
   // English
   return {
     errorLoading: function () {
-      return 'The results could not be loaded.';
+      return '请求数据出错.';
     },
     inputTooLong: function (args) {
       var overChars = args.input.length - args.maximum;
 
-      var message = 'Please delete ' + overChars + ' character';
-
-      if (overChars != 1) {
-        message += 's';
-      }
+      var message = '请删除 ' + overChars + ' 个字符';
 
       return message;
     },
     inputTooShort: function (args) {
       var remainingChars = args.minimum - args.input.length;
 
-      var message = 'Please enter ' + remainingChars + ' or more characters';
+      var message = '请至少输入 ' + remainingChars + ' 个字符';
 
       return message;
     },
     loadingMore: function () {
-      return 'Loading more results鈥�';
+      return '加载更多…';
     },
     maximumSelected: function (args) {
-      var message = 'You can only select ' + args.maximum + ' item';
+      var message = '只可以选择 ' + args.maximum + ' 项';
 
       if (args.maximum != 1) {
         message += 's';
@@ -4498,10 +4494,10 @@ S2.define('select2/i18n/en',[],function () {
       return message;
     },
     noResults: function () {
-      return 'No results found';
+      return '无结果';
     },
     searching: function () {
-      return 'Searching鈥�';
+      return '正在搜索中…';
     }
   };
 });
@@ -4541,7 +4537,7 @@ S2.define('select2/defaults',[
   './dropdown/selectOnClose',
   './dropdown/closeOnSelect',
 
-  './i18n/en'
+  './i18n/cn'
 ], function ($, require,
 
              ResultsList,

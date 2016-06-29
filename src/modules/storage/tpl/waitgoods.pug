@@ -1,0 +1,34 @@
+extends /common
+
+append style
+  +style('storage')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-primary.J-add-save 查询
+        button.btn.btn-default 我要收货
+      .pact-form 
+        +form-horizontal()(class="row" id="add-contact-form")
+          .row
+            +form-horizontal-item({label:'订单编号',type:'input',cw:7})(class="col-md-3")
+            +form-horizontal-item({label:'所属项目',type:'input',cw:7})(class="col-md-3")
+          .row.list-container
+            span.notice#toolbar 注：请选择同一合同下的材料做收货
+            table
+              tfoot
+                tr
+                  td &nbsp;
+                  td &nbsp;
+                  td &nbsp;
+                  td &nbsp;
+                  td &nbsp;
+                  td &nbsp;
+                  td(align="center") 合计：
+                  td &nbsp;
+                  td &nbsp;
+                  td &nbsp;
+                  td &nbsp;
+                  td(align="center") 200.000
+                  td(align="center") 400.000

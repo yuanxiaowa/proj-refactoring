@@ -20,17 +20,57 @@ append content
               +form-horizontal-item({label:'合同名称',i:true,type:'input',cw:6})(class="col-md-4")
               +form-horizontal-item({label:'编号',i:true,type:'input',cw:6})(class="col-md-4")
               +form-horizontal-item({label:'主合同',i:true,type:'select',cw:6})(class="col-md-4" )
+            .row
               +form-horizontal-item({label:'所属项目',type:'input',cw:6})(class="col-md-4")
               +form-horizontal-item({label:'合同签订日期',i:true,type:'date',cw:6})(class="col-md-4")
-          .item.col-md-11
-            +table-add-pact
           .item.col-md-12
-            dl.dl-horizontal.remark
-              dt 备注：
-                dd 
-                  textarea.form-control
-          .item.col-md-8
-            dl.dl-horizontal.pull-left.col-md-2
+            .row.pact-table-list
+              label
+                input(type="checkbox")
+                |工期变更 
+            .row
+              .item.col-md-12.pact-table-list
+                dl.dl-horizontal.col-md-4.pull-left
+                  dt 原工期：
+                    dd 2016-12-25~2018-12-25
+                dl.dl-horizontal.col-md-7.pull-left
+                  dt 变更后工期：
+                    dd 
+                      input.form-control(type="text" date="true")
+                      input.form-control(type="text" date="true")
+          .item.col-md-12
+            .row.pact-table-list
+              label
+                input(type="checkbox")
+                |造价变更 
+            .row
+              .item.col-md-12.pact-table-list
+                dl.dl-horizontal.col-md-4.pull-left
+                  dt 原造价：
+                    dd 600.00万
+                dl.dl-horizontal.col-md-7.pull-left
+                  dt 造价变更金额：
+                    dd 
+                      input.form-control(type="text")
+                      |万元
+          .item.col-md-12
+            .row.pact-table-list
+              label
+                input(type="checkbox")
+                |其它变更 
+            .row
+              .item.col-md-12.pact-table-list
+                textarea.form-control.other-info
+          .item.col-md-12
+            .row.pact-table-list
+              label 备注
+            .row
+              .item.col-md-12.pact-table-list
+                textarea.form-control.other-info
+
+          .item.col-md-12
+            p
+            dl.dl-horizontal.pull-left.col-md-3
               dt 编制人：
                 dd 李起光
             dl.dl-horizontal.pull-left.col-md-3

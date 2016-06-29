@@ -1,0 +1,41 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-06-17 09:28:13
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-06-18 12:05:17
+*/
+@import '/modules/variables';
+@import '/modules/project-common';
+@import '/modules/tabs';
+@import '/modules/page-common';
+.form-item-box{
+  margin:0 33px 30px 33px; 
+  .text-primary{
+    display: inline-block;
+    margin-top: 7px;
+  }
+  .money-box{
+    position: relative;
+    .money{
+      position: absolute;
+      top: 7px;
+      right: -10%;
+    }
+  }
+}
+.nav-tabs{
+  padding-left: 33px;
+  border-bottom: 1px solid #2d62a4;
+  li{
+    margin-bottom: 0;
+  }
+}
+.file-name{
+  margin-right: 20px;
+}
+.checkbox-inline{
+  margin-left: -9px;
+}
+.note-type{
+  width: 20%;
+}

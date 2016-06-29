@@ -1,0 +1,23 @@
+extends /common
+
+append style
+  +style('index')
+
+append content
+  .container-fluid
+    form(action="" method="post") 
+      div
+        select(name="a")
+        select(name="a")
+        select(name="a")
+        select(name="a")
+      div
+        input(name="associatedUnitTypes[]" value="aaa")
+      div
+        input(name="associatedUnitTypes[1]" value="aaa")
+      div
+        input(name="associatedUnitTypes[1]" value="aaa")
+      div
+        input(date="true")
+      div
+        button 提交

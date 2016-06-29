@@ -1,0 +1,211 @@
+extends /common
+
+append style
+  +style('purchase')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary.J-add-save 保存
+        button.btn.btn-default 确认提交  
+        button.btn.btn-default 发布采购单
+      .pact-form
+        +form-horizontal()(class="row" id="purchase-plan")
+          p.list-title 基本信息
+            span.pull-right.J-toggle 收起-
+          .form-item-box.clearfix
+            .item.clearfix
+              .row
+                +form-horizontal-item({label:'采购单名称',i:true,type:'input',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'编号',type:'mix',cw:7})(class="col-md-4")
+                  span.text-primary 保存后自动生成……
+                
+                +form-horizontal-item({label:'采购部门',type:'date',cw:7})(class="col-md-4")
+              .row
+                +form-horizontal-item({label:'材料类型',i:true,type:'select',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'发票类型',type:'select',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'税率',i:true,type:'select',cw:7})(class="col-md-4")
+          .tab-nav
+          p.list-title 材料清单
+            span.pull-right.J-toggle 收起-
+          .form-item-box.clearfix
+            .item.clearfix
+              p.text-right#toolbar.table-list
+                a.add-plan(href="javascript:;")
+                  +icon("reply","引入采购计划")
+                a(href="")
+                  +icon("share-alt","导出")
+              .rwo
+                .table-responsive.table-list
+                  table.table.table-bordered.table-default
+                    thead
+                      tr
+                        th 编号
+                        th 采购计划
+                        th 材料编码
+                        th 材料名称
+                        th 规格型号
+                        th 单位
+                        th 
+                          span.star *
+                          |计划到货日期
+                        th 
+                          span.star *
+                          |本期计划数量
+                        th 限价范围(元)
+                        th 送货地址及联系方式
+                        th 备注
+                        th 
+                          a.add-cos(href="javascript:;") +
+                    tbody
+                      tr
+                        td 1
+                        td 计划采购1000段
+                        td 0101B01D04E01F12I01
+                        td 级热轧圆盘条
+                        td Φ6HPB300普通线材
+                        td t
+                        td 2016-12-25
+                        td 2000.000
+                        td 10.00~20.00
+                        td 江苏淮安清河福地路与凤里路交汇处-胡一一（1239870987）
+                        td 红旗牌
+                        td 
+                          a(href="javascript:;").btn.btn-default 删除
+                      tr
+                        td 2
+                        td &nbsp;
+                        td 
+                          input.form-control(type="text")
+                        td(width="12%")
+                          .input-group
+                            input.form-control(type="text")
+                            a(data-toggle="modal" data-target="#modal-purchase").input-group-addon +
+                        td 钢筋
+                        td t
+                        td 
+                          input.form-control(type="text" date="true")
+                        td 
+                          input.form-control
+                        td.price-range 
+                          .form-group.col-sm-8
+                            input.form-control
+                          .form-group.col-sm-8
+                            input.form-control.col-md-offset-1
+                        td.price-range 
+                          input.form-control(style="margin-bottom:10px;")
+                          .form-group.col-sm-8
+                            input.form-control(placeholder="联系人")
+                          .form-group.col-sm-8
+                            input.form-control(placeholder="联系方式")
+                        td 
+                          textarea.form-control
+                        td 
+                          a(href="javascript:;").btn.btn-default 删除
+          .tab-nav
+          p.list-title 其它信息
+            span.pull-right.J-toggle 收起-
+          .form-item-box.clearfix
+            .item.clearfix
+              ul.list-inline.table-list
+                li
+                  label.checkbox-inline
+                    input(type="checkbox" id="issue-check" checked)
+                    |是否需要发布该采购单
+              .table-list-wrap
+                .row.table-list
+                  +form-horizontal-item({label:'报价截止日期',type:'text',cw:7})(class="col-md-3")
+                  .form-group.col-md-8
+                    label.control-label.col-xs-2 竞标方式：
+                    .col-xs-9.col-md-7.j-style
+                      label
+                        input(type="radio")
+                        |公开报价
+                      label
+                        input(type="radio")
+                        |仅邀请供应商可以报价
+                      a(href="javascript:;" data-target="#recommend" data-toggle="modal").has-supplier 有推荐供应商，点击查看
+                .row.table-list
+                  .form-group.col-md-3
+                    label.control-label.col-xs-5 支付类别：
+                    .col-xs-9.col-md-7
+                      select.form-control#payStyle
+                        option(value="0") 定金采购,委托支付
+                        option(value="1") 签约采购,委托支付
+                        option(value="2") 签约采购,统一支付
+                        option(value="3") 特约采购，筑牛代付
+                  .form-group.col-md-3.pay-style-related
+                    label.control-label.col-xs-5 定金比例：
+                    .col-xs-9.col-md-7
+                      select.form-control
+                        option 全款支付
+                        option 10%(货款)
+                        option 15%(货款)
+                        option 20%(货款)
+                        option 25%(货款)
+                        option 30%(货款)
+                        option 35%(货款)
+                        option 40%(货款)
+                        option 45%(货款)
+                        option 50%(货款)
+                        option 55%(货款)
+                        option 60%(货款)
+                        option 65%(货款)
+                        option 70%(货款)
+                        option 75%(货款)
+                        option 80%(货款)
+                        option 85%(货款)
+                        option 90%(货款)
+                        option 95%(货款)
+                  .form-group.col-md-3.pay-style-related
+                    label.control-label.col-xs-5 
+                    |是否分期：
+                    label
+                      input(type="checkbox" id="pay-times")
+                      |是
+                    select.form-control.pay-date 
+                      option 2期
+                      option 3期
+                      option 4期
+                      option 5期
+                      option 6期
+                    //- .col-xs-9.col-md-7
+                .row.table-list    
+                  .form-group.col-md-3
+                    label.control-label.col-xs-5 邀请供应商：
+                    .col-xs-9.col-md-7
+                      a.add.J-add-supplier.add-block(href="javascript:;" title="添加供应商") +  
+                  .form-group.col-md-12
+                    ul.list-inline.table-list#supplier-list-container
+                      li
+                        |江苏筑牛网络
+                        a.del-item(href="javascript:;") &times;
+                .row.table-list
+                  ul.list-inline
+                    li 附件：
+                    li
+                      a.btn.btn-primary.upFile-btn(href="javascript:;") 点击上传
+                      a(href="#") 这个标签是放回显的文件名
+                      span.file-up-tip 请上传相关的附件，附件大小请控制在10M以内
+                  ul.list-inline
+                    li.remark 备注：
+                    li
+                      textarea.form-control(name="", cols="60", rows="5")
+                  ul.list-inline
+                    li 编制人：
+                    li 李起光
+                    li &nbsp;&nbsp;&nbsp;&nbsp;
+                    li 编制日期：
+                    li 2015-12-25
+      .modal.fade.in#recommend
+        .modal-dialog.modal-lg
+          .modal-content
+            .modal-header
+              button.close(data-dismiss="modal")
+                span &times;
+              span.j-modal-title 查看推荐供应商
+            .modal-body
+              table#recommend-supplier
+            .modal-footer  
+              button.btn.btn-primary.-modal-ok 邀请选中供应商

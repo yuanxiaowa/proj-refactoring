@@ -1,9 +1,14 @@
+/**
+ * 弹框
+ */
+
 /*eslint no-param-reassign:0*/
 /*eslint complexity:0 */
 
 function Dialog({
   title = '温馨提示',
   content,
+  size,
   btns,
   btnsTxt,
   remote,
@@ -14,6 +19,7 @@ function Dialog({
   this.options = {
     content,
     title,
+    size,
     btns,
     btnsTxt,
     remote,
@@ -31,7 +37,11 @@ Dialog.BTNOK = 2;
 Dialog.BTNCANCEL = 1;
 Dialog.BTNOKCANCEL = Dialog.BTNOK | Dialog.BTNCANCEL;
 
-Dialog.getModal = (content = '正在加载中...') => {
+Dialog.SIZENORMAL = '';
+Dialog.SIZELG = 'modal-lg';
+Dialog.SIZESM = 'modal-sm';
+
+Dialog.getModal = (content = '正在加载中...', msize = Dialog.SIZENORMAL) => {
   return $$include('/partials/modal');
 };
 
@@ -70,7 +80,7 @@ Dialog.getHeader = title => {
 Dialog.prototype = {
   constructor: Dialog,
   init() {
-    var $modal = $(Dialog.getModal(this.options.content));
+    var $modal = $(Dialog.getModal(this.options.content, this.options.size));
     var $c = $modal.find('.modal-content');
     if (this.options.title) {
       $c.prepend(Dialog.getHeader(this.options.title));
@@ -80,7 +90,8 @@ Dialog.prototype = {
     }
     $modal.appendTo('body');
     $modal.modal({
-      backdrop: this.options.backdrop
+      backdrop: this.options.backdrop,
+      show: false
     });
     this.$modal = $modal;
     this.bindEvents();

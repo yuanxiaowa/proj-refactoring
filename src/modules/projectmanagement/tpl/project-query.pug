@@ -1,0 +1,76 @@
+extends /common
+
+append style
+  +style('add-contact-department')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-primary.J-add-save 查询
+        button.btn.btn-default.J-add 立项
+        button.btn.btn-default 删除
+      .pact-form.clearfix 
+        .row.col-md-12
+          +form-horizontal()(class="row" id="supplement-pact-form")
+            .row
+              +form-horizontal-item({label:'项目名称',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'项目编号',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'施工单位',type:'input',cw:7})(class="col-md-3")
+            .row
+              +form-horizontal-item({label:'项目负责人',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'工程类别',type:'select',cw:7})(class="col-md-3")
+              .form-group.col-md-6
+                .control-label.col-xs-3.project-sta 项目状态：
+                .col-xs-8
+                  label.checkbox-inline
+                    input(type="checkbox") 
+                    |全部
+                  label.checkbox-inline
+                    input(type="checkbox") 
+                    |未开工
+                  label.checkbox-inline
+                    input(type="checkbox") 
+                    |在建中
+                  label.checkbox-inline
+                    input(type="checkbox") 
+                    |已竣工
+                  label.checkbox-inline
+                    input(type="checkbox") 
+                    |已审定
+            .row
+              +form-horizontal-item({label:'建设单位',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'工程地点',type:'select',cw:7})(class="col-md-3")
+              .form-group.col-md-6
+                .control-label.col-xs-3.project-sta 审批状态：
+                .col-xs-8
+                  label.checkbox-inline
+                    input(type="checkbox") 
+                    |全部
+                  label.checkbox-inline
+                    input(type="checkbox") 
+                    |已生效
+                  label.checkbox-inline
+                    input(type="checkbox") 
+                    |审批中
+                  label.checkbox-inline
+                    input(type="checkbox") 
+                    |未生效
+    .con-container
+      .pact-form 
+        p.text-right#toolbar
+          a(href="")
+            +icon("share-alt","导出")
+        table
+          tfoot
+            tr
+              td &nbsp;
+              td(align="center") 合同总额：
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td(align="center") 600000万元

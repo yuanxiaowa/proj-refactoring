@@ -2,14 +2,14 @@ import 'select2';
 import Dialog from 'dialog';
 import formValidation from 'formValidation';
 import render from 'render';
-
+import 'bootstrapDatetimepicker';
 
 // 保存/提交补充合同数据
 var $addSave = $('.J-add-save');
 var $sendBtn = $('.J-send');
 var $form = $('#add-pact-form');
 var validator = formValidation($form, {
-  done() {
+  onSubmitSuccess() {
     $.alert('提交成功!');
   }
 });
@@ -44,3 +44,10 @@ function initSelect($ele) {
   });
 }
 initSelect($('select').eq(0));
+
+//引入时间
+$('input[date]').datetimepicker({
+ format: 'yyyy-mm-dd',
+  autoclose: true,
+  minView: 2
+});

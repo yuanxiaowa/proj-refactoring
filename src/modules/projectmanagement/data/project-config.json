@@ -1,3 +1,38 @@
 {
-  "title": "项目基础配置"
+    "autoCreateProjectNo": false,
+    "projectNoCreationRules": [
+        "固定编号",
+        "总公司编号",
+        "分公司编号",
+        "年月"
+    ],
+    "projectStatuses": [
+        "未开工",
+        "结束",
+        "在建中"
+    ],
+    "projectTypes": [],
+    "associatedUnitTypes": [],
+    "enterpriseProperties": [],
+    "autoCreateContractNo": false,
+    "contractNoCreationRules": [],
+    "contractRates": [],
+    "invoiceTypes": [],
+    "contractTypes": [],
+    "contractingModes": [],
+    "pricingModes": [],
+    "paymentModes": [],
+    "paymentPhases": [
+        {
+            "phaseName": "未开工阶段",
+            "defaultPaymentRate": "11%",
+            "correspondingProjectStatus": "未开工"
+        },
+        {
+            "phaseName": "在建中阶段",
+            "defaultPaymentRate": "6%",
+            "correspondingProjectStatus": "在建中"
+        }
+    ],
+    "contractTerms": ["测试数据","测试数据2"]
 }

@@ -1,0 +1,20 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-06-29 09:06:08
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-06-29 09:27:43
+*/
+@import '/modules/variables';
+@import '/modules/project-common';
+@import '/modules/tabs';
+@import '/modules/page-common';
+
+.pact-form {
+  padding: 36px;
+  .list-container{
+    margin: 10px;
+  }
+  .notice{
+    color: #f93;
+  }
+}

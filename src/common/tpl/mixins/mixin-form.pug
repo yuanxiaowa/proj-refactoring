@@ -96,7 +96,7 @@ mixin form-horizontal-item(item,type)
     - item.cw = 9
   div(class={row:item.row,'form-group':!item.row})&attributes(attributes)
     if item.label
-      label.control-label(class="col-"+type+"-3")
+      label.control-label(class="col-"+type+"-5")
         if item.i
           span.text-danger *
         = item.label

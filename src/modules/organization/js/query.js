@@ -9,13 +9,7 @@ import render from 'render';
 
 // 渲染详细信息
 render({
-  cur: '苏州分公司',
-  num: 'SSDD89790',
-  higher: '江建集团',
-  sort: -5,
-  recharge: '李起',
-  desc: '江建集团',
-  isfb: '是'
+  url: 'data/query-detail'
 }).then($ele => {
   $ele.on('click', '.j-del', () => {
     $.confirm('确定要删除吗？')

@@ -1,8 +1,6 @@
 import 'jqueryValidate';
 import 'jqueryForm2json';
 
-$.ajaxSettings.Accept = 'application/json';
-$.ajaxSettings['Content-Type'] = 'application/json';
 let defaultOptions = {
   errorClass: 'help-block',
   validClass: 'help-block',
@@ -22,7 +20,7 @@ let defaultOptions = {
         data: this.settings.dataFormat(form)
       })
       .success($.proxy(this.settings.onSubmitSuccess, form))
-      .error(this.settings.onSubmiteError);
+      .error(this.settings.onSubmitError);
     return false;
   },
   dataFormat(form) {

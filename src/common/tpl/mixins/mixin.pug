@@ -30,7 +30,7 @@ mixin image(file, alt)
     - file = 'image/' + file
     - if(!/\.\w+$/.test(file))
       - file += '.png'
-  img(src=file, alt=alt)
+  img(src=file, alt=alt)&attributes(attributes)
 
 mixin iterator(n)
   while n--

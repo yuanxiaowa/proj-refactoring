@@ -1,0 +1,60 @@
+extends /common
+
+append style
+  +style('add-contact-department')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary.J-add-save 保存
+      .pact-form 
+        +form-horizontal()(class="row" id="add-contact-form")
+          .row
+            +form-horizontal-item({label:'单位名称',i:true,type:'input',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'编号',type:'mix',cw:7})(class="col-md-4")
+              span.text-primary 保存后自动生成……
+            +form-horizontal-item({label:'单位类型',type:'checkbox',cw:7,text:['建设单位','审计单位','设计单位']})(class="col-md-4")
+          .row
+            +form-horizontal-item({label:'营业执照号',i:true,type:'input',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'法定代表人',i:true,type:'input',cw:7})(class="col-md-4")
+            .form-group.col-md-4
+              label.control-label.col-xs-5 注册资金：
+              .col-xs-9.col-md-6.money-box
+                input.form-control 
+                span.pull-left.money 万元
+          .row
+            +form-horizontal-item({label:'纳税人登记号',type:'input',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'成立日期',type:'date',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'经营范围',type:'input',cw:7})(class="col-md-4")
+          .row
+            +form-horizontal-item({label:'资质等级',type:'input',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'开户银行',type:'input',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'银行账号',type:'input',cw:7})(class="col-md-4")
+          .row
+            +form-horizontal-item({label:'单位地址',type:'select',cw:7})(class="col-md-4 region")
+            +form-horizontal-item({label:'详细地址',type:'input',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'企业性质',type:'select',cw:7})(class="col-md-4")
+          //- .row
+          //-   .form-group.col-md-12.area-check
+          //-     label.control-label.col-xs-3 单位地址：
+          //-     .col-xs-9.col-md-2.money-box
+          //-       select.form-control.region 
+          //-         option 江苏省
+          //-     .col-xs-9.col-md-2.money-box
+          //-       select.form-control.region
+          //-         option 苏州市
+          //-     .col-xs-9.col-md-2.money-box
+          //-       select.form-control.region 
+          //-         option 吴中区
+          //-     .col-xs-9.col-md-2.money-box
+          //-       input.form-control(placeholder='请输入详细地址') 
+          .row
+            .form-group.col-md-12.area-check.textarea
+              label.control-label.col-xs-3 备注：
+              .col-xs-9.col-md-6.money-box
+                textarea.form-control.textarea 
+          .row
+            +table-add-contact-department
+            p.text-center.add-table
+              a.J-add-number(href="javascript:;") +新增

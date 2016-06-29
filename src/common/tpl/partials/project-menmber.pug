@@ -1,0 +1,64 @@
+.tab-nav
+  button.btn.btn-primary.J-add-project-member 新增 
+p
+table.table.table-default.table-bordered.member-edit-table
+  tr
+    th 编号
+    th 分类
+    th 职务
+    th 人员
+    th 进场日期
+    th 离场日期
+    th 是否有效
+    th 操作
+  tr
+    td 01
+    td 
+      span 项目管理
+      div.hide-container
+        select.form-control
+          option
+            | 项目经理
+          option
+            | 材料员
+          option
+            |仓管员
+    td 
+      span 项目经理
+      div.hide-container
+        select.form-control
+          option
+            | 项目经理
+          option
+            | 材料员
+          option
+            |仓管员
+    td 
+      span 李起光
+      div.hide-container
+        select.form-control
+          option
+            | 项目经理
+          option
+            | 材料员
+          option
+            |仓管员
+    td 
+      span 2015-12-25
+      div.hide-container
+        input.form-control(type="date")
+    td 
+      span 2015-12-30
+      div.hide-container
+        input.form-control(type="date")
+    td 
+      span 有效
+      div.hide-container
+        select.form-control
+          option
+            | 有效
+          option
+            | 无效
+    td
+      a.btn.btn-primary.J-edit-member(href="javascript:;") 编辑
+      a.btn.btn-default.J-del-member(href="javascript:;") 删除

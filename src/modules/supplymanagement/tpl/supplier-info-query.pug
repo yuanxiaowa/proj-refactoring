@@ -1,0 +1,77 @@
+extends /common
+
+append style
+  +style('add-supplier')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-default 供应商报价状态
+        button.btn.btn-default 升级合格供应商
+        button.btn.btn-default 取消合格供应商  
+        a(href="add-supplier.html").btn.btn-default 新增
+        button.btn.btn-default 编辑
+        button.btn.btn-default 删除
+        button.btn.btn-primary 查询
+      .pact-form
+        +form-horizontal()(class="row" id="add-supplier-form")
+          .list-item
+            p
+            .form-item-box.clearfix
+              .rwo.clearfix 
+                .item
+                  .row
+                    +form-horizontal-item({label:'供应商名称',type:'input',cw:7})(class="col-md-3")
+                    +form-horizontal-item({label:'供货范围',type:'input',cw:7})(class="col-md-3")
+                    .form-group.col-md-6
+                      .control-label.col-xs-3 开票类型：
+                      .col-xs-9
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |全部
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |增值税专用票
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |增值税一般票
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |营业税票
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |无发票
+                  .row
+                    +form-horizontal-item({label:'供应商编号',type:'input',cw:7})(class="col-md-3")
+                    +form-horizontal-item({label:'供应类别',type:'input',cw:7})(class="col-md-3")
+                    .form-group.col-md-6
+                      .control-label.col-xs-3 类别：
+                      .col-xs-9
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |全部
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |保存
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |普通供应商
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |合格供应商
+                        label.checkbox-inline
+                          input(type="checkbox") 
+                          |集团供应商
+                  .row
+                    +form-horizontal-item({label:'联系人',type:'input',cw:7})(class="col-md-3")
+                    +form-horizontal-item({label:'税率',type:'select',cw:7})(class="col-md-3")
+                  .row
+                    +form-horizontal-item({label:'联系电话',type:'input',cw:7})(class="col-md-3")
+                    +form-horizontal-item({label:'单位类型',type:'radio',cw:7,text:["个人","公司"]})(class="col-md-3")                
+    .con-container
+      .form-item-box 
+        p.text-right#toolbar
+          a(href="")
+            +icon("share-alt","导出")
+        table

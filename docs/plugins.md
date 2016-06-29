@@ -29,6 +29,10 @@
 - 选项 `options`
   + `title`
   + `content` 内容
+  - `size:(enum|String)` 模态对话框大小，可为以下值
+    + `Dialog.SIZENORMAL` 正常，默认
+    + `Dialog.SIZELG` 大
+    + `Dialog.SIZESM` 小
   - `btns:enum` 按钮类型，只能为以下类型
     + `Dialog.BTNOK` 确定，为默认
     + `Dialog.BTNCANCEL` 取消
@@ -75,25 +79,25 @@
 `<input required="true" data-msg-required="字段非空">`
 
 校验规则
-+ required 非空，且不能全为空格
-+ email 邮箱
-+ number 整数小数
-+ digits 纯数字
-+ equalTo 与某个表单控件的值相等
-+ any 指定名字的表单控件至少有一个有值
-+ mobile 手机
-+ tel 电话
-+ remote 远程校验
-+ url
-+ date
-+ dateISO
-+ minlength
-+ maxlength
-+ rangelength
-+ min
-+ max
-+ range
-+ step
+* required 非空，且不能全为空格
+* email 邮箱
+* number 整数小数
+* digits 纯数字
+* equalTo 与某个表单控件的值相等
+* any 指定名字的表单控件至少有一个有值
+* mobile 手机
+* tel 电话
+* remote 远程校验
+* url
+* date
+* dateISO
+* minlength
+* maxlength
+* rangelength
+* min
+* max
+* range
+* step
 
 使用 `formValidation($form,options)` 校验指定表单
 > 表单使用异步方式进行提交，
@@ -107,30 +111,36 @@ Content-Type: application/json
 
 + $form 表单元素
 - options 在标签验证不能满足要求时候，可以包含额外的校验规则，另外提供如下字段
-  + `dataFormat(form)` 默认使用`form2json`格式化表单数据，可通过此方法重写
-  + `onSubmitSuccess(data)` 后台返回成功的处理
-  + `onSubmiteError(error)` 后台返回失败的处理
+  * `dataFormat(form)` 默认使用`form2json`格式化表单数据，可通过此方法重写
+  * `onSubmitSuccess(data)` 后台返回成功的处理
+  * `onSubmitError(error)` 后台返回失败的处理
 
 
 ## 数据渲染
 使用mustache模板标签进行渲染
 
-> 文档见 <https://github.com/hoisie/mustache>
+> 文档见 <https://github.com/janl/mustache.js>
 
-`render(data)` 在页面只有一个标签时候，可使用这个方法进行渲染
+`render(options)` 在页面只有一个标签时候，可使用这个方法进行渲染
 
-`render(ele, data)` 使用指定元素标签进行渲染
+`render(ele, options)` 使用指定元素标签进行渲染
 
 - `ele`
-  + `:number` 指定第几个
-  + `:string` 指定选择器
-  + `:Element` 指定dom元素
-  + `:jQuery` 指定jQuery对象
-- `data` 渲染的数据
+  * `:number` 指定第几个
+  * `:string` 指定选择器
+  * `:Element` 指定dom元素
+  * `:jQuery` 指定jQuery对象
+- `options` 与 `$.ajax(options)` 的参数类似
+  * `url` 数据地址
+  * `type` 请求方式，默认为get
+  * ...
 
 ## 左右选来选去的插件
+引入 optionManager
+
 ```js
-var om = new OptionManager(options)
+import OptionManager from 'optionManager';
+var om = new OptionManager(options);
 ```
 - `options`
   + `$btn:jQuery` 按钮
@@ -165,6 +175,32 @@ var om = new OptionManager(options)
     ```
     [Number, ...]
     ```
+
+## 多级联动
+引入 linkage
+```js
+import Linkage from 'linkage';
+new Linkage(options);
+```
+- `options` 选项
+  + `$eles` select元素
+  + `url` 数据获取地址
+  + `id` 若需要初始化第一个下拉框，指明id，若无参数，传true即可
+  + `initData:Array` 初始化数据，编辑时候用
+
+get请求，请求格式
+```
+id=Number
+```
+返回格式
+```json
+[
+  {
+    "id": Number,
+    "text": String
+  }, ...
+]
+```
 
 ## 日期选择插件
 引入 `bootstrapDatetimepicker`
@@ -209,10 +245,11 @@ $ele.select2();
 > 文档见 <https://select2.github.io/options.html>
 
 ## 文件上传插件
-引入 `webUploader`
+引入 webUploader
 
 使用方式
 ```js
+import WebUploader from 'webUploader';
 var uploader = WebUploader.create({
   auto: true,
   swf: '/public/lib/webUploader/0.1.8/Uploader.swf',

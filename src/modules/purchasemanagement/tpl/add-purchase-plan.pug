@@ -1,0 +1,174 @@
+extends /common
+
+append style
+  +style('purchase')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary.J-add-save 保存
+        button.btn.btn-default 确认提交  
+        button.btn.btn-default 同意
+        button.btn.btn-default 复制采购计划
+      .pact-form
+        +form-horizontal()(class="row" id="purchase-plan")
+          p.list-title 基本信息
+            span.pull-right.J-toggle 收起-
+          .form-item-box.clearfix
+            .item.clearfix
+              .row
+                +form-horizontal-item({label:'编号',type:'mix',cw:7})(class="col-md-4")
+                  span.text-primary 保存后自动生成……
+                +form-horizontal-item({label:'采购项目',i:true,type:'input',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'计划月份',i:true,type:'date',cw:7})(class="col-md-4")
+              .row
+                +form-horizontal-item({label:'材料类型',type:'select',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'计划金额',type:'mix',cw:7})(class="col-md-4")
+                  span.text-primary 60000.00元
+          .tab-nav
+          p.list-title 材料清单
+            span.pull-right.J-toggle 收起-
+          .form-item-box.clearfix
+            .item.clearfix
+              .rwo
+                .table-responsive.table-list
+                  table.table.table-bordered.table-default
+                    thead
+                      tr
+                        th 编号
+                        th 材料编码
+                        th 材料名称
+                        th 规格型号
+                        th 单位
+                        th 材料类型
+                        th 
+                          span.star *
+                          |计划到货日期
+                        th 
+                          span.star *
+                          |本期计划数量
+                        th 预计单价(元)
+                        th 预计金额(元)
+                        th 品牌需求
+                        th 材料要求
+                        th 备注
+                        th 
+                          a.add-cos(href="javascript:;") +
+                    tbody
+                      tr
+                        td 1
+                        td 0101B01D04E01F12I01
+                        td 级热轧圆盘条
+                        td Φ6HPB300普通线材
+                        td t
+                        td 钢筋
+                        td 2016-12-25
+                        td 2000.000
+                        td 10.00
+                        td 600000.00
+                        td 红旗牌
+                        td 红旗牌
+                        td 红旗牌
+                        td 
+                          a(href="javascript:;").btn.btn-default.J-del-item 删除
+                      tr
+                        td 2
+                        td 
+                          input.form-control(type="text")
+                        td(width="12%") 
+                          .input-group
+                            input.form-control(type="text")
+                            a(data-toggle="modal" data-target="#modal-purchase").input-group-addon +
+                        td Φ6HPB300普通线材
+                        td t
+                        td 钢筋
+                        td 
+                          input.form-control(type="text" date="true")
+                        td 
+                          input.form-control
+                        td 
+                          input.form-control
+                        td 600000.00
+                        td 
+                          input.form-control
+                        td 
+                          input.form-control
+                        td 
+                          input.form-control
+                        td 
+                          a(href="javascript:;").btn.btn-default.J-del-item 删除
+                    tfoot
+                      tr
+                        td &nbsp;
+                        td 合计：
+                        td &nbsp;
+                        td &nbsp;
+                        td &nbsp;
+                        td &nbsp;
+                        td &nbsp;
+                        td 6000
+                        td &nbsp;
+                        td 600000.00
+                        td &nbsp;
+                        td &nbsp;
+                        td &nbsp;
+                        td &nbsp;
+          .tab-nav
+          p.list-title 其它信息
+            span.pull-right.J-toggle 收起-
+          .form-item-box.clearfix
+            .item.clearfix
+              ul.list-inline.table-list
+                li 送货地点：
+                li 
+                  input.form-control(type="text")
+                li.address-detail
+                  input.form-control(type="text" placeholder="详细地址")
+                li
+                  label.checkbox-inline
+                    input(type="checkbox")
+                    |设为项目默认收货地
+              ul.list-inline.table-list
+                li 联系方式：
+                li 
+                  label.checkbox-inline
+                    input(type="checkbox")
+                    |李起光
+                li 姓名：
+                li
+                  input.form-control(type="text")
+                li 联系方式：
+                li
+                  input.form-control(type="text")
+              ul.list-inline.table-list
+                li 是否推荐供应商：
+                li 
+                  label.checkbox-inline
+                    input.isAdd(type="checkbox")
+                    |是
+                li.add-box 
+                  a.add.J-add-supplier(href="javascript:;" title="添加供应商") +
+              ul.list-inline.table-list#supplier-list-container
+                li
+                  |附件附件
+                  a.del-item(href="javascript:;") &times;
+              ul.list-inline.table-list
+                li 附件：
+                li
+                  a.btn.btn-primary.upFile-btn(href="javascript:;") 点击上传
+                  a(href="#" ).fileNameSpan 这个标签是放回显的文件名
+                  input(type="hidden" name="fileName")
+                  span.file-up-tip 请上传相关的附件，附件大小请控制在10M以内
+              ul.list-inline.table-list
+                li.remark 备注：
+                li
+                  textarea.form-control(name="", cols="60", rows="5")
+              ul.list-inline.table-list
+                li 编制人：
+                li 李起光
+                li &nbsp;&nbsp;&nbsp;&nbsp;
+                li 编制日期：
+                li 2015-12-25
+
+

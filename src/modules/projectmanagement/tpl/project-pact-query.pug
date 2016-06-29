@@ -1,0 +1,51 @@
+extends /common
+
+append style
+  +style('add-contact-department')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-primary.J-add-save 查询
+        button.btn.btn-default.J-add 新增
+        button.btn.btn-default 删除
+      .pact-form.clearfix 
+        .row.col-md-12
+          +form-horizontal()(class="row" id="supplement-pact-form")
+            .row
+              +form-horizontal-item({label:'合同名称',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'合同编号',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'所属项目',type:'input',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'施工单位',type:'input',cw:7})(class="col-md-4")
+              .form-group.col-md-4
+                label.control-label.col-xs-5 日期：
+                .col-xs-9.col-md-7.date-box
+                  input.form-control.first(date="true") 
+                  input.form-control(date="true") 
+              +form-horizontal-item({label:'合同类别',type:'select',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'工程类别',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'审批状态',type:'radio',cw:7,text:['全部','已生效','审批中','未生效']})(class="col-md-4")
+              +form-horizontal-item({label:'是否归档',type:'checkbox',cw:7,text:['否','是']})(class="col-md-4")
+    .con-container
+      .pact-form 
+        p.text-right#toolbar
+          a(href="")
+            +icon("share-alt","导出")
+        table
+          tfoot
+            tr
+              td &nbsp;
+              td(align="center") 合同总额：
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td &nbsp;
+              td(align="center") 600000万元
