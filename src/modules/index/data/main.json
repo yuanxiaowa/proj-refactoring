@@ -82,14 +82,14 @@
       "link": "../storage/waitgoods.html",
       "text": "待收货"
     }, {
-      "link": "",
+      "link": "../storage/receivinggoods.html",
       "text": "收货单"
     }, {
-      "link": "",
+      "link": "../storage/return-goods-list.html",
       "text": "退货单"
     }, {
-      "link": "",
-      "text": "仓储库存"
+      "link": "../storage/returngoods.html",
+      "text": "收退货单查询"
     }, {
       "link": "",
       "text": "出库管理"

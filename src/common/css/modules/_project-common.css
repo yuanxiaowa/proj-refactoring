@@ -24,11 +24,15 @@
     }
   }
 }
-.add{
-  padding:0 5px;
-  border: 1px solid #2d62a4;
-  border-radius: 50%;
-  position: absolute;
-  right: -16px;
-  top: 6px;
+.up-file-container{
+  position: relative;
+  .add{
+    padding:0 5px;
+    border: 1px solid #2d62a4;
+    border-radius: 50%;
+    position: absolute;
+    right: -30px;
+    top: 6px;
+  }
 }
+

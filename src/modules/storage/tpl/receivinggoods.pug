@@ -1,0 +1,106 @@
+extends /common
+
+append style
+  +style('storage')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary.J-add-save 保存
+        button.btn.btn-default 确认提交
+        button.btn.btn-default 同意
+        button.btn.btn-default 不同意
+        button.btn.btn-default 审批意见
+        button.btn.btn-default 反审核
+        button.btn.btn-default.J-print 打印收货单
+      .pact-form 
+        +form-horizontal()(class="row" id="add-contact-form")
+          .row
+            +form-horizontal-item({label:'收货单编号',type:'mix',cw:7})(class="col-md-4")
+              span.text-primary 保存后自动生成……
+            +form-horizontal-item({label:'所属项目',i:true,type:'select',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'材料合同',i:true,type:'select',cw:7})(class="col-md-4")
+          .row
+            +form-horizontal-item({label:'供应商',type:'mix',cw:7})(class="col-md-4")
+              span.default-data 江苏筑牛网络科技有限公司
+            +form-horizontal-item({label:'合同发票类型',type:'mix',cw:7})(class="col-md-4")
+              span.default-data 增值税专用发票&nbsp;&nbsp;税率：17%
+            +form-horizontal-item({label:'材料类型',type:'mix',cw:7})(class="col-md-4")
+              span.default-data 钢材
+          .row
+            +form-horizontal-item({label:'收货人',type:'text',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'收货日期',type:'text',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'有无发票',type:'checkbox',cw:7,text:['有']})(class="col-md-4")
+              span.default-data 钢材
+          .row
+            +form-horizontal-item({label:'送货单编号',type:'text',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'验收总额',type:'mix',cw:7})(class="col-md-4")
+              span.default-data 6000,000.00元
+            +form-horizontal-item({label:'发票总额',type:'mix',cw:7})(class="col-md-4")
+              span.default-data 6000,000.00元（税额：290.60，不含税价：1709.40元）
+          .row
+            +form-horizontal-item({label:'备注',type:'textarea',cw:7})(class="col-md-4")
+            +form-horizontal-item({label:'编制人',type:'mix',cw:7})(class="col-md-4")
+              span.default-data 李起光
+            +form-horizontal-item({label:'编制日期',type:'mix',cw:7})(class="col-md-4")
+              span.default-data 2016-12-25
+      +tab(tabs)
+        .tab-pane.active#tab1
+          .panel.panel-default
+            .panel-body.row
+              .col-md-12
+                table#detailed-list
+                  tfoot
+                    tr
+                      td &nbsp;
+                      td &nbsp;
+                      td &nbsp;
+                      td(align="center") 合计：
+                      td &nbsp;
+                      td &nbsp;
+                      td &nbsp;
+                      td &nbsp;
+                      td(align="center") 200.000
+                      td(align="center") 400.000
+                      td &nbsp;
+                      td &nbsp;
+        .tab-pane#tab2
+          .panel.panel-default
+            .panel-body.row
+              .row
+                +form-horizontal-item({label:'发票类型',i:true,type:'select',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'税率',i:true,type:'select',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'开票单位',type:'mix',cw:7})(class="col-md-4")
+                  span.default-data 江苏筑牛网络科技有限公司
+              .row
+                .form-group.col-md-4
+                  label.control-label.col-xs-5 注册资金：
+                  .col-xs-9.col-md-6.money-box
+                    input.form-control 
+                    span.pull-left.money 元
+                .form-group.col-md-4
+                  label.control-label.col-xs-5 税额：
+                  .col-xs-9.col-md-6.money-box
+                    input.form-control 
+                    span.pull-left.money 元
+                .form-group.col-md-4
+                  label.control-label.col-xs-5 不含税价：
+                  .col-xs-9.col-md-6.money-box
+                    input.form-control 
+                    span.pull-left.money 元
+              .row
+                .form-group.col-md-4
+                  label.control-label.col-xs-5 上传发票照片：
+                  .col-xs-9.col-md-6.money-box
+                    button.btn.btn-primary.upFile-btn 点击上传
+              .row.pic-show
+                img(src="image/tax.png", alt="")
+        .tab-pane#tab3
+          .panel.panel-default
+            .panel-body.row
+              .col-md-11
+                p 请上传发货单、收货单等签字照片
+                .up-file-container
+                  +table-add-pact-file
+                  a.add.add-cos(href="javascript:;" title="新增") +

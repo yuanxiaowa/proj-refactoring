@@ -1,4 +1,4 @@
-import Tooltip from 'tooltip';
+
 $('[data-toggle="tooltip"]').tooltip();
 //用户执行选中价格
 $('.list-container').on('click', '.prSelect', function(){

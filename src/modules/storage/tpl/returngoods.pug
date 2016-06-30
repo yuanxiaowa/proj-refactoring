@@ -1,0 +1,84 @@
+extends /common
+
+append style
+  +style('storage')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-primary.J-add-save 查询
+        button.btn.btn-default 我要收货
+        button.btn.btn-default 我要退货
+        button.btn.btn-default 删除
+      .pact-form 
+        +form-horizontal()(class="row" id="add-contact-form")
+          .form-item-box
+            .row
+              +form-horizontal-item({label:'验收单编号',type:'text',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'所属项目',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'材料合同',type:'select',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'供应商',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'验收人',type:'text',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'验收日期',type:'text',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'所属部门',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'操作类型',type:'radio',cw:7,text:['全部','收货','退货']})(class="col-md-4")
+              +form-horizontal-item({label:'单据状态',type:'radio',cw:7,text:['全部','已生效','审批中','未生效']})(class="col-md-4 sta")
+            .row
+              .form-group.col-md-6
+                label.control-label.col-xs-2.pact-tax-type 合同发票类型：
+                .col-xs-9.col-md-8
+                  label.radio-inline
+                    input(type="radio")
+                    |全部
+                  label.radio-inline
+                    input(type="radio")
+                    |增值税专用发票
+                  label.radio-inline
+                    input(type="radio")
+                    |增值税普通发票
+                  label.radio-inline
+                    input(type="radio")
+                    |无
+              .form-group.col-md-6
+                  label.control-label.col-xs-2.pact-tax-type 税率：
+                  .col-xs-9.col-md-8
+                    label.radio-inline
+                      input(type="radio")
+                      |全部
+                    label.radio-inline
+                      input(type="radio")
+                      |17%
+                    label.radio-inline
+                      input(type="radio")
+                      |13%
+                    label.radio-inline
+                      input(type="radio")
+                      |11%
+                    label.radio-inline
+                      input(type="radio")
+                      |6%
+      .con-container
+       .pact-form.list-container
+          table#query-list
+            tfoot
+              tr
+                td &nbsp;
+                td &nbsp;
+                td(align="center") 合计：
+                td &nbsp;
+                td &nbsp;
+                td &nbsp;
+                td &nbsp;
+                td &nbsp;
+                td(align="center") 200.000
+                td(align="center") 400.000  
+                td(align="center") 200.000
+                td(align="center") 400.000  
+                td &nbsp;
+                td &nbsp;
+                td &nbsp;
+                td &nbsp;
+                   

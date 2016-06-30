@@ -1,0 +1,13 @@
+.row
+  +form-horizontal-item({label:'验收单编号',type:'text',cw:7})(class="col-md-4")
+  +form-horizontal-item({label:'订单编号',type:'text',cw:7})(class="col-md-4")
+  +form-horizontal-item({label:'材料类型',type:'select',cw:7})(class="col-md-4")
+.row
+  .form-group.col-md-8
+    label.control-label.col-xs-2(style="width:20%;") 验收日期：
+    .col-xs-9.col-md-8
+      input.form-control.goods-list-date(type="text" date="true")
+      input.form-control.goods-list-date(type="text" date="true")
+    button.btn.btn-primary 查询
+.row.result-container
+  table#importList

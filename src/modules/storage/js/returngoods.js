@@ -1,12 +1,12 @@
 /*
 * @Author: huangzexia
-* @Date:   2016-06-29 09:12:56
+* @Date:   2016-06-29 14:19:03
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-29 10:41:59
+* @Last Modified time: 2016-06-29 15:00:00
 */
 import 'bootstrapTable';
 
-$('table')
+$('#query-list')
   .bootstrapTable({
     url: '',
     sidePagination: 'server',
@@ -31,31 +31,39 @@ $('table')
       title: '材料合同',
       field: ''
     }, {
-      title: '订单编号',
+      title: '操作类型',
       field: ''
     }, {
-      title: '材料编码',
+      title: '收货/退货编号',
       field: ''
     }, {
-      title: '材料名称',
+      title: '供应商',
       field: ''
     }, {
-      title: '规格型号',
+      title: '验收总额',
       field: ''
     }, {
-      title: '单位',
+      title: '税额',
       field: ''
     }, {
-      title: '单价',
+      title: '不含税价',
       field: ''
     }, {
-      title: '订单数量',
+      title: '发票总额',
       field: ''
     }, {
-      title: '已收货数量',
+      title: '验收人',
+      field: ''
+    }, {
+      title: '验收日期',
+      field: ''
+    }, {
+      title: '编制日期',
+      field: ''
+    }, {
+      title: '审批状态',
       field: ''
     }],
-    toolbar: '#toolbar',
     pagination: true,
     clickToSelect: true
   });

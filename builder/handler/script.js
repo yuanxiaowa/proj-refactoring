@@ -218,9 +218,9 @@ module.exports = (context, content, file, options) => {
         handleFilePath(file);
       }
       bundle(content, filepath, options).then(resolve, reject);
-      if (!mpath.contains(paths.commonDir, filepath)) {
+      /*if (!mpath.contains(paths.commonDir, filepath)) {
         lint(content, filepath);
-      }
+      }*/
     });
   });
 };

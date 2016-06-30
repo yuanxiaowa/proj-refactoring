@@ -34,7 +34,7 @@ $fileList.on('click', '.add-file', function () {
               pick: $btn,
               server: 'data/fileupload',
               accept: {
-              extensions: 'gif,jpg,jpeg,bmp,png,pdf',
+              extensions: 'gif,jpg,jpeg,bmp,png',
               mimeTypes: 'image/*'
               }
              });

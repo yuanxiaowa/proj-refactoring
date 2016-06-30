@@ -19,3 +19,22 @@ $('[date]').datetimepicker({
   autoclose: true,
   minView: 2
 });
+
+var defer = $.Deferred();
+
+defer.done(res => {
+  console.log(res);
+  return '1';
+}).done(function() {
+  console.log(this === defer.promise());
+}).then(res => {
+  console.log(res);
+}).then(function() {
+  console.log(this === defer);
+});
+
+defer.resolve('hello');
+
+$.when(1).then(data => {
+  console.log('---', data);
+})

@@ -75,7 +75,7 @@ append content
                         td 600000.00
                         td 89898998
                         td 
-                          a(href="javascript:;").btn.btn-default.J-del-item 删除
+                          a(href="javascript:;").btn.btn-default.J-del-number 删除
                       tr
                         td 2
                         td 
@@ -95,7 +95,7 @@ append content
                         td 
                           input.form-control
                         td 
-                          a(href="javascript:;").btn.btn-default.J-del-item 删除
+                          a(href="javascript:;").btn.btn-default.J-del-number 删除
                     tfoot
                       tr
                         td &nbsp;
@@ -115,5 +115,6 @@ append content
           .panel.panel-default
             .panel-body.row
               .col-md-10
-                +table-add-pact-file
-                a.add.add-cos(href="javascript:;" title="新增") +
+                .up-file-container
+                  +table-add-pact-file
+                  a.add.add-cos(href="javascript:;" title="新增") +

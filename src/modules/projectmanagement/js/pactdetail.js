@@ -1,5 +1,5 @@
 
-import render from '/modules/render';
+import render from 'render';
 
 render({
   pactNum: '556666'
