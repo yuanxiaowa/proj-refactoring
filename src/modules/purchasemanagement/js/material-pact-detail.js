@@ -1,3 +1,4 @@
+import 'trfileUpload';
 var $payCheck =$(".pay-style-check input");
 var $payTab = $(".pay-style-tab");
 

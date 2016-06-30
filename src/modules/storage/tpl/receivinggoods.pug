@@ -55,8 +55,8 @@ append content
                     tr
                       td &nbsp;
                       td &nbsp;
-                      td &nbsp;
                       td(align="center") 合计：
+                      td &nbsp;
                       td &nbsp;
                       td &nbsp;
                       td &nbsp;
@@ -74,8 +74,12 @@ append content
                 +form-horizontal-item({label:'开票单位',type:'mix',cw:7})(class="col-md-4")
                   span.default-data 江苏筑牛网络科技有限公司
               .row
+                +form-horizontal-item({label:'开票日期',i:true,type:'text',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'发票代码',i:true,type:'text',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'发票号码',i:true,type:'text',cw:7})(class="col-md-4")
+              .row
                 .form-group.col-md-4
-                  label.control-label.col-xs-5 注册资金：
+                  label.control-label.col-xs-5 发票金额：
                   .col-xs-9.col-md-6.money-box
                     input.form-control 
                     span.pull-left.money 元
@@ -94,8 +98,12 @@ append content
                   label.control-label.col-xs-5 上传发票照片：
                   .col-xs-9.col-md-6.money-box
                     button.btn.btn-primary.upFile-btn 点击上传
+                +form-horizontal-item({label:'发票状态',type:'mix',cw:7})(class="col-md-4")
+                  span.default-data 已生效
               .row.pic-show
-                img(src="image/tax.png", alt="")
+                .tax-box
+                  img(src="image/tax.png", class="img-responsive")
+                  a.del-tax(href="javascript:;" title="删除") &times;
         .tab-pane#tab3
           .panel.panel-default
             .panel-body.row

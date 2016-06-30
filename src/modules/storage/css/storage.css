@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-06-29 09:06:08
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-29 18:24:29
+* @Last Modified time: 2016-06-30 14:37:46
 */
 @import '/modules/variables';
 @import '/modules/project-common';
@@ -49,6 +49,16 @@
 .pact-tax-type{
   width: 27%;
 }
+.checkbox-inline + .checkbox-inline{
+  margin-left: 0;
+}
+.date-box input{
+    float: left;
+    width: 49%;
+    &.first{
+      margin-right: 1%;
+    }
+  }
 /*退货单*/
 .all-tax{
   width: 23%;
@@ -66,4 +76,17 @@
 }
 .type-list{
   background: #f2f2f2;
+}
+.tax-box{
+  position: relative;
+  width: 580px;
+  .del-tax{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 5px;
+    background: #2d62a4;
+    color: #fff;
+    border-radius: 50%;
+  }
 }

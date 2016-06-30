@@ -2,13 +2,14 @@
 * @Author: huangzexia
 * @Date:   2016-06-29 15:38:26
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-29 18:54:13
+* @Last Modified time: 2016-06-30 09:09:36
 */
 import Dialog from 'dialog';
 import 'bootstrapTable';
 import webUploader from 'webUploader';
 import 'bootstrapDatetimepicker';
 import 'print';
+import 'trfileUpload';
 
 $('#detailed-list')
   .bootstrapTable({
@@ -56,17 +57,18 @@ $('#detailed-list')
   });
 
 //------------------------上传发票----------------
-var $btn = $('.upFile-btn');
-var uploader = webUploader.create({
-    auto: true,
-    swf: '/public/lib/webUploader/0.1.8/Uploader.swf',
-    pick: $btn,
-    server: 'data/fileupload',
-    accept: {
-    extensions: 'gif,jpg,jpeg,bmp,png',
-    mimeTypes: 'image/*'
-  }
-});
+$('#tab2').on('click', '.upFile-btn', function(){
+  var uploader = webUploader.create({
+      auto: true,
+      swf: '/public/lib/webUploader/0.1.8/Uploader.swf',
+      pick: $(this),
+      server: 'data/fileupload',
+      accept: {
+      extensions: 'gif,jpg,jpeg,bmp,png',
+      mimeTypes: 'image/*'
+    }
+  });
+})
 
 //---------------------- 引入收货清单---------------
 var $addPlan = $(".add-plan");
@@ -149,3 +151,4 @@ $printBtn.on("click",function(){
 $('.j-modal-ok').eq(1).on('click',function(){
   $('.modal-content').eq(1).jqprint();
 })
+//上传容器

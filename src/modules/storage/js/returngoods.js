@@ -2,9 +2,10 @@
 * @Author: huangzexia
 * @Date:   2016-06-29 14:19:03
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-29 15:00:00
+* @Last Modified time: 2016-06-30 14:38:54
 */
 import 'bootstrapTable';
+import 'bootstrapDatetimepicker';
 
 $('#query-list')
   .bootstrapTable({
@@ -67,4 +68,11 @@ $('#query-list')
     pagination: true,
     clickToSelect: true
   });
-
+//------------------------时间引入----------------
+$('input[date]').datetimepicker(
+  {
+      format: 'yyyy-mm-dd',
+      autoclose: true,
+      minView: 2
+  }
+  );

@@ -40,6 +40,7 @@ append content
               .col-xs-9.col-md-7
                 span.default-data 6000,000.00元（税额：290.60，不含税价：1709.40元）
           .row
+            +form-horizontal-item({label:'退货人',type:'text',cw:7})(class="col-md-4")
             +form-horizontal-item({label:'编制人',type:'mix',cw:7})(class="col-md-4")
               span.default-data 李起光
             +form-horizontal-item({label:'编制日期',type:'mix',cw:7})(class="col-md-4")
@@ -55,9 +56,9 @@ append content
                   tfoot
                     tr
                       td &nbsp;
-                      td &nbsp;
-                      td &nbsp;
                       td(align="center") 合计：
+                      td &nbsp;
+                      td &nbsp;
                       td &nbsp;
                       td &nbsp;
                       td &nbsp;
@@ -98,8 +99,12 @@ append content
                   label.control-label.col-xs-5 上传发票照片：
                   .col-xs-9.col-md-6.money-box
                     button.btn.btn-primary.upFile-btn 点击上传
+                +form-horizontal-item({label:'发票状态',type:'mix',cw:7})(class="col-md-4")
+                  span.default-data 已生效
               .row.pic-show
-                img(src="image/tax.png", alt="")
+                .tax-box
+                  img(src="image/tax.png", class="img-responsive")
+                  a.del-tax(href="javascript:;" title="删除") &times;
         .tab-pane#tab3
           .panel.panel-default
             .panel-body.row

@@ -2,19 +2,12 @@ import 'bootstrapDatetimepicker';
 import 'bootstrapTable';
 import 'zTree';
 import Dialog from 'dialog';
-
+import 'trfileUpload';
 
 //材料清单
 var $tabs1 = $('#tab1');
-var $tabs2 = $('#tab3');
 var $addTrs1 = $tabs1.find('.add-cos');
-var $addTrs2 = $tabs2.find('.add-cos');
 var ProcessNum1 = $addTrs1.parents('.table-responsive').find('table tbody').children().length+1;
-var ProcessNum2 = $addTrs2.parent().find('table tbody').children().length+1;
-
-
-
-
 //---------------------- 材料搜索---------------
 var $materialtpl = $$include('/partials/add-material');
 var dialog =new Dialog({
@@ -45,21 +38,6 @@ $tabs1.on('click', '.add-cos' , function () {
     $(this).closest('tr').remove();
 });
 
-//tab2 新增表格
-  $tabs2.on('click', '.add-cos' , function () {
-     var $tbody = $(this).parent().find('table tbody');
-     var $tmp = $(getTemp(ProcessNum2,2));
-     $tbody.append($tmp);
-     $tmp.find('input[date]').datetimepicker({
-        format: 'yyyy-mm-dd',
-        autoclose: true,
-        minView: 2
-     });
-     ProcessNum2++;
-  //删除一行
-  }).on('click', '.J-del-item', function () {
-      $(this).closest('tr').remove();
-  });
 
 //树形菜单
 var setting = {
