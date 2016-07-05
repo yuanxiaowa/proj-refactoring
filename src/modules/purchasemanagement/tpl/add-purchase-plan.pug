@@ -38,10 +38,10 @@ append content
                       tr
                         th 编号
                         th 材料编码
-                        th(width="12%") 材料名称
-                        th(width="20%") 规格型号
-                        th(width="20%") 单位
-                        th(width="20%") 材料类型
+                        th 材料名称
+                        th 规格型号
+                        th 单位
+                        th 材料类型
                         th 
                           span.star *
                           |计划到货日期
@@ -75,27 +75,27 @@ append content
                       tr
                         td 2
                         td 
-                          input.form-control(type="text")
-                        td(width="12%") 
-                          .input-group
+                          input.input-text.form-control(type="text")
+                        td 
+                          .input-group.input-text
                             input.form-control(type="text")
                             a(data-toggle="modal" data-target="#modal-purchase").input-group-addon +
                         td Φ6HPB300普通线材
                         td t
                         td 钢筋
                         td 
-                          input.form-control(type="text" date="true")
+                          input.input-text.form-control(type="text" date="true")
                         td 
-                          input.form-control
+                          input.input-text.form-control
                         td 
-                          input.form-control
+                          input.input-text.form-control
                         td 600000.00
                         td 
-                          input.form-control
+                          input.input-text.form-control
                         td 
-                          input.form-control
+                          input.input-text.form-control
                         td 
-                          input.form-control
+                          textarea.input-text.form-control
                         td 
                           a(href="javascript:;").btn.btn-default.j-item-del 删除
                     tfoot

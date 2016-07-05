@@ -22,7 +22,22 @@ append content
               .row
                 +form-horizontal-item({label:'采购月份',type:'date',cw:7})(class="col-md-3")
                 +form-horizontal-item({label:'材料类型',type:'select',cw:7})(class="col-md-3")
-                +form-horizontal-item({label:'审批状态',type:'radio',cw:7,text:['全部','已生效','审批中','未生效']})(class="col-md-5 sta")
+                .form-group.col-md-6.sta
+                      .control-label.col-xs-3.note-type 审批状态：
+                      .col-xs-7.more-selected
+                        label.radio-inline
+                          input(type="checkbox" ).Review_Status_all 
+                          |全部
+                        label.radio-inline
+                          input(type="checkbox").regul
+                          |已生效
+                        label.radio-inline
+                          input(type="checkbox").regul
+                          |审批中
+                        label.radio-inline
+                          input(type="checkbox").regul
+                          |未生效
+               
     .con-container
       .form-item-box.clearfix
         .item.clearfix

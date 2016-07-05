@@ -263,3 +263,80 @@ var uploader = WebUploader.create({
 ```
 
 > 文档见 <http://fex.baidu.com/webuploader/doc/index.html>
+
+
+## 表格添加数据插件
+引入 `tableEdit`
+
+使用方式
+```js
+import TableEdit from 'tableEdit';
+
+var te = new TableEdit(options);
+```
+
+`options` 选项
+  - `$table` 表格
+  - `$btnAdd` 添加按钮，jquery对象或者选择器
+  - `prefix` name前缀，默认为items
+  - `url` 需要对表格进行初始化的url地址
+    - 数据格式为
+          [
+            {
+              name: 
+                : String
+                或
+                {
+                  text: String|Number,
+                  value: String|Number
+                }
+            }, ...
+          ]
+        > 自动生成的不包括
+  - `columns:Array`
+    - `type:enum`
+      - `genNum` 自动生成编号
+      - `input` 文本框
+      - `select` 下拉框
+      - `addon` 右边带有个+号的输入框
+      - `delBtn` 删除按钮
+    - `data:(String|Array)` 数据
+    - `name` 表单控件的name值
+    - `attrs` 添加在表单控件上的属性
+    - `hasHidden` 是否有隐藏域
+    - `formatter(name, index, value?)` 自定义单元格式
+      - `name` name值
+      - `index` 当前处于第几列
+      - `value`
+
+> 最后表单控件的name属性值会拼接为 `prefix[rnum].name`，rnum为行号，name为对应的列的name
+
+事件
+- `trAdded($tr)` $tr为新添加行
+
+## 部门树形选择
+引入 `department`
+
+使用方式
+```js
+import Department from 'department'
+new Department(options) 
+或
+$(ele).department(options)
+```
+
+`options`
+  - `$ele` 文本框，使用jquery插件形式可省略
+  - `$hidden` 隐藏域
+  - `url` 数据获取地址
+
+> 点击叶子节点，自动将文本设置为对应name，隐藏域设置为对应id
+
+## 全选和取消 
+使用方式
+```css
+import 'moreSelected'
+```
+label 父级 div设置class="more-selected"
+全选checkbox class="Review_Status_all"
+其他选项checkbox class="regul" 

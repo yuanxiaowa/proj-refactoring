@@ -7,7 +7,7 @@ import 'trfileUpload';
 //材料清单
 var $tabs1 = $('#tab1');
 var $addTrs1 = $tabs1.find('.add-cos');
-var ProcessNum1 = $addTrs1.parents('.table-responsive').find('table tbody').children().length+1;
+var ProcessNum1 = $addTrs1.parents('.table-responsive').find('table tbody').children().length;
 //---------------------- 材料搜索---------------
 var $materialtpl = $$include('/partials/add-material');
 var dialog =new Dialog({
@@ -18,7 +18,6 @@ var dialog =new Dialog({
       stxt:"确认选择"
     }
   });
-
 //tab1 新增表格
 $tabs1.on('click', '.add-cos' , function () {
    var $tbody = $(this).parents('.table-responsive').find('table tbody');
@@ -37,8 +36,25 @@ $tabs1.on('click', '.add-cos' , function () {
 }).on('click', '.J-del-item', function () {
     $(this).closest('tr').remove();
 });
+//tab2 新增表格
+var $tabs2 = $('#tab2');
+var $addTrs2 = $tabs2.find('.add-cos');
+var ProcessNum2 =  $addTrs2.parents('.table-responsive').find('table tbody').children().length;
+$tabs2.on('click', '.add-cos' , function () {
+   var $tbody = $(this).parents('.fqtable').find('table tbody');
+   var $tmp2 = $(getTemp(ProcessNum2,2));
+   $tbody.append($tmp2);
+   $tabs2.find('input[date]').datetimepicker({
+      format: 'yyyy-mm-dd',
+      autoclose: true,
+      minView: 2
+   });
+   ProcessNum2++;
 
-
+//删除一行
+}).on('click', '.J-del-item', function () {
+    $(this).closest('tr').remove();
+});
 //树形菜单
 var setting = {
   view: {
@@ -113,7 +129,7 @@ $('#material')
 
 //新增一行dom | 材料清单
   var marTrInputName = ['no1' ,'no2' ,'no3' ,'no4' ,'no5' ,'no6' ,'no7' ,'no8' ,'no9' ,'no10' ];//临时名称,使用前请更换
-  var attchTrInputName = ['fno1' ,'fno2' ,'fno3' ,'fno4'];//临时名称,使用前请更换
+  var fqTrInputName = ['fno1' ,'fno2' ,'fno3' ];//临时名称,使用前请更换
   function getTemp(inums,types) {
     var inu =0;
     var trStr = '<tr><td>'+inums+'</td>'; 
@@ -123,31 +139,36 @@ $('#material')
       trInputName = marTrInputName;
       for( inu=0; inu<trInputName.length; inu++ )
       {
+        var inpname = 'name=material['+inums+'].'+trInputName[inu]
           switch(inu)
           {
             case 1:
-                  trStr += '<td><div class="input-group"><input type="text" class="form-control" date="true"><a data-target="#modal-purchase" data-toggle="modal" class="input-group-addon">+</a></div></td>';
+                  trStr += '<td><div class="input-group"><input type="text" class="form-control" '+inpname+'><a data-target="#modal-purchase" data-toggle="modal" class="input-group-addon">+</a></div></td>';
                   break;
             case 4:
-                  trStr += '<td><div class="input-group"><input type="text" class="form-control" date="true"></div></td>';
+                  trStr += '<td><div class="input-group"><input type="text" class="form-control" date="true" '+inpname+'></div></td>';
                   break;
             default:
-                trStr += '<td><div class="input-group"><input type="text" class="form-control"></div></td>';
+                trStr += '<td><div class="input-group"><input type="text" class="form-control" '+inpname+'></div></td>';
                 break;
           }
      }
     }else {
-      trInputName = attchTrInputName;
+      trInputName = fqTrInputName;
       for( inu=0; inu<trInputName.length; inu++ )
       {
+          var inpname = 'name="yourname['+inums+'].'+trInputName[inu]+'"';
           switch(inu)
           {
-            case 3:
-                  trStr += '<td><div class="input-group"><input type="text" class="form-control" date="true"></div></td>';
+            case 0:
+                  trStr += '<td><div class="input-group"><input type="text" class="form-control" '+inpname+'><a class="input-group-addon">%</a></div></td>';
                   break;
-            default:
-                trStr += '<td><div class="input-group"><input type="text" class="form-control"></div></td>';
-                break;
+            case 1:
+                  trStr += '<td><input class="form-control" type="text"  date="true"  '+inpname+'></td>';
+                  break;
+            case 2:
+                  trStr += '<td><textarea class="form-control" '+inpname+'></textarea></td>';
+                  break;
           }
      }
     }

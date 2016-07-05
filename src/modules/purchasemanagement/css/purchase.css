@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-06-21 09:46:43
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-30 14:44:37
+* @Last Modified time: 2016-07-04 16:54:04
 */
 @import '/modules/variables';
 @import '/modules/project-common';
@@ -35,7 +35,29 @@
   }
   .table-list{
     margin:0 24px 10px 24px;
+    .input-text{
+      width: 200px;
+    }
   }
+}
+@media screen and (min-width: 1366px) {
+ .table-responsive{
+    overflow-x: auto;
+    min-height: 0.01%;
+    .table {
+      margin-bottom: 0;
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+ }
 }
 .address-detail{
   width: 30%;

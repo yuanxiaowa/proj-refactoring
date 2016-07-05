@@ -1,0 +1,22 @@
+extends /common
+
+append style
+  +style('pay')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-primary 查询
+      .pact-form
+        +form-horizontal()(class="row" id="purchase-plan")
+          .form-item-box.clearfix
+            .item.clearfix
+              .row
+                +form-horizontal-item({label:'供应商',type:'date',cw:7})(class="col-md-3")
+                +form-horizontal-item({label:'所属项目',type:'select',cw:7})(class="col-md-3")
+                +form-horizontal-item({label:'材料合同',type:'select',cw:7})(class="col-md-3")
+    .con-container
+      .form-item-box.clearfix
+        .item.clearfix
+          table

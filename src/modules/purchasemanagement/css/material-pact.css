@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-06-23 15:50:04
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-28 10:09:09
+* @Last Modified time: 2016-07-04 14:16:12
 */
 @import '/modules/variables';
 @import '/modules/project-common';
@@ -63,10 +63,6 @@
   margin-left: -105px!important;
 }
 /*材料补充合同*/
-.default-data{
-  display: inline-block;
-  margin-top:7px;
-}
 .remark textarea{
     height: 90px;
     width: 350px;

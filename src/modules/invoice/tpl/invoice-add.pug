@@ -1,0 +1,165 @@
+extends /common
+
+append style
+  +style('invoice')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary.J-add-save 保存
+        button.btn.btn-default 确认提交
+        button.btn.btn-default 同意
+        button.btn.btn-default 不同意
+        button.btn.btn-default 审批意见
+        button.btn.btn-default 反审核
+      .pact-form.clearfix 
+        .row
+          +form-horizontal()(class="row" id="material-pact-form")
+            .row
+              +form-horizontal-item({label:'申请编号',type:'mix',cw:7})(class="col-md-4")
+                span.text-primary 保存后自动生成……
+              +form-horizontal-item({label:'材料合同',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'所属项目',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 南京歌剧院一期项目
+            .row
+              +form-horizontal-item({label:'所属部门',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 南京分公司
+              +form-horizontal-item({label:'供应商',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 江苏筑牛网络科技有限公司
+              +form-horizontal-item({label:'合同总额',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 6000,000.00元
+            .row
+              +form-horizontal-item({label:'合同累计入库总额',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 6000,000.00元
+              +form-horizontal-item({label:'累计付款',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 6000,000.00元
+              +form-horizontal-item({label:'合同累计发票总额',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 5000.00 元（税额：1000.00，不含税价：4000.00元）
+            .row
+              +form-horizontal-item({label:'发票差额',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 5000.00元
+              +form-horizontal-item({label:'本次发票总额',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 5000.00元
+              +form-horizontal-item({label:'发票张数',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 6张
+            .row
+              +form-horizontal-item({label:'备注',type:'textarea',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'编制人',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 李起光
+              +form-horizontal-item({label:'编制日期',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 2016-12-25
+        .row.table-responsive.table-list
+          table.table.table-default.table-bordered
+            thead
+              tr
+                th 编号
+                th 
+                  span.text-danger *
+                  |对应收退货单
+                th 发票类型
+                th 开票单位
+                th 
+                  span.text-danger *
+                  |发票金额
+                th 税率
+                th 税额
+                th 不含税价
+                th 
+                  span.text-danger *
+                  |发票代码
+                th 
+                  span.text-danger *
+                  |发票号码
+                th 
+                  span.text-danger *
+                  |开票日期
+                th 图片
+                th 是否认证
+                th 认证日期
+                th 备注
+                th
+                  a.add(href="javascript:;") +
+            tbody
+              tr
+                td 1
+                td
+                  a(href="#") 2015522
+                td 增值税发票
+                td 筑牛网
+                td 6000
+                td 17%
+                td 17%
+                td 17%
+                td 17%
+                td 17%
+                td 17%
+                td 17%
+                td 是
+                td 20145
+                td sdadad
+                td 
+                  button.btn.btn-default 删除
+              tr
+                td 2
+                td
+                  select.form-control
+                td
+                  select.form-control
+                    option 普通发票
+                td 筑牛网
+                td 
+                  input(type="text").form-control
+                td
+                  select.form-control
+                    option 17%
+                td 17%
+                td 988000元
+                td 
+                  input(type="text").form-control
+                td 
+                  input(type="text").form-control
+                td 
+                  input(type="text" date="true").form-control
+                td 
+                  button.btn.btn-primary 上传
+                td 
+                  input(type="checkbox")
+                td 
+                  input(type="text" date="true").form-control
+                td 
+                 textarea.form-control
+                td 
+                  button.btn.btn-default 删除
+              tr
+                td 2
+                td
+                  select.form-control
+                td
+                  select.form-control
+                    option 普通发票
+                td 筑牛网
+                td 
+                  input(type="text").form-control
+                td
+                  select.form-control
+                    option 17%
+                td 17%
+                td 988000元
+                td 
+                  input(type="text").form-control
+                td 
+                  input(type="text").form-control
+                td 
+                  input(type="text" date="true").form-control
+                td 
+                  button.btn.btn-primary 上传
+                td 
+                  input(type="checkbox")
+                td 
+                  input(type="text" date="true").form-control
+                td 
+                  textarea.form-control
+                td 
+                  button.btn.btn-default 删除
+      

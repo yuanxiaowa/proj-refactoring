@@ -28,8 +28,33 @@ append content
                   input.form-control(date="true") 
             .row
               +form-horizontal-item({label:'所属部门',type:'select',cw:7})(class="col-md-4")
-              +form-horizontal-item({label:'操作类型',type:'radio',cw:7,text:['全部','收货','退货']})(class="col-md-4")
-              +form-horizontal-item({label:'审批状态',type:'checkbox',cw:7,text:['全部','已生效','审批中','未生效']})(class="col-md-4 sta")
+              .form-group.col-md-4
+                .control-label.col-xs-5 操作类型：
+                .col-xs-9.col-md-7.more-selected
+                  label.checkbox-inline
+                    input(type="checkbox").Review_Status_all 
+                    |全部
+                  label.checkbox-inline
+                    input(type="checkbox").regul  
+                    |收货
+                  label.checkbox-inline
+                    input(type="checkbox").regul  
+                    |退货
+              .form-group.col-md-4
+                .control-label.col-xs-5 审批状态：
+                .col-xs-7.more-selected
+                  label.checkbox-inline
+                    input(type="checkbox").Review_Status_all 
+                    |全部
+                  label.checkbox-inline
+                    input(type="checkbox").regul  
+                    |已生效
+                  label.checkbox-inline
+                    input(type="checkbox").regul  
+                    |审批中
+                  label.checkbox-inline
+                    input(type="checkbox").regul  
+                    |未生效
       .con-container
        .pact-form.list-container
           table#query-list

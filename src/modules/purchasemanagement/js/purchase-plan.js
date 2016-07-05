@@ -1,4 +1,5 @@
 import 'bootstrapTable';
+import 'moreSelected';
 
 $('table')
   .bootstrapTable({

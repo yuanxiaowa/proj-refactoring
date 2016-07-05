@@ -6,6 +6,7 @@
 */
 import 'bootstrapTable';
 import 'bootstrapDatetimepicker';
+import 'moreSelected';
 
 $('#query-list')
   .bootstrapTable({

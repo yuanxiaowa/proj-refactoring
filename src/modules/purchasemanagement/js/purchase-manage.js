@@ -1,5 +1,6 @@
 import 'bootstrapTable';
 import 'bootstrapDatetimepicker';
+import 'moreSelected';
 
 $('table')
   .bootstrapTable({

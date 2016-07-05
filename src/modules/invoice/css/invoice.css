@@ -1,0 +1,90 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-07-04 11:30:09
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-07-05 11:26:22
+*/
+
+@import '/modules/variables';
+@import '/modules/project-common';
+@import '/modules/tabs';
+@import '/modules/page-common';
+
+.pact-form {
+  padding: 36px;
+ /* .list-container{
+    margin: 10px;
+  }*/
+}
+.checkbox-inline{
+  margin-left: 4px!important;
+}
+.date-box input{
+  float: left;
+  width: 49%;
+  &.first{
+    margin-right: 1%;
+  }
+}
+/*录入*/
+.add{
+  padding:0 4px;
+  border: 1px solid #2d62a4;
+  border-radius: 50%;
+}
+.table-list{
+  margin: 30px 0;
+  input,select,textarea{
+    width: 180px;
+  }
+}
+@media screen and (min-width: 1366px) {
+ .table-responsive{
+    overflow-x: auto;
+    min-height: 0.01%;
+    .table {
+      margin-bottom: 0;
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+ }
+}
+#invoice-query-list th,#invoice-query-list td{
+  width: 140px;
+  padding: 0;
+}
+#invoice-query-list th{
+  border-bottom: $border;
+  height: 40px;
+}
+#invoice-query-list td.pact-item{
+  padding: 0;
+}
+.pact-item-box{
+  width: 100%;
+  td{
+    width: 139px;
+    border-right: $border;
+    border-bottom: $border;
+    &.last{
+      border-right: none;
+      height: 30px;
+    }
+    &.all{
+      height: 40px;
+      border-bottom: none;
+    }
+  }
+}
+.search-list{
+  color: #f90;
+  font-style: normal;
+}

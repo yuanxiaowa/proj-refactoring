@@ -1,0 +1,39 @@
+extends /common
+
+append style
+  +style('invoice')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-primary.J-add-save 查询
+      .pact-form 
+        +form-horizontal()(class="row" id="add-contact-form")
+          .form-item-box
+            .row
+              +form-horizontal-item({label:'项目类型',type:'checkbox',cw:7,text:['全部','可抵扣','不可抵扣']})(class="col-md-4")
+              +form-horizontal-item({label:'发票号码',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'开票单位',type:'select',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'材料合同',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'所属项目',type:'text',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'所属部门',type:'text',cw:7})(class="col-md-4")
+            .row
+              .form-group.col-md-4
+                label.control-label.col-xs-5 开票日期：
+                .col-xs-9.col-md-7.date-box
+                  input.form-control.first(date="true") 
+                  input.form-control(date="true") 
+              .form-group.col-md-4
+                label.control-label.col-xs-5 认证日期：
+                .col-xs-9.col-md-7.date-box
+                  input.form-control.first(date="true") 
+                  input.form-control(date="true") 
+              +form-horizontal-item({label:'认证状态',type:'checkbox',cw:7,text:['全部','通过','不通过','待认证']})(class="col-md-4 sta")
+    .con-container
+     .pact-form.list-container
+        p.text-right#toolbar
+          a(href="")
+            +icon("share-alt","导出")
+        table#query-list

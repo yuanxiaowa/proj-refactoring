@@ -59,11 +59,11 @@ $('#detailed-list')
     clickToSelect: true
   });
 //------------------------上传发票----------------
-$('#tab2').on('click', '.upFile-btn', function(){
+$('#tab2').on('click', function(){
   var uploader = webUploader.create({
       auto: true,
       swf: '/public/lib/webUploader/0.1.8/Uploader.swf',
-      pick: $(this),
+      pick: $('.upFile-btn'),
       server: 'data/fileupload',
       accept: {
       extensions: 'gif,jpg,jpeg,bmp,png',

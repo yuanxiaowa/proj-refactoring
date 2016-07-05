@@ -180,3 +180,6 @@ $bg-menu: #f1efef;
 .pl-0 {
   padding-left: 0;
 }
+.control-label{
+  width: 25%;
+}

@@ -1,6 +1,8 @@
 import 'select2';
 import 'modalRemote';
 import 'bootstrapDatetimepicker';
+import 'zTree';
+import 'department';
 import Linkage from 'linkage';
 import formValidation from 'formValidation';
 
@@ -20,7 +22,7 @@ $('[date]').datetimepicker({
   minView: 2
 });
 
-var defer = $.Deferred();
+/*var defer = $.Deferred();
 
 defer.done(res => {
   console.log(res);
@@ -37,4 +39,9 @@ defer.resolve('hello');
 
 $.when(1).then(data => {
   console.log('---', data);
-})
+});*/
+
+$('.dep').department({
+  url: 'data/treedatas',
+  $hidden: $()
+});

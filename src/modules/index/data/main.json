@@ -5,6 +5,22 @@
     "icon": "home",
     "link": "home.html"
   }, {
+    "name": "基础数据",
+    "icon": "sitemap",
+    "children": [{
+      "link": "",
+      "text": "个人配置"
+    }, {
+      "link": "../rolemanage/index.html",
+      "text": "角色管理"
+    }, {
+      "link": "",
+      "text": "页面配置"
+    }, {
+      "link": "../organization/query.html",
+      "text": "组织及人员"
+    }]
+  }, {
     "name": "项目管理",
     "icon": "cogs",
     "children": [{
@@ -104,17 +120,17 @@
     "name": "付款管理",
     "icon": "money",
     "children": [{
-      "link": "",
-      "text": "未结清"
+      "link": "../payment/pay-query.html",
+      "text": "付款单查询"
     }, {
-      "link": "",
-      "text": "结算申请"
-    }, {
-      "link": "",
+      "link": "../payment/pay-apply.html",
       "text": "付款申请"
     }, {
-      "link": "",
-      "text": "订单统计"
+      "link": "../payment/uncleared-query.html",
+      "text": "未结清"
+    }, {
+      "link": "../payment/wait-pay.html",
+      "text": "待支付"
     }, {
       "link": "",
       "text": "付款记录"
@@ -123,40 +139,28 @@
       "text": "预警功能"
     }]
   }, {
-    "name": "采购报表",
+    "name": "发票管理",
     "icon": "file-alt",
     "children": [{
-      "link": "",
-      "text": "分公司供应商"
+      "link": "../invoice/invoice-query.html",
+      "text": "发票明细查询"
     }, {
-      "link": "",
-      "text": "往来供应商"
+      "link": "../invoice/invoice-add.html",
+      "text": "发票录入申请"
     }, {
-      "link": "",
-      "text": "供应商交易信息"
+      "link": "../invoice/invoice-add-query.html",
+      "text": "发票录入查询"
     }, {
-      "link": "",
-      "text": "集团供应商"
+      "link": "../invoice/invoice-approve.html",
+      "text": "发票认证"
     }, {
-      "link": "",
-      "text": "供应商行为记录"
+      "link": "../invoice/invoice-project.html",
+      "text": "项目发票总汇"
     }]
   }, {
     "name": "供应商管理",
     "icon": "user-md",
     "children": [{
-      "link": "",
-      "text": "个人配置"
-    }, {
-      "link": "../rolemanage/index.html",
-      "text": "角色管理"
-    }, {
-      "link": "",
-      "text": "页面配置"
-    }, {
-      "link": "../organization/query.html",
-      "text": "组织及人员"
-    }, {
       "link": "../supplymanagement/add-supplier.html",
       "text": "新增供应商"
     }, {
@@ -166,10 +170,6 @@
       "link": "../supplymanagement/supplier-deal-query.html",
       "text": "供应商交易信息查询"
     }]
-  }, {
-    "name": "工作流配置",
-    "icon": "sitemap",
-    "link": ""
   }],
   "cur": "home.html"
 }

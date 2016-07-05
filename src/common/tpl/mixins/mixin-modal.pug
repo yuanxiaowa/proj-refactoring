@@ -76,3 +76,15 @@ mixin modal-project-config-addhtno-item
           option(value="分公司编号") 分公司编号
           option(value="固定编号") 固定编号
           option(value="年月") 年月
+mixin modal-bankpay-edit-item
+  .container-fluid
+    .row
+      label.col-md-4.control-label.J-project-item-name 银行回单号：
+      .col-md-6
+        input.item-val.form-control(type="text")
+mixin modal-invoice-approve
+  .container-fluid
+    .row
+      label.col-md-4.control-label.J-project-item-name 认证日期：
+      .col-md-6
+        input.item-val.form-control(type="text" date="true")

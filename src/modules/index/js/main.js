@@ -13,6 +13,12 @@ $menuAside
     $(this).next('.main-menu-item-c').slideToggle();
   });
 
+var mainBtn = $('.main-menu-item-t').eq(0);
+mainBtn.on('click', function() {
+    $('.main-menu-item-c').slideToggle();
+ });
+
+
 $menuAside.add('.j-menu-top')
   .on('click', 'a', function() {
     var $this = $(this);

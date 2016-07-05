@@ -1,0 +1,63 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-07-01 09:43:14
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-07-05 13:45:17
+*/
+@import '/modules/variables';
+@import '/modules/project-common';
+@import '/modules/tabs';
+@import '/modules/page-common';
+.item{
+  margin: 20px;
+}
+.sta .control-label{
+  width: 27%;
+}
+.statu .control-label{
+  width: 20%;
+  /*.checkbox-inline{
+    margin-left: -1px!important;
+  }*/
+}
+.pact-form {
+  padding: 36px;
+  .text-primary{
+    display: inline-block;
+    margin-top: 7px;
+  }
+  .apply-pay{
+    margin-right: 2%;
+    width: 90%;
+  }
+}
+.panel{
+  border:none;
+  box-shadow: none;
+}
+.nav-tabs{
+  padding-left: 30px;
+  border-bottom: 1px solid #2d62a4;
+  li{
+    margin-bottom: 0;
+  }
+}
+.print-title{
+  margin-bottom: 30px;
+}
+.type-list{
+  background: #f2f2f2;
+}
+.print-title{
+  font-size: 18px;
+  small{
+    font-size: 90%;
+    padding-left: 20px;
+  }
+}
+.print-title-1{
+  margin-bottom: 0;
+}
+.edit-bankVal{
+  width: 135px!important;
+}

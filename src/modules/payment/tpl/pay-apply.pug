@@ -1,0 +1,125 @@
+extends /common
+
+append style
+  +style('pay')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary.J-add-save 保存
+        button.btn.btn-default 确认提交
+        button.btn.btn-default 同意
+        button.btn.btn-default 不同意
+        button.btn.btn-default 审批意见
+        button.btn.btn-default 反审核
+        button.btn.btn-default.J-print 打印付款申请表
+      .pact-form.clearfix 
+        .row.col-md-12
+          +form-horizontal()(class="row" id="material-pact-form")
+            .row
+              +form-horizontal-item({label:'付款申请编号',type:'mix',cw:7})(class="col-md-4")
+                span.text-primary 保存后自动生成……
+              +form-horizontal-item({label:'材料合同',i:true,type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'所属项目',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 南京歌剧院一期项目
+            .row
+              +form-horizontal-item({label:'所属部门',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 南京分公司
+              +form-horizontal-item({label:'供应商',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 江苏筑牛网络科技有限公司
+              +form-horizontal-item({label:'合同发票类型',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 增值税专用发票&nbsp;&nbsp;17%
+            .row
+              +form-horizontal-item({label:'合同付款方式',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 一次性 分期  按阶段
+              +form-horizontal-item({label:'付款阶段',type:'mix',cw:7})(class="col-md-4")
+                span.default-data.pull-left 全款
+                select.form-control
+                  option 1期
+                  option 2期
+                select.form-control
+                  option 预付款
+                  option 进度款
+              +form-horizontal-item({label:'支付方式',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 定金采购，委托支付（10%）
+                select.form-control
+                  option 银行转账
+                  option 承兑汇票
+                  option 现金
+                  option 其它
+            .row
+              +form-horizontal-item({label:'合同总额',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 5000.00元
+              +form-horizontal-item({label:'合同累计收货总额',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 5000.00元
+              +form-horizontal-item({label:'发票总额总额',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 2000,00元（税额：290,60，不含税价：1709,40元）
+            .row
+              +form-horizontal-item({label:'已付总额',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 5000.00元
+              +form-horizontal-item({label:'已付比例',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 50%
+              +form-horizontal-item({label:'本次申请金额',type:'mix',cw:7})(class="col-md-4")
+                input.pull-left.form-control.apply-pay
+                span.default-data 元
+                //- span.default-data 元（税额：290,60，不含税价：1709,40元）
+            .row
+              +form-horizontal-item({label:'备注',type:'textarea',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'发票张数',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 6
+              +form-horizontal-item({label:'是否最终付款',type:'checkbox',cw:7,text:['是']})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'编制人',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 李起光
+              +form-horizontal-item({label:'编制日期',type:'mix',cw:7})(class="col-md-4")
+                span.default-data 2016-12-25
+      +tab(tabs)
+        .tab-pane.active#tab1
+          .panel.panel-default
+            .panel-body.row
+              .col-md-12
+                table#pay-list
+                  tfoot
+                    tr
+                      td &nbsp;
+                      td &nbsp;
+                      td(align="center") 合计：
+                      td &nbsp;
+                      td &nbsp;
+                      td(align="center") 200.000
+                      td(align="center") 200.000
+                      td(align="center") 200.000
+                      td(align="center") 400.000
+                      td &nbsp;
+                      td &nbsp;
+                      td &nbsp;
+                      td &nbsp;
+        .tab-pane#tab2
+          .panel.panel-default
+            .panel-body.row
+              .col-md-12
+                table#tax-list
+                  tfoot
+                    tr
+                      td &nbsp;
+                      td(align="center") 合计：
+                      td &nbsp;
+                      td &nbsp;
+                      td(align="center") 200.000
+                      td &nbsp;
+                      td(align="center") 200.000
+                      td(align="center") 200.000
+                      td &nbsp;
+                      td &nbsp;
+                      td &nbsp;
+                      td &nbsp;
+                      td &nbsp;        
+
+        .tab-pane#tab3
+          .panel.panel-default
+            .panel-body.row
+              .col-md-10
+                .up-file-container
+                  +table-add-pact-file
+                  a.add.add-cos(href="javascript:;" title="新增") +

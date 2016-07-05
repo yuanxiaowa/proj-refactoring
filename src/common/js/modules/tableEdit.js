@@ -1,20 +1,38 @@
 function TableEdit(options) {
-  this.options = options;
+  this.options = $.extend({
+    prefix: 'items'
+  }, options);
   this.queue = [];
   this.init();
 }
 
-TableEdit.getEle = item => {
-  if (!item.type) {
+TableEdit.getEle = (item, prefix, index, value) => {
+  let name, $ele, $eles;
+  if (item.name) {
+    name = `${prefix}[${index}].${item.name}`;
+  }
+  if (/number|string|boolean|undefined|null/.test($.type(value))) {
+    value = {
+      value: value
+    };
+  }
+  if ('formatter' in item) {
+    return item.formatter(item.name, index, value);
+  } else if (!item.type) {
     return item.data;
   } else if ('genNum' === item.type) {
-    return ++item.data;
-  } else if ('input' === item.type) {
-    let $ele = $(`<input class="form-control" name="${item.name}">`);
+    return index;
+  } else if ('delBtn' === item.type) {
+    return `<a class="btn btn-danger j-item-del" href="">删除</a>`;
+  }
+
+  $eles = [];
+  if ('input' === item.type) {
+    $ele = $(`<input class="form-control">`);
     $ele.attr(item.attrs || {});
-    return $ele;
+    $eles.push($ele);
   } else if ('select' === item.type) {
-    let $ele = $(`<select class="form-control" name="${item.name}">`);
+    $ele = $(`<select class="form-control">`);
     $ele.attr(item.attrs || {});
     $.each(item.data, (_, _item) => {
       var $opt = $('<option>');
@@ -25,30 +43,45 @@ TableEdit.getEle = item => {
       }
       $ele.append($opt);
     });
-    return $ele;
+    $eles.push($ele);
   } else if ('addon' === item.type) {
-    return `<div class="input-group"><input class="form-control" name="${item.name}"><a href="" class="input-group-addon">+</a></div>`;
-  } else if ('delBtn' === item.type) {
-    return `<a class="btn btn-danger j-item-del" href="">删除</a>`;
-  } else if ('diy' === item.type) {
-    return item.tpl;
+    let $wrap = $('<div class="input-group">');
+    $ele = $(`<input class="form-control">`);
+    $wrap.append($ele, '<a href="" class="input-group-addon">+</a>');
+    $eles.push($wrap);
   }
+  if (item.hasHidden) {
+    $ele.val(value.text);
+    $ele = $(`<input type="hidden">`);
+    $eles.push($ele);
+  }
+  $ele.attr('name', name);
+  $ele.val(value.value);
+  return $eles;
 };
 
-TableEdit.getTr = cols => {
-  var $tr = $('<tr>');
-  $.each(cols, (_, item) => {
-    var $td = $('<td>');
-    $td.append(TableEdit.getEle(item));
-    $tr.append($td);
+TableEdit.getData = url => {
+  return $.ajax({
+    url: url
+  }).then(res => {
+    if (res.success) {
+      return res.data;
+    }
   });
-  return $tr;
 };
 
 TableEdit.prototype = {
   constructor: TableEdit,
   init() {
+    this.$tbody = this.options.$table.find('tbody');
+    this.index = this.$tbody.children().length + 1;
+    if (this.options.url) {
+      TableEdit.getData(this.options.url).then($.proxy(this.render, this));
+    }
     this.bindEvent();
+  },
+  render(datas) {
+    this.addTr(datas);
   },
   on(type, cb) {
     this.queue.push({
@@ -63,10 +96,17 @@ TableEdit.prototype = {
       }
     });
   },
-  addTr() {
-    var $tr = TableEdit.getTr(this.options.columns);
-    this.options.$table.find('tbody').append($tr);
-    this.trigger('trAdded', $tr);
+  addTr(rows) {
+    if (!$.isArray(rows)) {
+      rows = [rows];
+    }
+    let $eles = $.map(rows, item => {
+      return this.getTr(item);
+    });
+    this.$tbody.append($eles);
+    $.each($eles, (_, $tr) => {
+      this.trigger('trAdded', $tr);
+    });
   },
   bindEvent() {
     if (this.options.$btnAdd) {
@@ -88,6 +128,18 @@ TableEdit.prototype = {
       .on('click', '.j-item-edit', function() {
         return false;
       });
+  },
+  getTr(values) {
+    var $tr = $('<tr>');
+    var index = this.index++;
+    values = values || {};
+    $.each(this.options.columns, (_, item) => {
+      var $td = $('<td>');
+      var value = values[item.name];
+      $td.append(TableEdit.getEle(item, this.options.prefix, index, value));
+      $tr.append($td);
+    });
+    return $tr;
   }
 };
 

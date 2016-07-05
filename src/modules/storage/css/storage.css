@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-06-29 09:06:08
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-30 14:37:46
+* @Last Modified time: 2016-07-04 14:16:38
 */
 @import '/modules/variables';
 @import '/modules/project-common';
@@ -19,10 +19,6 @@
   }
 }
 /*收货单*/
-.default-data{
-  display: inline-block;
-  margin-top:7px;
-}
 .panel{
   border:none;
   box-shadow: none;

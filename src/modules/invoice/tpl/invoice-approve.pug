@@ -1,0 +1,52 @@
+extends /common
+
+append style
+  +style('invoice')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-primary.J-add-save 查询
+        button.btn.btn-default.J-approve-pass 认证通过
+        button.btn.btn-default 认证不通过
+      .pact-form 
+        +form-horizontal()(class="row" id="add-contact-form")
+          .form-item-box
+            .row
+              +form-horizontal-item({label:'发票代码',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'发票号码',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'开票单位',type:'select',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'材料合同',type:'select',cw:7})(class="col-md-4")
+              .form-group.col-md-4
+                label.control-label.col-xs-5 开票日期：
+                .col-xs-9.col-md-7.date-box
+                  input.form-control.first(date="true") 
+                  input.form-control(date="true") 
+              .form-group.col-md-4
+                label.control-label.col-xs-5 认证日期：
+                .col-xs-9.col-md-7.date-box
+                  input.form-control.first(date="true") 
+                  input.form-control(date="true") 
+            .row
+              .form-group.col-md-6
+                label.control-label.col-xs-5(style="width:27%;") 认证状态：
+                .col-xs-9.col-md-7
+                  label.checkbox-inline 
+                    input(type="checkbox")
+                    |全部 
+                  label.checkbox-inline 
+                    input(type="checkbox")
+                    |认证通过
+                  label.checkbox-inline 
+                    input(type="checkbox")
+                    |认证未通过
+                  label.checkbox-inline 
+                    input(type="checkbox")
+                    |待认证
+    .con-container
+     .pact-form.list-container
+        table#query-list
+  +modal('发票认证')(id="invoice-approve" )
+    +modal-invoice-approve

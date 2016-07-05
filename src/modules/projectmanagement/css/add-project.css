@@ -146,7 +146,6 @@
 }
 input[type="file"]{
   opacity: 0;
-  filter: alpha(opacity=0);
 }
 .up-btn{
   width: 85px;

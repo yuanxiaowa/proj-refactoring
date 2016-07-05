@@ -22,15 +22,16 @@ var dialog = new Dialog({
 var te = new TableEdit({
   $table: $tblist,
   $btnAdd: '.add-cos',
+  url: 'data/add-purchase-plan-items',
   columns: [{
-    type: 'genNum',
-    data: $tblist.children('tbody').children().length
+    type: 'genNum'
   }, {
     type: 'input',
     name: 'name1'
   }, {
     type: 'addon',
-    name: 'name2'
+    name: 'name2',
+    hasHidden: true
   }, {
     type: 'input',
     name: 'name3'

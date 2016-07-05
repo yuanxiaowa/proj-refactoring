@@ -25,18 +25,18 @@ append content
                     +form-horizontal-item({label:'材料类型',type:'select',cw:7})(class="col-md-3")
                     .form-group.col-md-6
                       .control-label.col-xs-3.note-type 审批状态：
-                      .col-xs-7
+                      .col-xs-7.more-selected
                         label.radio-inline
-                          input(type="radio") 
+                          input(type="checkbox" ).Review_Status_all 
                           |全部
                         label.radio-inline
-                          input(type="radio") 
+                          input(type="checkbox").regul
                           |已生效
                         label.radio-inline
-                          input(type="radio") 
+                          input(type="checkbox").regul
                           |审批中
                         label.radio-inline
-                          input(type="radio") 
+                          input(type="checkbox").regul
                           |未生效
     .con-container
       .list-item 

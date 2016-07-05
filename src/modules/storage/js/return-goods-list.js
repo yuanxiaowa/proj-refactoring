@@ -57,11 +57,12 @@ $('#detailed-list')
   });
 
 //------------------------上传发票----------------
-$('#tab2').on('click', '.upFile-btn', function(){
+$('#tab2').on('click', function(){
+  console.log($(this).find('.upFile-btn'))
   var uploader = webUploader.create({
       auto: true,
       swf: '/public/lib/webUploader/0.1.8/Uploader.swf',
-      pick: $(this),
+      pick: $('.upFile-btn'),
       server: 'data/fileupload',
       accept: {
       extensions: 'gif,jpg,jpeg,bmp,png',
@@ -69,7 +70,6 @@ $('#tab2').on('click', '.upFile-btn', function(){
     }
   });
 })
-
 //---------------------- 引入收货清单---------------
 var $addPlan = $(".add-plan");
 var $importListTpl = $$include('/partials/import-goods-list');

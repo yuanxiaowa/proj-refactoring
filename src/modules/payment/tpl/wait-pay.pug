@@ -1,0 +1,31 @@
+extends /common
+
+append style
+  +style('pay')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-primary 查询
+        button.btn.btn-default 支付  
+        button.btn.btn-default 删除
+      .pact-form
+        +form-horizontal()(class="row" id="purchase-plan")
+          .form-item-box.clearfix
+            .item.clearfix
+              .row
+                +form-horizontal-item({label:'所属项目',type:'text',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'材料合同',type:'select',cw:7})(class="col-md-4")
+              .row
+                +form-horizontal-item({label:'支付状态',type:'select',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'付款途径',type:'checkbox',cw:7,text:['全部','筑牛平台','非筑牛平台']})(class="col-md-6 sta")
+    .con-container
+      .form-item-box.clearfix
+        .item.clearfix
+          p.text-right#toolbar
+            a(href="")
+              +icon("share-alt","导出")
+          table.wait-pay
+  +modal('录入银行回单号')(id="add-item" )
+    +modal-bankpay-edit-item

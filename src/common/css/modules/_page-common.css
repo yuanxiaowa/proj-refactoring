@@ -113,7 +113,6 @@ a {
 }
 input[type="file"]{
   opacity: 0;
-  filter: alpha(opacity=0);
 }
 /*上传样式*/
 a[type="upfile"]{

@@ -24,19 +24,19 @@ append content
             .row
               +form-horizontal-item({label:'年月',type:'select',cw:7})(class="col-md-4")
               .form-group.col-md-6
-                .control-label.col-xs-4(style="width:27%;") 审批状态：
-                .col-xs-8
+                .control-label.col-xs-4 审批状态：
+                .col-xs-8.more-selected
                   label.checkbox-inline
-                    input(type="radio") 
+                    input(type="checkbox").Review_Status_all 
                     |全部
                   label.checkbox-inline
-                    input(type="radio") 
+                    input(type="checkbox").regul  
                     |已生效
                   label.checkbox-inline
-                    input(type="radio") 
+                    input(type="checkbox").regul  
                     |审批中
                   label.checkbox-inline
-                    input(type="radio") 
+                    input(type="checkbox").regul  
                     |未生效
     .con-container
       .pact-form 
