@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "msg": "ok",
+  "data": {
+    "pageNo":1,
+    "pageCount":10,
+    "total":2,
+    "rows":[{
+      "id":"1",
+      "num":"1",
+      "module":"采购管理",
+      "page":"项目详情"
+    },{
+      "id":"2",
+      "num":"2",
+      "module":"采购管理",
+      "page":"项目详情"
+    }]
+  }
+}

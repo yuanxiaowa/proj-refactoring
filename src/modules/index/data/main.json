@@ -6,7 +6,7 @@
     "link": "home.html"
   }, {
     "name": "基础数据",
-    "icon": "sitemap",
+    "icon": "tasks",
     "children": [{
       "link": "../organization/query.html",
       "text": "组织架构"
@@ -52,7 +52,7 @@
       "text": "项目成员总汇"
     },{
       "link": "../projectmanagement/project-pact-query.html",
-      "text": "项目合同查询"
+      "text": "合同查询"
     }]
   }, {
     "name": "采购管理",
@@ -87,6 +87,9 @@
     }, {
       "link": "../purchasemanagement/add-supplemental-pact.html",
       "text": "添加补充合同"
+    }, {
+      "link": "../purchasemanagement/look-supplier.html",
+      "text": "查看供应商"
     }]
   }, {
     "name": "仓储管理",
@@ -166,6 +169,16 @@
     }, {
       "link": "../supplymanagement/supplier-deal-query.html",
       "text": "供应商交易信息查询"
+    }]
+  }, {
+    "name": "工作流",
+    "icon": "sitemap",
+    "children": [{
+      "link": "../bpm/flow-center.html",
+      "text": "流程中心"
+    }, {
+      "link": "../bpm/add-flow.html",
+      "text": "新增编辑流程"
     }]
   }],
   "cur": "home.html"

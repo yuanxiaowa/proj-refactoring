@@ -1,0 +1,46 @@
+extends /common
+
+append style
+  +style('bpm')
+
+append content
+  +org
+    .item-box 
+      form(action="")
+        .row
+          .form-group.col-md-4
+            label.control-label.col-xs-4 页面：
+            .input-group.col-xs-9.col-md-7 
+              input(type="text").form-control
+              a.input-group-addon#addon(href="javascript:;" data-modal-load="_search.html" data-modal-title="页面选择" data-modal-stxt="确定" data-modal-size="lg") +
+        .row
+          .form-group.col-md-4
+            label.control-label.col-xs-4 流程名称：
+            .input-group.col-xs-9.col-md-7 
+              input(type="text").form-control
+        .row
+          .form-group.col-md-4
+            label.control-label.col-xs-4 发起人：
+            span.default-data 李起光
+        .approve-container
+          .row
+            .form-group.col-md-4
+              label.control-label.col-xs-4 一级审批人：
+              .input-group.col-xs-9.col-md-7 
+                input(type="text").form-control
+        .row
+          .form-group.col-md-4
+            label.control-label.col-xs-4 是否禁用：
+            span.default-data
+              label
+                input(type="radio")
+                |是
+                span.default-data 
+              label
+                input(type="radio")
+                |否
+        .row
+          .form-group.col-md-4
+            label.control-label.col-xs-4 &nbsp;
+            .input-group.col-xs-9.col-md-7 
+              button.btn.btn-primary  保存

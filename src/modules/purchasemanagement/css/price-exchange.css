@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-06-24 10:56:04
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-25 11:53:22
+* @Last Modified time: 2016-07-08 10:00:22
 */
 @import '/modules/variables';
 @import '/modules/project-common';
@@ -85,4 +85,7 @@
 }
 .explain{
   margin-left: 6px;
+}
+.check-ico{
+  background: #fdede3 url("../image/check.png") no-repeat 200px center;
 }

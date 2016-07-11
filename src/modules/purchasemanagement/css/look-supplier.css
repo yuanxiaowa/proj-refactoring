@@ -1,0 +1,22 @@
+/*
+* @Author: huangzexia
+* @Date:   2016-07-09 09:08:54
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-07-09 09:20:46
+*/
+@import '/modules/variables';
+@import '/modules/project-common';
+@import '/modules/page-common';
+
+.con-container{
+  padding: 25px;
+  .title{
+    font-size: 18px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #2d62a4; 
+  }
+  dt{
+    font-weight: normal;
+  }
+}

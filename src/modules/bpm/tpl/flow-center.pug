@@ -1,0 +1,20 @@
+extends /common
+
+append style
+  +style('bpm')
+
+append content
+  .container-fluid
+    .con-container
+      .tab-nav.text-right
+        button.btn.btn-primary 新增
+        button.btn.btn-default 编辑
+        button.btn.btn-default 删除
+      .pact-form
+        row.text-right#toolbar
+          span 状态：
+          div.flow-select
+            select.flow-select(name="").form-control
+              option 已生效
+              option 未生效
+        table#search-list
