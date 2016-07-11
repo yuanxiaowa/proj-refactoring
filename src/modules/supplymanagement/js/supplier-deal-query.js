@@ -3,50 +3,67 @@ import 'bootstrapDatetimepicker';
 
 $('table')
   .bootstrapTable({
-    url: '',
+    url: 'data/supplier-deal-query',
     sidePagination: 'server',
+    toolbar: '#toolbar',
+    pagination: true,
+    clickToSelect: true,
+    showColumns:true,
     ajaxOptions: {
       dataFilter(res) {
         return JSON.stringify($.parseJSON(res).data);
       }
     },
     columns: [{
+      field: 'checked',
+      checkbox: true
+    },{
       title: '编号',
-      field: ''
+      field: 'num',
+      align:'center',
+      formatter:function(value,row,index){  
+        return index+1;
+      }
     }, {
       title: '订单号',
-      field: ''
+      align:'center',
+      field: 'orderNum'
     }, {
       title: '订单名称',
-      field: ''
+      align:'center',
+      field: 'orderName'
     }, {
       title: '所属部门',
-      field: ''
+      align:'center',
+      field: 'bm'
     }, {
       title: '所属项目',
-      field: ''
+      field: 'project'
     }, {
       title: '成交时间',
-      field: ''
+      align:'center',
+      field: 'deal-time'
     }, {
       title: '发货时间',
-      field: ''
+      align:'center',
+      field: 'fh'
     }, {
       title: '交易金额',
-      field: ''
+      align:'center',
+      field: 'all'
     }, {
       title: '是否开票',
-      field: ''
+      align:'center',
+      field: 'isYes'
     }, {
       title: '税率',
-      field: ''
+      align:'center',
+      field: 'tax'
     }, {
       title: '是否争议',
-      field: ''
-    }],
-    toolbar: '#toolbar',
-    clickToSelect: true,
-    pagination: true
+      align:'center',
+      field: 'isQ'
+    }]
   });
 
   //加载日期

@@ -8,22 +8,22 @@
     "name": "基础数据",
     "icon": "sitemap",
     "children": [{
-      "link": "",
-      "text": "个人配置"
+      "link": "../organization/query.html",
+      "text": "组织架构"
     }, {
       "link": "../rolemanage/index.html",
       "text": "角色管理"
     }, {
-      "link": "",
-      "text": "页面配置"
-    }, {
-      "link": "../organization/query.html",
-      "text": "组织及人员"
+      "link": "../permission/index.html",
+      "text": "权限管理"
     }]
   }, {
     "name": "项目管理",
     "icon": "cogs",
     "children": [{
+      "link": "../projectmanagement/project-query.html",
+      "text": "项目信息查询"
+    },{
       "link": "../projectmanagement/pactdetail.html",
       "text": "合同详情"
     }, {
@@ -53,9 +53,6 @@
     },{
       "link": "../projectmanagement/project-pact-query.html",
       "text": "项目合同查询"
-    },{
-      "link": "../projectmanagement/project-query.html",
-      "text": "项目信息查询"
     }]
   }, {
     "name": "采购管理",

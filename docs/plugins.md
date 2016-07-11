@@ -63,15 +63,19 @@
 > 点击确定，若对话框内有表单，会自动进行表单提交
 
 - 属性
-  `data-modal-load` 地址
-  `data-modal-title` 标题
-  `data-modal-stxt` 确认按钮文本，默认为保存
-  `data-modal-ctxt` 取消按钮文本，默认为取消
-  `data-modal-bind` 默认为true，在内容加载完之后，若有表单，自动绑定表单校验，并在数据发送到后台成功后，关闭对话框
-  `data-nocache` 是否要缓存页面，默认为缓存，需要禁用，改为true即可
+  - `data-modal-load` 地址
+  - `data-modal-title` 标题
+  - `data-modal-stxt` 确认按钮文本，默认为保存
+  - `data-modal-ctxt` 取消按钮文本，默认为取消
+  - `data-modal-bind` 默认为true，在内容加载完之后，若有表单，自动绑定表单校验，并在数据发送到后台成功后，关闭对话框
+  - `data-modal-size:(enum|String)` 模态框大小，可为以下值(忽略大小写)或自定义
+    - `normal`
+    - `lg`
+    - `sm`
+  - `data-nocache` 是否要缓存页面，默认为缓存，需要禁用，改为true即可
 - 事件
-  `loaded.modalremote` 内容加载完后
-  `ok.modalremote` 点击确定按钮后
+  - `loaded.modalremote` 内容加载完后
+  - `ok.modalremote` 点击确定按钮后
 
 
 ## 表单校验与提交
@@ -282,6 +286,14 @@ var te = new TableEdit(options);
   - `url` 需要对表格进行初始化的url地址
     - 数据格式为
           [
+            [
+              : String
+              或
+              {
+                text: String|Number,
+                value: String|Number
+              }, ...
+            ]
             {
               name: 
                 : String
@@ -291,6 +303,7 @@ var te = new TableEdit(options);
                   value: String|Number
                 }
             }, ...
+
           ]
         > 自动生成的不包括
   - `columns:Array`
@@ -304,10 +317,11 @@ var te = new TableEdit(options);
     - `name` 表单控件的name值
     - `attrs` 添加在表单控件上的属性
     - `hasHidden` 是否有隐藏域
-    - `formatter(name, index, value?)` 自定义单元格式
+    - `formatter(name, index, value?, row?)` 自定义单元格式
       - `name` name值
       - `index` 当前处于第几列
-      - `value`
+      - `value` 对象, 简单类型会自动封装成 `{value: value}` 形式
+      - `row` 当前行数据
 
 > 最后表单控件的name属性值会拼接为 `prefix[rnum].name`，rnum为行号，name为对应的列的name
 

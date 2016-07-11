@@ -12,22 +12,22 @@ append content
             .icon-reorder
           .navbar-brand
         .collapse.navbar-collapse#main-navbar-collapse
-          ul.nav.navbar-nav.main-menu-top.j-menu-top.visible-xs
-            each v,k in menus
-              li(class={active:!k})
-                a(href="")= v.name
-                  span.icon-angle-down
-                .main-menu-dropdown.row
-                  +iterator(3)
-                    .col-md-4
-                      h5 验收入库
-                      ul.list-unstyled
-                        li
-                          a(href="") 待收货列表
-                        li
-                          a(href="") 新增验收单
-                        li
-                          a(href="") 验收单列表
+          //- ul.nav.navbar-nav.main-menu-top.j-menu-top.visible-xs
+          //-   each v,k in menus
+          //-     li(class={active:!k})
+          //-       a(href="")= v.name
+          //-         span.icon-angle-down
+          //-       .main-menu-dropdown.row
+          //-         +iterator(3)
+          //-           .col-md-4
+          //-             h5 验收入库
+          //-             ul.list-unstyled
+          //-               li
+          //-                 a(href="") 待收货列表
+          //-               li
+          //-                 a(href="") 新增验收单
+          //-               li
+          //-                 a(href="") 验收单列表
           form.navbar-form.navbar-left
             .form-group.has-feedback
               input.form-control

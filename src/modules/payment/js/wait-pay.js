@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-07-01 16:09:40
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-05 16:55:56
+* @Last Modified time: 2016-07-06 14:14:09
 */
 
 import 'bootstrapTable';
@@ -19,6 +19,10 @@ $('table')
   .bootstrapTable({
     url: 'data/list',
     sidePagination: 'server',
+    toolbar: '#toolbar',
+    pagination: true,
+    clickToSelect: true,
+    showColumns:true,
     ajaxOptions: {
       dataFilter(res) {
         return JSON.stringify($.parseJSON(res).data);
@@ -94,10 +98,7 @@ $('table')
       title: '编制日期',
       align: 'center',
       field: 'Time'
-    }],
-    clickToSelect: true,
-    pagination: true,
-    toolbar:"#toolbar"
+    }]
 });
 $modaladd.on('click', '.j-modal-ok', function(){
         var item = $('.item-val');

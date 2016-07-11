@@ -2,64 +2,70 @@
 * @Author: huangzexia
 * @Date:   2016-07-04 15:30:06
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-05 16:53:09
+* @Last Modified time: 2016-07-06 11:33:54
 */
 
 import 'bootstrapTable';
 //------------------------查询结果-----------------
 $('#query-list')
   .bootstrapTable({
-    url: '',
+    url: 'data/invoice-add-query',
     sidePagination: 'server',
+    toolbar: '#toolbar',
+    pagination: true,
+    clickToSelect: true,
+    showColumns:true,
     ajaxOptions: {
       dataFilter(res) {
         return JSON.stringify($.parseJSON(res).data);
       }
     },
-    columns: [{
-      field: 'checked',
-      checkbox: true
+   columns: [{
+      type: 'genNum'
     }, {
       title: '编号',
-      field: ''
+      field: 'num',
+      align:'center',
+      formatter:function(value,row,index){  
+        return index+1;
+      }
     }, {
       title: '所属部门',
-      field: ''
+      field: 'bm',
+      align:'center'
     }, {
       title: '所属项目',
-      field: ''
+      align:'center',
+      field: 'project'
     }, {
       title: '材料合同',
-      field: ''
+      align:'center',
+      field: 'pact'
     }, {
       title: '供应商',
-      field: ''
+      align:'center',
+      field: 'company'
     }, {
       title: '合同总额',
-      field: ''
+      align:'center',
+      field: 'pactAll'
     }, {
       title: '累计收货',
-      field: ''
+      align:'center',
+      field: 'sh'
     }, {
       title: '累计付款',
-      field: ''
+      align:'center',
+      field: 'hasPay'
+
     }, {
       title: '合同累计发票总额',
-      field: ''
+      align:'center',
+      field: 'htze'
     }, {
       title: '发票差额',
-      field: ''
-    }, {
-      title: '本次发票总额',
-      field: ''
-    }
-    , {
-      title: '发票张数',
-      field: ''
-    }
-    , {
-      title: '审批状态',
-      field: ''
+      align:'center',
+      field: 'fpce'
     }],
     toolbar: '#toolbar',
     pagination: true,

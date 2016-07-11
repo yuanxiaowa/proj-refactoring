@@ -32,7 +32,7 @@ append content
           .form-item-box.clearfix
             .item.clearfix
               p.text-right#toolbar.table-list
-                a.add-plan(href="javascript:;")
+                a.add-plan#add-plan(href="javascript:;" data-modal-load="_purchase-plan.html" data-modal-title="引入采购计划" data-modal-stxt="确定" data-modal-size="lg")
                   +icon("reply","引入采购计划")
                 a(href="")
                   +icon("share-alt","导出")

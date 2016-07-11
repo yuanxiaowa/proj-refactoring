@@ -9,7 +9,11 @@ $('body').on('click', '[data-modal-load]', function() {
     let stxt = $self.data('modalStxt');
     let ctxt = $self.data('modalCtxt');
     let abind = $self.data('modalBind');
+    let size = $self.data('modalSize') || 'NORMAL';
     let btns = 0;
+    if (/^(normal|lg|sm)$/.test(size.trim())) {
+      size = Dialog['SIZE' + size.toUpperCase()];
+    }
     if ((stxt || undefined === stxt) && ctxt) {
       btns = Dialog.BTNOKCANCEL;
     } else if (stxt || undefined === stxt) {
@@ -23,6 +27,7 @@ $('body').on('click', '[data-modal-load]', function() {
         stxt,
         ctxt
       },
+      size,
       onOk() {
         var $form = dialog.$modal.find('form');
         if ($form.length) {

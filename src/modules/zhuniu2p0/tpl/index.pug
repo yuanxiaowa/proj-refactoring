@@ -1,0 +1,66 @@
+extends /base
+
+append style
+  +style('index')
+
+append script
+  script.
+    var baseUrl = '';
+  +script('$${jquery}')
+
+append content
+  .container
+    .l-container
+      .l-right
+        .c-timeline
+          .c-timeline__line
+          .c-timeline__header
+            strong 2
+            .ovh
+              b nd
+              .c-timeline__title 筑牛历程
+          ul.c-timeline__route#timeline
+            +iterator(5)
+              li.c-timeline__route-item.c-timeline__route-item--left.j-item
+                span.c-timeline__route-item__date 2014年07月
+                  span.c-timeline__route-item__date-link
+                .c-timeline__route-item__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus ut maxime vitae
+              li.c-timeline__route-item.c-timeline__route-item--right.j-item
+                span.c-timeline__route-item__date 2014年07月
+                  span.c-timeline__route-item__date-link
+                .c-timeline__route-item__desc Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus ut maxime vitae
+      .ova
+        .c-slider#slider
+          .c-slider__m
+            .c-slider__wrap.j-con
+              +iterator(4)
+                .c-slider__item
+                  +image('banner')
+          .c-slider-pager.j-pager
+            each i,k in Array(4)
+              .c-slider-pager__item(class={'is-active':!k})
+        .c-news
+          +iterator(10)
+            .c-news__item
+              .c-news__item-date [ 2011-05-23 ]
+              a.c-news__item-link(href="") 养老医疗创新交流会，探究健产业新未来产业新未来
+    .c-rotation#rotation
+      .c-rotation__op
+        .c-rotation__op-item.c-rotation__op-item--left.j-left &lt;
+        .c-rotation__op-item.c-rotation__op-item--right.j-right &gt;
+      .c-rotation__banners.j-rotation-wrap
+        .c-rotation__banners-item.is-active
+          +image('banner')
+        .c-rotation__banners-item(style={left:"436px"})
+          +image('banner')
+        .c-rotation__banners-item(style={left:0})
+          +image('banner')
+  .footer
+    .links-site
+      each item,i in ['关于筑牛','联系我们','诚征英才','商务合作','版权声明','法律声明','服务条款','隐私声明','诚招代理']
+        if i
+          | |
+        a(href="")= item
+    .copyright 
+      div 苏ICP备14037389号　增值电信业务经 营许可证：苏B2-20140522　本站部分信息来源于网络　如有侵权请与我们联系
+      div ©2014-2018　ZHUNIU.COM　江苏筑牛网络科技有限公司　版权所有

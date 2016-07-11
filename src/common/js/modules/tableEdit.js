@@ -6,7 +6,7 @@ function TableEdit(options) {
   this.init();
 }
 
-TableEdit.getEle = (item, prefix, index, value) => {
+TableEdit.getEle = (item, prefix, index, value, row) => {
   let name, $ele, $eles;
   if (item.name) {
     name = `${prefix}[${index}].${item.name}`;
@@ -17,7 +17,7 @@ TableEdit.getEle = (item, prefix, index, value) => {
     };
   }
   if ('formatter' in item) {
-    return item.formatter(item.name, index, value);
+    return item.formatter(item.name, index, value, row);
   } else if (!item.type) {
     return item.data;
   } else if ('genNum' === item.type) {
@@ -136,7 +136,7 @@ TableEdit.prototype = {
     $.each(this.options.columns, (_, item) => {
       var $td = $('<td>');
       var value = values[item.name];
-      $td.append(TableEdit.getEle(item, this.options.prefix, index, value));
+      $td.append(TableEdit.getEle(item, this.options.prefix, index, value, values));
       $tr.append($td);
     });
     return $tr;

@@ -1,0 +1,35 @@
++form-horizontal()(action="")
+  .row
+    .col-md-6
+      +form-horizontal-item({label:'单位名称',type:'input',lw:3,nocolon:true})
+    .col-md-6
+      +form-horizontal-item({label:'单位类型',type:'radio',text:['建设单位','审计单位','设计单位'],lw:3,nocolon:true})
+    .col-md-6
+      +form-horizontal-item({label:'单位地址',type:'mix',lw:3,nocolon:true})
+        .row
+          .col-xs-4
+            select.form-control
+              option(value="") 请选择
+          .col-xs-4
+            select.form-control
+              option(value="") 请选择
+          .col-xs-4
+            select.form-control
+              option(value="") 请选择
+    .col-md-6
+      +form-horizontal-item({label:'法定代表人',type:'mix',lw:3,nocolon:true})
+        .row
+          .col-xs-8
+            +form-control({type:'input'})
+    .col-md-6
+      +form-horizontal-item({label:'企业性质',type:'mix',lw:3,cw:4,nocolon:true})
+        select.form-control
+          option(value="") 请选择
+    .col-md-6
+      +form-horizontal-item({label:'纳税人登记号',type:'mix',lw:3,nocolon:true})
+        .row
+          .col-xs-8
+            +form-control({type:'input'})
+          .col-xs-4
+            +submit('查询')(class="btn-primary")
++table()

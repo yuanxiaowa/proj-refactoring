@@ -5,9 +5,12 @@ import 'zTree';
 import 'department';
 import Linkage from 'linkage';
 import formValidation from 'formValidation';
+import Choice from 'choice';
 
+var c = new Choice();
+c.show();
 
-new Linkage({
+/*new Linkage({
   url: 'data/items',
   $eles: $('select'),
   id: true,
@@ -20,7 +23,7 @@ $('[date]').datetimepicker({
   format: 'yyyy-mm-dd',
   autoclose: true,
   minView: 2
-});
+});*/
 
 /*var defer = $.Deferred();
 
@@ -41,7 +44,12 @@ $.when(1).then(data => {
   console.log('---', data);
 });*/
 
-$('.dep').department({
+/*$('.dep').department({
   url: 'data/treedatas',
   $hidden: $()
 });
+
+function A(...args) {
+  console.log(args);
+}
+A();*/

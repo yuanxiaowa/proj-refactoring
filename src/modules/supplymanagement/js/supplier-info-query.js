@@ -2,8 +2,12 @@ import 'bootstrapTable';
 import 'moreSelected'
 $('table')
   .bootstrapTable({
-    url: '',
+    url: 'data/supplier-info-query',
     sidePagination: 'server',
+    toolbar: '#toolbar',
+    pagination: true,
+    clickToSelect: true,
+    showColumns:true,
     ajaxOptions: {
       dataFilter(res) {
         return JSON.stringify($.parseJSON(res).data);
@@ -14,42 +18,54 @@ $('table')
       checkbox: true
     }, {
       title: '编号',
-      field: ''
+      field: 'num',
+      align:'center',
+      formatter:function(value,row,index){  
+        return index+1;
+      }
     }, {
       title: '供应商编号',
-      field: ''
+      align:'center',
+      field: 's-num'
     }, {
       title: '供应商名称',
-      field: ''
+      align:'center',
+      field: 'name'
     }, {
       title: '单位类型',
-      field: ''
+      align:'center',
+      field: 'conpany-type'
     }, {
       title: '供货范围',
-      field: ''
+      align:'center',
+      field: 'area'
     }, {
       title: '供货类别',
-      field: ''
+      align:'center',
+      field: 'offer-type'
     }, {
       title: '联系人',
-      field: ''
+      align:'center',
+      field: 'link'
     }, {
       title: '联系电话',
-      field: ''
+      align:'center',
+      field: 'phone'
     }, {
       title: '开票类型',
-      field: ''
+      align:'center',
+      field: 'bill-type'
     }, {
       title: '税率',
-      field: ''
+      align:'center',
+      field: 'tax'
     }, {
       title: '类别',
-      field: ''
+      align:'center',
+      field: 'type'
     }, {
       title: '审批状态',
-      field: ''
-    }],
-    toolbar: '#toolbar',
-    clickToSelect: true,
-    pagination: true
+      align:'center',
+      field: 'sta'
+    }]
   });

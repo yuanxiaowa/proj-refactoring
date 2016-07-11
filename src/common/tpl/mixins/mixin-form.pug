@@ -94,18 +94,28 @@ mixin form-horizontal-item(item,type)
     - type = 'xs'
   if !item.cw
     - item.cw = 9
+  if !item.lw
+    - item.lw = 5
   div(class={row:item.row,'form-group':!item.row})&attributes(attributes)
     if item.label
-      label.control-label(class="col-"+type+"-5")
+      label.control-label(class="col-"+type+"-"+item.lw)
         if item.i
           span.text-danger *
         = item.label
-        | ：
+        if !item.nocolon
+          | ：
     if item.type == 'mix'
-      .col-xs-9(class="col-md-"+item.cw class=item.offset?('col-'+type+'-offset-3'):'')
+      .col-xs-9(
+        class="col-md-"+item.cw
+        class=item.offset?('col-'+type+'-offset-'+item.lw):''
+      )
         block
     else
-      .col-xs-9(class=item.cw==9?"":("col-md-"+item.cw) class={"form-control-static":!item.type} class=item.offset?('col-'+type+'-offset-'+(item.offset===true?'3':item.offset)):'')
+      .col-xs-9(
+        class=item.cw==9?"":("col-md-"+item.cw)
+        class={"form-control-static":!item.type}
+        class=item.offset?('col-'+type+'-offset-'+(item.offset===true?'3':item.offset)):''
+      )
         if !item.type
           = item.text
         else if "button" == item.type

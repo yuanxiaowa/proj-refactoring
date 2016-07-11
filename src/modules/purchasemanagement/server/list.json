@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "msg": "ok",
+  "data": {
+    "pageNo":1,
+    "pageCount":10,
+    "total":2,
+    "rows":[{
+      "id":"1",
+      "Num":"01",
+      "payStyle":"筑牛平台",
+      "paySta":"已支付",
+      "bankNum":"201222222222",
+      "Section":"南京分公司",
+      "Project":"南京歌剧院",
+      "payNum":"2015125445",
+      "cPact":"南京歌剧院"
+    }]
+  }
+}
