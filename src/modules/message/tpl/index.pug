@@ -1,0 +1,57 @@
+extends /common
+
+append style
+  +style('index')
+
+append content
+  .container-fluid
+    .row
+      .col-md-12
+        p &nbsp;
+        p.text-right
+          a(href="add-notice.html").btn.btn-primary 发布公告
+        .panel.panel-default
+          .panel-heading
+            .pull-right 
+              a(href="wait-work.html") 更多
+            .panel-h-icon
+              i.icon-time
+            | 待处理
+          .panel-body
+            +table({thead:['送达时间', '提交人','部门','事项','状态'],border:false,count:6})
+              tr.new-tip
+                td 2016-4-16
+                td 李起光2015-12-1
+                td 苏州分公司-第一项目部
+                td 
+                  a(href="detail.html").link 采购PE给排水管验收入库结算提醒
+                td 待审批
+        .panel.panel-default
+          .panel-heading
+            .pull-right 
+              a(href="notice.html") 更多
+            .panel-h-icon
+              i.icon-bell-alt
+            | 最新公告
+          .panel-body 
+            .item.new 
+              a(href="detail.html") 1、 【重要】扬建集团扬州星悦府项目紧急招标！大单来袭
+                img(src="image/new.png").tip-pic
+                span.time.pull-right 2015-12-25&nbsp;&nbsp;15:25:24
+            .item.new 
+              a(href="detail.html") 2、【重要】扬建集团扬州星悦府项目紧急招标！大单来袭
+                img(src="image/new.png").tip-pic
+                span.time.pull-right 2015-12-25&nbsp;&nbsp;15:25:24
+            .item 
+              a(href="detail.html") 3、扬建集团扬州星悦府项目紧急招标！大单来袭
+                span.time.pull-right 2015-12-25&nbsp;&nbsp;15:25:24
+            .item
+              a(href="detail.html")  4、扬建集团扬州星悦府项目紧急招标！大单来袭
+                span.time.pull-right 2015-12-25&nbsp;&nbsp;15:25:24
+            .item
+              a(href="detail.html")  5、扬建集团扬州星悦府项目紧急招标！大单来袭
+                span.time.pull-right 2015-12-25&nbsp;&nbsp;15:25:24
+            .item
+              a(href="detail.html")  6、扬建集团扬州星悦府项目紧急招标！大单来袭
+                span.time.pull-right 2015-12-25&nbsp;&nbsp;15:25:24
+        

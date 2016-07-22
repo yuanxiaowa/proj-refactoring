@@ -1,0 +1,26 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-07-19 17:34:18
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-07-19 19:19:56
+*/
+.area-list{
+  background: #fff;
+  z-index: 10000;
+  a{
+    float: left;
+    margin: 8px;
+    padding: 0 8px;
+    border: 1px dashed #fff;
+    border-radius: 3px;
+    color: #999;
+    &:hover{
+      border-color:#2b61a5;
+      color: #2b61a5;
+    }
+    &.is-active{
+      border-color:#2b61a5;
+      color: #2b61a5;
+    }
+  }
+}

@@ -2,12 +2,13 @@
 * @Author: huangzexia
 * @Date:   2016-06-17 09:28:13
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-18 12:05:17
+* @Last Modified time: 2016-07-20 09:14:52
 */
 @import '/modules/variables';
 @import '/modules/project-common';
 @import '/modules/tabs';
 @import '/modules/page-common';
+@import '/modules/area';
 .form-item-box{
   margin:0 33px 30px 33px; 
   .text-primary{

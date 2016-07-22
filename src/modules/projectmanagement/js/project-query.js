@@ -1,10 +1,16 @@
 import 'bootstrapTable';
 import 'bootstrapDatetimepicker';
+import 'slider';
 
 $('table')
   .bootstrapTable({
-    url: '',
+    url: 'data/project-query',
     sidePagination: 'server',
+    toolbar: '#toolbar',
+    pagination: true,
+    search: false,
+    clickToSelect: true,
+    showColumns:true,
     ajaxOptions: {
       dataFilter(res) {
         return JSON.stringify($.parseJSON(res).data);
@@ -15,40 +21,48 @@ $('table')
       checkbox: true
     }, {
       title: '编号',
+      align: 'center',
       field: 'num'
     }, {
       title: '工程类别',
-      field: 'projectType'
+      align: 'center',
+      field: 'p-type'
     }, {
       title: '项目编号',
-      field: 'projectNum'
+      align: 'center',
+      field: 'p-num'
     }, {
       title: '项目全称',
-      field: 'projectName'
+      align: 'center',
+      field: 'p-name'
     }, {
       title: '项目简介',
-      field: 'projectInfo'
+      align: 'center',
+      field: 'pj'
     }, {
       title: '项目负责人',
-      field: 'projectManage'
+      align: 'center',
+      field: 'fz'
     }, {
       title: '建设单位',
-      field: 'constructorCompany'
+      align: 'center',
+      field: 'dw'
     }, {
       title: '工程地点',
-      field: 'projectArea'
+      align: 'center',
+      field: 'area'
     }, {
       title: '合同总额',
-      field: 'pactPrice'
+      align: 'center',
+      field: 'sum'
     }, {
       title: '项目状态',
-      field: 'projectSta'
+      align: 'center',
+      field: 'p-sta'
     }, {
       title: '审核状态',
-      field: 'checkSta'
-    }],
-    toolbar: '#toolbar',
-    pagination: true,
-    search: false,
-    clickToSelect: true
+      align: 'center',
+      field: 's-sta'
+    }]
   });
+

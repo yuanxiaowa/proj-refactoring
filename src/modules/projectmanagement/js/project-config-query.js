@@ -2,6 +2,7 @@ import render from 'render';
 import formValidation from 'formValidation';
 import Dialog from 'dialog';
 
+
 var $addNumber = $('.J-add-number');
 var $numContainer = $('.number-wrap-container');
 var $removeItem = $('.del-item');

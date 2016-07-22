@@ -57,19 +57,24 @@ $('#detailed-list')
   });
 
 //------------------------上传发票----------------
-$('#tab2').on('click', function(){
-  console.log($(this).find('.upFile-btn'))
+
+$('.nav-tabs li:eq(1) a').on('click' ,function(){
   var uploader = webUploader.create({
       auto: true,
       swf: '/public/lib/webUploader/0.1.8/Uploader.swf',
-      pick: $('.upFile-btn'),
+      pick: $("#tab2").find('.upFile-btn'),
       server: 'data/fileupload',
       accept: {
       extensions: 'gif,jpg,jpeg,bmp,png',
       mimeTypes: 'image/*'
     }
   });
-})
+   uploader.on( 'uploadSuccess', function(file,response ){
+      var filenames =  response.filename;//文件名|路径
+      $obj.find('.tempnameshow').html(filenames);
+      $obj.find('.tempname').val(filenames);
+    });
+}) 
 //---------------------- 引入收货清单---------------
 var $addPlan = $(".add-plan");
 var $importListTpl = $$include('/partials/import-goods-list');

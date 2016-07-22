@@ -83,7 +83,13 @@ mixin form-control(item)
       data-msg-required=item.i?'请选择'+item.label:false
       name=item.name?item.name:getRn(item.label)
     )&attributes(attributes)
-      option 请选择
+      option(value="") 请选择
+      if item.text != null
+        if Array.isArray(item.text)
+          each _item in item.text
+            option= _item
+        else
+          option= item.text
   else if "checkbox" == item.type
     +checkbox(item.text,item.name?item.name:getRn(item.label),item.label)
   else if "radio" == item.type

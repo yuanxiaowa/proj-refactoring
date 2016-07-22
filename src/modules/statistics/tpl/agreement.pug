@@ -1,0 +1,39 @@
+extends /common
+
+append style
+  +style('index')
+
+append content
+  .container-fluid
+    .panel.panel-default.detail-show.mt-24
+      .panel-body
+        form(action="")
+          .row
+            .col-md-4
+              label 所属部门：
+              .adapt-item
+                +form-control({label:'所属部门',type:'input'})
+            .col-md-4
+              label 施工城市：
+              .adapt-item
+                +form-control({label:'施工城市',type:'input'})
+            .col-md-4
+              label 所属区域：
+              .adapt-item
+                +form-control({label:'所属区域',type:'input'})
+          .row
+            .col-md-8
+              label 签订日期：
+              .adapt-item
+                .row
+                  .col-xs-6
+                    +form-control({type:'date'})
+                  .col-xs-6
+                    +form-control({type:'date'})
+            .col-xs-4
+              +submit('统计')(class="btn-primary")
+    .row
+      .col-md-12
+        .pull-right
+          a.btn.btn-default(href="") 导出
+    +table

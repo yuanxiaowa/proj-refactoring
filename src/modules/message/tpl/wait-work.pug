@@ -1,0 +1,19 @@
+extends /common
+
+append style
+  +style('wait-work')
+
+append content
+  .container-fluid
+    .row
+      .col-md-12
+        .panel.panel-default
+          .panel-body(style="padding:24px;") 
+            .row.text-right#toolbar
+              span 状态：
+              .flow-select
+                select.flow-select(name="").form-control
+                  option 已生效
+                  option 未生效
+            table
+                

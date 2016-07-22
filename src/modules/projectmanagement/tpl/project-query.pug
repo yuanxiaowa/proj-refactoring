@@ -11,7 +11,7 @@ append content
         a(href="add-project.html").btn.btn-default.J-add 立项
         button.btn.btn-default 删除
       .pact-form.clearfix 
-        .row.col-md-12
+        .row.col-md-12.slider-container
           +form-horizontal()(class="row" id="supplement-pact-form")
             .row
               +form-horizontal-item({label:'项目名称',type:'input',cw:7})(class="col-md-3")
@@ -56,21 +56,23 @@ append content
                   label.checkbox-inline
                     input(type="checkbox") 
                     |未生效
+      p.slider-btn.text-right 
+        a.open-close-btn(href="javascript:;") ▼展开
     .con-container
       .pact-form 
         p.text-right#toolbar
           a(href="")
             +icon("share-alt","导出")
         table
-          tfoot
+          tfoot(style="border-top:1px solid #ddd;")
             tr
               td &nbsp;
-              td(align="center") 合同总额：
+              td &nbsp;
+              td(align="center") 合计：
               td &nbsp;
               td &nbsp;
               td &nbsp;
               td &nbsp;
               td &nbsp;
               td &nbsp;
-              td &nbsp;
-              td(align="center") 600000万元
+              td(align="center") 130,000,000.00

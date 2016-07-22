@@ -5,47 +5,68 @@ append style
 
 append content
   .container-fluid
+    .row.btn-box
+      .pipe-list
+        a(href="#" data-id="1").btn.btn-default 
+          span 测试（请忽略）
+          span.J-closed.close &times;
+      a.add-plan#add-pipe(href="javascript:;" data-modal-load="_add-pipe.html" data-modal-title="编辑快捷菜单" data-modal-stxt="确定" data-modal-size="sm")
+        +icon("pencil","编辑")
     .row
-      .col-md-7
+      .col-md-8
         .panel.panel-default
           .panel-heading
-            .pull-right 时间降序
-            .panel-h-icon
-              i.icon-bell-alt
-            | 提醒
-            span.badge 1
-          .panel-body
-            +table({thead:['类型','日期','部门','事项'],border:false,count:5})
-              tr
-                td 结算提醒
-                td 2016-4-16 (5天）
-                td
-                td 浒墅关北验验收入库结算提醒
-        .panel.panel-default
-          .panel-heading
-            .pull-right 时间降序
+            .pull-right 
+              span 时间降序
+              a(href="#").more-list 更多&gt;
             .panel-h-icon
               i.icon-time
             | 待处理
           .panel-body
-            +table({thead:['日期', '状态','部门','事项'],border:false,count:7})
-              tr
-                td 2016-4-16 (5天）
-                td 审批中
-                td 事业部
-                td 浒墅关北验收入库结算提醒
+            ul.info-list.wait-info
+              li
+                a(href="#" title='1、钢材采购单，沈力 2015-12-1 提交，部门：苏州分公司-第一项目部') 
+                  span.text-overflow 1、钢材采购单，沈力 2015-12-1 提交，部门：苏州分公司-第一项目部
+                span.pull-right 2016-7-1 11:52:30
+              li
+                a(href="#")
+                  span.text-overflow 2、钢材采购单，沈力 2015-12-1 提交，部门：苏州分公司-第一项目部
+                span.pull-right 2016-7-1 11:52:30
+              li
+                a(href="#")
+                  span.text-overflow 3、钢材采购单，沈力 2015-12-1 提交，部门：苏州分公司-第一项目部
+                span.pull-right 2016-7-1 11:52:30
+              li
+                a(href="#")
+                  span.text-overflow 4、钢材采购单，沈力 2015-12-1 提交，部门：苏州分公司-第一项目部
+                span.pull-right 2016-7-1 11:52:30    
         .row
           .col-md-6
             .panel.panel-default
               .panel-heading
+                .pull-right 
+                  a(href="#").more-list 更多&gt;
                 .panel-h-icon
                   i.icon-shopping-cart
                 | 采购信息
               .panel-body
-                +table({thead:['标题', '状态'],border:false,count:7})
-                  tr
-                    td 模板木方
-                    td.status-warning 报价中
+                ul.info-list
+                  li
+                    a(href="#" title='钢材采购单') 
+                      span.text-overflow 1、钢材采购单
+                    span.pull-right.has-price 5条报价
+                  li
+                    a(href="#")
+                      span.text-overflow 1、钢材采购单
+                    span.pull-right.has-price  5条报价
+                  li
+                    a(href="#")
+                      span.text-overflow 1、钢材采购单
+                    span.pull-right.has-price  5条报价
+                  li
+                    a(href="#")
+                      span.text-overflow 1、钢材采购单
+                    span.pull-right.has-price  5条报价
           .col-md-6
             .panel.panel-default
               .panel-heading
@@ -53,69 +74,66 @@ append content
                   i.icon-time
                 | 交易信息
               .panel-body
-                +table({thead:['订单名', '交易供应商', '金额'],border:false,count:3})
-                  tr
-                    td 加气块-浒墅关北
-                    td 上海封腾集团
-                    td 100万
-        .panel.panel-default
-            .panel-heading
-              .panel-h-icon
-                i.icon-time
-              | 项目价格对比
-            .panel-body
-              +table({thead:['材料类型','预算量','预算单价','市场平均价','采购单价','采购量','预算单价-采购单价','预算总价-采购总价','占总成本比例'],border:false,count:3})
-                tr
-                  td 钢材
-                  td 2000
-                  td 510
-                  td 210
-                  td 200
-                  td 100
-                  td 100
-                  td 1900,00
-                  td 38.55%
+                ul.info-list
+                  li
+                    a(href="#" title='钢材采购单') 
+                      span.text-overflow.jiaoyi 1. 东方之门：钢筋采购合同；苏州测试有限公司；100万
+                  li
+                   a(href="#" title='钢材采购单') 
+                      span.text-overflow.jiaoyi 1. 东方之门：钢筋采购合同；苏州测试有限公司；100万
+                  li
+                    a(href="#")
+                      span.text-overflow.jiaoyi 1. 东方之门：钢筋采购合同；苏州测试有限公司；100万
+                  li
+                    a(href="#")
+                      span.text-overflow.jiaoyi 1. 东方之门：钢筋采购合同；苏州测试有限公司；100万
         .row
-          .col-md-6
+          .col-md-12
             .panel.panel-default
                 .panel-heading
                   .panel-h-icon
                     i.icon-bar-chart
-                  | 单位价格对比图
-                .panel-body#echarts-4(style="height:228px;")
-          .col-md-6
-            .panel.panel-default
-                .panel-heading
-                  .panel-h-icon
-                    i.icon-inbox
-                  | 各种材料成本占总成本比例
-                .panel-body#echarts-5(style="height:228px;")
-      .col-md-5
+                  | 全国产值数据
+                .panel-body#echarts-1(style="height:600px;")
+      .col-md-4
+        .panel.panel-default
+          .panel-heading
+            .pull-right 
+              a(href="#").more-list 更多&gt;
+            .panel-h-icon
+              i.icon-bell-alt
+            | 通知消息
+          .panel-body
+            ul.info-list
+              li
+                a(href="#" title='关于全公司集体学习党最新会议精神') 
+                  span.text-overflow 
+                    span.has-price 【会议纪要】:
+                    |关于全公司集体学习党最新会议精神 
+                img(src="image/new.png").new-info
+                span.pull-right 2016-5-28
+              li
+                a(href="#" title='关于全公司集体学习党最新会议精神') 
+                  span.text-overflow 
+                    span.has-price 【会议纪要】:
+                    |关于全公司集体学习党最新会议精神 
+                span.pull-right 2016-5-28
+              li
+                a(href="#" title='关于全公司集体学习党最新会议精神') 
+                  span.text-overflow 
+                    span.has-price 【会议纪要】:
+                    |关于全公司集体学习党最新会议精神 
+                span.pull-right 2016-5-28
+              li
+                a(href="#" title='关于全公司集体学习党最新会议精神') 
+                  span.text-overflow 
+                    span.has-price 【会议纪要】:
+                    |关于全公司集体学习党最新会议精神 
+                span.pull-right 2016-5-28
         .panel.panel-default
           .panel-heading
             .panel-h-icon
               i.icon-signal
             | 参考消息
           .panel-body
-            #echarts-1(style="height:260px;")
-            +table({thead:['商品名称', '数值','幅度','解读'],border:false,count:7})(class="table-hover table-red border-b")
-              tr
-                td 六角螺栓带帽
-                td.text-danger 25750.00
-                td.text-danger 50.00
-                td
-                  a(href="") 查询
-            .row
-              .col-md-6
-                .home-table-t 全国主要城市行情地图
-                +table({count:4,style:''})(class="table-red")
-                  tr
-                    td [南宁4/11]
-                    td 螺纹钢 12 HSY400
-                    td 2970
-                    td 140
-                    td
-                      i.icon-arrow-up
-              .col-md-6#echarts-2(style="height:250px")
-            .home-table-t 4月11日全国61城市螺纹钢价格涨跌图
-            #echarts-3(style="height:200px")
+            #echarts-2(style="height:260px;")

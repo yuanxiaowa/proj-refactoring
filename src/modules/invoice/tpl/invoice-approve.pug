@@ -10,9 +10,9 @@ append content
         button.btn.btn-primary.J-add-save 查询
         button.btn.btn-default.J-approve-pass 认证通过
         button.btn.btn-default 认证不通过
-      .pact-form 
-        +form-horizontal()(class="row" id="add-contact-form")
-          .form-item-box
+      .pact-form.clearfix
+        .row.col-md-12.slider-container
+          +form-horizontal()(class="row" id="add-contact-form")
             .row
               +form-horizontal-item({label:'发票代码',type:'select',cw:7})(class="col-md-4")
               +form-horizontal-item({label:'发票号码',type:'select',cw:7})(class="col-md-4")
@@ -45,6 +45,8 @@ append content
                   label.checkbox-inline 
                     input(type="checkbox")
                     |待认证
+      p.slider-btn.text-right 
+        a.open-close-btn(href="javascript:;") ▼展开
     .con-container
      .pact-form.list-container
         table#query-list

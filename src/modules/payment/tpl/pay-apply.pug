@@ -32,17 +32,17 @@ append content
                 span.default-data 增值税专用发票&nbsp;&nbsp;17%
             .row
               +form-horizontal-item({label:'合同付款方式',type:'mix',cw:7})(class="col-md-4")
-                span.default-data 一次性 分期  按阶段
+                span.default-data  按阶段
               +form-horizontal-item({label:'付款阶段',type:'mix',cw:7})(class="col-md-4")
-                span.default-data.pull-left 全款
-                select.form-control
-                  option 1期
-                  option 2期
+                //- span.default-data.pull-left 全款
+                //- select.form-control
+                //-   option 1期
+                //-   option 2期
                 select.form-control
                   option 预付款
                   option 进度款
               +form-horizontal-item({label:'支付方式',type:'mix',cw:7})(class="col-md-4")
-                span.default-data 定金采购，委托支付（10%）
+                //- span.default-data 定金采购，委托支付（10%）
                 select.form-control
                   option 银行转账
                   option 承兑汇票
@@ -80,17 +80,17 @@ append content
             .panel-body.row
               .col-md-12
                 table#pay-list
-                  tfoot
+                  tfoot(style="border-top:1px solid #ddd;")
                     tr
                       td &nbsp;
                       td &nbsp;
                       td(align="center") 合计：
                       td &nbsp;
                       td &nbsp;
-                      td(align="center") 200.000
-                      td(align="center") 200.000
-                      td(align="center") 200.000
-                      td(align="center") 400.000
+                      td(align="center") 120,000,000.00
+                      td(align="center") 1,800,000.00
+                      td(align="center") 10,000,000.00
+                      td(align="center") 600,000.00
                       td &nbsp;
                       td &nbsp;
                       td &nbsp;
@@ -100,16 +100,16 @@ append content
             .panel-body.row
               .col-md-12
                 table#tax-list
-                  tfoot
+                  tfoot(style="border-top:1px solid #ddd;")
                     tr
                       td &nbsp;
                       td(align="center") 合计：
                       td &nbsp;
                       td &nbsp;
-                      td(align="center") 200.000
+                      td(align="center") 120,000,000.00
                       td &nbsp;
-                      td(align="center") 200.000
-                      td(align="center") 200.000
+                      td(align="center") 8,400,000.00
+                      td(align="center") 600,000.00
                       td &nbsp;
                       td &nbsp;
                       td &nbsp;

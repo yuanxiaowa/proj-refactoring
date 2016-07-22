@@ -1,0 +1,42 @@
+extends /common
+
+append style
+  +style('index')
+
+append content
+  .container-fluid
+    .panel.panel-default.mt-24
+      .alert
+        +form-horizontal
+          .row
+            .col-md-4
+              +form-horizontal-item({label:'分析维度',type:'radio',lw:3,text:['按月份分析','按部门分析','按区域分析']})
+            .col-md-3
+              +form-horizontal-item({label:'分析年份',type:'select',lw:3,text:['2015','2016']})
+            .col-md-2
+              +submit('统计')(class="btn-primary")
+      .tab-content
+        .tab-pane.fade.in.active#pane1
+          .row
+            .col-md-12
+              .pull-right
+                a.btn.btn-default(href="") 导出
+              table
+            .col-md-8
+              #echarts-1(style={height:"500px"})
+        .tab-pane.fade#pane2
+          .row
+            .col-md-12
+              .pull-right
+                a.btn.btn-default(href="") 导出
+              table
+            .col-md-8
+              #echarts-2(style={height:"500px"})
+        .tab-pane.fade#pane3
+          .row
+            .col-md-12
+              .pull-right
+                a.btn.btn-default(href="") 导出
+              table
+            .col-md-8
+              #echarts-3(style={height:"500px"})

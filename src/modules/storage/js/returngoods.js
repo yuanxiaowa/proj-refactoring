@@ -2,11 +2,12 @@
 * @Author: huangzexia
 * @Date:   2016-06-29 14:19:03
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-30 14:38:54
+* @Last Modified time: 2016-07-12 15:19:59
 */
 import 'bootstrapTable';
 import 'bootstrapDatetimepicker';
 import 'moreSelected';
+import 'slider';
 
 $('#query-list')
   .bootstrapTable({

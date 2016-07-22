@@ -1,0 +1,18 @@
+{
+  "success": true,
+  "msg": "ok",
+  "data": {
+    "pageNo":1,
+    "pageCount":10,
+    "total":2,
+    "rows":[{
+      "id":"1",
+      "cz":"采购管理",
+      "qx":"项目详情2"
+    },{
+      "id":"2",
+      "cz":"采购管理",
+      "qx":"项目详情1"
+    }]
+  }
+}

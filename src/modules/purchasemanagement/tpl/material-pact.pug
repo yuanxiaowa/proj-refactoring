@@ -8,10 +8,10 @@ append content
     .con-container
       .tab-nav.text-right
         button.btn.btn-primary.J-add-save 查询
-        button.btn.btn-default.J-add 新增
+        a(href="addmaterial-pact.html").btn.btn-default.J-add 新增
         button.btn.btn-default 删除
       .pact-form.clearfix 
-        .row.col-md-12
+        .row.col-md-12.slider-container
           +form-horizontal()(class="row" id="material-pact-form")
             .row
               +form-horizontal-item({label:'合同名称',type:'input',cw:7})(class="col-md-4")
@@ -63,13 +63,15 @@ append content
                   label.checkbox-inline
                     input(type="checkbox").regul  
                     |未生效
+      p.slider-btn.text-right 
+        a.open-close-btn(href="javascript:;") ▼展开 
     .con-container
       .pact-form 
         p.text-right#toolbar
           a(href="")
             +icon("share-alt","导出")
         table
-          tfoot
+          tfoot(style="border-top:1px solid #ddd;")
             tr
               td &nbsp;
               td(align="center") 合计：
@@ -80,6 +82,6 @@ append content
               td &nbsp;
               td &nbsp;
               td &nbsp;
-              td(align="center") 600000元
-              td(align="center") 600000元
-              td(align="center") 600000元
+              td(align="center") 600,000.00
+              td(align="center") 6,000.00
+              td(align="center") 2,000.00

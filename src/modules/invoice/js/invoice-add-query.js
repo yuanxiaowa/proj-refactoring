@@ -2,9 +2,9 @@
 * @Author: huangzexia
 * @Date:   2016-07-04 15:30:06
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-06 11:33:54
+* @Last Modified time: 2016-07-12 15:27:30
 */
-
+import 'slider';
 import 'bootstrapTable';
 //------------------------查询结果-----------------
 $('#query-list')

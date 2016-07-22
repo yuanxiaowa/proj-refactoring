@@ -1,0 +1,41 @@
+extends /common
+
+append style
+  +style('set')
+
+append content
+  .container-fluid
+    .row
+      .col-md-12
+        .panel.panel-default
+          .panel-body(style="padding:24px;") 
+            +form-horizontal()(class="row" id="purchase-plan")
+              .row
+                +form-horizontal-item({label:'当前用户',type:'mix',cw:7})(class="col-md-3")
+                  span.default-data 李起光(男)
+              .row
+                +form-horizontal-item({label:'任职情况',type:'mix',cw:7})(class="col-md-3")
+                  span.default-data 江建集团——分公司副总
+              .row
+                +form-horizontal-item({label:'手机',type:'text',cw:7})(class="col-md-3")
+              .row
+                +form-horizontal-item({label:'邮箱',i:true,type:'text',cw:7})(class="col-md-3")
+              .row
+                +form-horizontal-item({label:'电话',type:'text',cw:7})(class="col-md-3")
+              .row
+                +form-horizontal-item({label:'地址',type:'text',cw:7})(class="col-md-3")
+              p.j-sta
+                a(href="javascript:;") 已激活
+              .row
+                +form-horizontal-item({label:'账号',type:'mix',cw:7})(class="col-md-3")
+                  span.default-data liqiguang113
+              .row
+                +form-horizontal-item({label:'密码',type:'password',cw:7})(class="col-md-3")
+              p &nbsp;
+              .row
+                .form-group.col-md-3
+                  label.control-label.col-xs-5 &nbsp;
+                  .col-xs-9.col-md-7
+                    button.btn.btn-primary 保存
+
+            

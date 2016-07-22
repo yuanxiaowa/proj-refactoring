@@ -1,0 +1,20 @@
+.approve-container
+  .row
+    .form-group.col-md-4
+      label.control-label.col-xs-3 审批人：
+      .input-group.col-xs-9.col-md-7
+        .icon-arrow-down.arrow-down
+        input.form-control.approverSelect(placeholder="添加审批人" type="text")
+        a(title="删除" ).del -
+    .form-group.col-md-8
+      .notify.col-md-3
+        label.control-label 是否知会：
+        span.default-data
+          label
+            input.isHasTeam(type="checkbox")
+            |是
+      .notify.notify-people.col-md-5.hidden
+        label.control-label.col-xs-4 通知人
+        .input-group.col-xs-9.col-md-7
+          .input.form-control.remebers(readonly="" type="text")
+          a.input-group-addon.notify-people-select(href="javascript:;" data-toggle="modal" data-target="#modal-flow" data-modal-title="通知人选择" data-modal-stxt="确定" data-modal-size="lg") 多选

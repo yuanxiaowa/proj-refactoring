@@ -2,9 +2,9 @@
 * @Author: huangzexia
 * @Date:   2016-07-01 16:09:40
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-06 14:14:09
+* @Last Modified time: 2016-07-12 15:36:48
 */
-
+import 'slider';
 import 'bootstrapTable';
 import 'moreSelected';
 //------------------------付款清单----------------

@@ -1,7 +1,7 @@
 extends /common
 
 append style
-  +style('purchase')
+  +style('add-purchase-plan')
 
 append content
   .container-fluid
@@ -10,7 +10,7 @@ append content
         button.btn.btn-primary.J-add-save 保存
         button.btn.btn-default 确认提交  
         button.btn.btn-default 发布采购单
-      .pact-form
+      .pact-form(style="padding:0;")
         +form-horizontal()(class="row" id="purchase-plan")
           p.list-title 基本信息
             span.pull-right.J-toggle 收起-
@@ -38,7 +38,7 @@ append content
                   +icon("share-alt","导出")
               .rwo
                 .table-responsive.table-list
-                  table.table.table-bordered.table-default
+                  table.table.table-bordered.table-default.cl-module
                     thead
                       tr
                         th 编号
@@ -91,21 +91,21 @@ append content
                         td 钢筋
                         td t
                         td 
-                          input.input-text.form-control(type="text" date="true")
+                          input.form-control(type="text" date="true")
                         td 
-                          input.input-text.form-control
+                          input.form-control
                         td
-                          input.input-text.form-control
+                          input.form-control
                         td
-                          input.input-text.form-control
+                          input.form-control
                         td
-                          input.input-text.form-control
+                          input.form-control.input-text
                         td
-                          input.input-text.form-control
+                          input.form-control
                         td
-                          input.input-text.form-control
+                          input.form-control
                         td 
-                          textarea.input-text.form-control
+                          textarea.form-control
                         td 
                           a(href="javascript:;").btn.btn-default 删除
           .tab-nav
@@ -123,7 +123,7 @@ append content
                   +form-horizontal-item({label:'报价截止日期',type:'text',cw:7})(class="col-md-3")
                   .form-group.col-md-8
                     label.control-label.col-xs-2 竞标方式：
-                    .col-xs-9.col-md-7.j-style
+                    .col-xs-9.col-md-8.j-style
                       label
                         input(type="radio")
                         |公开报价

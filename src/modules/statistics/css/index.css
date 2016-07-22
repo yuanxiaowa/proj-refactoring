@@ -1,0 +1,5 @@
+@import '/modules/variables';
+@import '/modules/page-common';
+.mt-24 {
+  margin-top: 24px;
+}

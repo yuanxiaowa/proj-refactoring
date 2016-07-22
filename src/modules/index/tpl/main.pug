@@ -28,24 +28,22 @@ append content
           //-                 a(href="") 新增验收单
           //-               li
           //-                 a(href="") 验收单列表
-          form.navbar-form.navbar-left
-            .form-group.has-feedback
-              input.form-control
-              span.icon-search.form-control-feedback
+          .navbar-left
+            img(src="./image/logo.png", alt="logo")
           ul.nav.navbar-nav.navbar-right.main-menu-top-right
             li
-              a(href="")
+              a(href="/message/index.html")
                 i.icon-envelope
                 span.badge 123
             li
-              a(href="")
+              a(href="/setting/set.html")
                 i.icon-cog
             li
               a(href="")
                 i.icon-question-sign
                 span.badge 5
             li.dropdown
-              a.dropdown-toggle(href="" data-toggle="dropdown")
+              a.dropdown-toggle(href="/setting/look-info.html" data-toggle="dropdown")
                 img(src="", alt="")
                 | 李起光
                 span.caret
@@ -54,6 +52,9 @@ append content
                   a(href="") 退出
   .main-container
     aside.main-left-area.hidden-xs#menu-aside: .main-left-area-wrap
+      .form-group.has-feedback
+        input.form-control.search-text
+        span.icon-search.form-control-feedback &nbsp;
       span.menu-toggle-btn.icon-angle-left.j-toggle(href="")
       each item in menus
         a.main-menu-item-t(href=item.children?undefined:item.link)

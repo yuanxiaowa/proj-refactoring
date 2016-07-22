@@ -58,3 +58,9 @@ gulp.task('style', function() {
 gulp.task('build', ['copyStatic', 'script', 'style', 'less'], function() {
   gulp.start(['tpl']);
 });
+
+gulp.task('rr', () => {
+  gulp.src('src/modules/*/server/*.{js,json}')
+    .pipe(require('./modules/a')())
+    .pipe(gulp.dest('dest'));
+});

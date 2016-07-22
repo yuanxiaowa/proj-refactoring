@@ -1,5 +1,6 @@
+import 'slider';
 import 'bootstrapTable';
-import 'moreSelected'
+import 'moreSelected';
 $('table')
   .bootstrapTable({
     url: 'data/supplier-info-query',

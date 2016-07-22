@@ -8,6 +8,7 @@
     width: 100%;
   }
   .pact-form{
+    padding: 36px;
     overflow: hidden;
     .list-title{
       padding: 10px 46px;
@@ -38,5 +39,13 @@
 .default-data{
   display: inline-block;
   margin-top:7px;
+}
+.slider-container{
+  height: 34px;
+  overflow: hidden;
+}
+.slider-btn{
+  margin: 0;
+  padding-right: 12%;
 }
 

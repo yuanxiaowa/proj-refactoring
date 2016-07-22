@@ -1,7 +1,7 @@
 extends /common
 
 append style
-  +style('purchase')
+  +style('purchase-plan')
 
 append content
   .container-fluid
@@ -10,41 +10,40 @@ append content
         button.btn.btn-primary.J-add-save 查询
         a(href="add-purchase-plan.html").btn.btn-default 新增计划  
         button.btn.btn-default 删除
-      .pact-form
-        +form-horizontal()(class="row" id="purchase-plan")
-          .list-item
-            .form-item-box.clearfix
-              .rwo.clearfix 
-                .item
-                  .row
-                    +form-horizontal-item({label:'计划编号',type:'input',cw:7})(class="col-md-3")
-                    +form-horizontal-item({label:'采购项目',type:'input',cw:7})(class="col-md-3")
-                    +form-horizontal-item({label:'采购部门',type:'input',cw:7})(class="col-md-3")
-                  .row
-                    +form-horizontal-item({label:'计划月份',type:'date',cw:7})(class="col-md-3")
-                    +form-horizontal-item({label:'材料类型',type:'select',cw:7})(class="col-md-3")
-                    .form-group.col-md-6
-                      .control-label.col-xs-3.note-type 审批状态：
-                      .col-xs-7.more-selected
-                        label.radio-inline
-                          input(type="checkbox" ).Review_Status_all 
-                          |全部
-                        label.radio-inline
-                          input(type="checkbox").regul
-                          |已生效
-                        label.radio-inline
-                          input(type="checkbox").regul
-                          |审批中
-                        label.radio-inline
-                          input(type="checkbox").regul
-                          |未生效
+      .pact-form.clearfix
+        .row.col-md-12.slider-container
+          +form-horizontal()(class="row" id="purchase-plan")
+            .row
+              +form-horizontal-item({label:'计划编号',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'采购项目',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'采购部门',type:'input',cw:7})(class="col-md-3")
+            .row
+              +form-horizontal-item({label:'计划月份',type:'date',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'材料类型',type:'select',cw:7})(class="col-md-3")
+              .form-group.col-md-6
+                lable.control-label.col-xs-5.note-type(style="width:20%;") 审批状态：
+                .col-xs-8.more-selected
+                  label.checkbox-inline
+                    input(type="checkbox" ).Review_Status_all 
+                    |全部
+                  label.checkbox-inline
+                    input(type="checkbox").regul
+                    |已生效
+                  label.checkbox-inline
+                    input(type="checkbox").regul
+                    |审批中
+                  label.checkbox-inline
+                    input(type="checkbox").regul
+                    |未生效
+      p.slider-btn.text-right 
+        a.open-close-btn(href="javascript:;") ▼展开      
     .con-container
       .list-item 
         p.text-right#toolbar
           a(href="")
             +icon("share-alt","导出")
         table
-          tfoot
+          tfoot(style="border-top:1px solid #ddd;")
             tr
               td &nbsp;
               td &nbsp;
@@ -52,7 +51,7 @@ append content
               td &nbsp;
               td &nbsp;
               td &nbsp;
-              td(align="center") 600000万元
+              td(align="center") 12,000,000.00
               td &nbsp;
               td &nbsp;
               td &nbsp;

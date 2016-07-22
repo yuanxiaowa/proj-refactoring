@@ -1,5 +1,5 @@
 {
-  "title": "筑牛云采购系统",
+  "title": "江安集团信息管理系统",
   "menus": [{
     "name": "首页",
     "icon": "home",
@@ -106,15 +106,6 @@
     }, {
       "link": "../storage/returngoods.html",
       "text": "收退货单查询"
-    }, {
-      "link": "",
-      "text": "出库管理"
-    }, {
-      "link": "",
-      "text": "资产处置"
-    }, {
-      "link": "",
-      "text": "库存盘点"
     }]
   }, {
     "name": "付款管理",
@@ -131,12 +122,6 @@
     }, {
       "link": "../payment/wait-pay.html",
       "text": "待支付"
-    }, {
-      "link": "",
-      "text": "付款记录"
-    }, {
-      "link": "",
-      "text": "预警功能"
     }]
   }, {
     "name": "发票管理",
@@ -179,6 +164,16 @@
     }, {
       "link": "../bpm/add-flow.html",
       "text": "新增编辑流程"
+    }]
+  }, {
+    "name": "行政办公",
+    "icon": "building",
+    "children": [{
+      "link": "../work/query.html",
+      "text": "行政报告查询"
+    }, {
+      "link": "../work/add.html",
+      "text": "新增编辑行政报告"
     }]
   }],
   "cur": "home.html"

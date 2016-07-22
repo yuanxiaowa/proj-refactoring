@@ -1,0 +1,50 @@
+extends /common
+
+append style
+  +style('help')
+
+append content
+  +org
+    .item-box 
+      +detail-head({items:items,tl:'当前用户',tn:'李起光(男)'})
+        .row 
+          .col-md-4
+            label 
+              span.text-primary 已激活
+            .adapt-item &nbsp;  
+        .row 
+          .col-md-4
+            label 账号:
+            .adapt-item 李起光
+          .col-md-4
+            label 密码:
+            .adapt-item ************
+              button.btn.btn-default 重置
+    p &nbsp;
+    +tab(tabs)
+      .tab-pane.active#tab1
+        .panel.panel-default
+          .panel-body
+            .col-md-9
+              .form-group 该用户拥有的角色：
+              +table-role
+      .tab-pane#tab2
+        .panel.panel-default
+          .panel-body
+            .col-md-9
+              .form-group 该人员拥有的权限有：
+              +table-rel-role
+      .tab-pane#tab3
+        .panel.panel-default
+          .panel-body
+            .col-md-9
+              .form-group 该人员拥有的权限有：
+              +table-rel-role
+  //- +modal-role('编辑关联角色', '搜索全部角色', '关联的角色')
+
+  //- +modal('编辑关联角色')(id="modal-rel")
+  //-   +table-rel-role-edit
+  
+  //- // 编辑权限
+  //- +modal('编辑权限')(id="modal-role-edit")
+  //-   +form-horizontal(formItems)

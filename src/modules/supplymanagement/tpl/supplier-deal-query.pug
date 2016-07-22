@@ -8,28 +8,26 @@ append content
     .con-container
       .tab-nav.text-right
         button.btn.btn-primary 查询
-      .pact-form
-        +form-horizontal()(class="row" id="supplier-deal-query-form")
-          .list-item
-            p
-            .form-item-box.clearfix
-              .rwo.clearfix 
-                .item
-                  .row
-                    +form-horizontal-item({label:'供应商名称',type:'input',cw:7})(class="col-md-3")
-                    +form-horizontal-item({label:'供应商编号',type:'input',cw:7})(class="col-md-3")
-                    +form-horizontal-item({label:'订单号',type:'input',cw:7})(class="col-md-3")
-                    +form-horizontal-item({label:'采购单号',type:'input',cw:7})(class="col-md-3")
-                  .row
-                    +form-horizontal-item({label:'项目部门',type:'input',cw:7})(class="col-md-3")
-                    +form-horizontal-item({label:'所属项目',type:'input',cw:7})(class="col-md-3")
-                    div.form-group.col-md-3
-                      label.control-label.col-xs-5 成交时间：
-                      div.col-xs-9.col-md-7       
-                        input(type="text" date="true").form-control  
-                    div.form-group.col-md-3
-                      div.col-xs-9.col-md-7       
-                        input(type="text" date="true").form-control   
+      .pact-form.clearfix
+        .row.col-md-12.slider-container
+          +form-horizontal()(class="row" id="supplier-deal-query-form")
+            .row
+              +form-horizontal-item({label:'供应商名称',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'供应商编号',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'订单号',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'采购单号',type:'input',cw:7})(class="col-md-3")
+            .row
+              +form-horizontal-item({label:'项目部门',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'所属项目',type:'input',cw:7})(class="col-md-3")
+              div.form-group.col-md-3
+                label.control-label.col-xs-5 成交时间：
+                div.col-xs-9.col-md-7       
+                  input(type="text" date="true").form-control  
+              div.form-group.col-md-3
+                div.col-xs-9.col-md-7       
+                  input(type="text" date="true").form-control   
+      p.slider-btn.text-right 
+        a.open-close-btn(href="javascript:;") ▼展开  
     .con-container
       .form-item-box 
         p.text-right#toolbar

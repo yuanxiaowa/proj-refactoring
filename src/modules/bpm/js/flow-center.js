@@ -2,13 +2,13 @@
 * @Author: huangzexia
 * @Date:   2016-07-11 09:33:58
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-11 09:48:26
+* @Last Modified time: 2016-07-14 09:43:44
 */
 import 'bootstrapTable';
 
 //---------------------------查询结果------------------
 $('#search-list').bootstrapTable({
-    url: 'data/flow-center',
+    url: 'data/flow-center.json',
     sidePagination: 'server',
     toolbar: '#toolbar',
     pagination: true,

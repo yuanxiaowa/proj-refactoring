@@ -1,0 +1,31 @@
++form-horizontal()(action="")
+  .row
+    .col-md-4
+      +form-horizontal-item({label:'材料合同',type:'input',lw:3,nocolon:true})
+    .col-md-4
+      +form-horizontal-item({label:'合同编号',type:'input',lw:3,nocolon:true})
+    .col-md-4
+      +form-horizontal-item({label:'所属项目',type:'input',lw:3,nocolon:true})
+  .row
+    .col-md-4
+      +form-horizontal-item({label:'供应商',type:'input',lw:3,nocolon:true})
+    .col-md-4
+      +form-horizontal-item({label:'所属部门',type:'input',lw:3,nocolon:true})
+    .col-md-4
+      +form-horizontal-item({label:'发票类型',type:'select',lw:3,nocolon:true})
+  .row
+    .col-md-6
+      +form-horizontal-item({label:'签订日期',type:'mix',lw:3,nocolon:true})
+        .row
+          .col-xs-6
+            +form-control({type:'date'})
+          .col-xs-6
+            +form-control({type:'date'})
+    .col-md-6
+      +form-horizontal-item({label:'对应采购单',type:'select',lw:3,nocolon:true})
+  .row
+    .col-md-6
+      +form-horizontal-item({label:'审批状态',type:'radio',text:['全部','已生效','审批中','未生效'],lw:3,nocolon:true})
+    .col-md-6
+      +submit('查询')(class="btn-primary")
++table()

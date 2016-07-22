@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "msg": "ok",
+  "data": {
+    "pageNo":1,
+    "pageCount":10,
+    "rows":[{
+      "id":"1",
+      "name":"张1",
+      "num":"02",
+      "indentity":"会计"
+    },{
+      "id":"2",
+      "name":"张2",
+      "num":"02",
+      "indentity":"会计"
+    },{
+      "id":"12",
+      "name":"张3",
+      "num":"02",
+      "indentity":"会计"
+    },{
+      "id":"3",
+      "name":"张4",
+      "num":"02",
+      "indentity":"会计"
+    },{
+      "id":"4",
+      "name":"张5",
+      "num":"02",
+      "indentity":"会计"
+    }]
+  }
+}

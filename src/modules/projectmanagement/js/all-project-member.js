@@ -1,10 +1,14 @@
 import 'bootstrapTable';
 import 'bootstrapDatetimepicker';
-
+import 'slider';
 $('.J-project')
   .bootstrapTable({
-    url: '',
+    url: 'data/project',
     sidePagination: 'server',
+    toolbar: '#toolbar',
+    pagination: true,
+    search: false,
+    clickToSelect: true,
     ajaxOptions: {
       dataFilter(res) {
         return JSON.stringify($.parseJSON(res).data);
@@ -15,40 +19,50 @@ $('.J-project')
       checkbox: true
     }, {
       title: '施工单位',
-      field: ''
+      align: 'center',
+      field: 'constructor'
     }, {
       title: '项目',
-      field: ''
+      align: 'center',
+      field: 'pact'
     }, {
       title: '项目负责人',
-      field: ''
+      align: 'center',
+      field: 'principal'
     }, {
       title: '技术总工',
-      field: ''
+      align: 'center',
+      field: 'zg'
     }, {
       title: '施工员',
-      field: ''
+      align: 'center',
+      field: 'sg'
     }, {
       title: '安全员',
-      field: ''
+      align: 'center',
+      field: 'aq'
     }, {
       title: '质量员',
-      field: ''
+      align: 'center',
+      field: 'zl'
     }, {
       title: '仓管员',
-      field: ''
+      align: 'center',
+      field: 'cg'
     }, {
       title: '预算员',
-      field: ''
-    }],
-    toolbar: '#toolbar-1',
-    clickToSelect: true,
-    pagination: true
+      align: 'center',
+      field: 'ys'
+    }]
   });
 $('.J-member')
   .bootstrapTable({
-    url: '',
+    url: 'data/member',
     sidePagination: 'server',
+    toolbar: '#toolbar-1',
+    pagination: true,
+    search: false,
+    clickToSelect: true,
     ajaxOptions: {
       dataFilter(res) {
         return JSON.stringify($.parseJSON(res).data);
@@ -59,29 +73,33 @@ $('.J-member')
       checkbox: true
     }, {
       title: '施工单位',
-      field: ''
+      align: 'center',
+      field: 'constructor'
     }, {
       title: '项目简称',
-      field: ''
+      align: 'center',
+      field: 'pact'
     }, {
       title: '人员姓名',
-      field: ''
+      align: 'center',
+      field: 'name'
     }, {
       title: '职务',
-      field: ''
+      align: 'center',
+      field: 'zw'
     }, {
       title: '在场记录',
-      field: ''
+      align: 'center',
+      field: 'zc'
     }, {
       title: '是否兼职',
-      field: ''
+      align: 'center',
+      field: 'jz'
     }, {
       title: '联系方式',
-      field: ''
-    }],
-    toolbar: '#toolbar',
-    clickToSelect: true,
-    pagination: true
+      align: 'center',
+      field: 'phone'
+    }]
   });
 
 //日期

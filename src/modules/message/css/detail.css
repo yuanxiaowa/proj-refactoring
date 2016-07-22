@@ -1,0 +1,27 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-07-18 11:08:28
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-07-18 11:09:04
+*/
+@import '/modules/variables';
+@import '/modules/page-common';
+
+blockquote{
+  text-align:center!important;
+  border-right: none!important;
+  footer::after{
+    content:""!important;
+  }
+  .edit-notice{
+    padding-left: 50px;
+    font-size: 16px;
+  }
+}
+.info-container{
+  padding: 0 40px;
+  line-height: 22px;
+  .file{
+    margin: 40px 0;
+  }
+}

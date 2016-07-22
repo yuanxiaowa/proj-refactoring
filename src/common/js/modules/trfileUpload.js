@@ -23,7 +23,7 @@ $upFileContainer.on('click', '.add-cos', function () {
     auto: true,
     swf: '/public/lib/webUploader/0.1.8/Uploader.swf',
     pick: $btn,
-    server: baseUrl+'upload/fileUpload2.do',
+    server: 'data/fileupload.json',
     accept: {
               extensions: 'rar,zip,doc,xls,docx,xlsx,pdf',
               mimeTypes: '.rar,.zip,.doc,.xls,.docx,.xlsx,.pdf'

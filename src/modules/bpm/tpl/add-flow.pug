@@ -9,35 +9,54 @@ append content
       form(action="")
         .row
           .form-group.col-md-4
-            label.control-label.col-xs-4 页面：
-            .input-group.col-xs-9.col-md-7 
+            label.control-label.col-xs-3 页面：
+            .input-group.col-xs-9.col-md-6 
               input(type="text").form-control
-              a.input-group-addon#addon(href="javascript:;" data-modal-load="_search.html" data-modal-title="页面选择" data-modal-stxt="确定" data-modal-size="lg") +
+              a.input-group-addon#addon(href="javascript:;" data-modal-load="_search.html" data-modal-title="页面选择" data-modal-stxt="确定" data-modal-size="lg") 多选
+        .form-group
+          .page-list
         .row
           .form-group.col-md-4
-            label.control-label.col-xs-4 流程名称：
+            label.control-label.col-xs-3 流程名称：
             .input-group.col-xs-9.col-md-7 
-              input(type="text").form-control
+              input(type="text").form-control.approverSelect
         .row
           .form-group.col-md-4
-            label.control-label.col-xs-4 发起人：
+            label.control-label.col-xs-3 发起人：
             span.default-data 李起光
         .approve-container
           .row
             .form-group.col-md-4
-              label.control-label.col-xs-4 一级审批人：
+              label.control-label.col-xs-3 审批人：
               .input-group.col-xs-9.col-md-7 
-                input(type="text").form-control
+                input(type="text"  placeholder="添加审批人").form-control.approverSelect
+              //- div.icon-arrow-down.
+            .form-group.col-md-8
+              .notify.col-md-3
+                label.control-label 是否知会：
+                span.default-data
+                  label
+                    input(type="checkbox").isHasTeam
+                    |是
+              .notify.notify-people.col-md-5.hidden
+                label.control-label.col-xs-4 通知人：
+                .input-group.col-xs-9.col-md-7 
+                  input(type="text" readonly).form-control.remebers
+                  a.input-group-addon.notify-people-select(href="javascript:;" data-toggle="modal" data-target="#modal-flow" data-modal-title="通知人选择" data-modal-stxt="确定" data-modal-size="lg") 多选 
+            
+
+
+          
         .row
           .form-group.col-md-4
-            label.control-label.col-xs-4 是否禁用：
+            label.control-label.col-xs-3 是否禁用：
             span.default-data
               label
-                input(type="radio")
+                input(type="radio" name="temp")
                 |是
                 span.default-data 
               label
-                input(type="radio")
+                input(type="radio" name="temp")
                 |否
         .row
           .form-group.col-md-4

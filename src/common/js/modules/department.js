@@ -7,6 +7,14 @@ function Department(options) {
 
 Department.getTpl = () => {
   var $ele = $('<div>');
+  var zIndex = 0;
+
+  $('body').children().each((_, item) => {
+    var _i = $(item).css('z-index');
+    if (_i > zIndex) {
+      zIndex = _i;
+    }
+  });
   $ele.css({
     position: 'absolute',
     display: 'none',
@@ -14,16 +22,21 @@ Department.getTpl = () => {
     height: 300,
     background: '#eee',
     border: '1px solid #d2d2d2',
-    overflow: 'auto'
+    overflow: 'auto',
+    zIndex
   });
   return $ele;
+};
+
+Department.getTplLoading = () => {
+  return $('<i class="icon-spinner icon-spin">');
 };
 
 Department.prototype = {
   constructor: Department,
   init() {
     this.$tpl = Department.getTpl();
-    this.setContainerPos();
+    this.$tpl.append(Department.getTplLoading());
     $('body')
       .append(this.$tpl);
     this.getData(this.options.url)
@@ -38,9 +51,14 @@ Department.prototype = {
   },
   setTree(nodes) {
     var settings = {
+      data: {
+        simpleData: {
+          enable: true
+        }
+      },
       callback: {
         onClick: (_, _1, obj) => {
-          if (!obj.children) {
+          if (!obj.children.length || this.options.canSelectDir) {
             this.options.$ele.val(obj.name);
             this.options.$hidden.val(obj.id);
             this.$tpl.hide();
@@ -49,7 +67,7 @@ Department.prototype = {
       }
     };
     var $ul = $(`<ul class="ztree" id="ztree${$.guid++}">`);
-    this.$tpl.append($ul);
+    this.$tpl.html($ul);
     $.fn.zTree.init($ul, settings, nodes);
   },
   getData(url) {
@@ -64,6 +82,7 @@ Department.prototype = {
   bindEvent() {
     this.options.$ele
       .on('focus', () => {
+        this.setContainerPos();
         this.$tpl.show();
       })
       .on('click', () => false);

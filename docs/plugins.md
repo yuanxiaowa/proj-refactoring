@@ -313,6 +313,7 @@ var te = new TableEdit(options);
       - `select` 下拉框
       - `addon` 右边带有个+号的输入框
       - `delBtn` 删除按钮
+    - `editable:Boolean?` 是否可编辑，默认为true
     - `data:(String|Array)` 数据
     - `name` 表单控件的name值
     - `attrs` 添加在表单控件上的属性
@@ -343,8 +344,46 @@ $(ele).department(options)
   - `$ele` 文本框，使用jquery插件形式可省略
   - `$hidden` 隐藏域
   - `url` 数据获取地址
+  - `canSelectDir` 是否可以选择非叶子节点
 
 > 点击叶子节点，自动将文本设置为对应name，隐藏域设置为对应id
+
+## 联系单位选择/合同选择/项目选择控件/材料合同选择
+引入 `choice`
+
+使用方式
+```js
+var c = new Choice(options)
+c.show();
+```
+
+`options`
+  - `type:enum` 有以下值
+    - `Choice.COMPANY` 联系单位选择
+    - `Choice.AGREEMENT` 合同选择
+    - `Choice.PURCHASE` 项目选择
+    - `Choice.MATERIAL` 材料合同选择
+  - `url` 数据获取地址
+  - `tplUrl` 模板地址
+  - `onSelected(datas:Array)` 点击确定后
+  - `onInited($form:jQuery)` 对话框初始化后
+
+## 地区选择
+引入 areaList
+```js
+import AreaList from 'areaList';
+new AreaList(options);
+或
+$(ele).areaList(options)
+```
+- `options` 选项
+  + `$ele` 文本框
+  + `url` 数据获取地址
+  + `id` 若需要初始化第一个下拉框，指明id，若无参数，传true即可
+  + `initData:Array` 初始化数据，编辑时候用
+
+方法
+- `show` 显示
 
 ## 全选和取消 
 使用方式
@@ -354,3 +393,6 @@ import 'moreSelected'
 label 父级 div设置class="more-selected"
 全选checkbox class="Review_Status_all"
 其他选项checkbox class="regul" 
+
+## 富文本编辑器的使用
+> 文档见 <http://kindeditor.net/doc.php>

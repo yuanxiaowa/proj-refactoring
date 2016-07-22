@@ -2,11 +2,13 @@
 * @Author: huangzexia
 * @Date:   2016-07-04 15:10:24
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-04 15:10:41
+* @Last Modified time: 2016-07-12 11:54:33
 */
 import 'bootstrapDatetimepicker';
 import TableEdit from 'tableEdit';
 import webUploader from 'webUploader';
+import 'modalRemote';
+import 'bootstrapTable';
 
 //------------------------时间引入----------------
 $('input[date]').datetimepicker(
@@ -16,7 +18,6 @@ $('input[date]').datetimepicker(
       minView: 2
   }
 );
-
  var $tblist = $('.table');
   var te = new TableEdit({
     $table: $tblist,
@@ -26,7 +27,10 @@ $('input[date]').datetimepicker(
       type: 'genNum'
     }, {
       type: 'select',
-      name: 'purchasePlanDetailId'
+      name: 'purchasePlanDetailId',
+        formatter(name, index, value){
+          return '<button class="btn btn-primary get-bill" data-modal-load="_choice-bill.html" data-modal-title="选择收退货单" data-modal-stxt="确认选中" data-modal-size="lg">选择</button>';
+      }
     }, {
       type: 'select',
       name: 'materialId',
@@ -91,27 +95,78 @@ $('input[date]').datetimepicker(
 te.on('trAdded',function( $obj ){
     var $btn = $obj.find('.upFile');
     var uploader = webUploader.create({
-              auto: true,
-              swf: '/public/lib/webUploader/0.1.8/Uploader.swf',
-              pick: $btn,
-              server: 'data/fileupload',
-              accept: {
-              extensions: 'gif,jpg,jpeg,bmp,png',
-              mimeTypes: 'image/*'
-              }
-             });
-    uploader.on( 'uploadSuccess',function(file,response ){
-                  var filenames =  response.filename;//文件名|路径
-                  $obj.find('.tempnameshow').html(filenames);
-                  $obj.find('.tempname').val(filenames);
+          auto: true,
+          swf: '/public/lib/webUploader/0.1.8/Uploader.swf',
+          pick: $btn,
+          server: 'data/fileupload',
+          accept: {
+            extensions: 'gif,jpg,jpeg,bmp,png',
+            mimeTypes: 'image/*'
+          }
+       });
+    uploader.on( 'uploadSuccess', function(file,response ){
+      var filenames =  response.filename;//文件名|路径
+      $obj.find('.tempnameshow').html(filenames);
+      $obj.find('.tempname').val(filenames);
     });
-
-    $obj.find('input[date]').datetimepicker(
-    {
+    $obj.find('input[date]').datetimepicker({
       format: 'yyyy-mm-dd',
       autoclose: true,
       minView: 2
     });
-});
+let $getBill = $obj.find('.get-bill');
+$getBill
+  .on('loaded.modalremote', $modal => {
+    $('.offertable').bootstrapTable({
+      url: 'data/choice-bill',
+      sidePagination: 'server',
+      clickToSelect: true,
+      pagination: true,
+      toolbar: '#toolbar',
+      ajaxOptions: {
+        dataFilter(res) {
+          return JSON.stringify($.parseJSON(res).data);
+        }
+      },
+      columns: [{
+        field: 'radio',
+        radio: true
+      }, {
+        title: '编号',
+        align: 'center',
+        field: 'num'
+      }, {
+        title: '收货单编号',
+        align: 'center',
+        field: 'getNum'
+      }, {
+        title: '所属项目',
+        align: 'center',
+        field: 'project'
+      }, {
+        title: '材料合同',
+        align: 'center',
+        field: 'pact'
+      }, {
+        title: '供应商',
+        align: 'center',
+        field: 'company'
+      }, {
+        title: '验收总额',
+        align: 'center',
+        field: 'pactAll'
+      }, {
+        title: '验收日期',
+        align: 'center',
+        field: 'date'
+      }],
+    });
+     $getBill
+      .on('ok.modalremote', () => {
+        //获取数据
+        let selections = $('.offertable').bootstrapTable('getSelections');
+        $getBill.data('dialog').hide()
+      });
+  }); 
 
- 
+});

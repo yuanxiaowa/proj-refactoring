@@ -1,0 +1,73 @@
+extends /common
+
+append style
+  +style('work')
+append content
+  .container-fluid
+    .con-container
+      .tab-nav
+        button.btn.btn-primary.J-add-save 保存
+        button.btn.btn-default 确认提交
+        button.btn.btn-default 同意
+        button.btn.btn-default 不同意
+        button.btn.btn-default 审批意见
+        button.btn.btn-default 反审核
+      .pact-form.clearfix
+        .row.col-md-12
+          +form-horizontal()(class="row" id="add-contact-form")
+            .row
+              .form-group.col-md-4
+                label.control-label.col-xs-5 报告类型：
+                .col-xs-9.col-md-7
+                  select.form-control.change
+                    option(value="0") 发文
+                    option(value="1") 收文
+                    option(value="2") 稿件
+                    option(value="3") 杂志初稿审批
+                    option(value="4") 杂志最终稿审批
+                    option(value="5") 印章刻制
+                    option(value="6") 印章使用
+                    option(value="7") 印章销毁
+                    option(value="8") 会议纪要
+                    option(value="9") 画册申请
+                    option(value="10") 招投标审批
+                    option(value="11") 资质借阅
+                    option(value="12") 其它
+              +form-horizontal-item({label:'报告编号',type:'mix',cw:7})(class="col-md-4")
+                span.text-primary 保存后自动生成
+            #change-container
+              .row
+                +form-horizontal-item({label:'标题',i:true,type:'text',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'申请人',i:true,type:'text',cw:7})(class="col-md-4")
+                +form-horizontal-item({label:'申请部门',i:true,type:'select',cw:7})(class="col-md-4")
+              .row.get-container
+                .form-group.col-md-10
+                  label.control-label.col-xs-5(style="width:16%;") 接收对象：
+                  .col-xs-9.col-md-10
+                    table.table.table-bordered.table-default.fawen_1_table
+                      thead
+                        tr
+                          th 编号
+                          th 对象类型
+                          th 选择接收对象
+                          th
+                            a.add(href="javascript:;") +
+                      tbody
+            .row
+              +form-horizontal-item({label:'备注',type:'textarea',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'编制人',type:'mix',cw:7})(class="col-md-4")
+                span.default-info 李起光
+              +form-horizontal-item({label:'编制日期',type:'mix',cw:7})(class="col-md-4")
+                span.default-info 2015-12-25
+
+      +tab(tabs)
+        .tab-pane.active#tab1
+          .box
+            textarea#editor(name="content" style="width:100%;height:300px;")
+        .tab-pane#tab2
+          .col-md-10
+            .up-file-container
+              +table-add-pact-file
+              a.add.add-cos(href="javascript:;" title="新增") +
+    +modal('新增人员')(id="add-item")
+      +modal-add-people

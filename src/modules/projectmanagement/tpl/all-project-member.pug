@@ -10,7 +10,7 @@ append content
         button.btn.btn-primary.J-add-save 查询
         button.btn.btn-default.J-add 批量上传
       .pact-form.clearfix 
-        .row.col-md-12
+        .row.col-md-12.slider-container
           +form-horizontal()(class="row" id="supplement-pact-form")
             .row
               +form-horizontal-item({label:'姓名',type:'input',cw:7})(class="col-md-4")
@@ -21,8 +21,10 @@ append content
               .form-group.col-md-6.query-date
                 label.control-label.col-xs-5 日期：
                 .col-xs-9.col-md-7.date-box
-                  input.form-control.first(type="date")
-                  input.form-control(type="date")
+                  input.form-control.first(date="true")
+                  input.form-control(date="true")
+      p.slider-btn.text-right 
+        a.open-close-btn(href="javascript:;") ▼展开
     +tab(tabs)
       .tab-pane.active#tab1
         .panel.panel-default

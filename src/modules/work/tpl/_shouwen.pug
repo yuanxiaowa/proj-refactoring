@@ -1,0 +1,23 @@
+.row
+  +form-horizontal-item({label:'标题',i:true,type:'text',cw:7})(class="col-md-4")
+  +form-horizontal-item({label:'来文机关',i:true,type:'text',cw:7})(class="col-md-4")
+  div.form-group.col-md-4
+    label.control-label.col-xs-5
+      span.text-danger *
+      | 收文日期：
+    div.col-xs-9.col-md-7
+      input.form-control(type="text" required="required" date="true")
+.row
+  +form-horizontal-item({label:'收文号',i:true,type:'text',cw:7})(class="col-md-4")
+.row.live-box
+  .form-group.col-md-4
+    label.control-label.col-xs-5 传阅范围：
+    .col-xs-9.col-md-7 
+      a.add.add-people.text-primary(href="javascript:;") +
+#list-container.clearfix
+  .item 李起光
+    a.dell(href="javascript:;") ×
+
+
+
+

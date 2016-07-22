@@ -1,6 +1,6 @@
 import 'bootstrapTable';
 import 'bootstrapDatetimepicker';
-
+import 'slider';
 $('table')
   .bootstrapTable({
     url: 'data/supplier-deal-query',

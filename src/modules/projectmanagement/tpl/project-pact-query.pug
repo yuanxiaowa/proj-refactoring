@@ -8,10 +8,10 @@ append content
     .con-container
       .tab-nav.text-right
         button.btn.btn-primary.J-add-save 查询
-        button.btn.btn-default.J-add 新增
+        a(href="add-projectpact.html").btn.btn-default.J-add 新增
         button.btn.btn-default 删除
       .pact-form.clearfix 
-        .row.col-md-12
+        .row.col-md-12.slider-container
           +form-horizontal()(class="row" id="supplement-pact-form")
             .row
               +form-horizontal-item({label:'合同名称',type:'input',cw:7})(class="col-md-4")
@@ -29,16 +29,19 @@ append content
               +form-horizontal-item({label:'工程类别',type:'select',cw:7})(class="col-md-4")
               +form-horizontal-item({label:'审批状态',type:'checkbox',cw:7,text:['全部','已生效','审批中','未生效']})(class="col-md-4")
               +form-horizontal-item({label:'是否归档',type:'checkbox',cw:7,text:['否','是']})(class="col-md-4")
+      p.slider-btn.text-right 
+        a.open-close-btn(href="javascript:;") ▼展开
     .con-container
       .pact-form 
         p.text-right#toolbar
           a(href="")
             +icon("share-alt","导出")
         table
-          tfoot
+          tfoot(style="border-top:1px solid #ddd;")
             tr
               td &nbsp;
-              td(align="center") 合同总额：
+              td &nbsp;
+              td(align="center") 合计：
               td &nbsp;
               td &nbsp;
               td &nbsp;
@@ -47,5 +50,4 @@ append content
               td &nbsp;
               td &nbsp;
               td &nbsp;
-              td &nbsp;
-              td(align="center") 600000万元
+              td(align="center") 600,000,000.00

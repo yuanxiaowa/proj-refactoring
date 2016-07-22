@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "msg": "ok",
+  "data": {
+    "pageNo":1,
+    "pageCount":10,
+    "total":1,
+    "rows":[{
+      "id":"1",
+      "constructor":"南京分公司",
+      "pact":"南京歌剧院",
+      "name":"梁国安",
+      "zw":"总工",
+      "zc":"2016-05-22",
+      "jz":"是",
+      "phone":"18978452145"
+    }]
+  }
+}

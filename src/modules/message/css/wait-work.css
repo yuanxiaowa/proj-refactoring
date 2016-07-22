@@ -1,0 +1,12 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-07-18 11:08:28
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-07-18 11:11:43
+*/
+@import '/modules/variables';
+@import '/modules/page-common';
+.flow-select{
+  margin-right:20px;
+  display: inline-block;
+}

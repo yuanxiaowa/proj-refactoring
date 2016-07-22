@@ -8,9 +8,9 @@ append content
     .con-container
       .tab-nav.text-right
         button.btn.btn-primary.J-add-save 查询
-      .pact-form 
-        +form-horizontal()(class="row" id="add-contact-form")
-          .form-item-box
+      .pact-form.clearfix
+        .row.col-md-12.slider-container 
+          +form-horizontal()(class="row" id="add-contact-form")
             .row
               +form-horizontal-item({label:'项目类型',type:'checkbox',cw:7,text:['全部','可抵扣','不可抵扣']})(class="col-md-4")
               +form-horizontal-item({label:'发票号码',type:'select',cw:7})(class="col-md-4")
@@ -31,6 +31,8 @@ append content
                   input.form-control.first(date="true") 
                   input.form-control(date="true") 
               +form-horizontal-item({label:'认证状态',type:'checkbox',cw:7,text:['全部','通过','不通过','待认证']})(class="col-md-4 sta")
+      p.slider-btn.text-right 
+        a.open-close-btn(href="javascript:;") ▼展开  
     .con-container
      .pact-form.list-container
         p.text-right#toolbar

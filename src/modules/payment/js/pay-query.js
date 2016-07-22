@@ -2,9 +2,9 @@
 * @Author: huangzexia
 * @Date:   2016-07-01 09:57:33
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-06 14:12:04
+* @Last Modified time: 2016-07-12 15:22:47
 */
-
+import 'slider';
 import 'bootstrapTable';
 import 'moreSelected';
 //------------------------材料清单----------------

@@ -1,0 +1,18 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-07-16 09:18:26
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-07-16 11:41:44
+*/
+@import '/modules/variables';
+@import '/modules/page-common';
+@import '/modules/project-common';
+.panel {
+  margin-top: 20px;
+}
+.j-sta{
+  padding-left: 6%;
+  a{
+    cursor: default;
+  }
+}

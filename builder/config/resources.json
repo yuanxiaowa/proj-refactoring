@@ -130,5 +130,13 @@
         "script": "webuploader.js"
       }
     }
+  },
+  "bootstrapWysiwyg": {
+    "cur": "1.0.4",
+    "files": {
+      "1.0.4": {
+        "script": "bootstrap-wysiwyg.js"
+      }
+    }
   }
 }

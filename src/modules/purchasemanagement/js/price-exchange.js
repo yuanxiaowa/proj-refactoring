@@ -3,7 +3,7 @@ $('[data-toggle="tooltip"]').tooltip();
 $('.list-container').on('click', '.proveOk', function() {
 	var $proveTr = $(this).parent().parent();
 	$proveTr.find('td').each(function(e,obj) {
-	    	if( $(this).hasClass('check-ico') ) {
+	    	if( $(this).hasClass('check-ico')  ) {
 	    		var dataId = $(this).attr('data-id');
 	    		$(this).find('input[type="hidden"]').val(dataId);
 	    		var hsCheckedName = $(this).find('input[type="hidden"]').attr('name');
@@ -16,16 +16,21 @@ $('.list-container').on('click', '.proveOk', function() {
 })
 //用户执行选中价格
 .on('click', '.tips', function() {
-	if( ! $(this).hasClass('proveOver') ) {
+	if( (! $(this).hasClass('proveOver')) && (! $(this).hasClass('stopPrices') )) {
 		var $proveTr = $(this).parent();
 		var dataId = $(this).attr('data-id');
 		var inputName = $(this).find('input[type="hidden"]').attr('name');
 		$(this).parent().find('input[name="'+inputName+'"]').val(dataId);
 		removeAllCheckboxs(inputName);
-		$(this).find('span').html('已经成交');
+		$(this).find('span').html('已选中');
 		$(this).addClass('check-ico');
 	}
 	return;
+})
+.on('click', '.stoped', function() {
+	var stopPriceId = $(this).attr('data-id');
+	stopPrice(stopPriceId);
+
 });
 //清除checkbox的选择框
 function removeAllCheckboxs( inputName ) {
@@ -39,5 +44,13 @@ function removeAllCheckboxs( inputName ) {
 function removeOtherclicks( hsCheckedName ) {
 	$('.list-container').find('input[name="'+hsCheckedName+'"]').each(function(e,obj) {
 	    	$(this).parent().addClass('proveOver');
+	});
+}
+//该材料报价终止
+function stopPrice( stopPriceId ) {
+	$('.list-container').find('input[name="'+stopPriceId+'"]').each(function(e,obj) {
+		    $(this).val('');
+	    	$(this).parent().find('span').html('终止报价');
+	    	$(this).parent().addClass('stopPrices');
 	});
 }

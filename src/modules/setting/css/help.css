@@ -1,0 +1,156 @@
+/*
+* @Author: huangzexia
+* @Date:   2016-07-11 09:23:53
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-07-16 15:15:56
+*/
+@import '/modules/variables';
+@import '/modules/project-common';
+@import '/modules/page-common';
+@import '/modules/role';
+
+
+.pact-form {
+  padding: 36px;
+  .flow-select{
+    margin-right: 10px;
+    display: inline-block;
+  }
+}
+.org-left {
+  width: 180px;
+  float: left;
+  height: 1px;
+  transition: .3s;
+  &.is-close {
+    margin-left: -168px;
+    .icon-double-angle-left {
+      &:before {
+        content: "\f101";
+      }
+    }
+  }
+}
+
+$bg-menu: #f1efef;
+.org-left-wrap {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 180px;
+  background: $bg-menu;
+  border-right: $border;
+  transition: .3s;
+}
+
+.org-main {
+  overflow: auto;
+  .item-box {
+    margin-top: 20px;
+    padding: 30px;
+    background: #fff;
+    border:$border;
+  }
+}
+
+.org-menu {
+  margin-top: 36px;
+  line-height: 32px;
+  margin-left: 24px;
+  h5 {
+    padding-right: 15px;
+  }
+}
+
+.status-open {
+  position: absolute;
+  size: 16px;
+  line-height: @size;
+  border: 1px solid;
+  text-align: center;
+  color: #999;
+  background: $bg-menu;
+}
+
+.org-menu-outer {
+  border-left: 1px dashed #bfbfbf;
+  padding-left: 10px;
+}
+
+.org-menu-outer,
+.org-menu-inner {
+  background: linear-gradient(to right, transparent 50%, $bg-menu 60%), linear-gradient(transparent 15px, #bfbfbf 15px, #bfbfbf 16px, transparent 16px);
+  background-size: .3em 32px;
+}
+
+.org-menu-inner {
+  padding-left: 1em;
+  display: none;
+}
+
+.org-menu-tit {
+  position: relative;
+  cursor: pointer;
+  background: $bg-menu;
+  > .status-open {
+    position: absolute;
+    left: -20px;
+    top: 8px;
+  }
+}
+
+.org-menu-item {
+  background: $bg-menu;
+  &.is-open {
+    >.org-menu-tit:after {
+      font-family: FontAwesome;
+      content: '\f0d7';
+      display: inline-block;
+    }
+    >.org-menu-inner {
+      display: block;
+    }
+  }
+}
+
+.org-empy {
+  color: #999;
+  text-align: center;
+  line-height: 6em;
+}
+
+.org-op {
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.icon-add:before {
+  content: '+';
+}
+
+.icon-sub:before {
+  content: '-';
+}
+
+.icon-add,
+.icon-sub {
+  margin: 0 4px;
+  cursor: pointer;
+  &:before {
+    display: inline-block;
+    size: 16px;
+    text-align: center;
+    line-height: 13px;
+    border: 1px solid;
+    border-radius: 50%;
+  }
+}
+.search{
+  padding-left: 0!important;
+  .search-container{
+    width: 100%!important;
+  }
+}

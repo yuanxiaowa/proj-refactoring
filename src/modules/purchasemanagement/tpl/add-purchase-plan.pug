@@ -1,7 +1,7 @@
 extends /common
 
 append style
-  +style('purchase')
+  +style('add-purchase-plan')
 
 append content
   .container-fluid
@@ -11,7 +11,7 @@ append content
         button.btn.btn-default 确认提交  
         button.btn.btn-default 同意
         button.btn.btn-default 复制采购计划
-      .pact-form
+      .pact-form(style="padding:0;")
         +form-horizontal()(class="row" id="purchase-plan")
           p.list-title 基本信息
             span.pull-right.J-toggle 收起-
@@ -33,7 +33,7 @@ append content
             .item.clearfix
               .rwo
                 .table-responsive.table-list
-                  table.table.table-bordered.table-default
+                  table.table.table-bordered.table-default.cl-module
                     thead
                       tr
                         th 编号
@@ -75,27 +75,27 @@ append content
                       tr
                         td 2
                         td 
-                          input.input-text.form-control(type="text")
+                          input.form-control(type="text")
                         td 
-                          .input-group.input-text
+                          .input-group
                             input.form-control(type="text")
                             a(data-toggle="modal" data-target="#modal-purchase").input-group-addon +
                         td Φ6HPB300普通线材
                         td t
                         td 钢筋
                         td 
-                          input.input-text.form-control(type="text" date="true")
+                          input.form-control(type="text" date="true")
                         td 
-                          input.input-text.form-control
+                          input.form-control
                         td 
-                          input.input-text.form-control
+                          input.form-control
                         td 600000.00
                         td 
-                          input.input-text.form-control
+                          input.form-control
                         td 
-                          input.input-text.form-control
+                          input.form-control
                         td 
-                          textarea.input-text.form-control
+                          input.form-control
                         td 
                           a(href="javascript:;").btn.btn-default.j-item-del 删除
                     tfoot

@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "msg": "ok",
+  "data": {
+    "pageNo":1,
+    "pageCount":10,
+    "total":1,
+    "rows":[{
+      "id":"1",
+      "num":"1",
+      "constructor":"南京分公司",
+      "projectType":"房建",
+      "businessName":"钢铁",
+      "pactType":"房建",
+      "pact":"南京歌剧院",
+      "projectInfo":"项目地址位于南京",
+      "lumpSum":"南京分公司",
+      "constructorCompany":"南京分公司",
+      "enterpriseProperty":"民营",
+      "pactPrice":"600,000,000.00",
+      "Tax":"17%",
+      "date":"2015-12-24/2016-08-12",
+      "principal":"李起光",
+      "city":"南京",
+      "area":"江苏",
+      "isReturn":"是",
+      "approveSta":"已通过"
+    }]
+  }
+}

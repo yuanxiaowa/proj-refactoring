@@ -1,0 +1,24 @@
+extends /common
+
+append style
+  +style('index')
+
+append content
+  .container-fluid
+    .mt-24.panel.panel-default
+      .alert
+        .row
+          .col-md-2 全国各个省份产值统计
+          .col-md-4
+            +form-horizontal-item({label:'对比年份',type:'mix',lw:3})
+              .row
+                .col-xs-6
+                  +form-control({type:'select',text:[2012, 2013, 2014, 2015, 2016]})
+                .col-xs-6
+                  +form-control({type:'select',text:[2012, 2013, 2014, 2015, 2016]})
+      .row
+        .col-md-8
+          #echarts-1(style={height:"500px"})
+          .pull-right
+            a.btn.btn-default(href="") 导出
+          table

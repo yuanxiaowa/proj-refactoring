@@ -1,0 +1,39 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-07-15 13:44:55
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-07-18 11:11:21
+*/
+@import '/modules/variables';
+@import '/modules/page-common';
+@import '/modules/panel';
+.link:hover{
+    text-decoration:underline;
+  }
+.item{
+  padding: 10px 20px 10px 20px;
+  border-bottom:$border;
+  &:last-child{
+    border-bottom:none;
+  }
+  &:hover{
+    background: #eee;
+  }
+  a{
+     color: #333;
+     display: inline-block;
+     width: 100%;
+     &:hover{
+      text-decoration:underline;
+    }
+  }
+}
+.new{
+  color: #eb6100;
+  a{
+    color: #eb6100;
+  }
+  .tip-pic{
+    margin-left: 20px;
+  }
+}

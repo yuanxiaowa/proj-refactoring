@@ -7,13 +7,14 @@ function TableEdit(options) {
 }
 
 TableEdit.getEle = (item, prefix, index, value, row) => {
-  let name, $ele, $eles;
+  let name, $ele, $eles,
+    uneditable = false === item.editable;
   if (item.name) {
     name = `${prefix}[${index}].${item.name}`;
   }
   if (/number|string|boolean|undefined|null/.test($.type(value))) {
     value = {
-      value: value
+      value
     };
   }
   if ('formatter' in item) {
@@ -27,31 +28,41 @@ TableEdit.getEle = (item, prefix, index, value, row) => {
   }
 
   $eles = [];
-  if ('input' === item.type) {
-    $ele = $(`<input class="form-control">`);
-    $ele.attr(item.attrs || {});
+  if (uneditable) {
+    $ele = $('<span>');
     $eles.push($ele);
-  } else if ('select' === item.type) {
-    $ele = $(`<select class="form-control">`);
-    $ele.attr(item.attrs || {});
-    $.each(item.data, (_, _item) => {
-      var $opt = $('<option>');
-      if ('string' === $.type(_item) || 'number' === $.type(_item)) {
-        $opt.text(_item);
-      } else {
-        $opt.text(_item.text).val(_item.value);
-      }
-      $ele.append($opt);
-    });
-    $eles.push($ele);
-  } else if ('addon' === item.type) {
-    let $wrap = $('<div class="input-group">');
-    $ele = $(`<input class="form-control">`);
-    $wrap.append($ele, '<a href="" class="input-group-addon">+</a>');
-    $eles.push($wrap);
+  } else {
+    if ('input' === item.type) {
+      $ele = $(`<input class="form-control">`);
+      $ele.attr(item.attrs || {});
+      $eles.push($ele);
+    } else if ('select' === item.type) {
+      $ele = $(`<select class="form-control">`);
+      $ele.attr(item.attrs || {});
+      $.each(item.data, (_, _item) => {
+        var $opt = $('<option>');
+        if ('string' === $.type(_item) || 'number' === $.type(_item)) {
+          $opt.text(_item);
+        } else {
+          $opt.text(_item.text).val(_item.value);
+        }
+        $ele.append($opt);
+      });
+      $eles.push($ele);
+    } else if ('addon' === item.type) {
+      let $wrap = $('<div class="input-group">');
+      $ele = $(`<input class="form-control">`);
+      $wrap.append($ele, '<a href="" class="input-group-addon">+</a>');
+      $eles.push($wrap);
+    }
   }
+
   if (item.hasHidden) {
     $ele.val(value.text);
+    $ele = $(`<input type="hidden">`);
+    $eles.push($ele);
+  } else if (uneditable) {
+    $ele.text(value.value);
     $ele = $(`<input type="hidden">`);
     $eles.push($ele);
   }

@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-06-23 15:50:04
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-04 14:16:12
+* @Last Modified time: 2016-07-12 17:49:54
 */
 @import '/modules/variables';
 @import '/modules/project-common';
@@ -35,13 +35,13 @@
   .textarea textarea{
     height: 100px;
   }
-  .radio-inline,
+  /*.radio-inline,
   .checkbox-inline{
     padding-left: 0;
     input{
       margin-right: 4px;
     }
-  }
+  }*/
   .date-box input{
     float: left;
     width: 49%;

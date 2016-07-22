@@ -2,9 +2,9 @@
 * @Author: huangzexia
 * @Date:   2016-07-04 15:47:13
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-06 11:42:06
+* @Last Modified time: 2016-07-12 15:28:58
 */
-
+import 'slider';
 import 'bootstrapTable';
 import 'bootstrapDatetimepicker';
 //------------------------时间引入----------------

@@ -1,0 +1,12 @@
+.row
+  +form-horizontal-item({label:'标题',i:true,type:'text',cw:7})(class="col-md-4")
+  +form-horizontal-item({label:'申请人',i:true,type:'text',cw:7})(class="col-md-4")
+  +form-horizontal-item({label:'申请部门',i:true,type:'select',cw:7})(class="col-md-4")
+.row.live-box
+  .form-group.col-md-4
+    label.control-label.col-xs-5 通知人员：
+    .col-xs-9.col-md-7 
+      a.add.add-people.text-primary(href="javascript:;") +
+#list-container.clearfix
+  .item 李起光
+    a.dell(href="javascript:;") ×

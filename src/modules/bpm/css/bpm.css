@@ -2,11 +2,13 @@
 * @Author: huangzexia
 * @Date:   2016-07-11 09:23:53
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-11 11:16:59
+* @Last Modified time: 2016-07-14 13:39:46
 */
 @import '/modules/variables';
 @import '/modules/project-common';
 @import '/modules/page-common';
+@import '/modules/role';
+
 
 .pact-form {
   padding: 36px;
@@ -158,4 +160,59 @@ $bg-menu: #f1efef;
 }
 .search-con{
   padding: 20px;
+}
+.page-list{
+  padding: 6px 0 6px 126px;
+  overflow: hidden;
+  .page-name{
+    padding: 4px 16px;
+    border:$border;
+    margin-right: 8px;
+  }
+}
+.item{
+  margin: 0 10px 10px 0;
+  /*margin-bottom: 20px;*/
+  float: left;
+}
+.notify{
+  float: left;
+  display: inline-block;
+}
+.del,.add{
+  display: inline-block;
+  padding: 0 6px;
+  border:1px solid #2b61a5;
+  border-radius: 50%; 
+}
+.del{
+  margin-top: 6px;
+  margin-left: 4px;
+  cursor: pointer;
+}
+.approverSelect{
+  width: 87%!important;
+}
+.i-list {
+  padding: 0;
+  .del-p{
+    margin-top: 4px;
+  }
+  &>div{
+    padding-left: 0;
+  }
+}
+.add{
+  padding: 0 4px;
+  margin-top: 4px;
+}
+.people-list{
+  margin-top: 35px;
+  text-align: center;
+}
+.arrow-down{
+  display: block;
+  margin-bottom: 8px;
+  padding-left: 40%;
+  color:#2b61a5;
 }

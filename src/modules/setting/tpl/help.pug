@@ -1,0 +1,19 @@
+extends /common
+
+append style
+  +style('help')
+
+append content
+  +org
+    .item-box 
+      form.navbar-form(role="search")
+        .form-group.col-md-4.search
+          input(type="text").form-control.search-container
+        button(type="submit").btn.btn-primary  搜索
+      .row.navbar-form
+        p 操作说明：采购计划
+        p 详细功能操作介绍
+        p 页面简述：
+        p 该页面可以供材料员提交采购计划，材料员每月定期提交下个月的采购计划，经领导审批通过以后，分公司人员便可以针对采购计划进行汇总。
+      .row.navbar-form
+        table

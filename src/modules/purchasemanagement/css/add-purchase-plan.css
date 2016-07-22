@@ -1,0 +1,126 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-07-19 16:21:18
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-07-20 09:12:42
+*/
+@import '/modules/variables';
+@import '/modules/project-common';
+@import '/modules/tabs';
+@import '/modules/page-common';
+@import '/modules/area';
+.item{
+  margin: 20px;
+  .star{
+    color: #f00;
+    font-style: normal;
+    padding: 0 4px;
+  }
+  .add-cos{
+    padding: 0 4px;
+    border: 1px solid #2b61a5;
+    border-radius: 50%;
+  }
+  .input-group-addon{
+    cursor: pointer;
+  }
+  .table-list{
+    margin:0 24px 10px 24px;
+    /*.input-text{
+      width: 120px;
+    }*/
+  }
+}
+.address-detail{
+  width: 30%;
+}
+.checkbox-inline{
+  padding-top: 0!important;
+}
+.radio-inline{
+  padding-top: 7px;
+}
+.add-box{
+  position: relative;
+  .add{
+    top:-15px;
+    display: none;
+  }
+}
+.file-up-tip{
+  margin-left: 20px;
+}
+.remark{
+  position: relative;
+  top: -60px;
+}
+.search-list-container{
+  margin:20px 40px;
+}
+.supplier-type{
+  width: 14%;
+}
+#supplier-list-container{
+  padding-left: 130px;
+  li{
+    padding: 4px 6px;
+    border:$border;
+    &:hover{
+      border-color: #2d62a4;
+    }
+    .del-item{
+      padding-left: 4px;
+    }
+  }
+}
+.cl-module input.form-control,.cl-module textarea.form-control{
+  width: 140px;
+}
+.cl-module input.input-text{
+  width: 100%;
+}
+.ztree{
+  max-height: 500px;
+  overflow-y: auto;
+}
+@media screen and (min-width: 1366px) {
+ .table-responsive{
+    overflow-x: auto;
+    min-height: 0.01%;
+    .table {
+      margin-bottom: 0;
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+ }
+}
+
+/*发布采购单*/
+.j-style{
+  padding-top: 7px;
+  label{
+    margin-right: 6px;
+  }
+}
+.pay-date{
+  display: none;
+  width: 25%;
+}
+.add-block{
+  position: static!important;
+  margin-top: 7px;
+  display: inline-block;
+  top:0;
+  right: 0;
+}
+.result-container{
+  padding: 0 20px;
+}

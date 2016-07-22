@@ -15,12 +15,10 @@
   margin-left: 20px;
   background: #fb7d2a;
 }
-.panel {
-  margin-top: 20px;
-}
 .panel-heading {
+  border-color: none;
   .pull-right {
-    margin-right: 40px;
+    margin-right: 20px;
   }
 }
 .panel-h-icon {
@@ -47,4 +45,97 @@
 
 .table-red {
   background: #fef9f8;
+}
+
+/*新增模块*/
+.btn-box{
+  margin: 20px 0;
+  .btn{
+    margin-right: 10px;
+    position: relative;
+  }
+  .btn span{
+    display: inline-block;
+    float: left;
+  }
+  .btn:hover{
+    background: #2b61a5;
+    color: #fff;
+    border-color:#2b61a5;
+    .close{
+       opacity: 1;
+      background: #fff;
+      color: #2b61a5;
+    }
+  }
+  .pipe-list{
+    display: inline-block;
+  }
+  .close{
+    position: relative;
+    right: -10px;
+    top: -6px;
+    /*display: inline-block;*/
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    background: #2b61a5;
+    opacity: 0;
+  }
+}
+.menu-box{
+  max-height: 300px;
+  overflow-y: auto;
+  padding: 20px;
+}
+.more-list{
+  padding-left: 20px;
+  color: #333;
+  &:hover{
+    color:#2b61a5;
+    text-decoration: underline;
+  }
+}
+.info-list{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  li{
+    padding: 10px;
+  }
+  li > a{
+    color: #333;
+    &:hover{
+      color:#2b61a5;
+    }
+  }
+}
+.info-list li + li{
+  border-top: 1px dashed #d3d3d3;
+}
+.wait-info li + li{
+  border-top: none;
+}
+.wait-info li:nth-of-type(2n){
+  background:#e9f1fb;
+}
+
+.has-price {
+  color: #eb6100;
+}
+.text-overflow{
+  display: inline-block;
+  width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.jiaoyi{
+  width: 90%;
+}
+.new-info{
+  margin-top: -12px;
+  padding-left: 10px;
 }

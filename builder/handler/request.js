@@ -45,6 +45,7 @@ module.exports = function(req, res) {
             } catch(e) {
               data = getQuery(data);
             }
+            data = Object.assign(getQuery(url.query), data);
             let d = h(data, expm, method);
             if (undefined !== d) {
               expm.data = d;

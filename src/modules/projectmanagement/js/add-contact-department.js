@@ -47,3 +47,5 @@ $('input[date]').datetimepicker({
   autoclose: true,
   minView: 2
 });
+
+

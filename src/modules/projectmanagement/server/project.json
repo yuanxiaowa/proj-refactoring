@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "msg": "ok",
+  "data": {
+    "pageNo":1,
+    "pageCount":10,
+    "total":1,
+    "rows":[{
+      "id":"1",
+      "constructor":"南京分公司",
+      "pact":"南京歌剧院",
+      "principal":"李起光",
+      "zg":"胡一一",
+      "sg":"梁国安",
+      "aq":"李芳",
+      "zl":"李刚",
+      "cg":"胡丹",
+      "ys":"李旦"
+    }]
+  }
+}

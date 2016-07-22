@@ -1,0 +1,21 @@
+/*!
+* @Author: huangzexia
+* @Date:   2016-07-19 16:45:22
+* @Last Modified by:   huangzexia
+* @Last Modified time: 2016-07-19 16:48:49
+*/
+@import '/modules/variables';
+@import '/modules/project-common';
+@import '/modules/tabs';
+@import '/modules/page-common';
+.table-list{
+  margin:0 24px 10px 24px;
+  .input-text{
+    width: 120px;
+  }
+}
+.add-cos{
+  padding: 0 4px;
+  border: 1px solid #2b61a5;
+  border-radius: 50%;
+}
