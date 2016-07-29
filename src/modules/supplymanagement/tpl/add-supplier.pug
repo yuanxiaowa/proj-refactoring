@@ -63,6 +63,16 @@ append content
                     +form-horizontal-item({label:'银行行号',type:'input',cw:7})(class="col-md-3")
                     +form-horizontal-item({label:'开户银行',type:'input',cw:7})(class="col-md-3")
                     +form-horizontal-item({label:'银行账号',type:'input',cw:7})(class="col-md-3")
+                  .row
+                    .form-group.col-md-6
+                      .control-label.col-xs-3.note-type 报价状态：
+                      .col-xs-8
+                        label.radio-inline
+                          input(type="radio") 
+                          |禁止报价
+                        label.radio-inline
+                          input(type="radio") 
+                          |允许报价
           .list-item
             p.list-title 补充信息
               span.pull-right.J-toggle 收起-

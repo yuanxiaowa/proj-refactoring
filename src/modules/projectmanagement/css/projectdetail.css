@@ -2,12 +2,13 @@
 * @Author: huangzexia
 * @Date:   2016-06-14 09:18:33
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-06-22 15:13:51
+* @Last Modified time: 2016-07-22 14:55:39
 */
 @import '/modules/variables';
 @import '/modules/page-common';
 @import '/modules/tabs';
 @import '/modules/project-common';
+@import '/modules/area';
 /*项目详情*/
 .statu-pic{
   position: absolute;

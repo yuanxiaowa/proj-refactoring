@@ -12,6 +12,7 @@ function Dialog({
   btns,
   btnsTxt,
   remote,
+  tplFooter,
   backdrop = 'static',
   onOk = $.noop,
   onCancel = $.noop
@@ -23,6 +24,7 @@ function Dialog({
     btns,
     btnsTxt,
     remote,
+    tplFooter,
     backdrop,
     onOk,
     onCancel
@@ -49,18 +51,22 @@ Dialog.getFooter = (btns = Dialog.BTNOK, btnsText) => {
   if (!btns) {
     return '';
   }
-  btns = +btns;
-  if (!btnsText) {
-    btnsText = {};
-  }
-  let stxt = btnsText.stxt ? btnsText.stxt : '保存';
-  let ctxt = btnsText.ctxt ? btnsText.ctxt : '取消';
   let tpl = '<div class="modal-footer">';
-  if ((btns & Dialog.BTNOK) === Dialog.BTNOK) {
-    tpl += `<button class="btn btn-primary j-modal-ok">${stxt}</button>`;
-  }
-  if ((btns & Dialog.BTNCANCEL) === Dialog.BTNCANCEL) {
-    tpl += `<button class="btn btn-default" data-dismiss="modal">${ctxt}</button>`;
+  if (true === btns) {
+    tpl += btnsText;
+  } else {
+    btns = +btns;
+    if (!btnsText) {
+      btnsText = {};
+    }
+    let stxt = btnsText.stxt ? btnsText.stxt : '保存';
+    let ctxt = btnsText.ctxt ? btnsText.ctxt : '取消';
+    if ((btns & Dialog.BTNOK) === Dialog.BTNOK) {
+      tpl += `<button class="btn btn-primary j-modal-ok">${stxt}</button>`;
+    }
+    if ((btns & Dialog.BTNCANCEL) === Dialog.BTNCANCEL) {
+      tpl += `<button class="btn btn-default" data-dismiss="modal">${ctxt}</button>`;
+    }
   }
   tpl += '</div>';
   return tpl;
@@ -86,7 +92,11 @@ Dialog.prototype = {
       $c.prepend(Dialog.getHeader(this.options.title));
     }
     if (false !== this.options.btns) {
-      $c.append(Dialog.getFooter(this.options.btns, this.options.btnsTxt));
+      if (this.options.tplFooter) {
+        $c.append(Dialog.getFooter(true, this.options.tplFooter));
+      } else {
+        $c.append(Dialog.getFooter(this.options.btns, this.options.btnsTxt));
+      }
     }
     $modal.appendTo('body');
     $modal.modal({

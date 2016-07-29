@@ -14,13 +14,14 @@ append content
         .row.col-md-12.slider-container
           +form-horizontal()(class="row" id="purchase-plan")
             .row
-              +form-horizontal-item({label:'付款单编号',type:'text',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'所属项目',type:'select',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'材料合同',type:'select',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'付款单编号',type:'text',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'所属项目',type:'select',cw:7})(class="col-md-4")
             .row
-              +form-horizontal-item({label:'供应商',type:'date',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'所属部门',type:'select',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'审批状态',type:'checkbox',cw:8,text:['全部','已生效','审批中','未生效','审批终止']})(class="col-md-6 statu")
+              +form-horizontal-item({label:'材料合同',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'供应商',type:'date',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'所属部门',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'审批状态',type:'checkbox',cw:8,text:['全部','已生效','审批中','未生效','审批终止']})(class="col-md-8 statu")
       p.slider-btn.text-right 
         a.open-close-btn(href="javascript:;") ▼展开
     .con-container

@@ -79,17 +79,16 @@ $bg-menu: #f1efef;
   background: $bg-menu;
 }
 
-.org-menu-outer {
-  border-left: 1px dashed #bfbfbf;
+/*.org-menu-outer {
   padding-left: 10px;
-}
+}*/
 
-.org-menu-outer,
+/*.org-menu-outer,
 .org-menu-inner {
   background: linear-gradient(to right, transparent 50%, $bg-menu 60%), linear-gradient(transparent 15px, #bfbfbf 15px, #bfbfbf 16px, transparent 16px);
   background-size: .3em 32px;
 }
-
+*/
 .org-menu-inner {
   padding-left: 1em;
   display: none;
@@ -182,4 +181,17 @@ $bg-menu: #f1efef;
 }
 .control-label{
   width: 25%;
+}
+.add-people{
+  margin-right: 4px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 17px;
+  text-align: center;
+  border-radius: 50%;
+  background: #369;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
 }

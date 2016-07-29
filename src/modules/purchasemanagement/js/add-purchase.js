@@ -14,7 +14,7 @@ var dialog = new Dialog({
   size: Dialog.SIZELG,
   content: $materialtpl,
   btnsTxt: {
-    stxt: '确认选择'
+    stxt: '确认'
   }
 });
 $choiceBtn.on('click', function() {
@@ -102,42 +102,7 @@ function showIconForTree(treeId, treeNode) {
   return !treeNode.isParent;
 }
 $.fn.zTree.init($('#treeDemo'), setting, zNodes);
-//------------------------弹框搜索----------------
-$('#material')
-  .bootstrapTable({
-    url: '',
-    sidePagination: 'server',
-    ajaxOptions: {
-      dataFilter(res) {
-        return JSON.stringify($.parseJSON(res).data);
-      }
-    },
-    columns: [{
-      field: 'checked',
-      checkbox: true
-    }, {
-      title: '分类',
-      field: ''
-    }, {
-      title: '材料编码',
-      field: ''
-    }, {
-      title: '材料名称',
-      field: ''
-    }, {
-      title: '相似名称',
-      field: ''
-    }, {
-      title: '规格型号',
-      field: ''
-    }, {
-      title: '单位',
-      field: ''
-    }],
-    clickToSelect: true,
-    pagination: true,
-    search: true
-  });
+
 //---------------------- 引入采购计划---------------
 let $btnAddPlan = $('#add-plan');
 $btnAddPlan

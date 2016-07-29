@@ -1,0 +1,40 @@
+extends /common
+
+append style
+  +style('index')
+
+append content
+  .container-fluid
+    .panel.panel-default.detail-show.mt-24
+      .alert
+        +form-horizontal
+          .row
+            .col-md-4
+              label 所属部门
+              .adapt-item
+                +form-control({label:'所属部门',type:'input'})
+            .col-md-4
+              label 所属项目
+              .adapt-item
+                +form-control({label:'所属项目',type:'input'})
+            .col-md-4
+              label 所属合同
+              .adapt-item
+                +form-control({label:'所属合同',type:'input'})
+          .row
+            .col-md-6
+              label 日期区间
+              .adapt-item
+                .row
+                  .col-sm-6
+                    +form-control({type: 'date'})
+                  .col-sm-6
+                    +form-control({type: 'date'})
+                .row
+            .col-md-2
+              +submit('统计')(class="btn-primary")
+      .row
+        .col-md-8
+          .pull-right
+            a.btn.btn-default(href="") 导出
+          table

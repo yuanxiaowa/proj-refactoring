@@ -20,18 +20,18 @@ var setting = {
       }
     };
 var zNodes =[
-  { id:11, pId:1, name:"项目管理", url:'http://127.0.0.1:8080/projectmanagement/projectdetail.html',ico:'aa.jpg',open:true},
-  { id:111, pId:11, name:"项目立项信息",url:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb.jpg' },
-  { id:112, pId:11, name:"补充合同",url:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb1.jpg' },
+  { id:11, pId:1, name:"项目管理", urls:'http://127.0.0.1:8080/projectmanagement/projectdetail.html',ico:'aa.jpg',open:true},
+  { id:111, pId:11, name:"项目立项信息",urls:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb.jpg' },
+  { id:112, pId:11, name:"补充合同",urls:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb1.jpg' },
   { id:12, pId:1, name:"采购管理", open:true},
-  { id:121, pId:12, name:"采购单" ,url:'http://127.0.0.1:8080/purchasemanagement/add-purchase.html',ico:'abb2.jpg' },
-  { id:122, pId:12, name:"采购计划",url:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb3.jpg' },
+  { id:121, pId:12, name:"采购单" ,urls:'http://127.0.0.1:8080/purchasemanagement/add-purchase.html',ico:'abb2.jpg' },
+  { id:122, pId:12, name:"采购计划",urls:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb3.jpg' },
   { id:13, pId:1, name:"仓储管理", open:true},
-  { id:131, pId:13, name:"代收货",url:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb4.jpg' },
-  { id:132, pId:13, name:"退货单",url:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb5.jpg' },
+  { id:131, pId:13, name:"代收货",urls:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb4.jpg' },
+  { id:132, pId:13, name:"退货单",urls:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb5.jpg' },
   { id:14, pId:1, name:"付款管理", open:true},
-  { id:141, pId:14, name:"付款申请",url:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb6.jpg' },
-  { id:142, pId:14, name:"待支付",url:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb7.jpg' }
+  { id:141, pId:14, name:"付款申请",urls:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb6.jpg' },
+  { id:142, pId:14, name:"待支付",urls:'http://127.0.0.1:8080/projectmanagement/add-pact.html',ico:'cbb7.jpg' }
 ];
 
 var code;
@@ -57,39 +57,52 @@ $(document).ready(function(){
 });
 
 //选择过的菜单
-var selectedMenuarr = [];
 function choosedNenu() {
+  var selectedMenuarr = [];
   $('.pipe-list').find('a').each(function() {
       selectedMenuarr.push( parseInt($(this).attr('data-id')));
   })
+  return selectedMenuarr;
 }
 
 $addPipe
       .on('ok.modalremote', () => {
+        var selectedMenuarr = choosedNenu();
+        var selectedNum = selectedMenuarr.length;
+        if( selectedNum >4 ) {
+            $.alert('Only less than 5 menus!');
+            $addPipe.data('dialog').hide();
+            return;
+        }
+        //待选择菜单数量
+        var readyselectNum = 0;
         // 点击确定，获取选择数据
         var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
         var nodes = treeObj.getCheckedNodes();
-        choosedNenu();
         if( nodes.length > 0 ) {
+          //获取当前选择菜单数量
           $.each( nodes,function(tr_i, tr_item ){
             var findNum = $.inArray(tr_item.id,selectedMenuarr) ;
-            
-            console.log(findNum);
-            console.log(selectedMenuarr)
-
-            if( (tr_item.pId != null )&&( findNum ==-1 )) {
-              var Ahtml = '<a class="btn btn-default" data-id="'+tr_item.id+'" href="'+tr_item.url+'" target="_blank">'+tr_item.name+'</a>';
-              $('.pipe-list').find('a:last').after(Ahtml);
+            var maxSelectedNum = selectedNum + readyselectNum; //计算操作的菜单总和
+            if( (tr_item.pId != null )&&( findNum ==-1 ) && (maxSelectedNum<5)) {
+              readyselectNum++;
+              var Ahtml = '<a class="btn btn-default nav_url" data-id="'+tr_item.id+'" data-content="'+tr_item.name+'"  href="javascript:;"  data-item="'+tr_item.urls+'"><span>'+tr_item.name+'</span><span class="J-closed close">×</span></a>';
+              $('.pipe-list').append(Ahtml);
             }
           })
         }
         $addPipe.data('dialog').hide();
       });
 });
-
-
-
-
+//删除选中菜单
+$('.pipe-list').on('click', '.J-closed', function() {
+    $(this).parent('a').remove();
+});
+$('.pipe-list').on('click', '.nav_url', function() {
+    var urls = $(this).attr('data-item');
+    var urlname = $(this).attr('data-content');
+    parent.openLink(urls,urlname);
+});
 //--------------------------全国产值地图------------------//
 var myChart1 = echarts.init($('#echarts-1')[0]);
 var myChart2 = echarts.init($('#echarts-2')[0]);
@@ -176,7 +189,7 @@ var option1 = {
                     
 var option2 = {
   title: {
-    text: '钢材指数'
+    text: ''
   },
   tooltip: {
     trigger: 'axis'
@@ -190,26 +203,18 @@ var option2 = {
   },
   xAxis: [{
     type: 'value',
-    min: 0,
-    max: 30,
-    interval: 2
+    min: 1,
+    max: 12,
+    interval: 1
   }],
   yAxis: [{
     type: 'value',
     min: 0,
-    max: 130,
-    interval: 10
+    max: 1000,
+    interval: 100
   }],
   series: [{
-    name: '天津',
-    type: 'line',
-    data: getArr()
-  }, {
-    name: '苏州',
-    type: 'line',
-    data: getArr()
-  }, {
-    name: '上海',
+    name: '采购额',
     type: 'line',
     data: getArr()
   }]
@@ -222,7 +227,7 @@ function getArr() {
   var arr = [];
   var i = 0;
   for (; i < 15; i++) {
-    arr.push([i * 2, (Math.random() * 100).toFixed(2)]);
+    arr.push([i * 1, (Math.random() * 100)]);
   }
   return arr;
 }

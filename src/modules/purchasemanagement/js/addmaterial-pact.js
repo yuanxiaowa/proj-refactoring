@@ -15,7 +15,7 @@ var dialog =new Dialog({
     size:Dialog.SIZELG,
     content:$materialtpl,
     btnsTxt:{
-      stxt:"确认选择"
+      stxt:"确认"
     }
   });
 //tab1 新增表格
@@ -90,42 +90,6 @@ function showIconForTree(treeId, treeNode) {
 $(document).ready(function(){
   $.fn.zTree.init($('#treeDemo'), setting, zNodes);
 });
-//------------------------弹框搜索----------------
-$('#material')
-  .bootstrapTable({
-    url: '',
-    sidePagination: 'server',
-    ajaxOptions: {
-      dataFilter(res) {
-        return JSON.stringify($.parseJSON(res).data);
-      }
-    },
-    columns: [{
-      field: 'checked',
-      checkbox: true
-    }, {
-      title: '分类',
-      field: ''
-    }, {
-      title: '材料编码',
-      field: ''
-    }, {
-      title: '材料名称',
-      field: ''
-    }, {
-      title: '相似名称',
-      field: ''
-    }, {
-      title: '规格型号',
-      field: ''
-    }, {
-      title: '单位',
-      field: ''
-    }],
-    clickToSelect: true,
-    pagination: true,
-    search:true
-  });
 
 //新增一行dom | 材料清单
   var marTrInputName = ['no1' ,'no2' ,'no3' ,'no4' ,'no5' ,'no6' ,'no7' ,'no8' ,'no9' ,'no10' ];//临时名称,使用前请更换

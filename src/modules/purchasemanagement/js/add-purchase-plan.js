@@ -292,3 +292,19 @@ uploader.on('uploadSuccess', function(file, response) {
   $btn.next('.fileNameSpan').text(filenames);
   $btn.parent().find('.fileName').val(filenames);
 });
+
+//---------------------- 是否同意---------------
+var $agreeBtn = $('#agree-btn');
+var $agreenltpl = $$include('/partials/agreen');
+
+var agreenDialog = new Dialog({
+  title: '审批意见',
+  size: Dialog.SIZENORMAL,
+  content: $agreenltpl,
+  btnsTxt: {
+    stxt: '确认'
+  }
+});
+$agreeBtn.on('click',function(){
+    agreenDialog.show();
+})

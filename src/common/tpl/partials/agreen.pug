@@ -1,0 +1,14 @@
+.pact-form 
+  .row
+    +form-horizontal-item({label:'审批人',type:'mix',cw:7})(class="col-md-5")
+      span.default-data 网易
+    +form-horizontal-item({label:'审批日期',type:'mix',cw:7})(class="col-md-5")
+      span.default-data 2016-05-12
+  .row
+    +form-horizontal-item({label:'审批结果',type:'mix',cw:7})(class="col-md-5")
+      span.default-data 同意
+  .row
+    .form-group.col-md-12
+      label.control-label.col-xs-5(style="width:16%;") 审批意见：
+      .col-xs-9.col-md-7
+        textarea.form-control(style="height:80px;")

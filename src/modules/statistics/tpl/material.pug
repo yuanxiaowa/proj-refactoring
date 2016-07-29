@@ -9,9 +9,9 @@ append content
       .alert
         +form-horizontal
           .row
-            .col-md-4
+            .col-md-5
               +form-horizontal-item({label:'分析维度',type:'radio',lw:3,text:['按月份分析','按部门分析','按区域分析']})
-            .col-md-3
+            .col-md-4
               +form-horizontal-item({label:'分析年份',type:'select',lw:3,text:['2015','2016']})
             .col-md-2
               +submit('统计')(class="btn-primary")

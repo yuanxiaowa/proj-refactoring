@@ -13,24 +13,24 @@ append content
           .navbar-brand
         .collapse.navbar-collapse#main-navbar-collapse
           //- ul.nav.navbar-nav.main-menu-top.j-menu-top.visible-xs
-          //-   each v,k in menus
-          //-     li(class={active:!k})
-          //-       a(href="")= v.name
-          //-         span.icon-angle-down
-          //-       .main-menu-dropdown.row
-          //-         +iterator(3)
-          //-           .col-md-4
-          //-             h5 验收入库
-          //-             ul.list-unstyled
-          //-               li
-          //-                 a(href="") 待收货列表
-          //-               li
-          //-                 a(href="") 新增验收单
-          //-               li
-          //-                 a(href="") 验收单列表
+            each v,k in menus
+              li(class={active:!k})
+                a(href="")= v.name
+                  span.icon-angle-down
+                .main-menu-dropdown.row
+                  +iterator(3)
+                    .col-md-4
+                      h5 验收入库
+                      ul.list-unstyled
+                        li
+                          a(href="") 待收货列表
+                        li
+                          a(href="") 新增验收单
+                        li
+                          a(href="") 验收单列表
           .navbar-left
             img(src="./image/logo.png", alt="logo")
-          ul.nav.navbar-nav.navbar-right.main-menu-top-right
+          ul.nav.navbar-nav.navbar-right.main-menu-top-right.j-menu-top
             li
               a(href="/message/index.html")
                 i.icon-envelope
@@ -44,30 +44,40 @@ append content
                 span.badge 5
             li.dropdown
               a.dropdown-toggle(href="/setting/look-info.html" data-toggle="dropdown")
-                img(src="", alt="")
+                img(src="image/default-head.png")
                 | 李起光
                 span.caret
               ul.dropdown-menu
                 li
                   a(href="") 退出
-  .main-container
-    aside.main-left-area.hidden-xs#menu-aside: .main-left-area-wrap
-      .form-group.has-feedback
-        input.form-control.search-text
-        span.icon-search.form-control-feedback &nbsp;
-      span.menu-toggle-btn.icon-angle-left.j-toggle(href="")
-      each item in menus
-        a.main-menu-item-t(href=item.children?undefined:item.link)
-          span(class="icon-" + item.icon)
-          = item.name
-          if item.children
-            i.icon-angle-down
-        if item.children
-          .main-menu-item-c
-            each _item in item.children
-              a(href=_item.link||"")= _item.text
-    section.main-area
-      ul.tab-main.list-unstyled#tab-main
-        li.tab-main-item 首页
+  .l-lr.l-lr--full
+    .l-lr__left
+      .c-menu-main#menu-aside
+        .u-pad-lr
+          .form-group.has-feedback
+            input.form-control.search-text
+            span.icon-search
+        span.c-menu-main__btn.icon-angle-left.j-toggle
+        .c-menu-main__wrap
+          each item in menus
+            .c-menu-main__item
+              a.c-menu-main__item__t.j-item(href=item.children?undefined:item.link)
+                span(class="icon-" + item.icon)
+                = item.name
+                if item.children
+                  i.icon-angle-down
+              if item.children
+                .c-menu-main__item__b
+                  each _item in item.children
+                    a.c-menu-main__subitem(href=_item.link||"")= _item.text
+    .l-lr__main
+      .c-tab-main#tab-main
+        .c-tab-main__wrap.j-tab
+          .c-tab-main__item.j-item.c-tab-main__item--index 首页
+        .c-tab-main__dropdown
+          .clearfix
+            .c-tab-main__dropdown__t.pull-right.j-tab-toggle
+              +icon('tasks')
+          .c-tab-main__dropdown__menu.j-swrap
       .page-container
         iframe(src=cur)

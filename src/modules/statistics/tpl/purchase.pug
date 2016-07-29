@@ -7,12 +7,11 @@ append content
   .container-fluid
     .panel.panel-default.mt-24
       .alert
-        h3 产值统计
         +form-horizontal
           .row
-            .col-md-3
+            .col-md-4
               +form-horizontal-item({label:'所属项目',type:'text',lw:3})
-            .col-md-3
+            .col-md-4
               +form-horizontal-item({label:'所属部门',type:'text',lw:3})
             .col-md-2
               +submit('统计')(class="btn-primary")

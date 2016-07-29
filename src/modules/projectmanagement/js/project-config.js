@@ -89,6 +89,12 @@ $.each($addItem, function (index, ele) {
     $itemName.html(itemArr[index]);//动态设置弹出框对应的选项
     $itemName.next().find('.item-val').attr('name', itemFieldArr[index]);
      $itemName.next().find('.item-val').removeAttr('data-type');
+     $itemName.next().find('.item-val').parent().find('span').remove();
+     if('contractRates' ==  itemFieldArr[index]) 
+     {
+       $itemName.next().find('.item-val').attr('range', '[0,1]');
+       $itemName.next().find('.item-val').parent().append('<span>(请输入小数或者百分数)</span>');
+     }
     $('#add-item').modal('show');
   });
 });

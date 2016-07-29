@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-06-17 09:28:13
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-20 09:14:52
+* @Last Modified time: 2016-07-25 14:11:50
 */
 @import '/modules/variables';
 @import '/modules/project-common';
@@ -35,7 +35,8 @@
   margin-right: 20px;
 }
 .checkbox-inline{
-  margin-left: -9px;
+  padding-left: 15px;
+  margin-left: 9px;
 }
 .note-type{
   width: 20%;

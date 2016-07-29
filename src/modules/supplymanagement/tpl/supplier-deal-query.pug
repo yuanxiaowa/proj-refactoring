@@ -12,18 +12,19 @@ append content
         .row.col-md-12.slider-container
           +form-horizontal()(class="row" id="supplier-deal-query-form")
             .row
-              +form-horizontal-item({label:'供应商名称',type:'input',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'供应商编号',type:'input',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'订单号',type:'input',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'采购单号',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'供应商名称',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'供应商编号',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'订单号',type:'input',cw:7})(class="col-md-4")
             .row
-              +form-horizontal-item({label:'项目部门',type:'input',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'所属项目',type:'input',cw:7})(class="col-md-3")
-              div.form-group.col-md-3
+              +form-horizontal-item({label:'采购单号',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'项目部门',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'所属项目',type:'input',cw:7})(class="col-md-4")
+            .row
+              div.form-group.col-md-4
                 label.control-label.col-xs-5 成交时间：
-                div.col-xs-9.col-md-7       
+                div.col-xs-9.col-md-7(style="padding-right:0")       
                   input(type="text" date="true").form-control  
-              div.form-group.col-md-3
+              div.form-group.col-md-4
                 div.col-xs-9.col-md-7       
                   input(type="text" date="true").form-control   
       p.slider-btn.text-right 

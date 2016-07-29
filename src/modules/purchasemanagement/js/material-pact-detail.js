@@ -1,4 +1,7 @@
 import 'trfileUpload';
+import Dialog from 'dialog';
+
+
 var $payCheck =$(".pay-style-check input");
 var $payTab = $(".pay-style-tab");
 
@@ -22,4 +25,16 @@ $.each($payCheck,function(index,ele){
   })
 })
 
+//---------------------- 审批意见---------------
+var $approveOp = $('#approval-opinion');
+var $approveOptpl = $$include('/partials/approve-opinion') ;
+var approveDialog = new Dialog({
+  title: '查看审批意见',
+  size: Dialog.SIZENORMAL,
+  content: $approveOptpl,
+  btns: false
+});
+$approveOp.on('click',function(){
+    approveDialog.show();
+})
 

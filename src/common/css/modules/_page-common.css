@@ -39,6 +39,10 @@ a {
   background: #224a7a;
   color: #fff;
   .close {
+    line-height: normal;
+    opacity: 100;
+    margin-top: 0;
+    filter: alpha(opacity=100);
     span {
       color: #fff;
     }

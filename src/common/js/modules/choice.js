@@ -19,6 +19,9 @@ function Choice(_options) {
       this.options.onSelected.call(this, this.$table.bootstrapTable('getAllSelections'));
     }
   }, o.dialog);
+  if(_options.type == Choice.COMPANY){
+    this.optionDialog.tplFooter ='<button class="btn btn-primary j-modal-ok">确定</button><button class="btn btn-default j-add-conpany">新增联系单位</button>';
+  }
   this.optionColumns = o.columns;
   this.init();
 }

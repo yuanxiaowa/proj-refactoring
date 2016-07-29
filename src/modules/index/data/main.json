@@ -1,180 +1,283 @@
 {
   "title": "江安集团信息管理系统",
-  "menus": [{
-    "name": "首页",
-    "icon": "home",
-    "link": "home.html"
-  }, {
-    "name": "基础数据",
-    "icon": "tasks",
-    "children": [{
-      "link": "../organization/query.html",
-      "text": "组织架构"
-    }, {
-      "link": "../rolemanage/index.html",
-      "text": "角色管理"
-    }, {
-      "link": "../permission/index.html",
-      "text": "权限管理"
-    }]
-  }, {
-    "name": "项目管理",
-    "icon": "cogs",
-    "children": [{
-      "link": "../projectmanagement/project-query.html",
-      "text": "项目信息查询"
-    },{
-      "link": "../projectmanagement/pactdetail.html",
-      "text": "合同详情"
-    }, {
-      "link": "../projectmanagement/add-pact.html",
-      "text": "编辑补充合同"
-    }, {
-      "link": "../projectmanagement/projectdetail.html",
-      "text": "项目详情"
-    }, {
-      "link": "../projectmanagement/project-config.html",
-      "text": "项目基础配置"
-    }, {
-      "link": "../projectmanagement/add-project.html",
-      "text": "新增项目信息"
-    },{
-      "link": "../projectmanagement/add-projectpact.html",
-      "text": "新增项目合同"
-    },{
-      "link": "../projectmanagement/add-contact-department.html",
-      "text": "新增联系单位"
-    },{
-      "link": "../projectmanagement/project-supplement-pact.html",
-      "text": "项目补充合同查询"
-    },{
-      "link": "../projectmanagement/all-project-member.html",
-      "text": "项目成员总汇"
-    },{
-      "link": "../projectmanagement/project-pact-query.html",
-      "text": "合同查询"
-    }]
-  }, {
-    "name": "采购管理",
-    "icon": "shopping-cart",
-    "children": [{
-      "link": "../purchasemanagement/purchase-plan.html",
-      "text": "采购计划查询"
-    }, {
-      "link": "../purchasemanagement/add-purchase-plan.html",
-      "text": "新增采购计划"
-    }, {
-      "link": "../purchasemanagement/purchase-manage.html",
-      "text": "采购管理查询"
-    }, {
-      "link": "../purchasemanagement/add-purchase.html",
-      "text": "新增采购单"
-    }, {
-      "link": "../purchasemanagement/addmaterial-pact.html",
-      "text": "新增材料合同"
-    }, {
-      "link": "../purchasemanagement/material-pact.html",
-      "text": "材料合同查询"
-    }, {
-      "link": "../purchasemanagement/material-pact-detail.html",
-      "text": "材料合同详情"
-    }, {
-      "link": "../purchasemanagement/price-exchange.html",
-      "text": "比价单"
-    }, {
-      "link": "../purchasemanagement/supplemental-pact-query.html",
-      "text": "补充合同查询"
-    }, {
-      "link": "../purchasemanagement/add-supplemental-pact.html",
-      "text": "添加补充合同"
-    }, {
-      "link": "../purchasemanagement/look-supplier.html",
-      "text": "查看供应商"
-    }]
-  }, {
-    "name": "仓储管理",
-    "icon": "barcode",
-    "children": [{
-      "link": "../storage/waitgoods.html",
-      "text": "待收货"
-    }, {
-      "link": "../storage/receivinggoods.html",
-      "text": "收货单"
-    }, {
-      "link": "../storage/return-goods-list.html",
-      "text": "退货单"
-    }, {
-      "link": "../storage/returngoods.html",
-      "text": "收退货单查询"
-    }]
-  }, {
-    "name": "付款管理",
-    "icon": "money",
-    "children": [{
-      "link": "../payment/pay-query.html",
-      "text": "付款单查询"
-    }, {
-      "link": "../payment/pay-apply.html",
-      "text": "付款申请"
-    }, {
-      "link": "../payment/uncleared-query.html",
-      "text": "未结清"
-    }, {
-      "link": "../payment/wait-pay.html",
-      "text": "待支付"
-    }]
-  }, {
-    "name": "发票管理",
-    "icon": "file-alt",
-    "children": [{
-      "link": "../invoice/invoice-query.html",
-      "text": "发票明细查询"
-    }, {
-      "link": "../invoice/invoice-add.html",
-      "text": "发票录入申请"
-    }, {
-      "link": "../invoice/invoice-add-query.html",
-      "text": "发票录入查询"
-    }, {
-      "link": "../invoice/invoice-approve.html",
-      "text": "发票认证"
-    }, {
-      "link": "../invoice/invoice-project.html",
-      "text": "项目发票总汇"
-    }]
-  }, {
-    "name": "供应商管理",
-    "icon": "user-md",
-    "children": [{
-      "link": "../supplymanagement/add-supplier.html",
-      "text": "新增供应商"
-    }, {
-      "link": "../supplymanagement/supplier-info-query.html",
-      "text": "供应商信息查询"
-    }, {
-      "link": "../supplymanagement/supplier-deal-query.html",
-      "text": "供应商交易信息查询"
-    }]
-  }, {
-    "name": "工作流",
-    "icon": "sitemap",
-    "children": [{
-      "link": "../bpm/flow-center.html",
-      "text": "流程中心"
-    }, {
-      "link": "../bpm/add-flow.html",
-      "text": "新增编辑流程"
-    }]
-  }, {
-    "name": "行政办公",
-    "icon": "building",
-    "children": [{
-      "link": "../work/query.html",
-      "text": "行政报告查询"
-    }, {
-      "link": "../work/add.html",
-      "text": "新增编辑行政报告"
-    }]
-  }],
+  "menus": [
+    {
+      "name": "首页",
+      "icon": "home",
+      "link": "home.html"
+    },
+    {
+      "name": "基础数据",
+      "icon": "tasks",
+      "children": [
+        {
+          "link": "../organization/query.html",
+          "text": "组织架构"
+        },
+        {
+          "link": "../rolemanage/index.html",
+          "text": "角色管理"
+        },
+        {
+          "link": "../permission/index.html",
+          "text": "权限管理"
+        }
+      ]
+    },
+    {
+      "name": "项目管理",
+      "icon": "cogs",
+      "children": [
+        {
+          "link": "../projectmanagement/project-query.html",
+          "text": "项目信息查询"
+        },
+        {
+          "link": "../projectmanagement/pactdetail.html",
+          "text": "合同详情"
+        },
+        {
+          "link": "../projectmanagement/add-pact.html",
+          "text": "编辑补充合同"
+        },
+        {
+          "link": "../projectmanagement/projectdetail.html",
+          "text": "项目详情"
+        },
+        {
+          "link": "../projectmanagement/project-config.html",
+          "text": "项目基础配置"
+        },
+        {
+          "link": "../projectmanagement/add-project.html",
+          "text": "新增项目信息"
+        },
+        {
+          "link": "../projectmanagement/add-projectpact.html",
+          "text": "新增项目合同"
+        },
+        {
+          "link": "../projectmanagement/add-contact-department.html",
+          "text": "新增联系单位"
+        },
+        {
+          "link": "../projectmanagement/project-supplement-pact.html",
+          "text": "项目补充合同查询"
+        },
+        {
+          "link": "../projectmanagement/all-project-member.html",
+          "text": "项目成员总汇"
+        },
+        {
+          "link": "../projectmanagement/project-pact-query.html",
+          "text": "合同查询"
+        }
+      ]
+    },
+    {
+      "name": "采购管理",
+      "icon": "shopping-cart",
+      "children": [
+        {
+          "link": "../purchasemanagement/purchase-plan.html",
+          "text": "采购计划查询"
+        },
+        {
+          "link": "../purchasemanagement/add-purchase-plan.html",
+          "text": "新增采购计划"
+        },
+        {
+          "link": "../purchasemanagement/purchase-manage.html",
+          "text": "采购管理查询"
+        },
+        {
+          "link": "../purchasemanagement/add-purchase.html",
+          "text": "新增采购单"
+        },
+        {
+          "link": "../purchasemanagement/addmaterial-pact.html",
+          "text": "新增材料合同"
+        },
+        {
+          "link": "../purchasemanagement/material-pact.html",
+          "text": "材料合同查询"
+        },
+        {
+          "link": "../purchasemanagement/material-pact-detail.html",
+          "text": "材料合同详情"
+        },
+        {
+          "link": "../purchasemanagement/price-exchange.html",
+          "text": "比价单"
+        },
+        {
+          "link": "../purchasemanagement/supplemental-pact-query.html",
+          "text": "补充合同查询"
+        },
+        {
+          "link": "../purchasemanagement/add-supplemental-pact.html",
+          "text": "添加补充合同"
+        },
+        {
+          "link": "../purchasemanagement/look-supplier.html",
+          "text": "查看供应商"
+        }
+      ]
+    },
+    {
+      "name": "仓储管理",
+      "icon": "barcode",
+      "children": [
+        {
+          "link": "../storage/waitgoods.html",
+          "text": "待收货"
+        },
+        {
+          "link": "../storage/receivinggoods.html",
+          "text": "收货单"
+        },
+        {
+          "link": "../storage/return-goods-list.html",
+          "text": "退货单"
+        },
+        {
+          "link": "../storage/returngoods.html",
+          "text": "收退货单查询"
+        }
+      ]
+    },
+    {
+      "name": "付款管理",
+      "icon": "money",
+      "children": [
+        {
+          "link": "../payment/pay-query.html",
+          "text": "付款单查询"
+        },
+        {
+          "link": "../payment/pay-apply.html",
+          "text": "付款申请"
+        },
+        {
+          "link": "../payment/uncleared-query.html",
+          "text": "未结清"
+        },
+        {
+          "link": "../payment/wait-pay.html",
+          "text": "待支付"
+        }
+      ]
+    },
+    {
+      "name": "发票管理",
+      "icon": "file-alt",
+      "children": [
+        {
+          "link": "../invoice/invoice-query.html",
+          "text": "发票明细查询"
+        },
+        {
+          "link": "../invoice/invoice-add.html",
+          "text": "发票录入申请"
+        },
+        {
+          "link": "../invoice/invoice-add-query.html",
+          "text": "发票录入查询"
+        },
+        {
+          "link": "../invoice/invoice-approve.html",
+          "text": "发票认证"
+        },
+        {
+          "link": "../invoice/invoice-project.html",
+          "text": "项目发票总汇"
+        }
+      ]
+    },
+    {
+      "name": "供应商管理",
+      "icon": "user-md",
+      "children": [
+        {
+          "link": "../supplymanagement/add-supplier.html",
+          "text": "新增供应商"
+        },
+        {
+          "link": "../supplymanagement/supplier-info-query.html",
+          "text": "供应商信息查询"
+        },
+        {
+          "link": "../supplymanagement/supplier-deal-query.html",
+          "text": "供应商交易信息查询"
+        }
+      ]
+    },
+    {
+      "name": "工作流",
+      "icon": "sitemap",
+      "children": [
+        {
+          "link": "../bpm/flow-center.html",
+          "text": "流程中心"
+        },
+        {
+          "link": "../bpm/add-flow.html",
+          "text": "新增编辑流程"
+        }
+      ]
+    },
+    {
+      "name": "行政办公",
+      "icon": "building",
+      "children": [
+        {
+          "link": "../work/query.html",
+          "text": "行政报告查询"
+        },
+        {
+          "link": "../work/add.html",
+          "text": "新增编辑行政报告"
+        }
+      ]
+    },
+    {
+      "name": "报表",
+      "icon": "bar-chart",
+      "children": [
+        {
+          "link": "../statistics/agreement.html",
+          "text": "项目合同统计报表"
+        },
+        {
+          "link": "../statistics/project-type.html",
+          "text": "工程类别统计合同"
+        },
+        {
+          "link": "../statistics/country.html",
+          "text": "全国产值分布图"
+        },
+        {
+          "link": "../statistics/material.html",
+          "text": "材料支出分析"
+        },
+        {
+          "link": "../statistics/purchase.html",
+          "text": "项目采购执行分析"
+        },
+        {
+          "link": "../statistics/material-price.html",
+          "text": "材料价格指数"
+        },
+        {
+          "link": "../statistics/material-purchase-area.html",
+          "text": "材料采购地区分析"
+        },
+        {
+          "link": "../statistics/price-store.html",
+          "text": "价格库"
+        }
+      ]
+    }
+  ],
   "cur": "home.html"
 }

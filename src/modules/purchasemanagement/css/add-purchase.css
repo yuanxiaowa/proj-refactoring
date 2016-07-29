@@ -2,12 +2,13 @@
 * @Author: huangzexia
 * @Date:   2016-07-19 16:45:22
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-19 16:48:49
+* @Last Modified time: 2016-07-27 10:14:08
 */
 @import '/modules/variables';
 @import '/modules/project-common';
 @import '/modules/tabs';
 @import '/modules/page-common';
+@import '/modules/material';
 .table-list{
   margin:0 24px 10px 24px;
   .input-text{

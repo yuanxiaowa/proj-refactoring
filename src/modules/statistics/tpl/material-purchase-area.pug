@@ -1,0 +1,23 @@
+extends /common
+
+append style
+  +style('index')
+
+append content
+  .container-fluid
+    .panel.panel-default.mt-24
+      .alert
+        +form-horizontal
+          .row
+            .col-md-5
+              +form-horizontal-item({label:'选择材料类型',type:'checkbox',lw:3,text:['管材','电线']})
+            .col-md-4
+              +form-horizontal-item({label:'分析年份',type:'select',lw:3,text:['近半年']})
+            .col-md-2
+              +submit('统计')(class="btn-primary")
+      .row
+        .col-md-8
+          #echarts-1(style={height:"500px"})
+          .pull-right
+            a.btn.btn-default(href="") 导出
+          table

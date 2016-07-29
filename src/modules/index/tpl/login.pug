@@ -20,12 +20,14 @@ append content
           .panel-body.bg-info
             .alert.alert-danger.hidden#error-area
             form.form-login#form-login(action="data/login" method="post")
-              .form-group.has-feedback.mt-30
+              .form-group.has-feedback
                 +form-control({label:'用户名',name:'username',placeholder:'用户名',i:true})
-                span.icon-user-md.form-control-feedback
+                span.form-control-feedback
+                  img(src="image/username.png")
               .form-group.has-feedback
                 +form-control({label:'密码',name:'password',placeholder:'密码',type:'password',i:true})
-                span.icon-lock.form-control-feedback
+                span.form-control-feedback
+                  img(src="image/password.png")
               .form-group
                 .btn-group.btn-group-justified
                   .btn-group
@@ -35,10 +37,10 @@ append content
                   .btn-group.text-center
                     a.text-muted(href="") 换一张
               .checkbox
-                a.pull-right(href="") 忘记密码
+                //- a.pull-right(href="") 忘记密码
                 +checkbox('记住我','reme')
               .form-group
-                +submit('登录')(class="btn-primary")
+                +submit('登录')(class="btn-primary login-submit mt-30")
   .login-ad
   .container
     footer.text-right.text-primary 江苏筑牛网络科技有限公司 版权所有

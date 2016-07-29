@@ -120,7 +120,7 @@ append content
                     |是否需要发布该采购单
               .table-list-wrap
                 .row.table-list
-                  +form-horizontal-item({label:'报价截止日期',type:'text',cw:7})(class="col-md-3")
+                  +form-horizontal-item({label:'报价截止日期',type:'text',cw:7})(class="col-md-4")
                   .form-group.col-md-8
                     label.control-label.col-xs-2 竞标方式：
                     .col-xs-9.col-md-8.j-style
@@ -132,7 +132,7 @@ append content
                         |仅邀请供应商可以报价
                       a(href="javascript:;" data-target="#recommend" data-toggle="modal").has-supplier 有推荐供应商，点击查看
                 .row.table-list
-                  .form-group.col-md-3
+                  .form-group.col-md-4
                     label.control-label.col-xs-5 支付类别：
                     .col-xs-9.col-md-7
                       select.form-control#payStyle
@@ -140,8 +140,8 @@ append content
                         option(value="1") 签约采购,委托支付
                         option(value="2") 签约采购,统一支付
                         option(value="3") 特约采购，筑牛代付
-                  .form-group.col-md-3.pay-style-related
-                    label.control-label.col-xs-5 定金比例：
+                  .form-group.col-md-4.pay-style-related
+                    label.control-label.col-xs-4 定金比例：
                     .col-xs-9.col-md-7
                       select.form-control
                         option 全款支付
@@ -163,7 +163,7 @@ append content
                         option 85%(货款)
                         option 90%(货款)
                         option 95%(货款)
-                  .form-group.col-md-3.pay-style-related
+                  .form-group.col-md-4.pay-style-related
                     label.control-label.col-xs-5 是否分期：
                     label.control-label
                       input(type="checkbox" id="pay-times")
@@ -176,7 +176,7 @@ append content
                       option 6期
                     //- .col-xs-9.col-md-7
                 .row.table-list    
-                  .form-group.col-md-3
+                  .form-group.col-md-4
                     label.control-label.col-xs-5 邀请供应商：
                     .col-xs-9.col-md-7
                       .up-file-container

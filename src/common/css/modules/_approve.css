@@ -1,0 +1,15 @@
+.list-container{
+  height: 450px;
+  overflow-y: auto;
+  border:$border;
+}
+.list-container p {
+  padding: 5px;
+  border-bottom:$border; 
+}
+.list-container  p ~ p{
+   border-top:$border;
+}
+.list-container .item{
+  padding: 5px;
+}

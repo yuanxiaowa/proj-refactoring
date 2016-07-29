@@ -2,7 +2,7 @@
 * @Author: huangzexia
 * @Date:   2016-07-11 09:23:53
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-16 15:15:56
+* @Last Modified time: 2016-07-27 11:44:33
 */
 @import '/modules/variables';
 @import '/modules/project-common';
@@ -70,17 +70,6 @@ $bg-menu: #f1efef;
   text-align: center;
   color: #999;
   background: $bg-menu;
-}
-
-.org-menu-outer {
-  border-left: 1px dashed #bfbfbf;
-  padding-left: 10px;
-}
-
-.org-menu-outer,
-.org-menu-inner {
-  background: linear-gradient(to right, transparent 50%, $bg-menu 60%), linear-gradient(transparent 15px, #bfbfbf 15px, #bfbfbf 16px, transparent 16px);
-  background-size: .3em 32px;
 }
 
 .org-menu-inner {

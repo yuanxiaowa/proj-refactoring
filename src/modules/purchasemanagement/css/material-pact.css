@@ -2,13 +2,14 @@
 * @Author: huangzexia
 * @Date:   2016-06-23 15:50:04
 * @Last Modified by:   huangzexia
-* @Last Modified time: 2016-07-12 17:49:54
+* @Last Modified time: 2016-07-28 11:26:57
 */
 @import '/modules/variables';
 @import '/modules/project-common';
 @import '/modules/tabs';
 @import '/modules/page-common';
-
+@import '/modules/material';
+@import '/modules/area';
 .pact-form {
   padding: 36px;
   .text-primary{
@@ -101,4 +102,3 @@
     width: 40%
   }*/
 }
-

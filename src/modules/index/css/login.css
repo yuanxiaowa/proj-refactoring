@@ -23,8 +23,9 @@
 
 .has-feedback {
   .form-control-feedback {
-    line-height: 34px;
+    line-height: 30px;
     width: 34px;
+    color: #ccc;
   }
 }
 
@@ -66,4 +67,14 @@
   width: 63px;
   height: 39px;
   background: url(../image/y.png);
+}
+.login-submit{
+  width: 117px;
+  height:40px;
+  background: url(../image/login.png);
+  border: none;
+  &:hover{
+    border-color: none;
+    background: url(../image/login.png);
+  }
 }

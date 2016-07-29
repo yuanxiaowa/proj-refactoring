@@ -14,13 +14,16 @@ append content
         .row.col-md-12.slider-container
           +form-horizontal()(class="row" id="supplement-pact-form")
             .row
-              +form-horizontal-item({label:'项目名称',type:'input',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'项目编号',type:'input',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'施工单位',type:'input',cw:7})(class="col-md-3")
+              +form-horizontal-item({label:'项目名称',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'项目编号',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'施工单位',type:'input',cw:7})(class="col-md-4")
             .row
-              +form-horizontal-item({label:'项目负责人',type:'input',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'工程类别',type:'select',cw:7})(class="col-md-3")
-              .form-group.col-md-6
+              +form-horizontal-item({label:'项目负责人',type:'input',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'工程类别',type:'select',cw:7})(class="col-md-4")
+              +form-horizontal-item({label:'建设单位',type:'input',cw:7})(class="col-md-4")
+            .row
+              +form-horizontal-item({label:'工程地点',type:'select',cw:7})(class="col-md-4") 
+              .form-group.col-md-8
                 .control-label.col-xs-3.project-sta 项目状态：
                 .col-xs-8
                   label.checkbox-inline
@@ -34,14 +37,18 @@ append content
                     |在建中
                   label.checkbox-inline
                     input(type="checkbox") 
+                    |暂停中
+                  label.checkbox-inline
+                    input(type="checkbox") 
+                    |已完工
+                  label.checkbox-inline
+                    input(type="checkbox") 
                     |已竣工
                   label.checkbox-inline
                     input(type="checkbox") 
-                    |已审定
+                    |已审定    
             .row
-              +form-horizontal-item({label:'建设单位',type:'input',cw:7})(class="col-md-3")
-              +form-horizontal-item({label:'工程地点',type:'select',cw:7})(class="col-md-3")
-              .form-group.col-md-6
+              .form-group.col-md-8
                 .control-label.col-xs-3.project-sta 审批状态：
                 .col-xs-8
                   label.checkbox-inline
@@ -49,13 +56,16 @@ append content
                     |全部
                   label.checkbox-inline
                     input(type="checkbox") 
-                    |已生效
+                    |未生效
                   label.checkbox-inline
                     input(type="checkbox") 
                     |审批中
                   label.checkbox-inline
                     input(type="checkbox") 
-                    |未生效
+                    |审批终止
+                  label.checkbox-inline
+                    input(type="checkbox") 
+                    |已生效
       p.slider-btn.text-right 
         a.open-close-btn(href="javascript:;") ▼展开
     .con-container
